@@ -5,9 +5,6 @@ import Main from "./Main/Main.jsx";
 import Admin from "./Admin/Admin.jsx";
 import Login from "./Login/Login.jsx";
 
-
-//TODO:ask for Route Bug
-
 function App(props) {
     return (
             <div>

@@ -1,11 +1,16 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {Redirect} from "react-router-dom";
+import Navbar from "./MainComponents/Navbar/Navbar.jsx"
+import Body from "./MainComponents/Body/Body.jsx"
+import Footer from "./MainComponents/Footer/Footer.jsx"
 
 function Main(props) {
     return (
-        <div>Main<br/>
-            <NavLink to="/admin">admin</NavLink><br/>
-            <NavLink to="/login">Login</NavLink><br/>
+        <div>
+
+            <Navbar/>
+            <Body/>
+            <Footer/>
         </div>
     );
 }

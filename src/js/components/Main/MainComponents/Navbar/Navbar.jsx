@@ -10,7 +10,6 @@ function Navbar(props) {
         <NavLink to="/schedule">schedule</NavLink><br/>
         <NavLink to="/contacts">contacts</NavLink><br/>
     </div>)
-
 }
 
 export default Navbar;

@@ -1,25 +1,32 @@
+import PropTypes from 'prop-types';
 import React from "react";
-import ReactDOM from "react-dom";
-import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import Main from "./Main/Main.jsx";
 import Admin from "./Admin/Admin.jsx";
 import Login from "./Login/Login.jsx";
 
-function App(props) {
-    return (
-            <div>
-                <Switch>
-                    <Route path='/admin' component={Admin}/>
-                    <Route path='/login' component={Login}/>
-                    <Route path='/' component={Main}/>
-                </Switch>
-            </div>
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
 
-    );
+    render() {
+        return (<div>
+            <Switch>
+                <Route path='/admin' component={Admin}/>
+                <Route path='/login' component={Login}/>
+                <Route path='/' component={() => <Main getConcerts={this.props.getConcerts}/>}/>
+            </Switch>
+        </div>)
+    }
+
+}
+
+App.propTypes = {
+    getConcerts: PropTypes.func
 }
 
 export default App;
 
-const wrapper = document.getElementById("root");
-wrapper ? ReactDOM.render(<BrowserRouter><App/></BrowserRouter>, wrapper) : false;
 

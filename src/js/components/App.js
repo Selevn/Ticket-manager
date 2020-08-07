@@ -5,18 +5,16 @@ import Main from "./Main/Main.jsx";
 import Admin from "./Admin/Admin.jsx";
 import Login from "./Login/Login.jsx";
 
-class App extends React.Component {
-
-  render() {
+function App (props){
+	{
     return (<div>
       <Switch>
         <Route path='/admin' component={Admin}/>
         <Route path='/login' component={Login}/>
-        <Route path='/' component={() => <Main getConcerts={this.props.getConcerts}/>}/>
+        <Route path='/' component={() => <Main getConcerts={props.getConcerts}/>}/>
       </Switch>
     </div>)
   }
-
 }
 
 App.propTypes = {

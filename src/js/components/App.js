@@ -6,25 +6,21 @@ import Admin from "./Admin/Admin.jsx";
 import Login from "./Login/Login.jsx";
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.props = props;
-    }
 
-    render() {
-        return (<div>
-            <Switch>
-                <Route path='/admin' component={Admin}/>
-                <Route path='/login' component={Login}/>
-                <Route path='/' component={() => <Main getConcerts={this.props.getConcerts}/>}/>
-            </Switch>
-        </div>)
-    }
+  render() {
+    return (<div>
+      <Switch>
+        <Route path='/admin' component={Admin}/>
+        <Route path='/login' component={Login}/>
+        <Route path='/' component={() => <Main getConcerts={this.props.getConcerts}/>}/>
+      </Switch>
+    </div>)
+  }
 
 }
 
 App.propTypes = {
-    getConcerts: PropTypes.func
+  getConcerts: PropTypes.func
 }
 
 export default App;

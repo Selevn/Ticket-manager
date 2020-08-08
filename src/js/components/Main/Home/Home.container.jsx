@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Home from './Home.jsx'
+import {LanguageContext} from "../../Contexts/LanguageContext";
 
 
 function HomeContainer(props) {
@@ -35,8 +36,9 @@ function HomeContainer(props) {
 
 
   return (
-      <Home searchText={inputText} onInputChange={onInputChange} concerts={helpList}/>)
 
+                  <Home searchText={inputText} onInputChange={onInputChange} concerts={helpList}/>
+          )
 }
 
 export default HomeContainer;

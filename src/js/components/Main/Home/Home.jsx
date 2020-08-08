@@ -1,19 +1,25 @@
 import React from 'react'
+import {LanguageContext} from "../../Contexts/LanguageContext";
+import languageSrc from "../../../language"
 
+function Home(props) {
+  return (
+      <LanguageContext.Consumer>
+        {langProps => (<div>
+              <h3>{languageSrc.home[langProps.language]}</h3>
+              <input placeholder={languageSrc.search[langProps.language]} type="text" value={props.searchText}
+                     onChange={props.onInputChange}></input>
+              {/*подсказка при наборе*/}
+              <div className="tip">
+                <ul>
+                  {props.concerts.map(i => <li>{i.band}</li>)}
+                </ul>
+              </div>
 
-class Home extends React.Component {
-  render() {
-    return (<div>
-      <h3>Home</h3>
-      <input type="text" value={this.props.searchText} onChange={this.props.onInputChange}></input>
-      {/*подсказка при наборе*/}
-      <div className="tip">
-        <ul>
-          {this.props.concerts.map(i => <li>{i.band}</li>)}
-        </ul>
-      </div>
-    </div>)
-  }
+            </div>
+        )}
+      </LanguageContext.Consumer>
+  )
 }
 
 export default Home;

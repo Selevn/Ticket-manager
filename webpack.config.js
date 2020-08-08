@@ -1,6 +1,8 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+    mode: 'development',
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -17,7 +19,11 @@ module.exports = {
                         loader: "html-loader"
                     }
                 ]
-            }
+            },
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
         ]
     },
     plugins: [
@@ -25,5 +31,8 @@ module.exports = {
             template: "./src/index.html",
             filename: "./index.html"
         })
-    ]
+    ],
+    devServer: {
+        historyApiFallback: true,
+    }
 };

@@ -1,19 +1,24 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 
-class Home extends React.Component {
-  render() {
+function Home(props) {
+
+
     return (<div>
       <h3>Home</h3>
-      <input type="text" value={this.props.searchText} onChange={this.props.onInputChange}></input>
+      <form>
+      <input type="text" value={props.searchText} onChange={props.onInputChange}></input>
+        <input type="button" onClick={()=>{}} value="Поиск" />
+      </form>
       {/*подсказка при наборе*/}
       <div className="tip">
         <ul>
-          {this.props.concerts.map(i => <li>{i.band}</li>)}
+          {props.concerts.map(i => <li><Link to={"concert/"+i.id}>{i.band}</Link></li>)}
         </ul>
       </div>
     </div>)
-  }
+
 }
 
 export default Home;

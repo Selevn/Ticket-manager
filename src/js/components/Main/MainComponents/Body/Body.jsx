@@ -5,6 +5,7 @@ import HomeContainer from "../../Home/Home.container.jsx";
 import Search from "../../Search/Search.jsx";
 import Schedule from "../../Schedule/Schedule.jsx";
 import Contacts from "../../Contacts/Contacts.jsx";
+import Concert from "../../Concert/Concert.jsx";
 
 function Body(props) {
   return (
@@ -18,7 +19,8 @@ function Body(props) {
           <Route exact path='/search' component={Search}/>
           <Route exact path='/schedule' component={Schedule}/>
           <Route exact path='/contacts' component={Contacts}/>
-          <Redirect from="/" to='/home' />
+          <Route path='/concert/:id' component={() => <Concert getConcerts={props.getConcerts}/>}/>
+          <Redirect exact from="/" to='/home' />
         </Switch>
       </div>
   )

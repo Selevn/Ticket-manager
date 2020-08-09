@@ -5,5 +5,7 @@ import {getConcerts} from "./js/db_imitate";
 import React from "react";
 
 
+
+
 const wrapper = document.getElementById("root");
 wrapper ? ReactDOM.render(<BrowserRouter><App getConcerts={getConcerts}/></BrowserRouter>, wrapper) : false;

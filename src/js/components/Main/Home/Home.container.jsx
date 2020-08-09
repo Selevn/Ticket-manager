@@ -16,6 +16,7 @@ function HomeContainer(props) {
     setConcerts(concerts)
   }
 
+
   function similarConcerts(val) {
     if (val.length > 1) {
       return val ?

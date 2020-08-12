@@ -9,12 +9,8 @@ function HomeContainer(props) {
   const [helpList, setHelpList] = useState([]);
 
   useEffect(() => {
-    props.getConcerts(getConcerts)
-  });
-
-  function getConcerts(concerts) {
-    setConcerts(concerts)
-  }
+    props.getConcerts(setConcerts)
+  })
 
   function similarConcerts(val) {
     if (val.length > 1) {

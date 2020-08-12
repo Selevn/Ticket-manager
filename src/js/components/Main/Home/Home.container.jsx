@@ -10,12 +10,8 @@ function HomeContainer(props) {
   const [helpList, setHelpList] = useState([]);
 
   useEffect(() => {
-    props.getConcerts(getConcerts)
-  });
-
-  const getConcerts = useCallback(
-      (concerts)=>{setConcerts(concerts)}
-      )
+    props.getConcerts(setConcerts)
+  })
 
   const similarConcerts = useCallback(
       function (val) {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Contacts(props) {
+const Contacts = () => {
   return (
       <div>
         <h3>ContactsPage</h3>

@@ -5,7 +5,7 @@ import Main from "./Main/Main.jsx";
 import Admin from "./Admin/Admin.jsx";
 import Login from "./Login/Login.jsx";
 
-function App(props) {
+const App = props => {
   {
     return (<div>
       <Switch>

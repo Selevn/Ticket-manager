@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
+import PropTypes from "prop-types"
 import Home from './Home.jsx'
 
 
-function HomeContainer(props) {
+const HomeContainer = props => {
 
   const [inputText, setInputText] = useState("");
   const [concerts, setConcerts] = useState([]);
@@ -10,7 +11,7 @@ function HomeContainer(props) {
 
   useEffect(() => {
     props.getConcerts(setConcerts)
-  })
+  }, [props])
 
   function similarConcerts(val) {
     if (val.length > 1) {
@@ -33,6 +34,13 @@ function HomeContainer(props) {
   return (
       <Home searchText={inputText} onInputChange={onInputChange} concerts={helpList}/>)
 
+}
+
+HomeContainer.propTypes = {
+  concerts: PropTypes.func,
+  searchText: PropTypes.string,
+  onInputChange: PropTypes.func,
+  getConcerts: PropTypes.func
 }
 
 export default HomeContainer;

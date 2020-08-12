@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import {Route, Switch, Redirect} from "react-router-dom";
 
 import HomeContainer from "../../Home/Home.container.jsx";
@@ -6,7 +7,7 @@ import Search from "../../Search/Search.jsx";
 import Schedule from "../../Schedule/Schedule.jsx";
 import Contacts from "../../Contacts/Contacts.jsx";
 
-function Body(props) {
+const Body = props => {
   return (
       <div>
         <br/>
@@ -23,5 +24,9 @@ function Body(props) {
   )
 
 }
+Body.propTypes = {
+  getConcerts: PropTypes.func,
+}
+
 
 export default Body;

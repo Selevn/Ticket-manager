@@ -1,23 +1,19 @@
-.active
-{
-  color:red;
+.active {
+  color: red;
 
 }
 
-.container
-{
+.container {
   padding: 0 !important; /*как обойтись без него?*/
-  height:4rem;
+  height: 4rem;
 }
 
-.containerItems
-{
+.containerItems {
   height: 1rem;
-  width:10rem;
+  width: 10rem;
 }
 
-.containerLinks
-{
+.containerLinks {
   height: 100%;
-  width:100%;
+  width: 100%;
 }

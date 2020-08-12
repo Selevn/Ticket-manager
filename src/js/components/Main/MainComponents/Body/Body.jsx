@@ -13,12 +13,11 @@ function Body(props) {
         Body
         <br/>
         <Switch>
-
           <Route exact path='/home' component={() => <HomeContainer getConcerts={props.getConcerts}/>}/>
           <Route exact path='/search' component={Search}/>
           <Route exact path='/schedule' component={Schedule}/>
           <Route exact path='/contacts' component={Contacts}/>
-          <Redirect from="/" to='/home' />
+          <Redirect from="/" to='/home'/>
         </Switch>
       </div>
   )

@@ -5,8 +5,8 @@ import Main from "./Main/Main.jsx";
 import Admin from "./Admin/Admin.jsx";
 import Login from "./Login/Login.jsx";
 
-function App (props){
-	{
+function App(props) {
+  {
     return (<div>
       <Switch>
         <Route path='/admin' component={Admin}/>

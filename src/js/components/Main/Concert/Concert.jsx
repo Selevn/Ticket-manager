@@ -1,34 +1,36 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
-import { useParams } from "react-router";
+import {Container, Row, Col} from "react-bootstrap"
 
+import Image from 'react-bootstrap/Image'
+
+import style from "./Concert.module.css"
+
+
+import albumPicture from "../../../../img/Green_Day.png"
+import herePic from "./Green_Day.png"
 
 
 function Concert(props) {
 
-
-  const globalId = useParams();
-
-  let [concert, setConcert] = useState({});
-
-  useEffect(()=>{props.getConcerts(getConcert);})
-
-
-  function getConcert(concerts)
-  {
-    let rightConcert = concerts.filter((item)=>{return item.id===Number(globalId.id)});
-    setConcert(rightConcert[0])
-  }
-
-
   return (
       <div>
-        Band: <b>{concert.band}</b>
-        <br/>
-        Place: <b>{concert.place}</b>
-        <br/>
-        Date: <b>{concert.date}</b>
-        <br/>
+        <Container>
+          <Row>
+            <Col>
+              <img src ={albumPicture} />
+              <img src ={process.env.PUBLIC_URL + '/Green_Day.png'} />
+            </Col>
+            <Col>
+              Band: <b>{props.concert.band}</b>
+              <br/>
+              Place: <b>{props.concert.place}</b>
+              <br/>
+              Date: <b>{props.concert.date}</b>
+              <br/>
+            </Col>
+          </Row>
+        </Container>
 
       </div>
   )

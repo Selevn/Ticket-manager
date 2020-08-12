@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useCallback} from "react";
 
 import App from "./App.js"
 
@@ -7,12 +7,11 @@ import {LanguageContext} from './Contexts/LanguageContext.js';
 function AppContainer(props) {
   let [language, setLanguage] = useState("en");
 
-  function toggleLanguageFunc() {
-    /*useEffect(() => {
-      language === "en" ? setLanguage("ru") : setLanguage("en")
-    })*/
-    language === "en" ? setLanguage("ru") : setLanguage("en")
-  }
+
+  const toggleLanguageFunc = useCallback(
+      ()=>language === "en" ? setLanguage("ru") : setLanguage("en"),
+      [language],
+  );
 
   let langContext = {
     language: language,

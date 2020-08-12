@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback, useContext} from 'react';
 import Home from './Home.jsx'
 import {LanguageContext} from "../../Contexts/LanguageContext";
 
@@ -13,27 +13,30 @@ function HomeContainer(props) {
     props.getConcerts(getConcerts)
   });
 
-  function getConcerts(concerts) {
-    setConcerts(concerts)
-  }
+  const getConcerts = useCallback(
+      (concerts)=>{setConcerts(concerts)}
+      )
 
-  function similarConcerts(val) {
-    if (val.length > 1) {
-      return val ?
-          concerts.filter((i) => i.band.toUpperCase().includes(val.toUpperCase())) :
-          []
-    } else {
-      return val ?
-          concerts.filter((i) => i.band.toUpperCase().startsWith(val.toUpperCase())) :
-          []
-    }
-  }
+  const similarConcerts = useCallback(
+      function (val) {
+        if (val.length > 1) {
+          return val ?
+              concerts.filter((i) => i.band.toUpperCase().includes(val.toUpperCase())) :
+              []
+        } else {
+          return val ?
+              concerts.filter((i) => i.band.toUpperCase().startsWith(val.toUpperCase())) :
+              []
+        }
+      }
+  );
+
+
 
   function onInputChange(event) {
     setInputText(event.target.value);
     setHelpList(similarConcerts(event.target.value));
   }
-
 
   return (
 

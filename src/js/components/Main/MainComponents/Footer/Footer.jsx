@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Footer(props) {
-    return (<div>
-            <br/>
-            Footer
-        </div>
-    )
+const Footer = () => {
+  return (<div>
+        <br/>
+        Footer
+      </div>
+  )
 
 }
 

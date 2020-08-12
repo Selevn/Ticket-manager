@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import { useParams } from "react-router";
-
+import {useParams} from "react-router";
 
 
 function Concert(props) {
@@ -11,12 +10,15 @@ function Concert(props) {
 
   let [concert, setConcert] = useState({});
 
-  useEffect(()=>{props.getConcerts(getConcert);})
+  useEffect(() => {
+    props.getConcerts(getConcert);
+  })
 
 
-  function getConcert(concerts)
-  {
-    let rightConcert = concerts.filter((item)=>{return item.id===Number(globalId.id)});
+  function getConcert(concerts) {
+    let rightConcert = concerts.filter((item) => {
+      return item.id === Number(globalId.id)
+    });
     setConcert(rightConcert[0])
   }
 

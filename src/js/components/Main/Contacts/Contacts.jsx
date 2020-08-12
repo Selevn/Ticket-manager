@@ -1,9 +1,10 @@
 import React from 'react'
 
-function Contacts(props) {
-    return(<div>
+const Contacts = () => {
+  return (
+      <div>
         <h3>ContactsPage</h3>
-    </div>)
+      </div>)
 
 }
 

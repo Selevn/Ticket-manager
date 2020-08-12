@@ -1,39 +1,55 @@
 import React from 'react';
-
+import PropTypes from "prop-types"
 import {Container, Row, Col} from "react-bootstrap"
-
-import { useParams } from "react-router";
 
 import style from "./Concert.module.css"
 
 
-import albumPicture from "../../../../img/Green_Day.png"
-import herePic from "./Green_Day.png"
-
 function Concert(props) {
-
   return (
       <div>
-        <Container>
+        <Container className={style.mainContainer}>
           <Row>
-            <Col>
-              <img src ={albumPicture} />
-              <img src ={process.env.PUBLIC_URL + '/Green_Day.png'} />
+            <Col sm={12} xs={12} md={7} lg={7} className={style.imageBlock}>
+              <img className={style.titleImage}
+                   src={props.concert.imgSrc}/>
             </Col>
             <Col>
-              Band: <b>{props.concert.band}</b>
-              <br/>
-              Place: <b>{props.concert.place}</b>
-              <br/>
-              Date: <b>{props.concert.date}</b>
-              <br/>
+              <div className={style.infoCol}>
+                <span className={style.leftFloat}>Band:</span> <b className={style.rightFloat}>{props.concert.band}</b>
+                <br/>
+                <span className={style.leftFloat}>Place:</span> <b
+                  className={style.rightFloat}>{props.concert.place}</b>
+                <br/>
+                <span className={style.leftFloat}>Date:</span> <b className={style.rightFloat}>{props.concert.date}</b>
+                <br/>
+              </div>
             </Col>
+          </Row>
+          <Row className={style.buttonPlacement}>
+
+
+            <Col sm={3} lg={3} md={3} xs={3} xl={3} className={style.buttonColumn}>
+              <button className={style.backButton} onClick={props.back}>Back</button>
+            </Col>
+            <Col>
+
+            </Col>
+            <Col sm={3} lg={3} md={3} xs={3} xl={3}>
+              <button className={style.buyButton}>Buy ticket</button>
+            </Col>
+
+
           </Row>
         </Container>
 
       </div>
   )
+}
 
+Concert.propTypes = {
+  concert: PropTypes.object,
+  back: PropTypes.func,
 }
 
 export default Concert;

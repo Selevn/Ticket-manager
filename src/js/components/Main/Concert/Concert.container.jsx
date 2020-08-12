@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
-
-import { useParams } from "react-router";
+import React, {useState, useEffect, useCallback} from 'react';
+import PropTypes from "prop-types"
+import { withRouter } from 'react-router-dom'
+import {useParams} from "react-router";
 import Concert from "./Concert.jsx";
-
 
 
 function ConcertContainer(props) {
@@ -11,20 +11,29 @@ function ConcertContainer(props) {
 
   let [concert, setConcert] = useState({});
 
-  useEffect(()=>{props.getConcerts(getConcert);})
+  useEffect(() => {
+    props.getConcerts(getConcert);
+  })
 
 
-  function getConcert(concerts)
-  {
-    let rightConcert = concerts.filter((item)=>{return item.id===Number(globalId.id)});
-    setConcert(rightConcert[0])
-  }
+  const getConcert = useCallback(
+      (concerts) => {
+        let rightConcert = concerts.filter((item) => {
+          return item.id === Number(globalId.id)
+        });
+        setConcert(rightConcert[0])
+      })
 
 
   return (
-      <Concert concert={concert}/>
+      <Concert concert={concert} back={props.history.goBack}/>
   )
 
 }
 
-export default ConcertContainer;
+ConcertContainer.propTypes = {
+  getConcerts: PropTypes.func,
+  back:PropTypes.func,
+  history:PropTypes.object,
+}
+export default withRouter(ConcertContainer);

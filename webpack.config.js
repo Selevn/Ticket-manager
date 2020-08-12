@@ -24,7 +24,25 @@ module.exports = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
-        ]
+                    { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' },
+
+
+            /*{
+                test: /\.(jpe?g|gif|png|svg)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000
+                        }
+                    }
+                ]
+            },*/
+
+
+        ],
+
+
     },
     plugins: [
         new HtmlWebPackPlugin({
@@ -34,5 +52,6 @@ module.exports = {
     ],
     devServer: {
         historyApiFallback: true,
-    }
+    },
+
 };

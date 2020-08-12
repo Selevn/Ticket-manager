@@ -1,19 +1,18 @@
 import React from 'react'
 
 
-class Home extends React.Component {
-  render() {
-    return (<div>
-      <h3>Home</h3>
-      <input type="text" value={this.props.searchText} onChange={this.props.onInputChange}/>
-      {/*подсказка при наборе*/}
-      <div className="tip">
-        <ul>
-          {this.props.concerts.map(i => <li>{i.band}</li>)}
-        </ul>
-      </div>
-    </div>)
-  }
+const Home = props => {
+  return (<div>
+    <h3>Home</h3>
+    <input type="text" value={props.searchText} onChange={props.onInputChange}/>
+    {/*подсказка при наборе*/}
+    <div className="tip">
+      <ul>
+        {props.concerts.map(i => <li>{i.band}</li>)}
+      </ul>
+    </div>
+  </div>)
+
 }
 
 export default Home;

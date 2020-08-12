@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Home from './Home.jsx'
 
 
-function HomeContainer(props) {
+const HomeContainer = props => {
 
   const [inputText, setInputText] = useState("");
   const [concerts, setConcerts] = useState([]);

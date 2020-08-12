@@ -6,27 +6,32 @@ import style from './Navbar.module.css'
 import "./Navbar.css"
 
 
-function AppNavbar(props) {
+const AppNavbar = props => {
   return (
       <Navbar bg="light" expand="lg" className={`justify-content-center /*${style.container}*/`}>
         <div style={{textAlign: "center"}}>
           <Navbar.Toggle aria-controls="basic-navbar-nav"/>
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav variant="pills" defaultActiveKey={useLocation().pathname}>
-              <Nav.Item>
-                <Nav.Link eventKey="/home"><NavLink to="/home">Home</NavLink></Nav.Link>
+            <Nav defaultActiveKey={useLocation().pathname}>
+              <Nav.Item className={"h30"}>
+                <Nav.Link eventKey="/home"><NavLink className={style.navbarLinks} to="/home"
+                                                    activeClassName={style.active}>Home</NavLink></Nav.Link>
               </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/search"><NavLink to="/search">Search</NavLink></Nav.Link>
+              <Nav.Item className={"h30"}>
+                <Nav.Link eventKey="/search"><NavLink className={style.navbarLinks} to="/search"
+                                                      activeClassName={style.active}>Search</NavLink></Nav.Link>
               </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/schedule"><NavLink to="/schedule">Schedule</NavLink></Nav.Link>
+              <Nav.Item className={"h30"}>
+                <Nav.Link eventKey="/schedule"><NavLink className={style.navbarLinks} to="/schedule"
+                                                        activeClassName={style.active}>Schedule</NavLink></Nav.Link>
               </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/contacts"><NavLink to="/contacts">Contacs</NavLink></Nav.Link>
+              <Nav.Item className={"h30"}>
+                <Nav.Link eventKey="/contacts"><NavLink className={style.navbarLinks} to="/contacts"
+                                                        activeClassName={style.active}>Contacs</NavLink></Nav.Link>
               </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/login"><NavLink to="/login">Login</NavLink></Nav.Link>
+              <Nav.Item className={"h30"}>
+                <Nav.Link eventKey="/login"><NavLink className={style.navbarLinks}
+                                                     to="/login">Login</NavLink></Nav.Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>

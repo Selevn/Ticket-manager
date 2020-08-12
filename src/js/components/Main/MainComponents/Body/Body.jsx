@@ -6,7 +6,7 @@ import Search from "../../Search/Search.jsx";
 import Schedule from "../../Schedule/Schedule.jsx";
 import Contacts from "../../Contacts/Contacts.jsx";
 
-function Body(props) {
+const Body = props => {
   return (
       <div>
         <br/>

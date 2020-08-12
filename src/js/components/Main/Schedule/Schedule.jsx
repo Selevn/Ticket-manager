@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Schedule(props) {
+const Schedule = props => {
   return (<div>
     <h3>SchedulePage</h3>
   </div>)

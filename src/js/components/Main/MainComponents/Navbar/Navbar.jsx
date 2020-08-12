@@ -8,7 +8,7 @@ import style from './Navbar.module.css'
 import "./Navbar.css"
 
 
-function NavbarF(props) {
+function Navbar(props) {
     return(
         <Navbar  bg="light" expand="lg" className={`justify-content-center /*${style.container}*/`} >
             <div style={{textAlign:"center"}}>
@@ -40,4 +40,4 @@ function NavbarF(props) {
     )
 }
 
-export default NavbarF;
+export default Navbar;

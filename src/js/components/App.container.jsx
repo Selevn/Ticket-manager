@@ -9,7 +9,7 @@ function AppContainer(props) {
 
 
   const toggleLanguageFunc = useCallback(
-      ()=>language === "en" ? setLanguage("ru") : setLanguage("en"),
+      () => language === "en" ? setLanguage("ru") : setLanguage("en"),
       [language],
   );
 

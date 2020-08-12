@@ -1,9 +1,9 @@
 import React from "react";
 
 function Admin(props) {
-    return (
-        <div>Admin</div>
-    );
+  return (
+      <div>Admin</div>
+  );
 }
 
 

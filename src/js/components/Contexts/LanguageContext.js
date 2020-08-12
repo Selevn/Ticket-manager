@@ -2,7 +2,8 @@ import React from "react"
 
 export const LanguageContext = React.createContext({
   language: "en",
-  toggleLanguage: () => {},
+  toggleLanguage: () => {
+  },
 });
 
 LanguageContext.displayName = 'LanguageContext';

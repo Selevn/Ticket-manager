@@ -18,7 +18,7 @@ function Body(props) {
           <Route exact path='/search' component={Search}/>
           <Route exact path='/schedule' component={Schedule}/>
           <Route exact path='/contacts' component={Contacts}/>
-          <Redirect from="/" to='/home' />
+          <Redirect from="/" to='/home'/>
         </Switch>
       </div>
   )

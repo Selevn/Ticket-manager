@@ -28,7 +28,6 @@ function HomeContainer(props) {
   );
 
 
-
   function onInputChange(event) {
     setInputText(event.target.value);
     setHelpList(similarConcerts(event.target.value));
@@ -36,8 +35,8 @@ function HomeContainer(props) {
 
   return (
 
-                  <Home searchText={inputText} onInputChange={onInputChange} concerts={helpList}/>
-          )
+      <Home searchText={inputText} onInputChange={onInputChange} concerts={helpList}/>
+  )
 }
 
 export default HomeContainer;

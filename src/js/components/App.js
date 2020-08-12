@@ -17,7 +17,7 @@ function App(props) {
           <Route path='/' component={() => <Main getConcerts={props.getConcerts}/>}/>
         </Switch>
 
-   )
+    )
   }
 }
 

@@ -1,34 +1,45 @@
 import React from 'react'
-import {NavLink} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
+import {Nav, Navbar} from "react-bootstrap";
 
 import languageSrc from "../../../../language.js"
 import {LanguageContext} from "../../../Contexts/LanguageContext.js"
 import style from './Navbar.module.css'
+import "./Navbar.css"
 
-function Navbar(props) {
+
+const AppNavbar = () => {
   return (
-      <div>
-        <LanguageContext.Consumer>
-          {langProps => {
-            return (
-                <div>
-                  <button onClick={langProps.toggleLanguage}>{languageSrc.langChange[langProps.language]}</button>
-                  <NavLink to="/admin">admin</NavLink><br/>
-                  <NavLink to="/login">Login</NavLink><br/>
-                  <NavLink to="/home"
-                           activeClassName={style.active}>{languageSrc.home[langProps.language]}</NavLink><br/>
-                  <NavLink to="/search"
-                           activeClassName={style.active}>{languageSrc.search[langProps.language]}</NavLink><br/>
-                  <NavLink to="/schedule"
-                           activeClassName={style.active}>{languageSrc.schedule[langProps.language]}</NavLink><br/>
-                  <NavLink to="/contacts"
-                           activeClassName={style.active}>{languageSrc.contacts[langProps.language]}</NavLink><br/>
-                </div>)
-          }
-          }
-        </LanguageContext.Consumer>
-      </div>
+      <Navbar bg="light" expand="lg" className={`justify-content-center /*${style.container}*/`}>
+        <div style={{textAlign: "center"}}>
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav defaultActiveKey={useLocation().pathname}>
+              <Nav.Item className={"h30"}>
+                <NavLink className={style.navbarLinks} to="/home"
+                         activeClassName={style.active}>Home</NavLink>
+              </Nav.Item>
+              <Nav.Item className={"h30"}>
+                <NavLink className={style.navbarLinks} to="/search"
+                         activeClassName={style.active}>Search</NavLink>
+              </Nav.Item>
+              <Nav.Item className={"h30"}>
+                <NavLink className={style.navbarLinks} to="/schedule"
+                         activeClassName={style.active}>Schedule</NavLink>
+              </Nav.Item>
+              <Nav.Item className={"h30"}>
+                <NavLink className={style.navbarLinks} to="/contacts"
+                         activeClassName={style.active}>Contacs</NavLink>
+              </Nav.Item>
+              <Nav.Item className={"h30"}>
+                <NavLink className={style.navbarLinks}
+                         to="/login">Login</NavLink>
+              </Nav.Item>
+            </Nav>
+          </Navbar.Collapse>
+        </div>
+      </Navbar>
   )
 }
 
-export default Navbar;
+export default AppNavbar;

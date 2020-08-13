@@ -1,9 +1,11 @@
 import React, {useState, useEffect, useCallback, useContext} from 'react';
+import PropTypes from "prop-types"
+
 import Home from './Home.jsx'
 import {LanguageContext} from "../../Contexts/LanguageContext";
 
 
-function HomeContainer(props) {
+const HomeContainer = props => {
 
   const [inputText, setInputText] = useState("");
   const [concerts, setConcerts] = useState([]);
@@ -27,7 +29,6 @@ function HomeContainer(props) {
       }
   );
 
-
   function onInputChange(event) {
     setInputText(event.target.value);
     setHelpList(similarConcerts(event.target.value));
@@ -37,6 +38,13 @@ function HomeContainer(props) {
 
       <Home searchText={inputText} onInputChange={onInputChange} concerts={helpList}/>
   )
+}
+
+HomeContainer.propTypes = {
+  concerts: PropTypes.func,
+  searchText: PropTypes.string,
+  onInputChange: PropTypes.func,
+  getConcerts: PropTypes.func
 }
 
 export default HomeContainer;

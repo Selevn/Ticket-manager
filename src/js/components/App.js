@@ -6,18 +6,16 @@ import Main from "./Main/Main.jsx";
 import Admin from "./Admin/Admin.jsx";
 import Login from "./Login/Login.jsx";
 
-function App(props) {
+
+const App = props => {
   {
-
-    return (
-
-        <Switch>
-          <Route path='/admin' component={Admin}/>
-          <Route path='/login' component={Login}/>
-          <Route path='/' component={() => <Main getConcerts={props.getConcerts}/>}/>
-        </Switch>
-
-    )
+    return (<div>
+      <Switch>
+        <Route path='/admin' component={Admin}/>
+        <Route path='/login' component={Login}/>
+        <Route path='/' component={() => <Main getConcerts={props.getConcerts}/>}/>
+      </Switch>
+    </div>)
   }
 }
 

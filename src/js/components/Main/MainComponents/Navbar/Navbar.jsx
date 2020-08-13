@@ -15,7 +15,7 @@ const AppNavbar = () => {
   return (
       <div>
         <LanguageContext.Consumer>
-          { langProps => {
+          {langProps => {
             return (
                 <Navbar bg="light" expand="lg" className={`justify-content-center /*${style.container}*/`}>
                   <div style={{textAlign: "center"}}>
@@ -46,7 +46,8 @@ const AppNavbar = () => {
                     </Navbar.Collapse>
                     <button onClick={langProps.toggleLanguage}>{languageSrc.langChange[langProps.language]}</button>
                   </div>
-                </Navbar>)}
+                </Navbar>)
+          }
           }
         </LanguageContext.Consumer>
       </div>

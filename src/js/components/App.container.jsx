@@ -1,5 +1,5 @@
 import React, {useState, useCallback} from "react";
-
+import PropTypes from "prop-types"
 import App from "./App.js"
 
 import {LanguageContext} from './Contexts/LanguageContext.js';
@@ -25,6 +25,9 @@ function AppContainer(props) {
 
 }
 
+AppContainer.propTypes={
+  getConcerts:PropTypes.func,
+}
 
 export default AppContainer;
 

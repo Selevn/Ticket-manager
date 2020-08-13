@@ -6,19 +6,20 @@ import PropTypes from "prop-types"
 
 const Home = props => {
   return (<div>
-      <LanguageContext.Consumer>
-        {langProps => (<div>
-    <h3>{languageSrc.home[langProps.language]}</h3>
-    <input placeholder={languageSrc.search[langProps.language]} type="text" value={props.searchText} onChange={props.onInputChange}/>
-    {/*подсказка при наборе*/}
-    <div className="tip">
-      <ul>
-        {props.concerts.map((item, index) => <li key={index}>{item.band}</li>)}
-      </ul>
-    </div>
+    <LanguageContext.Consumer>
+      {langProps => (<div>
+            <h3>{languageSrc.home[langProps.language]}</h3>
+            <input placeholder={languageSrc.search[langProps.language]} type="text" value={props.searchText}
+                   onChange={props.onInputChange}/>
+            {/*подсказка при наборе*/}
+            <div className="tip">
+              <ul>
+                {props.concerts.map((item, index) => <li key={index}>{item.band}</li>)}
+              </ul>
             </div>
-          )}
-        </LanguageContext.Consumer>
+          </div>
+      )}
+    </LanguageContext.Consumer>
   </div>)
 }
 

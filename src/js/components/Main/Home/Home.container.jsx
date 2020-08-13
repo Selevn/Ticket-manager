@@ -1,8 +1,7 @@
-import React, {useState, useEffect, useCallback, useContext} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import PropTypes from "prop-types"
 
 import Home from './Home.jsx'
-import {LanguageContext} from "../../Contexts/LanguageContext";
 
 
 const HomeContainer = props => {
@@ -11,12 +10,15 @@ const HomeContainer = props => {
   const [concerts, setConcerts] = useState([]);
   const [helpList, setHelpList] = useState([]);
 
-  useEffect(() => {
-    props.getConcerts(setConcerts)
-  })
+  useEffect(
+      () => {
+        props.getConcerts(setConcerts)
+      },
+      [props]
+  )
 
   const similarConcerts = useCallback(
-      function (val) {
+      val => {
         if (val.length > 1) {
           return val ?
               concerts.filter((i) => i.band.toUpperCase().includes(val.toUpperCase())) :
@@ -26,7 +28,8 @@ const HomeContainer = props => {
               concerts.filter((i) => i.band.toUpperCase().startsWith(val.toUpperCase())) :
               []
         }
-      }
+      },
+      [concerts]
   );
 
   function onInputChange(event) {

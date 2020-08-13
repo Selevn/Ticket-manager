@@ -1,0 +1,8 @@
+li {
+  list-style-type: none; /* Убираем маркеры */
+}
+
+ul
+{
+  padding-left: 0;
+}

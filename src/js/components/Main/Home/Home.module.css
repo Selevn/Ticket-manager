@@ -1,0 +1,22 @@
+.searchColumn {
+  text-align: center;
+}
+
+.tipUl {
+  text-align: left;
+
+}
+
+.tip {
+
+  text-align: center;
+}
+
+.tipLi
+{
+  padding-left: 2rem;
+}
+.tipLi:hover
+{
+  background-color: #cecece;
+}

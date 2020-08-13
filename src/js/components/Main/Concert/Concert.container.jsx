@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import PropTypes from "prop-types"
-import { withRouter } from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import {useParams} from "react-router";
 import Concert from "./Concert.jsx";
 
@@ -22,7 +22,9 @@ function ConcertContainer(props) {
           return item.id === Number(globalId.id)
         });
         setConcert(rightConcert[0])
-      })
+      },
+      [globalId.id]
+  )
 
 
   return (
@@ -33,7 +35,7 @@ function ConcertContainer(props) {
 
 ConcertContainer.propTypes = {
   getConcerts: PropTypes.func,
-  back:PropTypes.func,
-  history:PropTypes.object,
+  back: PropTypes.func,
+  history: PropTypes.object,
 }
 export default withRouter(ConcertContainer);

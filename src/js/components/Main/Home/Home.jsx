@@ -9,8 +9,12 @@ const Home = props => {
     <LanguageContext.Consumer>
       {langProps => (<div>
             <h3>{languageSrc.home[langProps.language]}</h3>
-            <input placeholder={languageSrc.search[langProps.language]} type="text" value={props.searchText}
-                   onChange={props.onInputChange}/>
+            <form>
+              <input placeholder={languageSrc.search[langProps.language]} type="text" value={props.searchText}
+                     onChange={props.onInputChange}/>
+              <input type="button" onClick={() => {
+              }} value={languageSrc.search[langProps.language]}/>
+            </form>
             {/*подсказка при наборе*/}
             <div className="tip">
               <ul>

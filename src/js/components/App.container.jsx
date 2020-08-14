@@ -25,8 +25,8 @@ function AppContainer(props) {
 
 }
 
-AppContainer.propTypes={
-  getConcerts:PropTypes.func,
+AppContainer.propTypes = {
+  getConcerts: PropTypes.func,
 }
 
 export default AppContainer;

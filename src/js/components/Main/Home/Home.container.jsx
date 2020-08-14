@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import Home from './Home.jsx'
 
 
-
 const HomeContainer = props => {
 
   const [inputText, setInputText] = useState("");

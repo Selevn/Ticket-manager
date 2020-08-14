@@ -18,15 +18,14 @@ const HomeContainer = props => {
       [props]
   )
   useEffect(
-      () => {
-        findThreeNearest();
-      },
+      findThreeNearest
+      ,
       [concerts]
   )
 
 
   function findThreeNearest() {
-    if (concerts.length != 0) {
+    if (concerts.length !== 0) {
       let sortedConcerts = concerts.sort((a, b) => {
         if (Date.parse(a.date) < Date.parse(b.date))
           return -1
@@ -35,10 +34,10 @@ const HomeContainer = props => {
       })
       let outArr = []
       for (let i in sortedConcerts) {
-        if (Date.parse(sortedConcerts[i].date) > Date.now()) {
-          outArr.push(sortedConcerts[i - 0 + 2])
-          outArr.push(sortedConcerts[i - 0 + 1])
-          outArr.push(sortedConcerts[i - 0])
+        if (Date.parse(sortedConcerts[Number(i)].date) > Date.now()) {
+          outArr.push(sortedConcerts[Number(i) + 2])
+          outArr.push(sortedConcerts[Number(i) + 1])
+          outArr.push(sortedConcerts[Number(i)])
           setRecent(outArr);
           break;
         }
@@ -63,14 +62,17 @@ const HomeContainer = props => {
       [concerts]
   );
 
-  function onFocusOut() {
+
+  const onFocusOut = () => {
     setTimeout(
         () => {
           setInputText("");
           setHelpList([]);
         },
         200)
+
   }
+
 
   function onInputChange(event) {
     setInputText(event.target.value);

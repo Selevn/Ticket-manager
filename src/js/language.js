@@ -30,6 +30,11 @@ let languagePack =
             ru: "Сменить язык",
             en: "Change language"
           },
+      lang:
+          {
+            ru: "Eng",
+            en: "Rus"
+          },
 
     }
 

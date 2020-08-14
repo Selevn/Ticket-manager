@@ -1,0 +1,28 @@
+.footer {
+  background-color: #f7f8f9;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+#containerBlock {
+  max-width: 100%;
+  width: 100%;
+}
+
+.col2 {
+  font-size: .6rem;
+  max-height: 90px;
+  text-align: center;
+  margin-top: .3rem;
+  margin-bottom: .3rem;
+}
+
+.col3 {
+}
+
+.langButton {
+  margin-top: .5rem;
+  margin-bottom: .3rem;
+}

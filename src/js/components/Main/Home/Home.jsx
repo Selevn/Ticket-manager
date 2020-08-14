@@ -7,7 +7,6 @@ import languageSrc from "../../../language"
 import style from "./Home.module.css"
 import "./Home.css"
 
-import "../../../../CommonStyles.css"
 
 import {Container, Row, Col} from "react-bootstrap";
 
@@ -56,7 +55,7 @@ const Home = props => {
               </Row>
               <Row className={style.recentRow}>
                 <Col>
-                  <h1>{languageSrc.recently[langProps.language]}</h1>
+                  <h1>{languageSrc.soon[langProps.language]}</h1>
                 </Col>
               </Row>
               <Row className={style.recentRow}>
@@ -68,13 +67,13 @@ const Home = props => {
                     </div>
                     <div className={style.backImage}>
                       <div className={style.infoCol}>
-                        <span>{languageSrc.band[langProps.language]}:</span>
+                        <span>{languageSrc.band[langProps.language]}: </span>
                         <b>{props.recent.length !== 0 ? props.recent[0].band : ""}</b>
                         <br/>
-                        <span>{languageSrc.place[langProps.language]}:</span>
+                        <span>{languageSrc.place[langProps.language]}: </span>
                         <b>{props.recent.length !== 0 ? props.recent[0].place : ""}</b>
                         <br/>
-                        <span>{languageSrc.date[langProps.language]}:</span>
+                        <span>{languageSrc.date[langProps.language]}: </span>
                         <b>{props.recent.length !== 0 ? props.recent[0].date : ""}</b>
                         <br/>
                       </div>
@@ -89,13 +88,13 @@ const Home = props => {
                     </div>
                     <div className={style.backImage}>
                       <div className={style.infoCol}>
-                        <span>{languageSrc.band[langProps.language]}:</span>
+                        <span>{languageSrc.band[langProps.language]}: </span>
                         <b>{props.recent.length !== 0 ? props.recent[1].band : ""}</b>
                         <br/>
-                        <span>{languageSrc.place[langProps.language]}:</span>
+                        <span>{languageSrc.place[langProps.language]}: </span>
                         <b>{props.recent.length !== 0 ? props.recent[1].place : ""}</b>
                         <br/>
-                        <span>{languageSrc.date[langProps.language]}:</span>
+                        <span>{languageSrc.date[langProps.language]}: </span>
                         <b>{props.recent.length !== 0 ? props.recent[1].date : ""}</b>
                         <br/>
                       </div>
@@ -110,13 +109,13 @@ const Home = props => {
                     </div>
                     <div className={style.backImage}>
                       <div className={style.infoCol}>
-                        <span>{languageSrc.band[langProps.language]}:</span>
+                        <span>{languageSrc.band[langProps.language]}: </span>
                         <b>{props.recent.length !== 0 ? props.recent[2].band : ""}</b>
                         <br/>
-                        <span>{languageSrc.place[langProps.language]}:</span>
+                        <span>{languageSrc.place[langProps.language]}: </span>
                         <b>{props.recent.length !== 0 ? props.recent[2].place : ""}</b>
                         <br/>
-                        <span>{languageSrc.date[langProps.language]}:</span>
+                        <span>{languageSrc.date[langProps.language]}: </span>
                         <b>{props.recent.length !== 0 ? props.recent[2].date : ""}</b>
                         <br/>
                       </div>

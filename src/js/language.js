@@ -35,10 +35,10 @@ let languagePack =
             ru: "Введите",
             en: "Type"
           },
-      recently:
+      soon:
           {
             ru: "Скоро",
-            en: "Recently"
+            en: "Soon"
           },
       band:
           {

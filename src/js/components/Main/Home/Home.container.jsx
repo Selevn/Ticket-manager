@@ -69,7 +69,7 @@ const HomeContainer = props => {
           setInputText("");
           setHelpList([]);
         },
-        100)
+        200)
   }
 
   function onInputChange(event) {

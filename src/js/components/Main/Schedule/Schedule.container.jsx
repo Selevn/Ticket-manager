@@ -6,27 +6,31 @@ const ScheduleContainer = ({getConcerts}) => {
 
   const [concerts, setConcerts] = useState([]);
 
-  useEffect(()=>{getConcerts(setConcerts)})
+  useEffect(() => {
+    getConcerts(setConcerts)
+  })
 
   useEffect(
-      ()=>{sortConcerts()},
+      () => {
+        sortConcerts()
+      },
       [concerts]
   )
 
   const sortConcerts = () => {
-    let sortedConcerts=[];
+    let sortedConcerts = [];
     if (concerts.length !== 0) {
       sortedConcerts = concerts.sort((a, b) => {
         if (Date.parse(a.date) < Date.parse(b.date))
           return -1
         else
           return 1
-      }).filter((a)=>(Date.parse(a.date)>Date.now()))
+      }).filter((a) => (Date.parse(a.date) > Date.now()))
     }
     return sortedConcerts;
   }
 
-  return(<Schedule concerts={concerts} />)
+  return (<Schedule concerts={concerts}/>)
 }
 
 ScheduleContainer.propTypes = {

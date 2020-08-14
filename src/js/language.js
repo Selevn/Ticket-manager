@@ -30,6 +30,27 @@ let languagePack =
             ru: "Сменить язык",
             en: "Change language"
           },
+      _none:
+          {
+            ru: "",
+            en: ""
+          },
+      band:
+          {
+            ru: "Артист",
+            en: "Band"
+          },
+      place:
+          {
+            ru: "Место",
+            en: "Place"
+          },
+      date:
+          {
+            ru: "Дата",
+            en: "Date"
+          },
+
 
     }
 

@@ -10,14 +10,14 @@ let Concerts = [
     id: 2,
     band: "Awolnation",
     place: "Chizhovka",
-    date: "2020-08-22",
+    date: "2020-10-22",
     imgSrc: "https://lastfm.freetls.fastly.net/i/u/500x500/db98a3f967bd4b6b9dc86251801cce60.jpg"
   },
   {
     id: 3,
     band: "Sum 41",
     place: "Dinamo",
-    date: "2021-12-03",
+    date: "2021-11-03",
     imgSrc: "https://upload.wikimedia.org/wikipedia/ru/thumb/3/39/Sum_41_order_in_decline.png/274px-Sum_41_order_in_decline.png"
   },
   {

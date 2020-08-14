@@ -9,9 +9,6 @@ import Contacts from "../../Contacts/Contacts.jsx";
 
 const Body = props => (
     <div>
-      <br/>
-      Body
-      <br/>
       <Switch>
         <Route exact path='/home' component={() => <HomeContainer getConcerts={props.getConcerts}/>}/>
         <Route exact path='/search' component={Search}/>

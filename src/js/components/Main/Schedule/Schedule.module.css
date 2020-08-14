@@ -1,0 +1,23 @@
+.header {
+  text-align: center;
+}
+
+.headerRow {
+  margin-top: 2rem;
+}
+
+.tableImage {
+  width: 100px;
+  height: 100px;
+}
+
+.tableTd, .tableTh {
+  width: 16rem;
+  font-size: 1.33rem;
+}
+
+.tableTh {
+  font-size: 1.33rem;
+  background-color: black;
+  color: white;
+}

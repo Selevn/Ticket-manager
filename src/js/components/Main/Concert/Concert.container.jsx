@@ -5,14 +5,14 @@ import {useParams} from "react-router";
 import Concert from "./Concert.jsx";
 
 
-function ConcertContainer(props) {
+const ConcertContainer = ({getConcerts, history}) => {
 
   const globalId = useParams();
 
   let [concert, setConcert] = useState({});
 
   useEffect(() => {
-    props.getConcerts(getConcert);
+    getConcerts(getConcert);
   })
 
 
@@ -28,14 +28,13 @@ function ConcertContainer(props) {
 
 
   return (
-      <Concert concert={concert} back={props.history.goBack}/>
+      <Concert concert={concert} back={history.goBack}/>
   )
 
 }
 
 ConcertContainer.propTypes = {
   getConcerts: PropTypes.func,
-  back: PropTypes.func,
   history: PropTypes.object,
 }
 export default withRouter(ConcertContainer);

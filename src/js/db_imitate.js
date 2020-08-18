@@ -26,7 +26,20 @@ let Concerts = [
   },
 ]
 
+let Contacts = {
+  phone:["+375295295862","+375295295863","+375295295864"],
+  email: "ivan.skorodumov.21@gmail.com",
+  skype:"live:smthHereLoremIpsum",
+  vk:"vk.com/id?selevn"
+}
+
 export function getConcerts(callback) {
   //imitate database request
   setTimeout(() => (callback(Concerts), 50));
 }
+
+export function getContacts(callback) {
+  //imitate database request
+  setTimeout(() => (callback(Contacts), 50));
+}
+

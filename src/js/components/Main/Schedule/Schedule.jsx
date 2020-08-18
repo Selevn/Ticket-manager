@@ -54,7 +54,7 @@ const Schedule = ({concerts, getConcerts}) =>
                                 <td className={style.tableTd}>{item.band}</td>
                                 <td className={style.tableTd}>{item.place}</td>
                                 <td className={style.tableTd}>
-                                  {languageSrc.days[date.getDay()][langProps.language] +" "+String(date.getDate()).padStart(2, '')}
+                                  {languageSrc.days[date.getDay()][langProps.language] + " " + String(date.getDate()).padStart(2, '')}
                                 </td>
                               </tr>)
 
@@ -62,15 +62,15 @@ const Schedule = ({concerts, getConcerts}) =>
                             if (years[date.getFullYear()][date.getMonth()]) {
                               return (<BaseRow/>)
                             } else {
-                              years[date.getFullYear()][date.getMonth()]=true;
+                              years[date.getFullYear()][date.getMonth()] = true;
                               return (<>
                                 <MonthRow/>
                                 <BaseRow/>
                               </>)
                             }
                           } else {
-                            years[date.getFullYear()]=[];
-                            years[date.getFullYear()][date.getMonth()]=true;
+                            years[date.getFullYear()] = [];
+                            years[date.getFullYear()][date.getMonth()] = true;
                             return (<>
                               <YearRow/>
                               <MonthRow/>
@@ -92,6 +92,7 @@ const Schedule = ({concerts, getConcerts}) =>
 
 Schedule.propTypes = {
   concerts: PropTypes.array,
+  getConcerts: PropTypes.func,
 }
 
 export default Schedule;

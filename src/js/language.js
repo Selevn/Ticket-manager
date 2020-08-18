@@ -100,34 +100,34 @@ let languagePack =
           en: "December"
         }
       ],
-      days:[
+      days: [
         {
-          ru:"Понедельник",
-          en:"Monday",
+          ru: "Понедельник",
+          en: "Monday",
         },
         {
-          ru:"Вторник",
-          en:"Tuesday",
+          ru: "Вторник",
+          en: "Tuesday",
         },
         {
-          ru:"Среда",
-          en:"Wednesday",
+          ru: "Среда",
+          en: "Wednesday",
         },
         {
-          ru:"Четверг",
-          en:"Thursday",
+          ru: "Четверг",
+          en: "Thursday",
         },
         {
-          ru:"Пятница",
-          en:"Friday",
+          ru: "Пятница",
+          en: "Friday",
         },
         {
-          ru:"Суббота",
-          en:"Saturday",
+          ru: "Суббота",
+          en: "Saturday",
         },
         {
-          ru:"Воскресенье",
-          en:"Sunday",
+          ru: "Воскресенье",
+          en: "Sunday",
         },
 
       ]

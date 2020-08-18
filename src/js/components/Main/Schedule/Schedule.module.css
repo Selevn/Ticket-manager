@@ -60,15 +60,13 @@
   padding-bottom: .3rem;
 }
 
-.baseRowTr
-{
+.baseRowTr {
   padding-bottom: 10px;
   padding-top: 10px;
   transition: background-color 0.3s linear;
 }
 
-.baseRowTr:hover
-{
+.baseRowTr:hover {
   transition: background-color 0.3s linear;
   background-color: rgba(125, 125, 125, 0.1);
   cursor: pointer;

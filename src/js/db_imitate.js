@@ -10,7 +10,7 @@ let Concerts = [
     id: 2,
     band: "Awolnation",
     place: "Chizhovka",
-    date: "2020-10-22",
+    date: "2020-11-22",
     imgSrc: "https://lastfm.freetls.fastly.net/i/u/500x500/db98a3f967bd4b6b9dc86251801cce60.jpg"
   },
   {

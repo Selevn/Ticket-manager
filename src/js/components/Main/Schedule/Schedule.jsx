@@ -6,9 +6,51 @@ import {Col, Container, Row} from "react-bootstrap";
 
 import style from "./Schedule.module.css";
 
-const Schedule = ({concerts}) => (
+const Schedule = (props) =>
+    (
     <LanguageContext.Consumer>
-      {langProps => (
+      {langProps => {
+
+
+
+        /* let out = {};
+         let years = [];
+         for(let i =0; i< concerts.length; i++)
+         {
+           if(years.length===0 ||years[years.length-1]!==new Date(concerts[i].date).getFullYear())
+             years.push(new Date(concerts[i].date).getFullYear());
+         }
+
+         years.forEach(
+             (item,i)=>
+             {out[item]=concerts.filter((item)=>(new Date(concerts[i].date).getFullYear()===item))}
+             )*/
+        console.log("props")
+        console.log(props.getConcerts())
+        console.log("concerts:")
+        console.log(props.concertList)
+        console.log("props")
+        console.log(props)
+
+
+          /*concerts.map((item, i) => {
+            let date = new Date(item.date);
+            return (
+
+                <tr >
+                  {before}
+                  <td className={style.tableTd} ><img className={style.tableImage}
+                                                      src={item.imgSrc}/></td>
+                  <td className={style.tableTd} >{item.band}</td>
+                  <td className={style.tableTd} >{item.place}</td>
+                  <td className={style.tableTd} >
+                    {String(date.getDate()).padStart(2, '0')}.{String(date.getMonth() + 1).padStart(2, '0')}.{date.getFullYear()}
+                  </td>
+                </tr>)
+          })*/
+
+
+        return(
           <Container>
             <Row className={style.headerRow}>
               <Col className={style.header}>
@@ -16,35 +58,21 @@ const Schedule = ({concerts}) => (
                 <table>
                   <thead>
 
-                  <tr>
+                  {/*<tr >
                     {["_none", "band", "place", "date"].map((item, i) =>
-                        (<th className={style.tableTh} key={i}>{languageSrc[item][langProps.language]}</th>)
+                        (<th className={`${style.tableTh} ${style.tableHeaderTr}`} >{languageSrc[item][langProps.language]}</th>)
                     )}
-                  </tr>
+                  </tr>*/}
                   </thead>
                   <tbody>
 
-                  {concerts.map((item, i) => {
-                    let date = new Date(item.date);
-                    return (
-                        <tr key={i + 5 * i + 1}>
-                          <td className={style.tableTd} key={i + 1 * i + 1}><img className={style.tableImage}
-                                                                                 src={item.imgSrc}/></td>
-                          <td className={style.tableTd} key={i + 2 * i + 1}>{item.band}</td>
-                          <td className={style.tableTd} key={i + 3 * i + 1}>{item.place}</td>
-                          <td className={style.tableTd} key={i + 4 * i + 1}>
-                            {String(date.getDate()).padStart(2, '0')}.{String(date.getMonth() + 1).padStart(2, '0')}.{date.getFullYear()}
-                          </td>
-                        </tr>)
-                  })
-                  }
 
                   </tbody>
                 </table>
               </Col>
             </Row>
           </Container>
-      )}
+      )}}
     </LanguageContext.Consumer>
 )
 

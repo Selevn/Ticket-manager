@@ -6,5 +6,7 @@ import React from "react";
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+import "regenerator-runtime"
+
 const wrapper = document.getElementById("root");
 wrapper ? ReactDOM.render(<BrowserRouter><AppContainer getConcerts={getConcerts}/></BrowserRouter>, wrapper) : false;

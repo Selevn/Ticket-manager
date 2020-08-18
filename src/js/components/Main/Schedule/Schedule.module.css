@@ -21,3 +21,8 @@
   background-color: black;
   color: white;
 }
+
+.tableHeaderTr:first-child
+{
+  background-color: white;
+}

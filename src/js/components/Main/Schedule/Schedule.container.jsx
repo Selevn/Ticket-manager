@@ -2,35 +2,52 @@ import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types';
 import Schedule from "./Schedule.jsx"
 
+import {Provider, connect} from "react-redux"
+import store from "../../../store/concerts.store.js"
+import {actionGetAllConcerts} from "../../../actions/concerts.actions.js"
+
 const ScheduleContainer = ({getConcerts}) => {
 
-  const [concerts, setConcerts] = useState([]);
+ // const [concerts, setConcerts] = useState([]);
 
-  useEffect(() => {
-    getConcerts(setConcerts)
-  })
+    /*useEffect(() => {
+      console.log("entering in dispatching")
+      store.dispatch(actionGetAllConcerts)
+      //actionGetAllConcerts();
+  })*/
 
-  useEffect(
-      () => {
-        sortConcerts()
-      },
-      [concerts]
-  )
 
-  const sortConcerts = () => {
+  /*const sortConcerts = (_concerts) => {
     let sortedConcerts = [];
-    if (concerts.length !== 0) {
-      sortedConcerts = concerts.sort((a, b) => {
-        if (Date.parse(a.date) < Date.parse(b.date))
-          return -1
-        else
-          return 1
-      }).filter((a) => (Date.parse(a.date) > Date.now()))
+    if (_concerts.length !== 0) {
+      sortedConcerts = _concerts.sort((a, b) => {
+        return (new Date(a.date) - new Date(b.date))
+      }).filter((a) => (new Date(a.date) >   Date.now()))
+      setConcerts(sortedConcerts);
+    } else {
+      setConcerts(_concerts)
     }
-    return sortedConcerts;
+  }*/
+
+ /* //TODO:do it! dev->moving_redux->provider on app ->remote+pr->approve->merge_dev->local_dev->merge with where need!*/
+//rebase??
+const mapStateToProps = (state) =>{
+      return {concert2s:state.concertList}
+}
+  const mapDispatchToProps = dispatch => {
+    return {
+      getConcerts: () => {
+        dispatch(actionGetAllConcerts())
+      }
+    }
   }
 
-  return (<Schedule concerts={concerts}/>)
+  const WrappedComponent = connect(mapStateToProps, mapDispatchToProps)(Schedule)
+
+  return (
+      <Provider store={store}>
+        <WrappedComponent/>
+      </Provider>)
 }
 
 ScheduleContainer.propTypes = {

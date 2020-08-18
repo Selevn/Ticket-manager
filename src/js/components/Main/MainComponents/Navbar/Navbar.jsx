@@ -13,7 +13,7 @@ const AppNavbar = () => {
   let locationPath = useLocation().pathname;
 
   return (
-      <div>
+      <div className="sticky-top">
         <LanguageContext.Consumer>
           {langProps => {
             return (

@@ -20,7 +20,7 @@ const Home = props => {
             {/*подсказка при наборе*/}
             <div className="tip">
               <ul>
-                {props.concerts.map((item, index) => <li key={index}><Link to={"concert/" + item.id}>{item.band}</Link>
+                {props.concerts.map((item) => <li key={item.id}><Link to={"concert/" + item.id}>{item.band}</Link>
                 </li>)}
               </ul>
             </div>

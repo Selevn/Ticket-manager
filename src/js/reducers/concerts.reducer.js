@@ -25,8 +25,7 @@ const concertReducer = (state = initialState, action) => {
       console.log(state);
       return ({...state, concertList: action.concerts})
     }
-    default:
-    {
+    default: {
       console.log("in default - switch")
       return state;
     }

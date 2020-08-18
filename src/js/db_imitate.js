@@ -4,13 +4,13 @@ let Concerts = [
     band: "Green day",
     place: "Dinamo",
     date: "2020-09-21",
-    imgSrc: "https://lastfm.freetls.fastly.net/i/u/ar0/d5b5e314af7c4124943582fe3a595543.jpg"
+    imgSrc: "https://images-na.ssl-images-amazon.com/images/I/61HZsw4F5VL._SL1425_.jpg"
   },
   {
     id: 2,
     band: "Awolnation",
     place: "Chizhovka",
-    date: "2020-11-22",
+    date: "2020-09-22",
     imgSrc: "https://lastfm.freetls.fastly.net/i/u/500x500/db98a3f967bd4b6b9dc86251801cce60.jpg"
   },
   {

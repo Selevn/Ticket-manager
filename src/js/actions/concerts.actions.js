@@ -7,16 +7,20 @@ const actionPutConcerts = (concert) => ({
   concerts: concert,
 })
 
-const actionGetAllConcerts = () => (dispatch) =>
-{
-  console.log("in actionGetAllConcerts")
-  getConcerts((getedConcerts)=>{
+const actionGetAllConcerts = () => (dispatch) => {
+  getConcerts((getedConcerts) => {
     dispatch(actionPutConcerts(getedConcerts))
   })
 }
 
+const actionGetAllConcertsSorted = () => (dispatch) => {
+  getConcerts((getedConcerts) => {
+    getedConcerts = getedConcerts.sort((a, b) => (new Date(a.date) - new Date(b.date)))
+    dispatch(actionPutConcerts(getedConcerts))
+  })
+}
 
-export {actionPutConcerts, actionGetAllConcerts}
+export {actionPutConcerts, actionGetAllConcerts, actionGetAllConcertsSorted}
 
 
 

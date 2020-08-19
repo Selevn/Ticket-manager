@@ -18,7 +18,7 @@ let languagePack =
       contacts:
           {
             ru: "Контакты",
-            en: "Сontacs"
+            en: "Сontacts"
           },
       login:
           {

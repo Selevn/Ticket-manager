@@ -4,6 +4,9 @@ import {Col, Container, Row} from "react-bootstrap";
 
 import "./Contacts.css"
 
+import languageSrc from "../../../language.js"
+import {LanguageContext} from "../../Contexts/LanguageContext.js"
+
 import style from "./Contacts.module.css"
 
 const Contacts = ({getContacts, contacts}) => {
@@ -30,40 +33,46 @@ const Contacts = ({getContacts, contacts}) => {
   )
 
   return (
-      <Container>
-        <Row>
-          <Col sm={12} xs={12} md={12} lg={12} xl={12} className={style.headerCol}>
-            <h1>Contacts</h1>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm={12} xs={12} md={2} lg={3} xl={3}/>
-          <Col sm={12} xs={12} md={8} lg={6} xl={6} className={style.center}>
-            <table className={style.w100}>
-              <thead>
-              </thead>
-              <tbody>
-              {
-                _contacts.map((headItem) => {
-                  if (Array.isArray(headItem[1])) {
-                    return headItem[1].map((subItem, index) => {
-                      if (index === 0) {
-                        return RowInitLine(headItem[0],headItem[1].length, subItem)
-                      } else {
-                        return SoloLine(subItem)
-                      }
-                    })
-                  } else {
-                    return DefaultLine(headItem[0],headItem[1])
-                  }
-                })
-              }
-              </tbody>
-            </table>
-          </Col>
-            <Col sm={12} xs={12} md={2} lg={3} xl={3} className={style.center}/>
-        </Row>
-      </Container>)
+      <>
+      <LanguageContext.Consumer>
+        {langProps => (
+                <Container>
+                  <Row>
+                    <Col sm={12} xs={12} md={12} lg={12} xl={12} className={style.headerCol}>
+                      <h1>{languageSrc.contacts[langProps.language]}</h1>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col sm={12} xs={12} md={2} lg={3} xl={3}/>
+                    <Col sm={12} xs={12} md={8} lg={6} xl={6} className={style.center}>
+                      <table className={style.w100}>
+                        <thead>
+                        </thead>
+                        <tbody>
+                        {
+                          _contacts.map((headItem) => {
+                            if (Array.isArray(headItem[1])) {
+                              return headItem[1].map((subItem, index) => {
+                                if (index === 0) {
+                                  return RowInitLine(headItem[0],headItem[1].length, subItem)
+                                } else {
+                                  return SoloLine(subItem)
+                                }
+                              })
+                            } else {
+                              return DefaultLine(headItem[0],headItem[1])
+                            }
+                          })
+                        }
+                        </tbody>
+                      </table>
+                    </Col>
+                    <Col sm={12} xs={12} md={2} lg={3} xl={3} className={style.center}/>
+                  </Row>
+                </Container>
+            )}
+      </LanguageContext.Consumer>
+      </>)
 }
 
 Contacts.propTypes = {

@@ -23,15 +23,15 @@ const Search = () => (<>
                 <Container>
                   <Row>
                     <Col className={style.center}>
-                      <input placeholder={languagePack.place[langProps.language]} type={"text"}/>
+                      <input className={style.searchInput} placeholder={languagePack.place[langProps.language]} type={"text"}/>
                       <br/>
-                      <input placeholder={languagePack.band[langProps.language]} type={"text"}/>
+                      <input className={style.searchInput} placeholder={languagePack.band[langProps.language]} type={"text"}/>
                       <br/>
                     </Col>
                     <Col className={style.center}>
-                      <input type={"date"}/>
+                      <input className={style.searchInput} type={"date"}/>
                       <br/>
-                      <input placeholder={languagePack.ticketCounter[langProps.language]} type={"number"} min="1"/>
+                      <input className={style.searchInput} placeholder={languagePack.ticketCounter[langProps.language]} type={"number"} min="1"/>
                     </Col>
                   </Row>
                   <Row>

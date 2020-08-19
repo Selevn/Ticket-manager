@@ -36,7 +36,7 @@ const Search = () => (<>
                   </Row>
                   <Row>
                     <Col className={style.center}>
-                      <input value={languagePack.search[langProps.language]} type={"submit"}/>
+                      <input className={style.searchBut} value={languagePack.search[langProps.language]} type={"submit"}/>
                     </Col>
                   </Row>
                 </Container>

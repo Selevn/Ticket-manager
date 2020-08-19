@@ -9,4 +9,5 @@ import {Provider} from "react-redux";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const wrapper = document.getElementById("root");
-wrapper ? ReactDOM.render(<BrowserRouter><Provider state={state}><AppContainer getConcerts={getConcerts}/></Provider></BrowserRouter>, wrapper) : false;
+wrapper ? ReactDOM.render(<BrowserRouter><Provider state={state}><AppContainer
+    getConcerts={getConcerts}/></Provider></BrowserRouter>, wrapper) : false;

@@ -42,4 +42,4 @@ const actionGetById = (id) => (dispatch) => {
   })
 }
 
-export {getAllConcerts, actionGetAllConcertsSorted, actionGetThreeNearest, actionGetById}
+export {getAllConcerts, actionGetAllConcertsSorted, actionGetThreeNearest, actionGetById, actionPutConcerts}

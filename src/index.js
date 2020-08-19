@@ -4,11 +4,13 @@ import {BrowserRouter} from "react-router-dom";
 import {getConcerts} from "./js/db_imitate";
 import React from "react";
 
+import mainStore from "./js/store/concerts.store.js"
+
 import {Provider} from "react-redux";
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
 const wrapper = document.getElementById("root");
-wrapper ? ReactDOM.render(<BrowserRouter><Provider state={state}><AppContainer
+wrapper ? ReactDOM.render(<BrowserRouter><Provider state={mainStore}><AppContainer
     getConcerts={getConcerts}/></Provider></BrowserRouter>, wrapper) : false;

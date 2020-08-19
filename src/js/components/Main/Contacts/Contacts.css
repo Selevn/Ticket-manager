@@ -1,12 +1,14 @@
-tr, td{
-  padding:10px;
+tr, td {
+  padding: 10px;
 }
-td{vertical-align: top;
-font-size: 1.33rem;}
+
+td {
+  vertical-align: top;
+  font-size: 1.33rem;
+}
 
 
-table
-{
+table {
   margin-top: 2rem;
-  border:2px solid black;
+  border: 2px solid black;
 }

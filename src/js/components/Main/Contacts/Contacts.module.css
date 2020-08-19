@@ -1,18 +1,21 @@
-.headerCol{
+.headerCol {
   text-align: center;
   margin-top: 1rem;
 }
 
-.center{
+.center {
   text-align: center;
 
 }
-.w100{
-  width:100%;
+
+.w100 {
+  width: 100%;
 }
-.dateTr
-{
+
+.dateTr {
   text-align: right;
 }
-.newData
-{border-top:2px solid black}
+
+.newData {
+  border-top: 2px solid black
+}

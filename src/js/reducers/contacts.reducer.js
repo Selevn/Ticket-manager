@@ -6,7 +6,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   if (action.type == ACTION_PUT_CONTACTS) {
-    return {...state, contacts:action.contacts};
+    return {...state, contacts: action.contacts};
   } else
     return state;
 }

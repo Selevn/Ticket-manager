@@ -1,0 +1,18 @@
+.headerCol{
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.center{
+  text-align: center;
+
+}
+.w100{
+  width:100%;
+}
+.dateTr
+{
+  text-align: right;
+}
+.newData
+{border-top:2px solid black}

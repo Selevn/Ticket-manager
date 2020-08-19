@@ -1,6 +1,6 @@
 import Contacts from "./Contacts.jsx"
 import React from "react";
-import store from "../../../store/contacts.store.js"
+import contactsStore from "../../../store/contacts.store.js"
 
 import {actionGetAllContacts} from "../../../actions/contacts.actions.js"
 import {connect, Provider} from "react-redux";
@@ -21,7 +21,7 @@ const ContactsWrapper = connect(mapStateToProps, mapDispatchToProps)(Contacts)
 
 const ContactsContainer = () => {
   return (
-      <Provider store={store}>
+      <Provider store={contactsStore}>
         <ContactsWrapper/>
       </Provider>);
 }

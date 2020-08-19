@@ -1,0 +1,13 @@
+.headerCol {
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  text-align: center;
+}
+
+.searchCol {
+  border: 2px solid red;
+}
+
+.center {
+  text-align: center;
+}

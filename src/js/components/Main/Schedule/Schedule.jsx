@@ -19,18 +19,12 @@ const Schedule = ({concerts, getConcerts}) =>
                       <h1>{languageSrc.schedule[langProps.language]}</h1>
                       <table className={style.table}>
                         <thead>
-
-                        {/*<tr >
-                    {["_none", "band", "place", "date"].map((item, i) =>
-                        (<th className={`${style.tableTh} ${style.tableHeaderTr}`} >{languageSrc[item][langProps.language]}</th>)
-                    )}
-                  </tr>*/}
                         </thead>
                         <tbody>
                         {concerts.map((item) => {
                           let date = new Date(item.date);
 
-                          let YearRow = () => (
+                          const YearRow = () => (
                               <tr className={style.yearTr}>
                                 <td/>
                                 <td/>
@@ -38,7 +32,7 @@ const Schedule = ({concerts, getConcerts}) =>
                                 <td className={style.yearTd}>{date.getFullYear()}</td>
                               </tr>)
 
-                          let MonthRow = () => (
+                          const MonthRow = () => (
                               <tr className={style.monthTr}>
                                 <td className={style.monthTd}>{languageSrc.months[date.getMonth()][langProps.language]}</td>
                                 <td/>
@@ -48,7 +42,7 @@ const Schedule = ({concerts, getConcerts}) =>
                               </tr>
                           )
 
-                          let BaseRow = () => (
+                          const BaseRow = () => (
                               <tr key={item.id} className={style.baseRowTr}>
                                 <td className={style.tableTd}><img className={style.tableImage} src={item.imgSrc}/></td>
                                 <td className={style.tableTd}>{item.band}</td>
@@ -57,6 +51,28 @@ const Schedule = ({concerts, getConcerts}) =>
                                   {languageSrc.days[date.getDay()][langProps.language] + " " + String(date.getDate()).padStart(2, '')}
                                 </td>
                               </tr>)
+
+/*
+                          (years[date.getFullYear()]) ? {
+                          (years[date.getFullYear()][date.getMonth()]) ? {
+                            return(<BaseRow/>)
+                        }:
+                          {
+                            years[date.getFullYear()][date.getMonth()] = true;
+                            return (<>
+                              <MonthRow/>
+                              <BaseRow/>
+                            </>)
+                          }
+                        }:{
+                            years[date.getFullYear()] = [];
+                            years[date.getFullYear()][date.getMonth()] = true;
+                            return (<>
+                              <YearRow/>
+                              <MonthRow/>
+                              <BaseRow/>
+                            </>)
+                          }*/
 
                           if (years[date.getFullYear()]) {
                             if (years[date.getFullYear()][date.getMonth()]) {

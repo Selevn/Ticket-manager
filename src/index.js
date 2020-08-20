@@ -6,8 +6,10 @@ import React from "react";
 
 import {Provider} from "react-redux";
 
+import store from "./js/store/concerts.store.js"
+
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const wrapper = document.getElementById("root");
-wrapper ? ReactDOM.render(<BrowserRouter><Provider state={state}><AppContainer
+wrapper ? ReactDOM.render(<BrowserRouter><Provider store={store}><AppContainer
     getConcerts={getConcerts}/></Provider></BrowserRouter>, wrapper) : false;

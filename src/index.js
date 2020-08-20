@@ -14,7 +14,7 @@ import {Provider} from "react-redux";
 const wrapper = document.getElementById("root");
 wrapper ? ReactDOM.render(
     <BrowserRouter>
-      <Provider state={state}>
+      <Provider store={state}>
         <AppContainer getConcerts={getConcerts}/>
       </Provider>
     </BrowserRouter>, wrapper) : false;

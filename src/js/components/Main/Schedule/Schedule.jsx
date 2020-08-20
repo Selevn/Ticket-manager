@@ -6,12 +6,11 @@ import {Col, Container, Row} from "react-bootstrap";
 
 import style from "./Schedule.module.css";
 
-const Schedule = ({concerts, getConcerts}) =>
+const Schedule = ({concerts}) =>
     (
         <LanguageContext.Consumer>
           {langProps => {
             let years = {};
-            getConcerts()
             return (
                 <Container>
                   <Row className={style.headerRow}>
@@ -51,29 +50,6 @@ const Schedule = ({concerts, getConcerts}) =>
                                   {languageSrc.days[date.getDay()][langProps.language] + " " + String(date.getDate()).padStart(2, '')}
                                 </td>
                               </tr>)
-
-/*
-                          (years[date.getFullYear()]) ? {
-                          (years[date.getFullYear()][date.getMonth()]) ? {
-                            return(<BaseRow/>)
-                        }:
-                          {
-                            years[date.getFullYear()][date.getMonth()] = true;
-                            return (<>
-                              <MonthRow/>
-                              <BaseRow/>
-                            </>)
-                          }
-                        }:{
-                            years[date.getFullYear()] = [];
-                            years[date.getFullYear()][date.getMonth()] = true;
-                            return (<>
-                              <YearRow/>
-                              <MonthRow/>
-                              <BaseRow/>
-                            </>)
-                          }*/
-
                           if (years[date.getFullYear()]) {
                             if (years[date.getFullYear()][date.getMonth()]) {
                               return (<BaseRow/>)

@@ -4,7 +4,7 @@ import {Route, Switch, Redirect} from "react-router-dom";
 
 import HomeContainer from "../../Home/Home.container.jsx";
 import Search from "../../Search/Search.jsx";
-import ScheduleContainer from "../../Schedule/Schedule.container.jsx";
+import ScheduleContainer from "../../Schedule/Schedule.wrapper.jsx";
 import Contacts from "../../Contacts/Contacts.jsx";
 
 const Body = props => (

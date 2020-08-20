@@ -23,6 +23,20 @@ const HomeContainer = props => {
       [concerts]
   )
 
+  useEffect(
+      ()=>{
+        document.addEventListener("click",clickOutsideDetector)
+      }
+  )
+
+  function clickOutsideDetector(event){
+    if(!(event.target.tagName==="ul" || event.target.tagName==="a" || event.target.tagName==="input"))
+    {
+      setInputText("");
+      setHelpList([]);
+    }
+  }
+
 
   function findThreeNearest() {
     if (concerts.length !== 0) {
@@ -63,15 +77,7 @@ const HomeContainer = props => {
   );
 
 
-  const onFocusOut = () => {
-    setTimeout(
-        () => {
-          setInputText("");
-          setHelpList([]);
-        },
-        200)
 
-  }
 
 
   function onInputChange(event) {
@@ -80,8 +86,7 @@ const HomeContainer = props => {
   }
 
   return (
-      <Home searchText={inputText} onInputChange={onInputChange} concerts={helpList} upcomingConcerts={recent}
-            onFocusOut={onFocusOut}/>
+      <Home searchText={inputText} onInputChange={onInputChange} concerts={helpList} upcomingConcerts={recent} />
   )
 }
 
@@ -91,7 +96,6 @@ HomeContainer.propTypes = {
   onInputChange: PropTypes.func,
   getConcerts: PropTypes.func,
   recent: PropTypes.array,
-  onFocusOut: PropTypes.func,
 }
 
 

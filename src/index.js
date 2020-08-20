@@ -21,12 +21,12 @@ const mapDispatchToProps = dispatch => {
     }
   }
 }
-const WrappedComponent = connect(mapStateToProps, mapDispatchToProps)(AppContainer)
+const WrappedComponent = connect(mapStateToProps, mapDispatchToProps)(()=>(<AppContainer getConcerts={getConcerts}/>))
 
 const wrapper = document.getElementById("root");
 wrapper ? ReactDOM.render(
     <BrowserRouter>
-      <Provider state={mainStore}>
+      <Provider store={mainStore}>
         <WrappedComponent/>
       </Provider>
     </BrowserRouter>, wrapper) : false;

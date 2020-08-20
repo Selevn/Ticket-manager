@@ -13,7 +13,7 @@ import {Container, Row, Col} from "react-bootstrap";
 import PropTypes from "prop-types"
 
 
-const Home = ({concerts, onInputChange, upcomingConcerts, onFocusOut, searchText}) => (<div>
+const Home = ({concerts, onInputChange, upcomingConcerts, searchText}) => (<div>
   <LanguageContext.Consumer>
     {langProps => (
         <div>
@@ -30,7 +30,6 @@ const Home = ({concerts, onInputChange, upcomingConcerts, onFocusOut, searchText
                       type="text"
                       value={searchText}
                       onChange={onInputChange}
-                      onBlur={onFocusOut}
                   />
                   <input
                       className={style.searchBut}
@@ -63,7 +62,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, onFocusOut, searchText
                 {classNameDiv: "rightDiv"},
               ].map(
                   (item, index) =>
-                      (<Col sm={12} xs={12} md={12} lg={4} xl={4} key={upcomingConcerts[index].id}>
+                      (<Col sm={12} xs={12} md={12} lg={4} xl={4} key={upcomingConcerts.length>0?upcomingConcerts[index].id:index}>
                             <div className={style[item.classNameDiv]}>
                               <div className={style.frontImage}>
                                 <img className={style.centreImage}

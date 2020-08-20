@@ -76,11 +76,12 @@
   color: black;
 }
 
-.tipLink:hover {
-  text-decoration: none;
 
+.tipLi:hover .tipLink{
+  text-decoration: none;
   color: white;
 }
+
 
 .firstRow {
   margin-top: 3rem;

@@ -9,7 +9,7 @@ function ConcertContainer(props) {
 
   const globalId = useParams();
 
-  let [concert, setConcert] = useState({});
+  const [concert, setConcert] = useState({});
 
   useEffect(() => {
     props.getConcerts(getConcert);

@@ -12,5 +12,5 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
 const wrapper = document.getElementById("root");
-wrapper ? ReactDOM.render(<BrowserRouter><Provider state={mainStore}><AppContainer
-    getConcerts={getConcerts}/></Provider></BrowserRouter>, wrapper) : false;
+wrapper ? ReactDOM.render(<BrowserRouter><AppContainer
+    getConcerts={getConcerts}/></BrowserRouter>, wrapper) : false;

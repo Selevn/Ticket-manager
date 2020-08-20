@@ -13,7 +13,7 @@ import {Container, Row, Col} from "react-bootstrap";
 import PropTypes from "prop-types"
 
 
-const Home = ({concerts, onInputChange, recent, onFocusOut, searchText}) => (<div>
+const Home = ({concerts, onInputChange, upcomingConcerts, onFocusOut, searchText}) => (<div>
   <LanguageContext.Consumer>
     {langProps => (
         <div>
@@ -41,8 +41,8 @@ const Home = ({concerts, onInputChange, recent, onFocusOut, searchText}) => (<di
                 </form>
                 <div className={style.tip}>
                   <ul className={style.tipUl}>
-                    {concerts.map((item, index) =>
-                        <li className={style.tipLi} key={index}>
+                    {concerts.map((item) =>
+                        <li className={style.tipLi} key={item.id}>
                           <Link className={style.tipLink} to={"concert/" + item.id}>{item.band}</Link>
                         </li>)}
                   </ul>
@@ -63,22 +63,22 @@ const Home = ({concerts, onInputChange, recent, onFocusOut, searchText}) => (<di
                 {classNameDiv: "rightDiv"},
               ].map(
                   (item, index) =>
-                      (<Col sm={12} xs={12} md={12} lg={4} xl={4} key={index}>
+                      (<Col sm={12} xs={12} md={12} lg={4} xl={4} key={upcomingConcerts[index].id}>
                             <div className={style[item.classNameDiv]}>
                               <div className={style.frontImage}>
                                 <img className={style.centreImage}
-                                     src={recent.length !== 0 ? recent[index].imgSrc : "https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif"}/>
+                                     src={upcomingConcerts.length !== 0 ? upcomingConcerts[index].imgSrc : "https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif"}/>
                               </div>
                               <div className={style.backImage}>
                                 <div className={style.infoCol}>
                                   <span>{languageSrc.band[langProps.language]}: </span>
-                                  <b>{recent.length !== 0 && recent[index].band}</b>
+                                  <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].band}</b>
                                   <br/>
                                   <span>{languageSrc.place[langProps.language]}: </span>
-                                  <b>{recent.length !== 0 && recent[index].place}</b>
+                                  <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].place}</b>
                                   <br/>
                                   <span>{languageSrc.date[langProps.language]}: </span>
-                                  <b>{recent.length !== 0 && recent[index].date}</b>
+                                  <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].date}</b>
                                   <br/>
                                 </div>
                               </div>
@@ -98,7 +98,7 @@ Home.propTypes = {
   concerts: PropTypes.array,
   searchText: PropTypes.string,
   onInputChange: PropTypes.func,
-  recent: PropTypes.array,
+  upcomingConcerts: PropTypes.array,
   onFocusOut: PropTypes.func,
 }
 

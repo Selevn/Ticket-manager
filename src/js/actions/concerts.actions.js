@@ -21,9 +21,7 @@ const actionGetThreeNearest = () => (dispatch) => {
     getedConcerts = getedConcerts.sort((a, b) => (new Date(a.date) - new Date(b.date)))
     let outArr = [];
     if (getedConcerts.length > 2) {
-      outArr.push(getedConcerts[0])
-      outArr.push(getedConcerts[1])
-      outArr.push(getedConcerts[2])
+      outArr=[getedConcerts[0], getedConcerts[1], getedConcerts[2]]
     } else {
       getedConcerts.forEach((item) => {
         outArr.push(item)

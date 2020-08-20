@@ -80,7 +80,7 @@ const HomeContainer = props => {
   }
 
   return (
-      <Home searchText={inputText} onInputChange={onInputChange} concerts={helpList} recent={recent}
+      <Home searchText={inputText} onInputChange={onInputChange} concerts={helpList} upcomingConcerts={recent}
             onFocusOut={onFocusOut}/>
   )
 }

@@ -6,7 +6,15 @@ import React from "react";
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+import state from "./js/store/concerts.store.js"
+
 import "regenerator-runtime"
+import {Provider} from "react-redux";
 
 const wrapper = document.getElementById("root");
-wrapper ? ReactDOM.render(<BrowserRouter><AppContainer getConcerts={getConcerts}/></BrowserRouter>, wrapper) : false;
+wrapper ? ReactDOM.render(
+    <BrowserRouter>
+      <Provider state={state}>
+        <AppContainer getConcerts={getConcerts}/>
+      </Provider>
+    </BrowserRouter>, wrapper) : false;

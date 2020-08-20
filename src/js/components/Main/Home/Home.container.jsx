@@ -4,18 +4,17 @@ import PropTypes from "prop-types"
 import Home from './Home.jsx'
 
 
-const HomeContainer = props => {
+const HomeContainer = ({concerts, getConcerts}) => {
+
 
   const [inputText, setInputText] = useState("");
-  const [concerts, setConcerts] = useState([]);
   const [helpList, setHelpList] = useState([]);
   const [recent, setRecent] = useState([]);
 
   useEffect(
       () => {
-        props.getConcerts(setConcerts)
-      },
-      [props]
+        getConcerts()
+      }
   )
   useEffect(
       findThreeNearest
@@ -77,16 +76,17 @@ const HomeContainer = props => {
   );
 
 
-
-
-
   function onInputChange(event) {
     setInputText(event.target.value);
     setHelpList(similarConcerts(event.target.value));
   }
 
   return (
-      <Home searchText={inputText} onInputChange={onInputChange} concerts={helpList} upcomingConcerts={recent} />
+      <Home searchText={inputText}
+            onInputChange={onInputChange}
+            concerts={helpList}
+            upcomingConcerts={recent}
+      />
   )
 }
 

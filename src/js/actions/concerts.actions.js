@@ -1,17 +1,19 @@
-import {ACTION_GET_ALL_CONCERTS, ACTION_PUT_CONCERTS} from "../constants/concerts.constants"
+
+
 
 import {getConcerts} from "../db_imitate.js";
+import {ACTION_PUT_CONCERTS} from "../constants/concerts.constants.js"
+
+    const actionGetAllConcerts = () => (dispatch) => {
+  getConcerts((getedConcerts) => {
+    dispatch(actionPutConcerts(getedConcerts))
+  })
+}
 
 const actionPutConcerts = (concert) => ({
   type: ACTION_PUT_CONCERTS,
   concerts: concert,
 })
-
-const actionGetAllConcerts = () => (dispatch) => {
-  getConcerts((getedConcerts) => {
-    dispatch(actionPutConcerts(getedConcerts))
-  })
-}
 
 const actionGetAllConcertsSorted = () => (dispatch) => {
   getConcerts((getedConcerts) => {
@@ -20,7 +22,13 @@ const actionGetAllConcertsSorted = () => (dispatch) => {
   })
 }
 
-export {actionPutConcerts, actionGetAllConcerts, actionGetAllConcertsSorted}
+const actionGetById = (id) => (dispatch) => {
+  getConcerts((getedConcerts) => {
+    getedConcerts = getedConcerts.filter((a) => {
+      a.id === id
+    })
+    dispatch(actionPutConcerts(getedConcerts))
+  })
+}
 
-
-
+export {getAllConcerts, actionGetAllConcertsSorted, actionGetById, actionPutConcerts}

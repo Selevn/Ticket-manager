@@ -5,6 +5,7 @@ import {useParams} from "react-router";
 import Concert from "./Concert.jsx";
 
 
+
 const ConcertContainer = ({getConcerts, history}) => {
 
   const globalId = useParams();
@@ -35,6 +36,7 @@ const ConcertContainer = ({getConcerts, history}) => {
 
 ConcertContainer.propTypes = {
   getConcerts: PropTypes.func,
+  back: PropTypes.func,
   history: PropTypes.object,
 }
 export default withRouter(ConcertContainer);

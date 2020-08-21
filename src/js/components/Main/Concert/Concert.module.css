@@ -6,6 +6,7 @@
   box-shadow: 0px 0px 92px 8px rgba(0, 0, 0, 0.22);
 }
 
+
 .leftFloat {
   text-align: left;
 }
@@ -68,6 +69,7 @@
 
 .backButton:hover, .buyButton:hover {
 
+
   animation: button .1s linear forwards;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
@@ -109,4 +111,5 @@
 
   }
 }
+
 

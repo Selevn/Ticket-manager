@@ -3,8 +3,9 @@ import thunk from 'redux-thunk';
 
 import {composeWithDevTools} from 'redux-devtools-extension';
 
-import rootReducer from "../reducers/concerts.reduser.js"
+import rootReducer from "../reducers/concerts.reducer.js"
 
-const concertsStore = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+const mainStore = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+
 
 export default concertsStore;

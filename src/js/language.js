@@ -35,6 +35,16 @@ let languagePack =
             ru: "Eng",
             en: "Рус"
           },
+      type:
+          {
+            ru: "Введите",
+            en: "Type"
+          },
+      soon:
+          {
+            ru: "Скоро",
+            en: "Soon"
+          },
       ticketCounter:
           {
             ru: "Количество билетов",
@@ -50,11 +60,18 @@ let languagePack =
             ru: "Артист",
             en: "Band"
           },
+      date:
+          {
+            ru: "Дата",
+            en: "Date"
+          },
+
       place:
           {
             ru: "Место",
             en: "Place"
           },
+
       date:
           {
             ru: "Дата",

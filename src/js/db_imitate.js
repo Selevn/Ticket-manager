@@ -19,6 +19,7 @@ let Concerts = [
     id: 3,
     band: "Sum 41",
     place: "Dinamo",
+
     date: "2021-11-03",
     imgSrc: "https://upload.wikimedia.org/wikipedia/ru/thumb/3/39/Sum_41_order_in_decline.png/274px-Sum_41_order_in_decline.png"
   },
@@ -35,6 +36,7 @@ let Concerts = [
     place: "Dinamo",
     date: "2021-06-05",
     imgSrc: "https://avatars.yandex.net/get-music-content/3318009/545ed104.a.587142-5/m1000x1000"
+
   },
   {
     id: 6,
@@ -50,6 +52,7 @@ let Concerts = [
     date: "2021-03-16",
     imgSrc: "https://images-na.ssl-images-amazon.com/images/I/910h0v-R2jL._AC_SL1500_.jpg"
   },
+
 
 ]
 

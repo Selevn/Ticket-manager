@@ -131,8 +131,9 @@
 
 .backImage {
   padding-left: 2rem;
-  position: relative;
-  top: -300px;
+  position: absolute;
+  top: 0px;
+  height: 300px;
   width: 400px;
   backface-visibility: hidden;
   transform: rotateY(180deg);
@@ -169,4 +170,5 @@
   text-align: left;
   font-size: 1.6rem;
   padding-top: 4rem;
+  height:100%;
 }

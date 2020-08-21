@@ -13,15 +13,16 @@ const AppNavbar = () => {
   let locationPath = useLocation().pathname;
 
   return (
-      <div>
+      <div className="sticky-top">
         <LanguageContext.Consumer>
           {langProps => {
             return (
-                <Navbar bg="light" expand="lg" className={`justify-content-center /*${style.container}*/`}>
-                  <div style={{textAlign: "center"}}>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-                    <Navbar.Collapse id="basic-navbar-nav">
-                      <Nav defaultActiveKey={locationPath}>
+                <Navbar bg="light" expand="lg" className={`justify-content-center  /*${style.container}*/`}>
+                  <div style={{textAlign: "center", width: "100%"}}>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav"
+                                   className={`justify-content-center  /*${style.container}*/`}/>
+                    <Navbar.Collapse id="basic-navbar-nav" className={`justify-content-center  /*${style.container}*/`}>
+                      <Nav defaultActiveKey={locationPath} className={`justify-content-center  /*${style.container}*/`}>
                         <Nav.Item className={"h30"}>
                           <NavLink className={style.navbarLinks} to="/home"
                                    activeClassName={style.active}>{languageSrc.home[langProps.language]}</NavLink>
@@ -42,9 +43,14 @@ const AppNavbar = () => {
                           <NavLink className={style.navbarLinks}
                                    to="/login">Login</NavLink>
                         </Nav.Item>
+                        <div style={{textAlign: "center"}}>
+                          <button className={style.chLangButt}
+                                  onClick={langProps.toggleLanguage}>{languageSrc.langChange[langProps.language]}</button>
+                        </div>
                       </Nav>
                     </Navbar.Collapse>
                   </div>
+
                 </Navbar>)
           }
           }

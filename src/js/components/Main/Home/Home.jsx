@@ -97,7 +97,6 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText}) => {
                 )}
               </Row>
             </Container>
-
           </div>
       )}
     </LanguageContext.Consumer>

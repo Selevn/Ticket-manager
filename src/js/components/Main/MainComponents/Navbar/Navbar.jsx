@@ -44,7 +44,6 @@ const AppNavbar = () => {
                         </Nav.Item>
                       </Nav>
                     </Navbar.Collapse>
-                    <button onClick={langProps.toggleLanguage}>{languageSrc.langChange[langProps.language]}</button>
                   </div>
                 </Navbar>)
           }

@@ -24,11 +24,13 @@ const Home = props => {
                 </li>)}
               </ul>
             </div>
+
           </div>
-      )}
-    </LanguageContext.Consumer>
-  </div>)
-}
+        </div>
+    )}
+  </LanguageContext.Consumer>
+</div>)
+
 
 Home.propTypes = {
   concerts: PropTypes.array,

@@ -31,4 +31,4 @@ const actionGetById = (id) => (dispatch) => {
   })
 }
 
-export {getAllConcerts, actionGetAllConcertsSorted, actionGetById, actionPutConcerts}
+export {actionGetAllConcerts, actionGetAllConcertsSorted, actionGetById, actionPutConcerts}

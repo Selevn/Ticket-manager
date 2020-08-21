@@ -91,7 +91,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
 }
 
 HomeContainer.propTypes = {
-  concerts: PropTypes.func,
+  concerts: PropTypes.array,
   searchText: PropTypes.string,
   onInputChange: PropTypes.func,
   getConcerts: PropTypes.func,

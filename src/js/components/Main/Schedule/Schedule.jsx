@@ -5,6 +5,7 @@ import {LanguageContext} from "../../Contexts/LanguageContext";
 import {Col, Container, Row} from "react-bootstrap";
 
 import style from "./Schedule.module.css";
+import {Link} from "react-router-dom";
 
 const Schedule = ({concerts}) => (
     <LanguageContext.Consumer>
@@ -39,12 +40,14 @@ const Schedule = ({concerts}) => (
 
         const BaseRow = ({item}) => (
             <tr key={item.id} className={style.baseRowTr}>
-              <td className={style.tableTd}><img className={style.tableImage} src={item.imgSrc}/></td>
-              <td className={style.tableTd}>{item.band}</td>
-              <td className={style.tableTd}>{item.place}</td>
-              <td className={style.tableTd}>
-                {languageSrc.days[new Date(item.date).getDay()][langProps.language] + " " + String(new Date(item.date).getDate()).padStart(2, '')}
-              </td>
+              <Link to={"/concert/" + item.id}>
+                <td className={style.tableTd}><img className={style.tableImage} src={item.imgSrc}/></td>
+                <td className={style.tableTd}>{item.band}</td>
+                <td className={style.tableTd}>{item.place}</td>
+                <td className={style.tableTd}>
+                  {languageSrc.days[new Date(item.date).getDay()][langProps.language] + " " + String(new Date(item.date).getDate()).padStart(2, '')}
+                </td>
+              </Link>
             </tr>)
         BaseRow.propTypes = {
           item: PropTypes.object

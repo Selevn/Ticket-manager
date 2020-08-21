@@ -71,7 +71,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText}) => {
                               key={upcomingConcerts.length > 0 ? upcomingConcerts[index].id : index}>
                               <div className={style[item.classNameDiv]}>
                                 <div className={style.frontImage}>
-                                  <Link to={"concert/" + item.id}>
+                                  <Link to={"concert/" +  (upcomingConcerts.length > 0 ? upcomingConcerts[index].id:index)}>
                                     <img className={style.centreImage}
                                          src={upcomingConcerts.length !== 0 ? upcomingConcerts[index].imgSrc : "https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif"}/>
                                   </Link>

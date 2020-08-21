@@ -8,14 +8,21 @@
 
 }
 
-.w100 {
-  width: 100%;
-}
 
-.dateTr {
+.dateTr, .td{
   text-align: right;
+  padding: 10px;
+  vertical-align: top;
+  font-size: 1.33rem;
 }
 
-.newData {
-  border-top: 2px solid black
+.newData , .tr{
+  border-top: 2px solid black;
+  padding: 10px;
+}
+
+.table {
+  width: 100%;
+  margin-top: 2rem;
+  border: 2px solid black;
 }

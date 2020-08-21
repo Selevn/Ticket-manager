@@ -43,10 +43,6 @@ const AppNavbar = () => {
                           <NavLink className={style.navbarLinks}
                                    to="/login">Login</NavLink>
                         </Nav.Item>
-                        <div style={{textAlign: "center"}}>
-                          <button className={style.chLangButt}
-                                  onClick={langProps.toggleLanguage}>{languageSrc.langChange[langProps.language]}</button>
-                        </div>
                       </Nav>
                     </Navbar.Collapse>
                   </div>

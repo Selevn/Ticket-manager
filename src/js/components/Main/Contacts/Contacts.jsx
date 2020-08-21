@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from "prop-types"
 import {Col, Container, Row} from "react-bootstrap";
 
-import "./Contacts.css"
 
 import languageSrc from "../../../language.js"
 import {LanguageContext} from "../../Contexts/LanguageContext.js"
@@ -15,19 +14,19 @@ const Contacts = ({getContacts, contacts}) => {
   let _contacts = Object.entries(contacts);
 
   const SoloLine = (data) => (
-      <tr>
+      <tr className={style.tr}>
         <td className={style.dateTr}>{data}</td>
       </tr>
   )
   const RowInitLine = (name, length, data) => (
       <tr className={style.newData}>
-        <td rowSpan={length}>{name}</td>
+        <td rowSpan={length} className={style.td}>{name}</td>
         <td className={style.dateTr}>{data}</td>
       </tr>
   )
   const DefaultLine = (name, data) => (
       <tr className={style.newData}>
-        <td>{name}</td>
+        <td className={style.td}>{name}</td>
         <td className={style.dateTr}>{data}</td>
       </tr>
   )
@@ -45,7 +44,7 @@ const Contacts = ({getContacts, contacts}) => {
                 <Row>
                   <Col sm={12} xs={12} md={2} lg={3} xl={3}/>
                   <Col sm={12} xs={12} md={8} lg={6} xl={6} className={style.center}>
-                    <table className={style.w100}>
+                    <table className={style.table}>
                       <thead>
                       </thead>
                       <tbody>

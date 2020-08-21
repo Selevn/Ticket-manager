@@ -9,14 +9,18 @@
 }
 
 
-.dateTr, .td{
+.dateTr, .td {
   text-align: right;
   padding: 10px;
   vertical-align: top;
   font-size: 1.33rem;
 }
 
-.newData , .tr{
+.td {
+  text-align: left
+}
+
+.newData {
   border-top: 2px solid black;
   padding: 10px;
 }

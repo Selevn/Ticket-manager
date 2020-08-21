@@ -14,7 +14,7 @@ const Contacts = ({getContacts, contacts}) => {
   let _contacts = Object.entries(contacts);
 
   const SoloLine = (data) => (
-      <tr className={style.tr}>
+      <tr>
         <td className={style.dateTr}>{data}</td>
       </tr>
   )

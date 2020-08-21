@@ -12,7 +12,7 @@ const Body = props => (
 
     <>
       <Switch>
-        <Route exact path='/home' component={() => <HomeContainer />}/>{/*getConcerts={props.getConcerts}*/}
+        <Route exact path='/home' component={() => <HomeContainer />}/>
         <Route exact path='/search' component={SearchContainer}/>
         <Route exact path='/schedule' component={() => (<ScheduleContainer getConcerts={props.getConcerts}/>)}/>
         <Route exact path='/contacts' component={ContactsContainer}/>

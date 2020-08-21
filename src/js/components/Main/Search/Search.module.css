@@ -22,6 +22,7 @@
   background-color: white;
   border-radius: 0;
   outline: none;
+  margin-bottom: 1.77rem;
 }
 
 .searchInput {
@@ -32,7 +33,7 @@
 
 }
 
-.searchBut:hover {
+.searchBut:hover, .searchBut:focus {
 
   animation: leftToRight .1s linear forwards;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);

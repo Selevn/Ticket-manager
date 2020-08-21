@@ -4,7 +4,6 @@ import {LanguageContext} from "../../Contexts/LanguageContext.js"
 import languagePack from "../../../language.js";
 import {Col, Container, Row} from "react-bootstrap";
 
-import "./Search.css"
 import style from "./Search.module.css"
 
 const Search = () => (<>

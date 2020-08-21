@@ -71,12 +71,6 @@ let languagePack =
             ru: "Место",
             en: "Place"
           },
-
-      date:
-          {
-            ru: "Дата",
-            en: "Date"
-          },
       months: [
         {
           ru: "Январь",
@@ -157,7 +151,23 @@ let languagePack =
           en: "Sunday",
         },
 
-      ]
+      ],
+      back:
+          {
+            ru: "Назад",
+            en: "Back",
+          },
+      buyTicket:
+          {
+            ru: "Купить билет",
+            en: "Buy ticket",
+          },
+      ticket:
+          {
+            ru: "Билет",
+            en: "Ticket",
+          },
+
 
     }
 

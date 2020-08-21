@@ -12,12 +12,8 @@ import {Container, Row, Col} from "react-bootstrap";
 
 import PropTypes from "prop-types"
 
-const Home = ({concerts, onInputChange, upcomingConcerts, searchText}) => {
+const Home = ({concerts, onInputChange, upcomingConcerts, searchText,onSearch}) => {
 
-  console.log(concerts, "concerts")
-  console.log(onInputChange, "onInputChange")
-  console.log(upcomingConcerts, "upcomingConcerts")
-  console.log(searchText, "searchText")
   return (<div>
     <LanguageContext.Consumer>
       {langProps => (
@@ -39,8 +35,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText}) => {
                     <input
                         className={style.searchBut}
                         type="button"
-                        onClick={() => {
-                        }}
+                        onClick={onSearch}
                         value={languageSrc.search[langProps.language]}/>
                   </form>
                   <div className={style.tip}>
@@ -66,34 +61,43 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText}) => {
                   {classNameDiv: "centreDiv"},
                   {classNameDiv: "rightDiv"},
                 ].map(
-                    (item, index) =>
-                        (<Col sm={12} xs={12} md={12} lg={4} xl={4}
-                              key={upcomingConcerts.length > 0 ? upcomingConcerts[index].id : index}>
-                              <div className={style[item.classNameDiv]}>
-                                <div className={style.frontImage}>
-                                  <Link to={"concert/" +  (upcomingConcerts.length > 0 ? upcomingConcerts[index].id:index)}>
-                                    <img className={style.centreImage}
-                                         src={upcomingConcerts.length !== 0 ? upcomingConcerts[index].imgSrc : "https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif"}/>
-                                  </Link>
-                                </div>
-                                <div className={style.backImage}>
-                                  <Link to={"concert/" + (upcomingConcerts.length !== 0 &&   upcomingConcerts[index].id)}>
-                                    <div className={style.infoCol}>
-                                      <span>{languageSrc.band[langProps.language]}: </span>
-                                      <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].band}</b>
-                                      <br/>
-                                      <span>{languageSrc.place[langProps.language]}: </span>
-                                      <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].place}</b>
-                                      <br/>
-                                      <span>{languageSrc.date[langProps.language]}: </span>
-                                      <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].date}</b>
-                                      <br/>
-                                    </div>
-                                  </Link>
-                                </div>
+                    (item, index) => {
+                      let day, month, year;
+                      if (upcomingConcerts.length > 0) {
+                        day = new Date(upcomingConcerts[index].date).getDate() + 1;
+                        month = languageSrc.months[new Date(upcomingConcerts[index].date).getMonth()][langProps.language];
+                        year = new Date(upcomingConcerts[index].date).getFullYear();
+                      }
+
+                      return (<Col sm={12} xs={12} md={12} lg={4} xl={4}
+                                   key={upcomingConcerts.length > 0 ? upcomingConcerts[index].id : index}>
+                            <div className={style[item.classNameDiv]}>
+                              <div className={style.frontImage}>
+                                <Link
+                                    to={"concert/" + (upcomingConcerts.length > 0 ? upcomingConcerts[index].id : index)}>
+                                  <img className={style.centreImage}
+                                       src={upcomingConcerts.length !== 0 ? upcomingConcerts[index].imgSrc : "https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif"}/>
+                                </Link>
                               </div>
-                            </Col>
-                        )
+                              <div className={style.backImage}>
+                                <Link to={"concert/" + (upcomingConcerts.length !== 0 && upcomingConcerts[index].id)}>
+                                  <div className={style.infoCol}>
+                                    <span>{languageSrc.band[langProps.language]}: </span>
+                                    <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].band}</b>
+                                    <br/>
+                                    <span>{languageSrc.place[langProps.language]}: </span>
+                                    <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].place}</b>
+                                    <br/>
+                                    <span>{languageSrc.date[langProps.language]}: </span>
+                                    <b>{`${day} ${month} ${year}`}</b>
+                                    <br/>
+                                  </div>
+                                </Link>
+                              </div>
+                            </div>
+                          </Col>
+                      )
+                    }
                 )}
               </Row>
             </Container>
@@ -110,6 +114,7 @@ Home.propTypes = {
   onInputChange: PropTypes.func,
   upcomingConcerts: PropTypes.array,
   onFocusOut: PropTypes.func,
+  onSearch: PropTypes.func,
 }
 
 export default Home;

@@ -80,12 +80,15 @@ const HomeContainer = ({concerts, getConcerts}) => {
     setInputText(event.target.value);
     setHelpList(similarConcerts(event.target.value));
   }
-
+  function onSearch() {
+    alert("search")
+  }
   return (
       <Home searchText={inputText}
             onInputChange={onInputChange}
             concerts={helpList}
             upcomingConcerts={recent}
+            onSearch={onSearch}
       />
   )
 }

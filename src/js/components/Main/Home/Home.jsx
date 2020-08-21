@@ -15,11 +15,11 @@ import PropTypes from "prop-types"
 
 const Home = ({concerts, onInputChange, upcomingConcerts, searchText}) => {
 
-  console.log(concerts,"concerts")
-  console.log(onInputChange,"onInputChange")
-  console.log(upcomingConcerts,"upcomingConcerts")
-  console.log(searchText,"searchText")
-  return(<div>
+  console.log(concerts, "concerts")
+  console.log(onInputChange, "onInputChange")
+  console.log(upcomingConcerts, "upcomingConcerts")
+  console.log(searchText, "searchText")
+  return (<div>
     <LanguageContext.Consumer>
       {langProps => (
           <div>
@@ -72,21 +72,25 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText}) => {
                               key={upcomingConcerts.length > 0 ? upcomingConcerts[index].id : index}>
                               <div className={style[item.classNameDiv]}>
                                 <div className={style.frontImage}>
-                                  <img className={style.centreImage}
-                                       src={upcomingConcerts.length !== 0 ? upcomingConcerts[index].imgSrc : "https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif"}/>
+                                  <Link to={"concert/" + item.id}>
+                                    <img className={style.centreImage}
+                                         src={upcomingConcerts.length !== 0 ? upcomingConcerts[index].imgSrc : "https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif"}/>
+                                  </Link>
                                 </div>
                                 <div className={style.backImage}>
-                                  <div className={style.infoCol}>
-                                    <span>{languageSrc.band[langProps.language]}: </span>
-                                    <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].band}</b>
-                                    <br/>
-                                    <span>{languageSrc.place[langProps.language]}: </span>
-                                    <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].place}</b>
-                                    <br/>
-                                    <span>{languageSrc.date[langProps.language]}: </span>
-                                    <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].date}</b>
-                                    <br/>
-                                  </div>
+                                  <Link to={"concert/" + (upcomingConcerts.length !== 0 &&   upcomingConcerts[index].id)}>
+                                    <div className={style.infoCol}>
+                                      <span>{languageSrc.band[langProps.language]}: </span>
+                                      <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].band}</b>
+                                      <br/>
+                                      <span>{languageSrc.place[langProps.language]}: </span>
+                                      <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].place}</b>
+                                      <br/>
+                                      <span>{languageSrc.date[langProps.language]}: </span>
+                                      <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].date}</b>
+                                      <br/>
+                                    </div>
+                                  </Link>
                                 </div>
                               </div>
                             </Col>

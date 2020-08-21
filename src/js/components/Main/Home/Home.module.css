@@ -23,13 +23,14 @@
   padding-bottom: .4rem;
 }
 
-.tipLi:hover {
-  /*background-color: #cecece;*/
+.tipLi:hover, .tipLi:hover .tipLink {
   color: white !important;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   animation: leftToRight .1s linear forwards;
 
 }
+
+
 
 @keyframes leftToRight {
   0% {

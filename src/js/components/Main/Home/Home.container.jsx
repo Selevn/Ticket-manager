@@ -83,12 +83,18 @@ const HomeContainer = ({concerts, getConcerts}) => {
   function onSearch() {
     alert("search")
   }
+
+  function clearList(){
+    setInputText("");
+    setHelpList([]);
+  }
   return (
       <Home searchText={inputText}
             onInputChange={onInputChange}
             concerts={helpList}
             upcomingConcerts={recent}
             onSearch={onSearch}
+            clearList={clearList}
       />
   )
 }

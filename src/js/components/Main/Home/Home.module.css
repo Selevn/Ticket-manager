@@ -23,7 +23,7 @@
   padding-bottom: .4rem;
 }
 
-.tipLi:hover, .tipLi:hover .tipLink,.tipLi:focus, .tipLi:focus .tipLink {
+.tipLi:hover, .tipLi:hover .tipLink, .tipLi:focus, .tipLi:focus .tipLink {
   color: white !important;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   animation: leftToRight .1s linear forwards;

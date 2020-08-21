@@ -1,0 +1,17 @@
+li {
+  list-style-type: none; /* Убираем маркеры */
+}
+
+ul {
+  padding-left: 0;
+}
+
+.disabled {
+  display: none;
+}
+
+
+a{
+  text-decoration: none !important;
+  color: inherit !important;
+}

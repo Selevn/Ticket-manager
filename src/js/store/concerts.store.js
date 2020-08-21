@@ -7,4 +7,5 @@ import rootReducer from "../reducers/concerts.reducer.js"
 
 const mainStore = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
-export default mainStore;
+
+export default concertsStore;

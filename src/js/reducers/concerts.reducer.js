@@ -15,18 +15,13 @@ const getConcertsFromDb = () => dispatch => {
 const concertReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTION_GET_ALL_CONCERTS: {
-      console.log("in actionGetAllConcerts - switch")
       state.dispatch(getConcertsFromDb());
       break;
     }
     case ACTION_PUT_CONCERTS: {
-      console.log("in actionPutConcerts - switch")
-      console.log("state is ");
-      console.log(state);
       return ({...state, concertList: action.concerts})
     }
     default: {
-      console.log("in default - switch")
       return state;
     }
   }

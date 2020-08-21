@@ -38,7 +38,6 @@ const HomeContainer = props => {
   }
 
   return (
-
       <Home searchText={inputText} onInputChange={onInputChange} concerts={helpList}/>
   )
 }

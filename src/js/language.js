@@ -18,7 +18,7 @@ let languagePack =
       contacts:
           {
             ru: "Контакты",
-            en: "Сontacs"
+            en: "Сontacts"
           },
       login:
           {
@@ -29,6 +29,16 @@ let languagePack =
           {
             ru: "Сменить язык",
             en: "Change language"
+          },
+      lang:
+          {
+            ru: "Eng",
+            en: "Рус"
+          },
+      ticketCounter:
+          {
+            ru: "Количество билетов",
+            en: "Number of tickets"
           },
       _none:
           {

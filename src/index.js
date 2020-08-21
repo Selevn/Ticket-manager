@@ -4,6 +4,8 @@ import {BrowserRouter} from "react-router-dom";
 import {getConcerts} from "./js/db_imitate";
 import React from "react";
 
+import {Provider} from "react-redux";
+
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import state from "./js/store/concerts.store.js"

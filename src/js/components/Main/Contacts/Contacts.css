@@ -1,0 +1,14 @@
+tr, td {
+  padding: 10px;
+}
+
+td {
+  vertical-align: top;
+  font-size: 1.33rem;
+}
+
+
+table {
+  margin-top: 2rem;
+  border: 2px solid black;
+}

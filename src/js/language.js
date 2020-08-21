@@ -33,8 +33,34 @@ let languagePack =
       lang:
           {
             ru: "Eng",
-            en: "Rus"
+            en: "Рус"
           },
+      ticketCounter:
+          {
+            ru: "Количество билетов",
+            en: "Number of tickets"
+          },
+      _none:
+          {
+            ru: "",
+            en: ""
+          },
+      band:
+          {
+            ru: "Артист",
+            en: "Band"
+          },
+      place:
+          {
+            ru: "Место",
+            en: "Place"
+          },
+      date:
+          {
+            ru: "Дата",
+            en: "Date"
+          },
+
 
     }
 

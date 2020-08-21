@@ -11,6 +11,10 @@ import {connect, Provider} from "react-redux";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {actionGetAllConcertsSorted} from "./js/actions/concerts.actions.js";
 
+import state from "./js/store/concerts.store.js"
+
+import "regenerator-runtime"
+
 const wrapper = document.getElementById("root");
 wrapper ? ReactDOM.render(
     <BrowserRouter>

@@ -1,23 +1,26 @@
+import React from "react";
+
 let Concerts = [
   {
     id: 1,
     band: "Green day",
     place: "Dinamo",
     date: "2020-09-21",
-    imgSrc: "https://lastfm.freetls.fastly.net/i/u/ar0/d5b5e314af7c4124943582fe3a595543.jpg"
+    imgSrc: "https://images-na.ssl-images-amazon.com/images/I/61HZsw4F5VL._SL1425_.jpg"
   },
   {
     id: 2,
     band: "Awolnation",
     place: "Chizhovka",
-    date: "2020-08-22",
+    date: "2020-09-22",
     imgSrc: "https://lastfm.freetls.fastly.net/i/u/500x500/db98a3f967bd4b6b9dc86251801cce60.jpg"
   },
   {
     id: 3,
     band: "Sum 41",
     place: "Dinamo",
-    date: "2021-12-03",
+
+    date: "2021-11-03",
     imgSrc: "https://upload.wikimedia.org/wikipedia/ru/thumb/3/39/Sum_41_order_in_decline.png/274px-Sum_41_order_in_decline.png"
   },
   {
@@ -33,6 +36,7 @@ let Concerts = [
     place: "Dinamo",
     date: "2021-06-05",
     imgSrc: "https://avatars.yandex.net/get-music-content/3318009/545ed104.a.587142-5/m1000x1000"
+
   },
   {
     id: 6,
@@ -49,9 +53,23 @@ let Concerts = [
     imgSrc: "https://images-na.ssl-images-amazon.com/images/I/910h0v-R2jL._AC_SL1500_.jpg"
   },
 
+
 ]
+
+let Contacts = {
+  phone: ["+375295295862", "+375295295863", "+375295295864"],
+  email: "ivan.skorodumov.21@gmail.com",
+  skype: "live:smthHereLoremIpsum",
+  vk: "vk.com/id?selevn"
+}
 
 export function getConcerts(callback) {
   //imitate database request
   setTimeout(() => (callback(Concerts), 50));
 }
+
+export function getContacts(callback) {
+  //imitate database request
+  setTimeout(() => (callback(Contacts), 50));
+}
+

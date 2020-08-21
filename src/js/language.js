@@ -18,7 +18,7 @@ let languagePack =
       contacts:
           {
             ru: "Контакты",
-            en: "Сontacs"
+            en: "Сontacts"
           },
       login:
           {
@@ -33,7 +33,7 @@ let languagePack =
       lang:
           {
             ru: "Eng",
-            en: "Rus"
+            en: "Рус"
           },
       type:
           {
@@ -45,6 +45,16 @@ let languagePack =
             ru: "Скоро",
             en: "Soon"
           },
+      ticketCounter:
+          {
+            ru: "Количество билетов",
+            en: "Number of tickets"
+          },
+      _none:
+          {
+            ru: "",
+            en: ""
+          },
       band:
           {
             ru: "Артист",
@@ -55,12 +65,99 @@ let languagePack =
             ru: "Дата",
             en: "Date"
           },
+
       place:
           {
             ru: "Место",
             en: "Place"
           },
 
+      date:
+          {
+            ru: "Дата",
+            en: "Date"
+          },
+      months: [
+        {
+          ru: "Январь",
+          en: "January"
+        },
+        {
+          ru: "Февраль",
+          en: "February"
+        },
+        {
+          ru: "Март",
+          en: "March"
+        },
+        {
+          ru: "Апрель",
+          en: "April"
+        },
+        {
+          ru: "Май",
+          en: "May"
+        },
+        {
+          ru: "Июнь",
+          en: "June"
+        },
+        {
+          ru: "Июль",
+          en: "July"
+        },
+        {
+          ru: "Август",
+          en: "August"
+        },
+        {
+          ru: "Сентябрь",
+          en: "September"
+        },
+        {
+          ru: "Октябрь",
+          en: "October"
+        },
+        {
+          ru: "Ноябрь",
+          en: "November"
+        },
+        {
+          ru: "Декабрь",
+          en: "December"
+        }
+      ],
+      days: [
+        {
+          ru: "Понедельник",
+          en: "Monday",
+        },
+        {
+          ru: "Вторник",
+          en: "Tuesday",
+        },
+        {
+          ru: "Среда",
+          en: "Wednesday",
+        },
+        {
+          ru: "Четверг",
+          en: "Thursday",
+        },
+        {
+          ru: "Пятница",
+          en: "Friday",
+        },
+        {
+          ru: "Суббота",
+          en: "Saturday",
+        },
+        {
+          ru: "Воскресенье",
+          en: "Sunday",
+        },
+
+      ]
 
     }
 

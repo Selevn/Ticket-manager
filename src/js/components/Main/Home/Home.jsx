@@ -12,7 +12,6 @@ import {Container, Row, Col} from "react-bootstrap";
 
 import PropTypes from "prop-types"
 
-
 const Home = ({concerts, onInputChange, upcomingConcerts, searchText}) => {
 
   console.log(concerts, "concerts")
@@ -98,6 +97,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText}) => {
                 )}
               </Row>
             </Container>
+
           </div>
       )}
     </LanguageContext.Consumer>

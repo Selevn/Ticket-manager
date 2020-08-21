@@ -1,33 +1,24 @@
-import {ACTION_PUT_CONCERTS} from "../constants/concerts.constants.js"
+
+
+
 import {getConcerts} from "../db_imitate.js";
+import {ACTION_PUT_CONCERTS} from "../constants/concerts.constants.js"
 
-const actionPutConcerts = (concert) => ({type: ACTION_PUT_CONCERTS, concerts: concert,})
-
-const getAllConcerts = () => (dispatch) => {
-  getConcerts((data) => {
-    dispatch(actionPutConcerts(data))
+    const actionGetAllConcerts = () => (dispatch) => {
+  getConcerts((getedConcerts) => {
+    dispatch(actionPutConcerts(getedConcerts))
   })
 }
+
+const actionPutConcerts = (concert) => ({
+  type: ACTION_PUT_CONCERTS,
+  concerts: concert,
+})
 
 const actionGetAllConcertsSorted = () => (dispatch) => {
   getConcerts((getedConcerts) => {
     getedConcerts = getedConcerts.sort((a, b) => (new Date(a.date) - new Date(b.date)))
     dispatch(actionPutConcerts(getedConcerts))
-  })
-}
-
-const actionGetThreeNearest = () => (dispatch) => {
-  getConcerts((getedConcerts) => {
-    getedConcerts = getedConcerts.sort((a, b) => (new Date(a.date) - new Date(b.date)))
-    let outArr = [];
-    if (getedConcerts.length > 2) {
-      outArr=[getedConcerts[0], getedConcerts[1], getedConcerts[2]]
-    } else {
-      getedConcerts.forEach((item) => {
-        outArr.push(item)
-      })
-    }
-    dispatch(actionPutConcerts(outArr))
   })
 }
 
@@ -40,4 +31,4 @@ const actionGetById = (id) => (dispatch) => {
   })
 }
 
-export {getAllConcerts, actionGetAllConcertsSorted, actionGetThreeNearest, actionGetById, actionPutConcerts}
+export {getAllConcerts, actionGetAllConcertsSorted, actionGetById, actionPutConcerts}

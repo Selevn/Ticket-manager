@@ -167,6 +167,17 @@ let languagePack =
             ru: "Билет",
             en: "Ticket",
           },
+      concerts:
+          {
+            ru: "Концерты",
+            en: "Ticket",
+          },
+      seeAlso:
+          {
+            ru: "Смотри также",
+            en: "See also",
+          },
+
 
 
     }

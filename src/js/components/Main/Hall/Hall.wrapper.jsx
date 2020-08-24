@@ -1,16 +1,17 @@
-import {actionGetAllConcertsSorted, actionGetByHall} from "../../../actions/concerts.actions.js";
 import {connect} from "react-redux";
 
-import container from "./Home.container.jsx"
+import container from "./Hall.container.jsx"
+import {actionGetByHall} from "../../../actions/concerts.actions.js";
 import {actionGetAllHalls} from "../../../actions/halls.actions.js";
 
 const mapStateToProps = (state) => {
   return {concerts: state.concertList, halls:state.hallList}
 }
+
 const mapDispatchToProps = dispatch => {
   return {
-    getConcerts: () => {
-      dispatch(actionGetAllConcertsSorted())
+    getConcerts: (hall) => {
+      dispatch(actionGetByHall(hall))
     },
     getHalls: () => {
       dispatch(actionGetAllHalls())

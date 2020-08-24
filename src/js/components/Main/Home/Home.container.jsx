@@ -17,12 +17,12 @@ const HomeContainer = ({concerts, getConcerts, halls, getHalls}) => {
   useEffect(
       () => {
         getConcerts()
-      }
+      },[concerts]
   )
   useEffect(
       () => {
         getHalls()
-      }
+      },[halls]
   )
 
   useEffect(
@@ -76,7 +76,7 @@ const HomeContainer = ({concerts, getConcerts, halls, getHalls}) => {
               []
         } else {
           return val ?
-              concerts.filter((i) => i.band.toUpperCase().startsWith(val.toUpperCase())).map((item)=>({...item, type:"concert"})):
+              concerts.filter((i) => i.band.toUpperCase().startsWith(val.toUpperCase())).map((item)=>({...item, type:"concert"})) :
               []
         }
       },
@@ -109,12 +109,12 @@ const HomeContainer = ({concerts, getConcerts, halls, getHalls}) => {
   function onSearch() {
 
     if (helpList[0]) {
-      history.push('/concert/'+helpList[0].id)
+      history.push('/'+helpList[0].type+'/'+helpList[0].id)
     }
   }
   function keyPress(e) {
     if(e.keyCode === 13 && helpList[0]){
-      history.push('/concert/'+helpList[0].id)
+      history.push('/'+helpList[0].type+'/'+helpList[0].id)
     }
   }
 

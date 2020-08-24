@@ -1,6 +1,6 @@
 import {ACTION_PUT_HALLS} from "../constants/halls.constants.js";
 
-import {getHalls} from "../db_imitate.js";
+import {getHalls, getConcerts} from "../db_imitate.js";
 
 export const getHallsFromDb = () => dispatch => {
   getHalls((halls) => {
@@ -9,10 +9,11 @@ export const getHallsFromDb = () => dispatch => {
 }
 
 export const actionGetAllHalls = () => (dispatch) => {
-  getHalls((getedConcerts) => {
-    dispatch(actionPutHalls(getedConcerts))
+  getHalls((getedHalls) => {
+    dispatch(actionPutHalls(getedHalls))
   })
 }
+
 
 export const actionPutHalls = (hall) => ({
   type: ACTION_PUT_HALLS,

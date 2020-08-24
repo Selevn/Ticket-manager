@@ -12,8 +12,13 @@ import {Container, Row, Col} from "react-bootstrap";
 
 import PropTypes from "prop-types"
 
+<<<<<<< HEAD
+const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch,liRef,onListNavigation,inputRef}) => {
+  console.log("render home component")
+=======
 const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch,liRef}) => {
 
+>>>>>>> 90f8302... started adding ref
   return (<div>
     <LanguageContext.Consumer>
       {langProps => (
@@ -40,10 +45,17 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                         {languageSrc.search[langProps.language]}</button>
                   </form>
                   <div className={style.tip}>
+<<<<<<< HEAD
+                    <ul className={style.tipUl} onKeyDown={onListNavigation}>
+                      {concerts.map((item, index) =>
+                          <li ref={el => liRef.current[index] = el} className={style.tipLi} key={item.id}  onFocus={()=>{console.log("focused")}}>
+                            <Link  className={style.tipLink} to={"concert/" + item.id}>{item.band}</Link>
+=======
                     <ul className={style.tipUl}>
                       {concerts.map((item, index) =>
                           <li className={style.tipLi} key={item.id} ref={el => liRef.current[index] = el} onFocus={()=>{console.log("focused")}}>
                             <Link className={style.tipLink} to={"concert/" + item.id}>{item.band}</Link>
+>>>>>>> 90f8302... started adding ref
                           </li>)}
                     </ul>
                   </div>

@@ -9,7 +9,11 @@ import languagePack from "../../language.js";
 const AdminLogin = (props) => (
     <>
       <LanguageContext.Consumer>
+<<<<<<< HEAD
         {langProps => (
+=======
+        {langProps=>(
+>>>>>>> c792f03... login+admin page start layout
             <Container className={style.loginContainer}>
               <Row>
                 <Col xs={12} sm={12} md={3} lg={3} xl={4}/>
@@ -17,11 +21,19 @@ const AdminLogin = (props) => (
                   <h3>{languagePack.login[langProps.language]}</h3>
                   <form>
                     <input
+<<<<<<< HEAD
                         type={"text"}
                         placeholder={"Email"}
                         className={style.formInput}
                         value={props.email}
                         onChange={props.onMailChange}/>
+=======
+                           type={"text"}
+                           placeholder={"Email"}
+                           className={style.formInput}
+                           value={props.email}
+                           onChange={props.onMailChange}/>
+>>>>>>> c792f03... login+admin page start layout
                     <br/>
                     <input type={"password"}
                            placeholder={"Password"}
@@ -29,7 +41,11 @@ const AdminLogin = (props) => (
                            value={props.password}
                            onChange={props.onPasswordChange}/>
 
+<<<<<<< HEAD
                     <br/>
+=======
+                      <br/>
+>>>>>>> c792f03... login+admin page start layout
                     <input type={"submit"}/>
                   </form>
                 </Col>

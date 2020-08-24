@@ -1,13 +1,26 @@
 .loginContainer {
+<<<<<<< HEAD
   margin-top: 10rem;
+=======
+margin-top:10rem;
+>>>>>>> c792f03... login+admin page start layout
 }
 
 .loginCol {
   text-align: center;
+<<<<<<< HEAD
   padding: 2.3rem;
   border: 2px solid gray;
 }
 
 .formInput {
   margin: 1rem;
+=======
+  padding:2.3rem;
+  border:2px solid gray;
+}
+
+.formInput{
+  margin:1rem;
+>>>>>>> c792f03... login+admin page start layout
 }

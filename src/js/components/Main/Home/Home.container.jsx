@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useRef} from 'react';
 import PropTypes from "prop-types"
 
 import Home from './Home.jsx'
@@ -14,6 +14,8 @@ const HomeContainer = ({concerts, getConcerts}) => {
   const [recent, setRecent] = useState([]);
 
   const history = useHistory();
+  const liRef = useRef([]);
+
 
   useEffect(
       () => {
@@ -78,7 +80,6 @@ const HomeContainer = ({concerts, getConcerts}) => {
       [concerts]
   );
 
-
   function onInputChange(event) {
     setInputText(event.target.value);
     setHelpList(similarConcerts(event.target.value));
@@ -90,10 +91,19 @@ const HomeContainer = ({concerts, getConcerts}) => {
       history.push('/concert/'+helpList[0].id)
     }
   }
+  let currentListItem = 0;
   function keyPress(e) {
     if(e.keyCode === 13 && helpList[0]){
       history.push('/concert/'+helpList[0].id)
     }
+
+    if(e.keyCode === 40 && helpList[0]){
+      console.log(liRef.current/*.innerText*/)
+      liRef.current[currentListItem].focus()
+      currentListItem++;
+      if(currentListItem>concerts.length){currentListItem=0;}
+    }
+
   }
 
 
@@ -105,6 +115,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
             upcomingConcerts={recent}
             onSearch={onSearch}
             onEnterSearch={keyPress}
+            liRef={liRef}
       />
   )
 }
@@ -116,6 +127,7 @@ HomeContainer.propTypes = {
   getConcerts: PropTypes.func,
   recent: PropTypes.array,
   history: PropTypes.array,
+  liRef: PropTypes.object,
 }
 
 

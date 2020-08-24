@@ -12,7 +12,7 @@ import {Container, Row, Col} from "react-bootstrap";
 
 import PropTypes from "prop-types"
 
-const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch}) => {
+const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch,liRef}) => {
 
   return (<div>
     <LanguageContext.Consumer>
@@ -41,8 +41,8 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                   </form>
                   <div className={style.tip}>
                     <ul className={style.tipUl}>
-                      {concerts.map((item) =>
-                          <li className={style.tipLi} key={item.id}>
+                      {concerts.map((item, index) =>
+                          <li className={style.tipLi} key={item.id} ref={el => liRef.current[index] = el} onFocus={()=>{console.log("focused")}}>
                             <Link className={style.tipLink} to={"concert/" + item.id}>{item.band}</Link>
                           </li>)}
                     </ul>

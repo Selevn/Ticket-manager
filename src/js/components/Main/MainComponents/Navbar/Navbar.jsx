@@ -41,7 +41,7 @@ const AppNavbar = () => {
                         </Nav.Item>
                         <Nav.Item className={"h30"}>
                           <NavLink className={style.navbarLinks}
-                                   to="/login">Login</NavLink>
+                                   to="/login">{languageSrc.login[langProps.language]}</NavLink>
                         </Nav.Item>
                       </Nav>
                     </Navbar.Collapse>

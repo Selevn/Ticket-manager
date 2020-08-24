@@ -12,7 +12,7 @@ import {Container, Row, Col} from "react-bootstrap";
 
 import PropTypes from "prop-types"
 
-const Home = ({concerts, onInputChange, upcomingConcerts, searchText,onSearch}) => {
+const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch}) => {
 
   return (<div>
     <LanguageContext.Consumer>
@@ -31,12 +31,13 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText,onSearch}) 
                         type="text"
                         value={searchText}
                         onChange={onInputChange}
+                        onKeyDown={onEnterSearch}
                     />
-                    <input
-                        className={style.searchBut}
-                        type="button"
-                        onClick={onSearch}
-                        value={languageSrc.search[langProps.language]}/>
+
+                      <button
+                          className={style.searchBut}
+                          onClick={onSearch}>
+                        {languageSrc.search[langProps.language]}</button>
                   </form>
                   <div className={style.tip}>
                     <ul className={style.tipUl}>
@@ -114,6 +115,7 @@ Home.propTypes = {
   onInputChange: PropTypes.func,
   upcomingConcerts: PropTypes.array,
   onFocusOut: PropTypes.func,
+  onEnterSearch: PropTypes.func,
   onSearch: PropTypes.func,
 }
 

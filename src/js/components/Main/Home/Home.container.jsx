@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 
 import Home from './Home.jsx'
 
+import { useHistory } from "react-router-dom";
+
 
 const HomeContainer = ({concerts, getConcerts}) => {
 
@@ -10,6 +12,8 @@ const HomeContainer = ({concerts, getConcerts}) => {
   const [inputText, setInputText] = useState("");
   const [helpList, setHelpList] = useState([]);
   const [recent, setRecent] = useState([]);
+
+  const history = useHistory();
 
   useEffect(
       () => {
@@ -23,14 +27,13 @@ const HomeContainer = ({concerts, getConcerts}) => {
   )
 
   useEffect(
-      ()=>{
-        document.addEventListener("click",clickOutsideDetector)
+      () => {
+        document.addEventListener("click", clickOutsideDetector)
       }
   )
 
-  function clickOutsideDetector(event){
-    if(!(event.target.tagName==="ul" || event.target.tagName==="a" || event.target.tagName==="input"))
-    {
+  function clickOutsideDetector(event) {
+    if (!(event.target.tagName === "ul" || event.target.tagName === "a" || event.target.tagName === "input")) {
       setInputText("");
       setHelpList([]);
     }
@@ -80,15 +83,28 @@ const HomeContainer = ({concerts, getConcerts}) => {
     setInputText(event.target.value);
     setHelpList(similarConcerts(event.target.value));
   }
+
   function onSearch() {
-    alert("search")
+
+    if (helpList[0]) {
+      history.push('/concert/'+helpList[0].id)
+    }
   }
+  function keyPress(e) {
+    if(e.keyCode === 13 && helpList[0]){
+      history.push('/concert/'+helpList[0].id)
+    }
+  }
+
+
+
   return (
       <Home searchText={inputText}
             onInputChange={onInputChange}
             concerts={helpList}
             upcomingConcerts={recent}
             onSearch={onSearch}
+            onEnterSearch={keyPress}
       />
   )
 }
@@ -99,6 +115,7 @@ HomeContainer.propTypes = {
   onInputChange: PropTypes.func,
   getConcerts: PropTypes.func,
   recent: PropTypes.array,
+  history: PropTypes.array,
 }
 
 

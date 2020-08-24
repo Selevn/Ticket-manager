@@ -33,13 +33,11 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                         onChange={onInputChange}
                         onKeyDown={onEnterSearch}
                     />
-                    {/*<Link to={(concerts.length>0)?("/concert/"+concerts[0].id):""}>*/}
-                      <input
+
+                      <button
                           className={style.searchBut}
-                          type="button"
-                          onClick={onSearch}
-                          value={languageSrc.search[langProps.language]}/>
-                    {/*</Link>*/}
+                          onClick={onSearch}>
+                        {languageSrc.search[langProps.language]}</button>
                   </form>
                   <div className={style.tip}>
                     <ul className={style.tipUl}>

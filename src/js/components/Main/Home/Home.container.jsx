@@ -85,6 +85,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
   }
 
   function onSearch() {
+
     if (helpList[0]) {
       history.push('/concert/'+helpList[0].id)
     }

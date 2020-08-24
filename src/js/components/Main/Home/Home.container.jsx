@@ -91,10 +91,14 @@ const HomeContainer = ({concerts, getConcerts}) => {
       history.push('/concert/' + helpList[0].id)
     }
   }
+<<<<<<< HEAD
 
 
   let currentListItem = 0;
 
+=======
+  let currentListItem = 0;
+>>>>>>> 90f8302... started adding ref
   function keyPress(e) {
     if (e.keyCode === 13 && helpList[0]) {
       history.push('/concert/' + helpList[0].id)
@@ -105,6 +109,14 @@ const HomeContainer = ({concerts, getConcerts}) => {
       currentListItem = 0;
       document.activeElement.setAttribute("tabindex", "-1")
     }
+
+    if(e.keyCode === 40 && helpList[0]){
+      console.log(liRef.current/*.innerText*/)
+      liRef.current[currentListItem].focus()
+      currentListItem++;
+      if(currentListItem>concerts.length){currentListItem=0;}
+    }
+
   }
 
   function onListNavigation(e) {
@@ -147,8 +159,11 @@ const HomeContainer = ({concerts, getConcerts}) => {
             onSearch={onSearch}
             onEnterSearch={keyPress}
             liRef={liRef}
+<<<<<<< HEAD
             onListNavigation={onListNavigation}
             inputRef={inputRef}
+=======
+>>>>>>> 90f8302... started adding ref
       />
   )
 }

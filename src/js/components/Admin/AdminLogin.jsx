@@ -2,14 +2,14 @@ import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 
 
-import style from "./Login.module.css"
+import style from "./Admin.module.css"
 import {LanguageContext} from "../Contexts/LanguageContext.js";
 import languagePack from "../../language.js";
 
-const Login = (props) => (
+const AdminLogin = (props) => (
     <>
       <LanguageContext.Consumer>
-        {langProps=>{return(
+        {langProps=>(
             <Container className={style.loginContainer}>
               <Row>
                 <Col xs={12} sm={12} md={3} lg={3} xl={4}/>
@@ -31,17 +31,16 @@ const Login = (props) => (
 
                       <br/>
                     <input type={"submit"}/>
-                    <input type={"button"} value={"Registry"}/>
                   </form>
                 </Col>
                 <Col xs={12} sm={12} md={3} lg={3} xl={4}/>
               </Row>
             </Container>
-        )}}
+        )}
 
       </LanguageContext.Consumer>
     </>
 );
 
 
-export default Login;
+export default AdminLogin;

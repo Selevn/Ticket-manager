@@ -6,8 +6,7 @@ import Home from './Home.jsx'
 import { useHistory } from "react-router-dom";
 
 
-const HomeContainer = ({concerts, getConcerts}) => {
-
+const HomeContainer = ({concerts, getConcerts, halls, getHalls}) => {
 
   const [inputText, setInputText] = useState("");
   const [helpList, setHelpList] = useState([]);
@@ -20,6 +19,12 @@ const HomeContainer = ({concerts, getConcerts}) => {
         getConcerts()
       }
   )
+  useEffect(
+      () => {
+        getHalls()
+      }
+  )
+
   useEffect(
       findThreeNearest
       ,
@@ -67,21 +72,38 @@ const HomeContainer = ({concerts, getConcerts}) => {
       val => {
         if (val.length > 1) {
           return val ?
-              concerts.filter((i) => i.band.toUpperCase().includes(val.toUpperCase())) :
+              concerts.filter((i) => i.band.toUpperCase().includes(val.toUpperCase())).map((item)=>({...item, type:"concert"})) :
               []
         } else {
           return val ?
-              concerts.filter((i) => i.band.toUpperCase().startsWith(val.toUpperCase())) :
+              concerts.filter((i) => i.band.toUpperCase().startsWith(val.toUpperCase())).map((item)=>({...item, type:"concert"})):
               []
         }
       },
       [concerts]
   );
 
+  const similarHalls = useCallback(
+      val => {
+        if (val.length > 1) {
+          return val ?
+              halls.filter((i) => i.place.toUpperCase().includes(val.toUpperCase())).map((item)=>({...item, type:"hall"})) :
+              []
+        } else {
+          return val ?
+              halls.filter((i) => i.place.toUpperCase().startsWith(val.toUpperCase())).map((item)=>({...item, type:"hall"})) :
+              []
+        }
+      },
+      [halls]
+  );
+
+
 
   function onInputChange(event) {
     setInputText(event.target.value);
-    setHelpList(similarConcerts(event.target.value));
+    setHelpList([...similarConcerts(event.target.value), ...similarHalls(event.target.value)]);
+    console.log([...similarConcerts(event.target.value), ...similarHalls(event.target.value)])
   }
 
   function onSearch() {
@@ -101,7 +123,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
   return (
       <Home searchText={inputText}
             onInputChange={onInputChange}
-            concerts={helpList}
+            helpList={helpList}
             upcomingConcerts={recent}
             onSearch={onSearch}
             onEnterSearch={keyPress}
@@ -111,9 +133,11 @@ const HomeContainer = ({concerts, getConcerts}) => {
 
 HomeContainer.propTypes = {
   concerts: PropTypes.array,
+  halls: PropTypes.array,
   searchText: PropTypes.string,
   onInputChange: PropTypes.func,
   getConcerts: PropTypes.func,
+  getHalls: PropTypes.func,
   recent: PropTypes.array,
   history: PropTypes.array,
 }

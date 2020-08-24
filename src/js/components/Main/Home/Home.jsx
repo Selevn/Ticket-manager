@@ -12,8 +12,9 @@ import {Container, Row, Col} from "react-bootstrap";
 
 import PropTypes from "prop-types"
 
-const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch}) => {
+const Home = ({helpList, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch}) => {
 
+  console.log(helpList)
   return (<div>
     <LanguageContext.Consumer>
       {langProps => (
@@ -41,10 +42,17 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                   </form>
                   <div className={style.tip}>
                     <ul className={style.tipUl}>
-                      {concerts.map((item) =>
-                          <li className={style.tipLi} key={item.id}>
-                            <Link className={style.tipLink} to={"concert/" + item.id}>{item.band}</Link>
-                          </li>)}
+                      {helpList.map((item) =>
+                        (item.type==="hall")?
+                            (<li className={style.tipLi} key={item.id}>
+                              <Link className={style.tipLink} to={"hall/" + item.id}>{item.place}</Link>
+                            </li>)
+                            :
+                            (<li className={style.tipLi} key={item.id}>
+                              <Link className={style.tipLink} to={"concert/" + item.id}>{item.band}</Link>
+                            </li>))}
+
+
                     </ul>
                   </div>
                 </Col>
@@ -110,7 +118,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
 
 
 Home.propTypes = {
-  concerts: PropTypes.array,
+  helpList: PropTypes.array,
   searchText: PropTypes.string,
   onInputChange: PropTypes.func,
   upcomingConcerts: PropTypes.array,

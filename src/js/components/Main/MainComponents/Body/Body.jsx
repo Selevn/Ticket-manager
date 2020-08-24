@@ -17,6 +17,7 @@ const Body = props => (
         <Route exact path='/schedule' component={() => (<ScheduleContainer getConcerts={props.getConcerts}/>)}/>
         <Route exact path='/contacts' component={ContactsContainer}/>
         <Route path='/concert/:id' component={() => <ConcertContainer getConcerts={props.getConcerts}/>}/>
+        <Route path='/hall/:id' component={() => <ConcertContainer getConcerts={props.getConcerts}/>}/>
         <Redirect from="/" to='/home'/>
       </Switch>
     </>

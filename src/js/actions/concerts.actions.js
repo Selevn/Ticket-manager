@@ -1,12 +1,9 @@
-
-
-
 import {getConcerts} from "../db_imitate.js";
 import {ACTION_PUT_CONCERTS} from "../constants/concerts.constants.js"
 
-    const actionGetAllConcerts = () => (dispatch) => {
-  getConcerts((getedConcerts) => {
-    dispatch(actionPutConcerts(getedConcerts))
+const getConcertsFromDb = () => dispatch => {
+  getConcerts((concerts) => {
+    dispatch(actionPutConcerts(concerts))
   })
 }
 
@@ -14,6 +11,7 @@ const actionPutConcerts = (concert) => ({
   type: ACTION_PUT_CONCERTS,
   concerts: concert,
 })
+
 
 const actionGetAllConcertsSorted = () => (dispatch) => {
   getConcerts((getedConcerts) => {
@@ -31,4 +29,4 @@ const actionGetById = (id) => (dispatch) => {
   })
 }
 
-export {actionGetAllConcerts, actionGetAllConcertsSorted, actionGetById, actionPutConcerts}
+export {getConcertsFromDb, actionGetAllConcertsSorted, actionGetById, actionPutConcerts}

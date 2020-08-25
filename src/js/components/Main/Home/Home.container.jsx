@@ -108,6 +108,12 @@ const HomeContainer = ({concerts, getConcerts}) => {
   }
 
   function onListNavigation(e) {
+    console.log(document.activeElement)
+    console.log(liRef.current[helpList.length-1])
+    if (e.keyCode === 9 && helpList[0] && document.activeElement===liRef.current[helpList.length-1].firstChild) {
+      setInputText("");
+      setHelpList([]);
+    }
     if (e.keyCode === 40) { //down
       currentListItem++;
       currentListItem === helpList.length && (currentListItem = 0);

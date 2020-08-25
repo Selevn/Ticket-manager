@@ -12,8 +12,8 @@ import {Container, Row, Col} from "react-bootstrap";
 
 import PropTypes from "prop-types"
 
-const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch}) => {
-
+const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch,liRef,onListNavigation,inputRef}) => {
+  console.log("render home component")
   return (<div>
     <LanguageContext.Consumer>
       {langProps => (
@@ -32,6 +32,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                         value={searchText}
                         onChange={onInputChange}
                         onKeyDown={onEnterSearch}
+                        ref = {inputRef}
                     />
 
                       <button
@@ -40,10 +41,10 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                         {languageSrc.search[langProps.language]}</button>
                   </form>
                   <div className={style.tip}>
-                    <ul className={style.tipUl}>
-                      {concerts.map((item) =>
-                          <li className={style.tipLi} key={item.id}>
-                            <Link className={style.tipLink} to={"concert/" + item.id}>{item.band}</Link>
+                    <ul className={style.tipUl} onKeyDown={onListNavigation}>
+                      {concerts.map((item, index) =>
+                          <li ref={el => liRef.current[index] = el} className={style.tipLi} key={item.id}  onFocus={()=>{console.log("focused")}}>
+                            <Link  className={style.tipLink} to={"concert/" + item.id}>{item.band}</Link>
                           </li>)}
                     </ul>
                   </div>
@@ -117,6 +118,8 @@ Home.propTypes = {
   onFocusOut: PropTypes.func,
   onEnterSearch: PropTypes.func,
   onSearch: PropTypes.func,
+  onListNavigation: PropTypes.func,
+  liRef: PropTypes.object,
 }
 
 export default Home;

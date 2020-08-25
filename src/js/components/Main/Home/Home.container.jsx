@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import Home from './Home.jsx'
 
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 
 const HomeContainer = ({concerts, getConcerts}) => {
@@ -12,7 +12,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
   const [inputText, setInputText] = useState("");
   const [helpList, setHelpList] = useState([]);
   const [recent, setRecent] = useState([]);
-
+  const inputRef = React.createRef();
   const history = useHistory();
   const liRef = useRef([]);
 
@@ -35,7 +35,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
   )
 
   function clickOutsideDetector(event) {
-    if (!(event.target.tagName === "UL" || event.target.tagName === "A" || event.target.tagName === "INPUT")&&(inputText!=="")) {
+    if (!(event.target.tagName === "UL" || event.target.tagName === "A" || event.target.tagName === "INPUT") && (inputText !== "")) {
       setInputText("");
       setHelpList([]);
     }
@@ -88,27 +88,49 @@ const HomeContainer = ({concerts, getConcerts}) => {
   function onSearch() {
 
     if (helpList[0]) {
-      history.push('/concert/'+helpList[0].id)
+      history.push('/concert/' + helpList[0].id)
     }
   }
 
 
   let currentListItem = 0;
+
   function keyPress(e) {
-    if(e.keyCode === 13 && helpList[0]){
-      history.push('/concert/'+helpList[0].id)
+    if (e.keyCode === 13 && helpList[0]) {
+      history.push('/concert/' + helpList[0].id)
     }
-
-    if(e.keyCode === 40 && helpList[0]){
-      console.log(liRef.current/*.innerText*/,"liRef.current")
-      console.log(liRef.current[currentListItem]/*.innerText*/,"liRef.current["+currentListItem+"]")
-      liRef.current[currentListItem].focus()
-      currentListItem++;
-      if(currentListItem>concerts.length){currentListItem=0;}
+    if (e.keyCode === 40 && helpList[0]) {
+      liRef.current[0].setAttribute("tabindex", "0")
+      liRef.current[0].focus()
+      currentListItem = 0;
+      document.activeElement.setAttribute("tabindex", "-1")
     }
-
   }
 
+  function onListNavigation(e) {
+    if (e.keyCode === 40) { //down
+      currentListItem++;
+      currentListItem === helpList.length && (currentListItem = 0);
+      liRef.current[currentListItem].setAttribute("tabindex", "0")
+      liRef.current[currentListItem].focus()
+    }
+    if (e.keyCode === 38) { //up
+      currentListItem--;
+      if (currentListItem === -1) {
+        inputRef.current.setAttribute("tabindex", "0");
+        inputRef.current.focus();
+      }
+      else{
+
+        liRef.current[currentListItem].setAttribute("tabindex", "0")
+        liRef.current[currentListItem].focus()
+
+      }
+    }
+    if (e.keyCode === 13 && helpList[0]) {
+      history.push(liRef.current[currentListItem].firstChild.attributes.href.value)
+    }
+  }
 
 
   return (
@@ -119,6 +141,8 @@ const HomeContainer = ({concerts, getConcerts}) => {
             onSearch={onSearch}
             onEnterSearch={keyPress}
             liRef={liRef}
+            onListNavigation={onListNavigation}
+            inputRef={inputRef}
       />
   )
 }

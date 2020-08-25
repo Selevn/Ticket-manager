@@ -13,7 +13,7 @@ import {Container, Row, Col} from "react-bootstrap";
 import PropTypes from "prop-types"
 
 const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch,liRef}) => {
-
+  console.log("render home component")
   return (<div>
     <LanguageContext.Consumer>
       {langProps => (

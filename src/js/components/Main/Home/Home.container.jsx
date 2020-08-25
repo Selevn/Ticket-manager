@@ -35,7 +35,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
   )
 
   function clickOutsideDetector(event) {
-    if (!(event.target.tagName === "ul" || event.target.tagName === "a" || event.target.tagName === "input")) {
+    if (!(event.target.tagName === "UL" || event.target.tagName === "A" || event.target.tagName === "INPUT")&&(inputText!=="")) {
       setInputText("");
       setHelpList([]);
     }
@@ -91,6 +91,8 @@ const HomeContainer = ({concerts, getConcerts}) => {
       history.push('/concert/'+helpList[0].id)
     }
   }
+
+
   let currentListItem = 0;
   function keyPress(e) {
     if(e.keyCode === 13 && helpList[0]){
@@ -98,7 +100,8 @@ const HomeContainer = ({concerts, getConcerts}) => {
     }
 
     if(e.keyCode === 40 && helpList[0]){
-      console.log(liRef.current/*.innerText*/)
+      console.log(liRef.current/*.innerText*/,"liRef.current")
+      console.log(liRef.current[currentListItem]/*.innerText*/,"liRef.current["+currentListItem+"]")
       liRef.current[currentListItem].focus()
       currentListItem++;
       if(currentListItem>concerts.length){currentListItem=0;}

@@ -13,10 +13,14 @@ import {Container, Row, Col} from "react-bootstrap";
 import PropTypes from "prop-types"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch,liRef,onListNavigation,inputRef}) => {
   console.log("render home component")
 =======
 const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch,liRef}) => {
+=======
+const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch,inputRef}) => {
+>>>>>>> 3167f10... db command modules + link react with node.js
 
 >>>>>>> 90f8302... started adding ref
   return (<div>
@@ -35,7 +39,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                         placeholder={languageSrc.type[langProps.language]}
                         type="text"
                         value={searchText}
-                        onChange={onInputChange}
+                        /*onChange={onInputChange}*/
                         onKeyDown={onEnterSearch}
                         ref = {inputRef}
                     />

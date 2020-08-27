@@ -80,10 +80,28 @@ const HomeContainer = ({concerts, getConcerts}) => {
       [concerts]
   );
 
+<<<<<<< HEAD
   function onInputChange(event) {
     setInputText(event.target.value);
     setHelpList(similarConcerts(event.target.value));
+=======
+
+  function onInputChange() {
+    console.log(inputRef.current,"inputRef.current")
+    setInputText(inputRef.current.value);
+    setHelpList(similarConcerts(inputRef.current.value));
+>>>>>>> 3167f10... db command modules + link react with node.js
   }
+
+  const inputRef = useRef(null);
+
+  //HOWTO
+  useEffect(
+      ()=>{
+        inputRef.current.addEventListener('click',onInputChange)
+      },
+      []
+  )
 
   function onSearch() {
 
@@ -158,12 +176,16 @@ const HomeContainer = ({concerts, getConcerts}) => {
             upcomingConcerts={recent}
             onSearch={onSearch}
             onEnterSearch={keyPress}
+<<<<<<< HEAD
             liRef={liRef}
 <<<<<<< HEAD
             onListNavigation={onListNavigation}
             inputRef={inputRef}
 =======
 >>>>>>> 90f8302... started adding ref
+=======
+            inputRef={inputRef}
+>>>>>>> 3167f10... db command modules + link react with node.js
       />
   )
 }

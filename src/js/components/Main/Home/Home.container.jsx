@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useRef} from 'react';
 import PropTypes from "prop-types"
 
 import Home from './Home.jsx'
@@ -79,10 +79,21 @@ const HomeContainer = ({concerts, getConcerts}) => {
   );
 
 
-  function onInputChange(event) {
-    setInputText(event.target.value);
-    setHelpList(similarConcerts(event.target.value));
+  function onInputChange() {
+    console.log(inputRef.current,"inputRef.current")
+    setInputText(inputRef.current.value);
+    setHelpList(similarConcerts(inputRef.current.value));
   }
+
+  const inputRef = useRef(null);
+
+  //HOWTO
+  useEffect(
+      ()=>{
+        inputRef.current.addEventListener('click',onInputChange)
+      },
+      []
+  )
 
   function onSearch() {
 
@@ -105,6 +116,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
             upcomingConcerts={recent}
             onSearch={onSearch}
             onEnterSearch={keyPress}
+            inputRef={inputRef}
       />
   )
 }

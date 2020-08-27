@@ -6,11 +6,10 @@ import React from "react";
 
 import mainStore from "./js/store/concerts.store.js"
 
-import {connect, Provider} from "react-redux";
+import {Provider} from "react-redux";
 
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import {actionGetAllConcertsSorted} from "./js/actions/concerts.actions.js";
 
 
 import "regenerator-runtime"
@@ -23,6 +22,3 @@ wrapper ? ReactDOM.render(
         <AppContainer getConcerts={getConcerts}/>
       </Provider>
     </BrowserRouter>, wrapper) : false;
-
-/*<AppContainer
-    getConcerts={getConcerts}/>*/

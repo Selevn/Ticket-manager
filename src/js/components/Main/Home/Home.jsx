@@ -12,7 +12,7 @@ import {Container, Row, Col} from "react-bootstrap";
 
 import PropTypes from "prop-types"
 
-const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch}) => {
+const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch,inputRef}) => {
 
   return (<div>
     <LanguageContext.Consumer>
@@ -30,8 +30,9 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                         placeholder={languageSrc.type[langProps.language]}
                         type="text"
                         value={searchText}
-                        onChange={onInputChange}
+                        /*onChange={onInputChange}*/
                         onKeyDown={onEnterSearch}
+                        ref = {inputRef}
                     />
 
                       <button

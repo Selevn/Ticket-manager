@@ -14,7 +14,6 @@ authRouter.post("/register",
     , async (request, response) => {
       try {
         const errors = validationResult(request)
-        console.log(errors.errors.length,"valid errors")
         if (errors.errors.length !== 0) {
           return response.status(400).json({message: "user add error"})
         }
@@ -25,11 +24,9 @@ authRouter.post("/register",
           try {
             if (!data) {
               const hashedPassword = password;
-              //const hashedPassword = await bcrypt.hash(password, 7)
+              //const hashedPassword = await bcrypt.hash(password, 7) //will add soon
               setUser(email, name, sname, hashedPassword, (err, data) => {
-                console.log(err, "err")
-                console.log(data, "data")
-                response.json({message:"Register success!"})
+                response.json({message: "Register success!"})
               })
             } else {
               response.status(500).json({message: "Oups! This email is already in use"})
@@ -51,8 +48,6 @@ authRouter.post("/login",
     ]
     , async (request, response) => {
       try {
-        console.log(request.body.email)
-        console.log(request.body.password)
         const errors = validationResult(request)
         if (!errors.isEmpty()) {
           return await response.status(400).json({message: "user login error"})
@@ -65,16 +60,15 @@ authRouter.post("/login",
                   await response.status(500).json({message: "Oups! Check your data and try again"})
                 } else {
 
-                  console.log(data.password)
                   const hashedPassword = password //await bcrypt.hash(password, 7)
-                  console.log(hashedPassword)
                   if (hashedPassword === data.password) {
                     let token = jwt.sign({
                           email: email,
+                          id: data.id,
                         },
                         config.get("jwtSecretKey"),
                         {expiresIn: "1h"})
-                    response.json({token: token, email: email,message:"You are loggined in"})
+                    response.json({token: token, id: data.id, message: "You are loggined in"})
                   } else {
                     await response.status(500).json({message: "Oups! Check your data and try again"})
                   }
@@ -90,7 +84,6 @@ authRouter.post("/login",
         response.status(500).json({message: "Oups! Smth went wrong. Try again later"})
       }
     })
-
 
 
 module.exports = authRouter

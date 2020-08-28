@@ -2,12 +2,14 @@ import React, {useEffect, useState} from "react";
 import Login from "./Login.jsx";
 import {useHttp} from "../../customHooks/server.response.js";
 import {backendUrl} from "../../../../config/default.json";
+import {useAuth} from "../../customHooks/auth.hook.js";
+import {LoginContext} from "../Contexts/LoginContext.js";
 
 const LoginContainer = () => {
 
 
   ///////////////////////////////////////////////////////////////////////
-
+  const authContext = useAuth(LoginContext)
   const {loading, error, request} = useHttp();
   let [email, setEmail] = useState("")
   let [password, setPassword] = useState("")
@@ -23,7 +25,7 @@ const LoginContainer = () => {
   const loginHandler = async () => {
     try {
       const data = await request(backendUrl+"/api/auth/login", "POST", {email: email, password: password})
-      console.log("Data", data)
+      authContext.login(data.token,data.id)
     } catch (e) {
       console.log(e)
     }

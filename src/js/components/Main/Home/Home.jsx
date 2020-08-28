@@ -30,7 +30,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                         placeholder={languageSrc.type[langProps.language]}
                         type="text"
                         value={searchText}
-                        /*onChange={onInputChange}*/
+                        onChange={onInputChange}
                         onKeyDown={onEnterSearch}
                         ref = {inputRef}
                     />

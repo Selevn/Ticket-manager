@@ -80,7 +80,6 @@ const HomeContainer = ({concerts, getConcerts}) => {
 
 
   function onInputChange() {
-    console.log(inputRef.current,"inputRef.current")
     setInputText(inputRef.current.value);
     setHelpList(similarConcerts(inputRef.current.value));
   }
@@ -88,12 +87,13 @@ const HomeContainer = ({concerts, getConcerts}) => {
   const inputRef = useRef(null);
 
   //HOWTO
-  useEffect(
+  /*useEffect(
       ()=>{
         inputRef.current.addEventListener('click',onInputChange)
       },
       []
   )
+*/
 
   function onSearch() {
 

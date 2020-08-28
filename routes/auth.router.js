@@ -50,7 +50,7 @@ authRouter.post("/login",
       try {
         const errors = validationResult(request)
         if (!errors.isEmpty()) {
-          return await response.status(400).json({message: "user login error"})
+          return await response.status(404).json({message: "user login error"})
         }
         const {email, password} = request.body;
 
@@ -61,15 +61,20 @@ authRouter.post("/login",
                 } else {
 
                   const hashedPassword = password //await bcrypt.hash(password, 7)
-                  if (hashedPassword === data.password) {
+                  console.log("data.isApproved", data.isApproved)
+                  if (hashedPassword === data.password && data.isApproved) {
                     let token = jwt.sign({
                           email: email,
                           id: data.id,
+                          userType: data.userType,
                         },
                         config.get("jwtSecretKey"),
                         {expiresIn: "1h"})
-                    response.json({token: token, id: data.id, message: "You are loggined in"})
+                    await response.status(218).json({token: token, id: data.id, userType: data.userType, message: "You are loggined in"})
                   } else {
+                    if (!data.isApproved) {
+                      await response.status(500).json({message: "Approve your account!"})
+                    }
                     await response.status(500).json({message: "Oups! Check your data and try again"})
                   }
                 }

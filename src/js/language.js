@@ -25,6 +25,11 @@ let languagePack =
             ru: "Войти",
             en: "Login"
           },
+      account:
+          {
+            ru: "Аккаунт",
+            en: "Account"
+          },
       langChange:
           {
             ru: "Сменить язык",

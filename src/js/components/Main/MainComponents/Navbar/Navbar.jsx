@@ -6,10 +6,13 @@ import languageSrc from "../../../../language.js"
 import {LanguageContext} from "../../../Contexts/LanguageContext.js"
 import style from './Navbar.module.css'
 import "./Navbar.css"
-
+import {useAuth} from "../../../../customHooks/auth.hook.js";
+import {LoginContext} from "../../../Contexts/LoginContext.js"
 
 const AppNavbar = () => {
 
+  const authContext = useAuth(LoginContext)
+  console.log(authContext, "authContext")
   let locationPath = useLocation().pathname;
 
   return (
@@ -39,10 +42,15 @@ const AppNavbar = () => {
                           <NavLink className={style.navbarLinks} to="/contacts"
                                    activeClassName={style.active}>{languageSrc.contacts[langProps.language]}</NavLink>
                         </Nav.Item>
-                        <Nav.Item className={"h30"}>
+                        {authContext.userId ? <Nav.Item className={"h30"}>
+                          <NavLink className={style.navbarLinks}
+                                   to="/account">{languageSrc.account[langProps.language]}</NavLink>
+                        </Nav.Item> : <Nav.Item className={"h30"}>
                           <NavLink className={style.navbarLinks}
                                    to="/login">{languageSrc.login[langProps.language]}</NavLink>
-                        </Nav.Item>
+                        </Nav.Item>}
+
+
                       </Nav>
                     </Navbar.Collapse>
                   </div>

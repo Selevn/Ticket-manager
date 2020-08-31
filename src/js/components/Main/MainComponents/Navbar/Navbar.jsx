@@ -11,6 +11,7 @@ import {LoginContext} from "../../../Contexts/LoginContext.js"
 const AppNavbar = () => {
 
   let loginContext = useContext(LoginContext)
+    console.log("loginContext in Navbar",loginContext)
   let locationPath = useLocation().pathname;
   return (
       <div className="sticky-top">

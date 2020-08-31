@@ -12,6 +12,12 @@ function AppContainer(props) {
   const [userId, setUserId] = useState(null);
 
   const authHook = useAuth()
+  console.log("auth hook in Container",authHook)
+
+  /*useEffect(()=>{
+    console.log(authHook, "rerender auth hook")
+  }, [authHook])*/
+
 
   useEffect(() => {
     authHook.userId!==null && setUserId(authHook.userId) && console.log("setted!", authHook.userId)
@@ -33,6 +39,8 @@ function AppContainer(props) {
     setUserId: setUserId,
   };
 
+
+  console.log("loginContext in Container",loginContext)
 
   return (
       <LanguageContext.Provider value={langContext}>

@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useCallback, useContext} from "react";
 import Account from "./Account.jsx"
 import {useAuth} from "../../customHooks/auth.hook.js";
 import {useHistory} from "react-router-dom"
@@ -7,21 +7,22 @@ import {LanguageContext} from "../Contexts/LanguageContext.js";
 
 const AccountContainer = () => {
   const langProps = useContext(LanguageContext)
-  const {logout,userId} = useAuth()
+  const auth = useAuth()
+  console.log("in accountContainer",auth.logout,auth.userId)
   const loginContext = useContext(LoginContext)
   const history = useHistory();
 
-  const logoutHandler = async () => {
+  const logoutHandler = useCallback(() => {
     try {
-      logout()
+      auth.logout()
       loginContext.setUserId(null)
-      console.log(loginContext,"loginContext after logout")
-      console.log(userId,"userId after logout")
+      console.log("loginContext after logout",loginContext)
+      console.log("userId after logout",auth.userId)
       history.push("/")
     } catch (e) {
       console.log(e)
     }
-  }
+  })
 
   if (loginContext.userId) {
     return (<Account

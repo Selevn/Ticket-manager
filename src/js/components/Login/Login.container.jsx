@@ -1,18 +1,22 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Login from "./Login.jsx";
 import {useHttp} from "../../customHooks/server.response.js";
 import {backendUrl} from "../../../../config/default.json";
 import {useAuth} from "../../customHooks/auth.hook.js";
 import {LoginContext} from "../Contexts/LoginContext.js";
-
+import {useHistory} from "react-router-dom"
 const LoginContainer = () => {
 
 
   ///////////////////////////////////////////////////////////////////////
-  const authContext = useAuth(LoginContext)
+  const loginContext = useContext(LoginContext)
+  const history = useHistory()
+  const authHook = useAuth()
   const {loading, error, request} = useHttp();
   let [email, setEmail] = useState("")
   let [password, setPassword] = useState("")
+
+
 
   const registerHandler = async () => {
     try {
@@ -25,7 +29,9 @@ const LoginContainer = () => {
   const loginHandler = async () => {
     try {
       const data = await request(backendUrl+"/api/auth/login", "POST", {email: email, password: password})
-      authContext.login(data.token,data.id)
+      authHook.login(data.token,data.id)
+      loginContext.setUserId(data.id)
+      history.push("/home")
     } catch (e) {
       console.log(e)
     }

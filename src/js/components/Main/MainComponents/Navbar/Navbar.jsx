@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {NavLink, useLocation} from "react-router-dom";
 import {Nav, Navbar} from "react-bootstrap";
 
@@ -6,15 +6,12 @@ import languageSrc from "../../../../language.js"
 import {LanguageContext} from "../../../Contexts/LanguageContext.js"
 import style from './Navbar.module.css'
 import "./Navbar.css"
-import {useAuth} from "../../../../customHooks/auth.hook.js";
 import {LoginContext} from "../../../Contexts/LoginContext.js"
 
 const AppNavbar = () => {
 
-  const authContext = useAuth(LoginContext)
-  console.log(authContext, "authContext")
+  let loginContext = useContext(LoginContext)
   let locationPath = useLocation().pathname;
-
   return (
       <div className="sticky-top">
         <LanguageContext.Consumer>
@@ -42,7 +39,7 @@ const AppNavbar = () => {
                           <NavLink className={style.navbarLinks} to="/contacts"
                                    activeClassName={style.active}>{languageSrc.contacts[langProps.language]}</NavLink>
                         </Nav.Item>
-                        {authContext.userId ? <Nav.Item className={"h30"}>
+                        {loginContext.userId ? <Nav.Item className={"h30"}>
                           <NavLink className={style.navbarLinks}
                                    to="/account">{languageSrc.account[langProps.language]}</NavLink>
                         </Nav.Item> : <Nav.Item className={"h30"}>

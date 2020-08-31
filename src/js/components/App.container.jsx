@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from "react";
+import React, {useState, useCallback, useEffect} from "react";
 import PropTypes from "prop-types"
 import App from "./App.js"
 import {LanguageContext} from './Contexts/LanguageContext.js';
@@ -8,10 +8,14 @@ import {LoginContext} from "./Contexts/LoginContext.js";
 
 function AppContainer(props) {
 
-  const {token, userId, login, logout} = useAuth()
-  const isAuthenticated = !!token;
+  const [language, setLanguage] = useState("en");
+  const [userId, setUserId] = useState(null);
 
-  let [language, setLanguage] = useState("en");
+  const authHook = useAuth()
+
+  useEffect(() => {
+    authHook.userId!==null && setUserId(authHook.userId) && console.log("setted!", authHook.userId)
+  },[authHook])
 
 
   const toggleLanguageFunc = useCallback(
@@ -19,17 +23,24 @@ function AppContainer(props) {
       [language],
   );
 
-  let langContext = {
+  const langContext = {
     language: language,
     toggleLanguage: toggleLanguageFunc
   };
 
-  return (<LanguageContext.Provider value={langContext}>
-    <LoginContext.Provider value ={{token, userId, login, logout, isAuthenticated}}>
-      <App
-          getConcerts={props.getConcerts}/>
-    </LoginContext.Provider>
-  </LanguageContext.Provider>)
+  const loginContext = {
+    userId: userId,
+    setUserId: setUserId,
+  };
+
+
+  return (
+      <LanguageContext.Provider value={langContext}>
+        <LoginContext.Provider value={loginContext}>
+          <App
+              getConcerts={props.getConcerts}/>
+        </LoginContext.Provider>
+      </LanguageContext.Provider>)
 
 }
 

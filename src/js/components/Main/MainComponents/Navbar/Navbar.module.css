@@ -1,35 +1,34 @@
 .active {
-  color: gray !important;
-  cursor: default;
+    color: gray !important;
+    cursor: default;
 }
 
 .container {
-  padding: 0 !important; /*как обойтись без него?*/
-  height: 4rem;
+    padding: 0 !important; /*как обойтись без него?*/
+    height: 4rem;
 }
 
 .containerItems {
-  height: 1rem;
-  width: 10rem;
+    height: 1rem;
+    width: 10rem;
 }
 
 .containerLinks {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 .navbarLinks {
-  padding-left: 25px;
-  padding-right: 25px;
-  color: black;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: black;
 }
 
 .navbarLinks:hover {
-  color: darkgray;
-  text-decoration: none;
+    color: darkgray;
+    text-decoration: none;
 }
 
-.chLangButt
-{
+.chLangButt {
 
 }

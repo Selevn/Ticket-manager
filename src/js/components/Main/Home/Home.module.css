@@ -1,174 +1,173 @@
 .searchColumn {
-  text-align: center;
+    text-align: center;
 }
 
 .tipUl {
-  text-align: left;
+    text-align: left;
 }
 
 .tip {
-  z-index: 1;
-  background-color: white;
-  position: absolute;
-  width: 100%;
+    z-index: 1;
+    background-color: white;
+    position: absolute;
+    width: 100%;
 
-  margin-top: 1rem;
-  text-align: center;
+    margin-top: 1rem;
+    text-align: center;
 }
 
 .tipLi {
-  padding-left: 2rem;
-  font-size: 1.5rem;
-  padding-top: .2rem;
-  padding-bottom: .4rem;
+    padding-left: 2rem;
+    font-size: 1.5rem;
+    padding-top: .2rem;
+    padding-bottom: .4rem;
 }
 
-.tipLi:hover, .tipLi:hover .tipLink,.tipLi:focus, .tipLi:focus .tipLink, .tipLink:focus,.tipLink:focus .tipLi {
-  color: white !important;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
-  animation: leftToRight .1s linear forwards;
+.tipLi:hover, .tipLi:hover .tipLink, .tipLi:focus, .tipLi:focus .tipLink, .tipLink:focus, .tipLink:focus .tipLi {
+    color: white !important;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    animation: leftToRight .1s linear forwards;
 }
-
 
 
 @keyframes leftToRight {
-  0% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
-  }
-  10% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 10%, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 100%);
-  }
-  20% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 20%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 100%);
-  }
-  30% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 30%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
-  }
-  40% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 100%);
-  }
-  50% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
-  }
-  60% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 60%, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 1) 100%);
-  }
-  70% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 70%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
-  }
-  80% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
-  }
-  90% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 90%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 1) 100%);
-  }
-  100% {
-    color: white;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 100%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
+    0% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+    10% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 10%, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 100%);
+    }
+    20% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 20%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 100%);
+    }
+    30% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 30%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
+    }
+    40% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 100%);
+    }
+    50% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
+    }
+    60% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 60%, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 1) 100%);
+    }
+    70% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 70%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
+    }
+    80% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
+    }
+    90% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 90%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 1) 100%);
+    }
+    100% {
+        color: white;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 100%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
 
-  }
+    }
 }
 
 
 .tipLink {
-  display: block;
-  height: 100%;
-  color: black;
+    display: block;
+    height: 100%;
+    color: black;
 }
 
 
-.tipLi:hover .tipLink{
-  text-decoration: none;
-  color: white;
+.tipLi:hover .tipLink {
+    text-decoration: none;
+    color: white;
 }
 
 
 .firstRow {
-  margin-top: 3rem;
+    margin-top: 3rem;
 }
 
 .searchInput {
-  width: 80%;
-  font-size: 1.5rem;
-  padding-left: 2rem;
-  padding-top: .3rem;
-  padding-bottom: .3rem;
-  border: .1px solid black;
-  border-right: none;
+    width: 80%;
+    font-size: 1.5rem;
+    padding-left: 2rem;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    border: .1px solid black;
+    border-right: none;
 }
 
 .searchBut {
-  height: 110%;
-  width: 20%;
-  box-shadow: none;
-  background-color: white;
-  outline: none;
-  border: .1px solid black;
-  font-size: 1.5rem;
-  padding-top: .3rem;
-  padding-bottom: .3rem;
-  border-left: none;
+    height: 110%;
+    width: 20%;
+    box-shadow: none;
+    background-color: white;
+    outline: none;
+    border: .1px solid black;
+    font-size: 1.5rem;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    border-left: none;
 }
 
 .searchBut:hover, .searchBut:focus {
-  animation: leftToRight .1s linear forwards;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    animation: leftToRight .1s linear forwards;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
 .recentRow {
-  margin-top: 4rem;
+    margin-top: 4rem;
 }
 
 .recentContainer {
-  text-align: center;
+    text-align: center;
 }
 
 .frontImage, .backImage {
-  transition: 1s;
-  background-color: #ffffff;
+    transition: 1s;
+    background-color: #ffffff;
 }
 
 .backImage {
-  padding-left: 2rem;
-  position: absolute;
-  top: 0px;
-  height: 300px;
-  width: 400px;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
+    padding-left: 2rem;
+    position: absolute;
+    top: 0px;
+    height: 300px;
+    width: 400px;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
 }
 
 
 .frontImage {
-  backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 
-.centreDiv:hover .frontImage,.centreDiv:focus .frontImage, .leftDiv:hover .frontImage,.leftDiv:focus .frontImage, .rightDiv:hover .frontImage,.rightDiv:focus .frontImage {
-  transform: rotateY(180deg);
-  cursor: pointer;
+.centreDiv:hover .frontImage, .centreDiv:focus .frontImage, .leftDiv:hover .frontImage, .leftDiv:focus .frontImage, .rightDiv:hover .frontImage, .rightDiv:focus .frontImage {
+    transform: rotateY(180deg);
+    cursor: pointer;
 }
 
 .centreDiv:hover .backImage, .leftDiv:hover .backImage, .rightDiv:hover .backImage {
-  transform: rotateY(360deg);
-  cursor: pointer;
+    transform: rotateY(360deg);
+    cursor: pointer;
 }
 
 
 .backImage {
-  perspective: 1000px
+    perspective: 1000px
 }
 
 .leftImage, .centreImage, .rightImage {
-  width: 300px;
-  height: 300px;
-  text-align: center;
-  margin-bottom: 5rem;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    margin-bottom: 5rem;
 }
 
 .infoCol {
-  text-align: left;
-  font-size: 1.6rem;
-  padding-top: 4rem;
-  height:100%;
+    text-align: left;
+    font-size: 1.6rem;
+    padding-top: 4rem;
+    height: 100%;
 }

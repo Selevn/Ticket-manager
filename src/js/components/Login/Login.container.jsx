@@ -29,8 +29,7 @@ const LoginContainer = () => {
   const loginHandler = async () => {
     try {
       const data = await request(backendUrl+"/api/auth/login", "POST", {email: email, password: password})
-      authHook.login(data.token,data.id)
-      loginContext.setUserId(data.id)
+      authHook.login(data.token,data.id,data.userType)
       history.push("/home")
     } catch (e) {
       console.log(e)

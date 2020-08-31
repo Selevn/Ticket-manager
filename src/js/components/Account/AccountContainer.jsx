@@ -14,7 +14,7 @@ const AccountContainer = () => {
   const logoutHandler = async () => {
     try {
       logout()
-      loginContext.setUserId(null)
+      /*loginContext.setUserId(null)*/
       console.log(loginContext,"loginContext after logout")
       console.log(userId,"userId after logout")
       history.push("/")

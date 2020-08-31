@@ -6,14 +6,14 @@ import Footer from "./MainComponents/Footer/Footer.jsx"
 
 const Main = props => (
     <div>
-      <Navbar/>
-      <Body getConcerts={props.getConcerts}/>
-      <Footer/>
+        <Navbar/>
+        <Body getConcerts={props.getConcerts}/>
+        <Footer/>
     </div>
 );
 
 Main.propTypes = {
-  getConcerts: PropTypes.func,
+    getConcerts: PropTypes.func,
 }
 
 export default Main;

@@ -5,30 +5,30 @@ import {getConcertsFromDb} from "../actions/concerts.actions.js"
 import {getHallsFromDb} from "../actions/halls.actions.js"
 
 const initialState = {
-  concertList: [],
-  hallList: [],
+    concertList: [],
+    hallList: [],
 }
 
 const Reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ACTION_GET_ALL_CONCERTS: {
-      state.dispatch(getConcertsFromDb());
-      break;
+    switch (action.type) {
+        case ACTION_GET_ALL_CONCERTS: {
+            state.dispatch(getConcertsFromDb());
+            break;
+        }
+        case ACTION_GET_ALL_HALLS: {
+            state.dispatch(getHallsFromDb());
+            break;
+        }
+        case ACTION_PUT_CONCERTS: {
+            return ({...state, concertList: action.concerts})
+        }
+        case ACTION_PUT_HALLS: {
+            return ({...state, hallList: action.halls})
+        }
+        default: {
+            return state;
+        }
     }
-    case ACTION_GET_ALL_HALLS: {
-      state.dispatch(getHallsFromDb());
-      break;
-    }
-    case ACTION_PUT_CONCERTS: {
-      return ({...state, concertList: action.concerts})
-    }
-    case ACTION_PUT_HALLS: {
-      return ({...state, hallList: action.halls})
-    }
-    default: {
-      return state;
-    }
-  }
 
 
 }

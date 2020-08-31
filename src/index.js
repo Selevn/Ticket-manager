@@ -19,9 +19,9 @@ const wrapper = document.getElementById("root");
 
 wrapper ? ReactDOM.render(
     <BrowserRouter>
-      <Provider store={mainStore}>
-        <AppContainer getConcerts={getConcerts}/>
-      </Provider>
+        <Provider store={mainStore}>
+            <AppContainer getConcerts={getConcerts}/>
+        </Provider>
     </BrowserRouter>, wrapper) : false;
 
 /*<AppContainer

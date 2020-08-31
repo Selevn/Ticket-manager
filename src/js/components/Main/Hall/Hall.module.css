@@ -1,39 +1,39 @@
 .mainContainer {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .hallImage {
-  height: 100%;
-  max-height: 300px;
+    height: 100%;
+    max-height: 300px;
 }
 
 .hallImageDiv {
-  text-align: center;
+    text-align: center;
 }
 
 .hallName {
-  text-align: center;
+    text-align: center;
 }
 
 .hallDescription {
-  text-align: justify;
+    text-align: justify;
 }
 
 .alsoImg {
-  height: 150px;
+    height: 150px;
 }
 
 .alsoCol {
-  text-align: center;
-  transition: transform .2s linear;
+    text-align: center;
+    transition: transform .2s linear;
 }
-.alsoCol:hover
-{
-  transition: transform .2s linear;
-  transform: scale(1.05);
+
+.alsoCol:hover {
+    transition: transform .2s linear;
+    transform: scale(1.05);
 }
-.alsoContainer
-{
-  margin-bottom: 4rem;
+
+.alsoContainer {
+    margin-bottom: 4rem;
 }

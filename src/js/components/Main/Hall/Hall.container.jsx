@@ -3,54 +3,54 @@ import PropTypes from "prop-types"
 
 import Hall from './Hall.jsx'
 
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 import {useParams} from "react-router";
 
 
 const HallContainer = ({concerts, halls, getConcerts, getHalls}) => {
 
-  const globalId = useParams();
+    const globalId = useParams();
 
-  let [hall, setHall] = useState({});
+    let [hall, setHall] = useState({});
 
-  useEffect(() => {
-    getHalls();
+    useEffect(() => {
+        getHalls();
 
-  },[globalId.id])
-
-
-  useEffect(() => {
-
-    setHall(halls.filter((item)=>(Number(item.id)===Number(globalId.id)))[0])
-  },[globalId.id])
+    }, [globalId.id])
 
 
+    useEffect(() => {
 
-  useEffect(
-      ()=>{getConcerts(hall.place);
-      }
-      ,[hall]
-  )
+        setHall(halls.filter((item) => (Number(item.id) === Number(globalId.id)))[0])
+    }, [globalId.id])
 
-  return (
-      <Hall
-          hall={hall}
-          concerts={concerts}
-          halls={halls}
-      />
-  )
+
+    useEffect(
+        () => {
+            getConcerts(hall.place);
+        }
+        , [hall]
+    )
+
+    return (
+        <Hall
+            hall={hall}
+            concerts={concerts}
+            halls={halls}
+        />
+    )
 }
 
 HallContainer.propTypes = {
-  concerts: PropTypes.array,
-  halls: PropTypes.array,
-  searchText: PropTypes.string,
-  onInputChange: PropTypes.func,
-  getConcerts: PropTypes.func,
-  getHalls: PropTypes.func,
-  recent: PropTypes.array,
-  history: PropTypes.array,
+    concerts: PropTypes.array,
+    halls: PropTypes.array,
+    searchText: PropTypes.string,
+    onInputChange: PropTypes.func,
+    getConcerts: PropTypes.func,
+    getHalls: PropTypes.func,
+    recent: PropTypes.array,
+    history: PropTypes.array,
 }
 
 

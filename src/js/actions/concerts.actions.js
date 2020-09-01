@@ -24,8 +24,8 @@ const actionGetAllConcertsSorted = () => (dispatch) => {
 
 const actionGetById = (id) => (dispatch) => {
   getConcerts((getedConcerts) => {
-    getedConcerts = getedConcerts.filter((a) => {
-      a.id === id
+    getedConcerts = getedConcerts.filter((item) => {
+      return Number(item.id) === Number(id)
     })
     dispatch(actionPutConcerts(getedConcerts))
   })

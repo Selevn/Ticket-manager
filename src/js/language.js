@@ -176,7 +176,19 @@ let languagePack =
           {
             ru: "Выход",
             en: "Logout",
-          }
+          },
+      myTickets:
+          {
+            ru: "Мои билеты",
+            en: "My tickets",
+          },
+      cost:
+          {
+            ru: "Цена",
+            en: "Cost",
+          },
+
+
 
 
     }

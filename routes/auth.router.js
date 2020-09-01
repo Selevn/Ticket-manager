@@ -70,7 +70,12 @@ authRouter.post("/login",
                         },
                         config.get("jwtSecretKey"),
                         {expiresIn: "1h"})
-                    await response.status(218).json({token: token, id: data.id, userType: data.userType, message: "You are loggined in"})
+                    await response.status(218).json({
+                      token: token,
+                      id: data.id,
+                      userType: data.userType,
+                      message: "You are loggined in"
+                    })
                   } else {
                     if (!data.isApproved) {
                       await response.status(500).json({message: "Approve your account!"})

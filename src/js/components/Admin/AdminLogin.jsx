@@ -9,7 +9,7 @@ import languagePack from "../../language.js";
 const AdminLogin = (props) => (
     <>
       <LanguageContext.Consumer>
-        {langProps=>(
+        {langProps => (
             <Container className={style.loginContainer}>
               <Row>
                 <Col xs={12} sm={12} md={3} lg={3} xl={4}/>
@@ -17,11 +17,11 @@ const AdminLogin = (props) => (
                   <h3>{languagePack.login[langProps.language]}</h3>
                   <form>
                     <input
-                           type={"text"}
-                           placeholder={"Email"}
-                           className={style.formInput}
-                           value={props.email}
-                           onChange={props.onMailChange}/>
+                        type={"text"}
+                        placeholder={"Email"}
+                        className={style.formInput}
+                        value={props.email}
+                        onChange={props.onMailChange}/>
                     <br/>
                     <input type={"password"}
                            placeholder={"Password"}
@@ -29,7 +29,7 @@ const AdminLogin = (props) => (
                            value={props.password}
                            onChange={props.onPasswordChange}/>
 
-                      <br/>
+                    <br/>
                     <input type={"submit"}/>
                   </form>
                 </Col>

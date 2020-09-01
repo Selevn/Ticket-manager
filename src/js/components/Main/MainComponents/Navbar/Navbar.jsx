@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {NavLink, useLocation} from "react-router-dom";
 import {Nav, Navbar} from "react-bootstrap";
 
@@ -6,12 +6,12 @@ import languageSrc from "../../../../language.js"
 import {LanguageContext} from "../../../Contexts/LanguageContext.js"
 import style from './Navbar.module.css'
 import "./Navbar.css"
-import {LoginContext} from "../../../Contexts/LoginContext.js"
+import {useContextHook} from "../../../../customHooks/auth.contextHook.js";
 
 const AppNavbar = () => {
 
-  let loginContext = useContext(LoginContext)
-    console.log("loginContext in Navbar",loginContext)
+  let loginContext = useContextHook()
+  console.log("loginContext", loginContext)
   let locationPath = useLocation().pathname;
   return (
       <div className="sticky-top">

@@ -9,16 +9,15 @@ import languageSrc from "../../../language.js";
 
 const Concert = ({concert, back}) => (
     <LanguageContext.Consumer>
-      {langProps=>{
+      {langProps => {
         let day, month, year;
-        if(concert.hasOwnProperty("id"))
-        {
-          day = new Date(concert.date).getDate()+1;
+        if (concert.hasOwnProperty("id")) {
+          day = new Date(concert.date).getDate() + 1;
           month = languageSrc.months[new Date(concert.date).getMonth()][langProps.language];
           year = new Date(concert.date).getFullYear();
         }
 
-        return(<div>
+        return (<div>
           <Container className={style.mainContainer}>
             <Row>
               <Col sm={12} xs={12} md={7} lg={7} className={style.imageBlock}>
@@ -27,13 +26,15 @@ const Concert = ({concert, back}) => (
               </Col>
               <Col>
                 <div className={style.infoCol}>
-                  <span className={style.leftFloat}>{languageSrc.band[langProps.language]}:</span> <b className={style.rightFloat}>{concert.band}</b>
+                  <span className={style.leftFloat}>{languageSrc.band[langProps.language]}:</span> <b
+                    className={style.rightFloat}>{concert.band}</b>
                   <br/>
                   <span className={style.leftFloat}>{languageSrc.place[langProps.language]}:</span> <b
                     className={style.rightFloat}>{concert.place}</b>
                   <br/>
-                  <span className={style.leftFloat}>{languageSrc.date[langProps.language]}:</span> <b className={style.rightFloat}>
-                  {`${day||""} ${month||""} ${year||""}`}
+                  <span className={style.leftFloat}>{languageSrc.date[langProps.language]}:</span> <b
+                    className={style.rightFloat}>
+                  {`${day || ""} ${month || ""} ${year || ""}`}
                 </b>
                   <br/>
                 </div>
@@ -54,7 +55,8 @@ const Concert = ({concert, back}) => (
             </Row>
           </Container>
 
-        </div>)}
+        </div>)
+      }
       }
     </LanguageContext.Consumer>
 )

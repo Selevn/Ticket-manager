@@ -5,7 +5,6 @@ import {useParams} from "react-router";
 import Concert from "./Concert.jsx";
 
 
-
 const ConcertContainer = ({getConcerts, history}) => {
 
   const globalId = useParams();

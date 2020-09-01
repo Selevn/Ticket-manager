@@ -3,7 +3,8 @@
   margin-bottom: 1.4rem;
   text-align: center;
 }
-.searchCol{
+
+.searchCol {
   transition: box-shadow .3s linear;
 }
 
@@ -39,7 +40,7 @@
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
-.searchInput,.searchButheaderRow  {
+.searchInput, .searchButheaderRow {
   margin: 15px !important;
   margin-top: 25px !important;
   width: 12rem;

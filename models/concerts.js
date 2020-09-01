@@ -17,7 +17,7 @@ const getAllConcerts = (callBack) => {
   })
 }
 
-const addConcert = (band, place, date,img, callBack) => {
+const addConcert = (band, place, date, img, callBack) => {
   connection.query("INSERT INTO concerts (band, place, date,img) VALUES (?,?,?,?)",
       function (err, data) {
         if (err)

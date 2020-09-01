@@ -6,17 +6,17 @@ import Main from "./Main/Main.jsx";
 import LoginContainer from "./Login/Login.container.jsx";
 
 
-const App = props => (<div>
+const Router = props => (<div>
   <Switch>
     <Route path='/login' component={LoginContainer}/>
     <Route path='/' component={() => <Main getConcerts={props.getConcerts}/>}/>
   </Switch>
 </div>)
 
-App.propTypes = {
+Router.propTypes = {
   getConcerts: PropTypes.func
 }
 
-export default App;
+export default Router;
 
 

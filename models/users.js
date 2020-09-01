@@ -9,32 +9,35 @@ const connection = mysql.createPool({
 });
 
 const getUserByEmail = (email, callBack) => {
-  connection.query("SELECT * FROM users WHERE email = ?",[email],function(err, data) {
-    if(err)
-      callBack(err,null);
+  connection.query("SELECT * FROM users WHERE email = ?", [email], function (err, data) {
+    if (err)
+      callBack(err, null);
     else
-      callBack(null,data[0]);})
+      callBack(null, data[0]);
+  })
 }
 
-const setUser = (email,name,sname,password, callBack) => {
+const setUser = (email, name, sname, password, callBack) => {
   connection.query("INSERT INTO users (email, name, sname, password) VALUES (?,?,?,?)",
-      [email,name,sname,password],
-      function(err, data) {
-        if(err)
-          callBack(err,null);
+      [email, name, sname, password],
+      function (err, data) {
+        if (err)
+          callBack(err, null);
         else
-          callBack(null,data);})
+          callBack(null, data);
+      })
 }
 
-const delUser = (email,callBack) => {
+const delUser = (email, callBack) => {
   connection.query("DELETE FROM users WHERE email = ?",
       [email],
-      function(err, data) {
-        if(err)
-          callBack(err,null);
+      function (err, data) {
+        if (err)
+          callBack(err, null);
         else
-          callBack(null,data);}
-      )
+          callBack(null, data);
+      }
+  )
 }
 
 

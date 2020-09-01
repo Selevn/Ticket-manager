@@ -5,38 +5,32 @@ import {useParams} from "react-router";
 import Concert from "./Concert.jsx";
 
 
+<<<<<<< HEAD
 
 const ConcertContainer = ({getConcerts, history}) => {
+=======
+const ConcertContainer = ({getConcertById, concerts, history}) => {
+>>>>>>> 4a769e8... Home soon bugFix, start make Ticket page
 
-  const globalId = useParams();
-
-  let [concert, setConcert] = useState({});
-
-  useEffect(() => {
-    getConcerts(getConcert);
-  })
+    const globalId = useParams();
 
 
-  const getConcert = useCallback(
-      (concerts) => {
-        let rightConcert = concerts.filter((item) => {
-          return item.id === Number(globalId.id)
-        });
-        setConcert(rightConcert[0])
-      },
-      [globalId.id]
-  )
+    useEffect(() => {
+        getConcertById(globalId.id);
+    },[globalId.id])
 
 
-  return (
-      <Concert concert={concert} back={history.goBack}/>
-  )
+
+    return (
+        <Concert concert={concerts[0]} back={history.goBack}/>
+    )
 
 }
 
 ConcertContainer.propTypes = {
-  getConcerts: PropTypes.func,
-  back: PropTypes.func,
-  history: PropTypes.object,
+    getConcertById: PropTypes.func,
+    concerts: PropTypes.array,
+    back: PropTypes.func,
+    history: PropTypes.object,
 }
 export default withRouter(ConcertContainer);

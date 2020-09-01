@@ -9,7 +9,12 @@ import languageSrc from "../../../language.js";
 
 const Concert = ({concert, back}) => (
     <LanguageContext.Consumer>
+<<<<<<< HEAD
       {langProps=>{
+=======
+      {langProps => {
+
+>>>>>>> 4a769e8... Home soon bugFix, start make Ticket page
         let day, month, year;
         if(concert.hasOwnProperty("id"))
         {

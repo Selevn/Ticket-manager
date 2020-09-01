@@ -7,16 +7,23 @@ import HomeContainer from "../../Home/Home.wrapper.jsx";
 import ScheduleContainer from "../../Schedule/Schedule.wrapper.jsx";
 import SearchContainer from "../../Search/Search.container.jsx";
 import ContactsContainer from "../../Contacts/Contacts.container.jsx";
+<<<<<<< HEAD
 import ConcertContainer from "../../Concert/Concert.container.jsx";
 const Body = props => (
+=======
+import ConcertContainer from "../../Concert/Concert.wrapper.jsx";
+import AccountContainer from "../../../Account/AccountContainer.jsx";
+
+const Body = () => (
+>>>>>>> 4a769e8... Home soon bugFix, start make Ticket page
 
     <>
       <Switch>
         <Route exact path='/home' component={() => <HomeContainer />}/>
         <Route exact path='/search' component={SearchContainer}/>
-        <Route exact path='/schedule' component={() => (<ScheduleContainer getConcerts={props.getConcerts}/>)}/>
+        <Route exact path='/schedule' component={() => (<ScheduleContainer/>)}/>
         <Route exact path='/contacts' component={ContactsContainer}/>
-        <Route path='/concert/:id' component={() => <ConcertContainer getConcerts={props.getConcerts}/>}/>
+        <Route path='/concert/:id' component={() => <ConcertContainer/>}/>
         <Redirect from="/" to='/home'/>
       </Switch>
     </>

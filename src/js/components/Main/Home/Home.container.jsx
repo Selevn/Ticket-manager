@@ -20,7 +20,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
   useEffect(
       () => {
         getConcerts()
-      }
+      },[]
   )
   useEffect(
       findThreeNearest
@@ -43,25 +43,10 @@ const HomeContainer = ({concerts, getConcerts}) => {
 
 
   function findThreeNearest() {
-    if (concerts.length !== 0) {
-      let sortedConcerts = concerts.sort((a, b) => {
-        if (Date.parse(a.date) < Date.parse(b.date))
-          return -1
-        else
-          return 1
-      })
-      let outArr = []
-      for (let i in sortedConcerts) {
-        if (Date.parse(sortedConcerts[Number(i)].date) > Date.now()) {
-          outArr.push(sortedConcerts[Number(i) + 2])
-          outArr.push(sortedConcerts[Number(i) + 1])
-          outArr.push(sortedConcerts[Number(i)])
-          setRecent(outArr);
-          break;
-        }
-      }
+    if (concerts.length > 2) {
+      let outArr = [concerts[0],concerts[1],concerts[2]]
+      setRecent(outArr);
     }
-
   }
 
 
@@ -95,6 +80,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
 
   const inputRef = useRef(null);
 
+<<<<<<< HEAD
   //HOWTO
   useEffect(
       ()=>{
@@ -102,6 +88,8 @@ const HomeContainer = ({concerts, getConcerts}) => {
       },
       []
   )
+=======
+>>>>>>> 4a769e8... Home soon bugFix, start make Ticket page
 
   function onSearch() {
 

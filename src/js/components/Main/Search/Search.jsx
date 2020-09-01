@@ -12,7 +12,7 @@ const Search = () => (<>
         <Container>
           <Row>
             <Col xs={12} sm={12} md={3} lg={2} xl={3}/>
-            <Col className={style.headerCol}><h3>{languagePack.search[langProps.language]}</h3></Col>
+            <Col className={style.headerCol}><h1>{languagePack.search[langProps.language]}</h1></Col>
             <Col xs={12} sm={12} md={3} lg={2} xl={3}/>
           </Row>
           <Row>

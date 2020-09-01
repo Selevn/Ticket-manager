@@ -10,6 +10,7 @@ import languageSrc from "../../../language.js";
 const Concert = ({concert, back}) => (
     <LanguageContext.Consumer>
       {langProps => {
+
         let day, month, year;
         if (concert.hasOwnProperty("id")) {
           day = new Date(concert.date).getDate() + 1;

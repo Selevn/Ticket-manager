@@ -66,6 +66,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                     (item, index) => {
                       let day, month, year;
                       if (upcomingConcerts.length > 0) {
+                        console.log("upcomingConcerts",upcomingConcerts)
                         day = new Date(upcomingConcerts[index].date).getDate() + 1;
                         month = languageSrc.months[new Date(upcomingConcerts[index].date).getMonth()][langProps.language];
                         year = new Date(upcomingConcerts[index].date).getFullYear();

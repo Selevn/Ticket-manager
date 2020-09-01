@@ -5,6 +5,7 @@ import {backendUrl} from "../../../../config/default.json";
 import {useAuth} from "../../customHooks/auth.hook.js";
 import {LoginContext} from "../Contexts/LoginContext.js";
 import {useHistory} from "react-router-dom"
+
 const LoginContainer = () => {
 
 
@@ -17,10 +18,9 @@ const LoginContainer = () => {
   let [password, setPassword] = useState("")
 
 
-
   const registerHandler = async () => {
     try {
-      const data = await request(backendUrl+"/api/auth/register", "POST", {email: email, password: password})
+      const data = await request(backendUrl + "/api/auth/register", "POST", {email: email, password: password})
       console.log("Data", data)
     } catch (e) {
       console.log(e)
@@ -28,8 +28,8 @@ const LoginContainer = () => {
   }
   const loginHandler = async () => {
     try {
-      const data = await request(backendUrl+"/api/auth/login", "POST", {email: email, password: password})
-      authHook.login(data.token,data.id,data.userType)
+      const data = await request(backendUrl + "/api/auth/login", "POST", {email: email, password: password})
+      authHook.login(data.token, data.id, data.userType)
       history.push("/home")
     } catch (e) {
       console.log(e)

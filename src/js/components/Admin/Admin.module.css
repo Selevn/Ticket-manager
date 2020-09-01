@@ -1,13 +1,13 @@
 .loginContainer {
-margin-top:10rem;
+  margin-top: 10rem;
 }
 
 .loginCol {
   text-align: center;
-  padding:2.3rem;
-  border:2px solid gray;
+  padding: 2.3rem;
+  border: 2px solid gray;
 }
 
-.formInput{
-  margin:1rem;
+.formInput {
+  margin: 1rem;
 }

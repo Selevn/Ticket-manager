@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import Home from './Home.jsx'
 
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 
 const HomeContainer = ({concerts, getConcerts}) => {
@@ -98,15 +98,15 @@ const HomeContainer = ({concerts, getConcerts}) => {
   function onSearch() {
 
     if (helpList[0]) {
-      history.push('/concert/'+helpList[0].id)
-    }
-  }
-  function keyPress(e) {
-    if(e.keyCode === 13 && helpList[0]){
-      history.push('/concert/'+helpList[0].id)
+      history.push('/concert/' + helpList[0].id)
     }
   }
 
+  function keyPress(e) {
+    if (e.keyCode === 13 && helpList[0]) {
+      history.push('/concert/' + helpList[0].id)
+    }
+  }
 
 
   return (

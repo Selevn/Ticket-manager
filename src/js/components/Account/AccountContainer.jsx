@@ -7,7 +7,7 @@ import {LanguageContext} from "../Contexts/LanguageContext.js";
 
 const AccountContainer = () => {
   const langProps = useContext(LanguageContext)
-  const {logout,userId} = useAuth()
+  const {logout, userId} = useAuth()
   const loginContext = useContext(LoginContext)
   const history = useHistory();
 
@@ -15,8 +15,8 @@ const AccountContainer = () => {
     try {
       logout()
       /*loginContext.setUserId(null)*/
-      console.log(loginContext,"loginContext after logout")
-      console.log(userId,"userId after logout")
+      console.log(loginContext, "loginContext after logout")
+      console.log(userId, "userId after logout")
       history.push("/")
     } catch (e) {
       console.log(e)
@@ -31,7 +31,7 @@ const AccountContainer = () => {
     />)
   } else {
     history.push("/home")
-    return(<></>)
+    return (<></>)
   }
 
 }

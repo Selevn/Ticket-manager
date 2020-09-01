@@ -11,7 +11,7 @@ import {useContextHook} from "../../../../customHooks/auth.contextHook.js";
 const AppNavbar = () => {
 
   let loginContext = useContextHook()
-  console.log("loginContext",loginContext)
+  console.log("loginContext", loginContext)
   let locationPath = useLocation().pathname;
   return (
       <div className="sticky-top">

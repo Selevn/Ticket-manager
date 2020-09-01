@@ -172,6 +172,11 @@ let languagePack =
             ru: "Билет",
             en: "Ticket",
           },
+      logout:
+          {
+            ru: "Выход",
+            en: "Logout",
+          }
 
 
     }

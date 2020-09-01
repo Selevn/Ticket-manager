@@ -40,14 +40,14 @@ function App(props) {
 
   const loginContext = {
     userId: userId,
-    token:token,
-    userType:userType,
+    token: token,
+    userType: userType,
     setUserId: setUserId,
-    setToken:setToken,
-    setUserType:setUserType,
+    setToken: setToken,
+    setUserType: setUserType,
   };
 
-  console.log("loginContext",loginContext)
+  console.log("loginContext", loginContext)
 
   return (
       <BrowserRouter>
@@ -60,7 +60,7 @@ function App(props) {
           </LanguageContext.Provider>
         </Provider>
       </BrowserRouter>
-      )
+  )
 
 }
 

@@ -7,35 +7,35 @@ import Concert from "./Concert.jsx";
 
 const ConcertContainer = ({getConcerts, history}) => {
 
-  const globalId = useParams();
+    const globalId = useParams();
 
-  let [concert, setConcert] = useState({});
+    let [concert, setConcert] = useState({});
 
-  useEffect(() => {
-    getConcerts(getConcert);
-  })
-
-
-  const getConcert = useCallback(
-      (concerts) => {
-        let rightConcert = concerts.filter((item) => {
-          return item.id === Number(globalId.id)
-        });
-        setConcert(rightConcert[0])
-      },
-      [globalId.id]
-  )
+    useEffect(() => {
+        getConcerts(getConcert);
+    })
 
 
-  return (
-      <Concert concert={concert} back={history.goBack}/>
-  )
+    const getConcert = useCallback(
+        (concerts) => {
+            let rightConcert = concerts.filter((item) => {
+                return item.id === Number(globalId.id)
+            });
+            setConcert(rightConcert[0])
+        },
+        [globalId.id]
+    )
+
+
+    return (
+        <Concert concert={concert} back={history.goBack}/>
+    )
 
 }
 
 ConcertContainer.propTypes = {
-  getConcerts: PropTypes.func,
-  back: PropTypes.func,
-  history: PropTypes.object,
+    getConcerts: PropTypes.func,
+    back: PropTypes.func,
+    history: PropTypes.object,
 }
 export default withRouter(ConcertContainer);

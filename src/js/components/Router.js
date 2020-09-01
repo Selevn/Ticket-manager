@@ -7,14 +7,14 @@ import LoginContainer from "./Login/Login.container.jsx";
 
 
 const Router = props => (<div>
-  <Switch>
-    <Route path='/login' component={LoginContainer}/>
-    <Route path='/' component={() => <Main getConcerts={props.getConcerts}/>}/>
-  </Switch>
+    <Switch>
+        <Route path='/login' component={LoginContainer}/>
+        <Route path='/' component={() => <Main getConcerts={props.getConcerts}/>}/>
+    </Switch>
 </div>)
 
 Router.propTypes = {
-  getConcerts: PropTypes.func
+    getConcerts: PropTypes.func
 }
 
 export default Router;

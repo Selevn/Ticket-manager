@@ -4,14 +4,14 @@ import Container from "./Schedule.container.jsx"
 import {connect} from "react-redux";
 
 const mapStateToProps = (state) => {
-  return ({
-    concerts: state.concertList
-  })
+    return ({
+        concerts: state.concertList
+    })
 }
 const mapDispatchToProps = (dispatch) => ({
-  getConcerts: () => {
-    dispatch(actionGetAllConcertsSorted())
-  }
+    getConcerts: () => {
+        dispatch(actionGetAllConcertsSorted())
+    }
 })
 
 

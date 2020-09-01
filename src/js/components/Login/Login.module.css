@@ -1,69 +1,69 @@
 .loginContainer {
-  margin-top: 10rem;
+    margin-top: 10rem;
 }
 
 .loginCol {
-  text-align: center;
-  padding: 2.3rem;
-  border: 2px solid gray;
+    text-align: center;
+    padding: 2.3rem;
+    border: 2px solid gray;
 }
 
 .formInput {
-  margin: 1rem;
+    margin: 1rem;
 }
 
 .loginBut {
-  height: 2rem;
-  width: 5rem;
-  box-shadow: none;
-  border: 1px solid #929292;
-  background-color: white;
-  outline: none;
-  font-size: .95rem;
-  margin: .8rem;
-  margin-top: .4rem;
-  margin-bottom: .4rem;
+    height: 2rem;
+    width: 5rem;
+    box-shadow: none;
+    border: 1px solid #929292;
+    background-color: white;
+    outline: none;
+    font-size: .95rem;
+    margin: .8rem;
+    margin-top: .4rem;
+    margin-bottom: .4rem;
 }
 
 .loginBut:hover, .loginBut:focus {
-  animation: loginButAnim .1s linear forwards;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    animation: loginButAnim .1s linear forwards;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
 @keyframes loginButAnim {
-  0% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
-  }
-  10% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 10%, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 100%);
-  }
-  20% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 20%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 100%);
-  }
-  30% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 30%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
-  }
-  40% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 100%);
-  }
-  50% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
-  }
-  60% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 60%, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 1) 100%);
-  }
-  70% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 70%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
-  }
-  80% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
-  }
-  90% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 90%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 1) 100%);
-  }
-  100% {
-    color: white;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 100%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
+    0% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+    10% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 10%, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 100%);
+    }
+    20% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 20%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 100%);
+    }
+    30% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 30%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
+    }
+    40% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 100%);
+    }
+    50% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
+    }
+    60% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 60%, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 1) 100%);
+    }
+    70% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 70%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
+    }
+    80% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
+    }
+    90% {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 90%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 1) 100%);
+    }
+    100% {
+        color: white;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 100%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
 
-  }
+    }
 }

@@ -5,17 +5,17 @@ import Schedule from "./Schedule.jsx"
 const ScheduleContainer = (/*{getConcerts, concerts}*/props) => {
 
 
-  useEffect(() => {
-    props.getConcerts()
-  })
+    useEffect(() => {
+        props.getConcerts()
+    })
 
 
-  return (<Schedule concerts={props.concerts}/>)
+    return (<Schedule concerts={props.concerts}/>)
 }
 
 ScheduleContainer.propTypes = {
-  getConcerts: PropTypes.func,
-  concerts: PropTypes.array,
+    getConcerts: PropTypes.func,
+    concerts: PropTypes.array,
 }
 
 export default ScheduleContainer;

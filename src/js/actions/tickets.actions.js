@@ -1,9 +1,9 @@
 import {getUserTickets} from "../../../models/tickets.js";
-import {} from "../constants/tickets.constants.js"
+import {ACTION_PUT_USER_TICKETS} from "../constants/tickets.constants.js"
 
 const actionGetUserTickets = () => (dispatch) => {
-  getConcerts((getedConcerts) => {
-    dispatch(actionPutConcerts(getedConcerts))
+  getUserTickets((getedTickets) => {
+    dispatch(actionPutTickets(getedTickets))
   })
 }
 

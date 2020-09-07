@@ -9,11 +9,28 @@ const connection = mysql.createPool({
 });
 
 const getUserTickets = (userId,callBack) => {
-  connection.query("SELECT * FROM ticket WHERE userId = (?)",[userId], function (err, data) {
+  connection.query(`SELECT 
+    t.id,
+    t.userId,
+    t.sector,
+    t.cost,
+    c.place,
+    c.band,
+    c.date
+FROM
+    ticket t
+INNER JOIN concerts c
+    ON t.concertId = c.id
+WHERE t.userId = (?)`,[userId], function (err, data) {
+    console.log("gotcha",data)
     if (err)
       callBack(err, null);
     else
+    {
+      console.log("data",data)
       callBack(null, data);
+    }
+
   })
 }
 

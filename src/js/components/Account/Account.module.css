@@ -23,8 +23,21 @@
   border-collapse: collapse;
 }
 
-.ticketTable{
-  width:100%;
+.ticketTable {
+  width: 100%;
+}
+
+.tableTr {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  height:7rem;
+  transition: background-color 0.3s linear;
+}
+
+.tableTr:hover {
+  transition: background-color 0.3s linear;
+  background-color: rgba(125, 125, 125, 0.1);
+  cursor: pointer;
 }
 
 .logoutBut:hover, .logoutBut:focus {

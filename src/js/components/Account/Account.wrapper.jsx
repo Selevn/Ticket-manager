@@ -1,3 +1,4 @@
+/*
 import {actionGetById} from "../../../actions/concerts.actions.js";
 import {connect} from "react-redux";
 
@@ -15,4 +16,4 @@ const mapDispatchToProps = dispatch => {
 }
 const WrappedComponent = connect(mapStateToProps, mapDispatchToProps)(container);
 
-export default WrappedComponent;
+export default WrappedComponent;*/

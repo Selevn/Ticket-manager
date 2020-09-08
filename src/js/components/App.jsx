@@ -9,6 +9,7 @@ import {BrowserRouter} from "react-router-dom";
 
 const storage = "userStorage"
 
+import "./main.css"
 function App(props) {
 
 

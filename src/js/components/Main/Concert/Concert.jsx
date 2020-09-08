@@ -7,7 +7,7 @@ import {LanguageContext} from "../../Contexts/LanguageContext.js";
 import languageSrc from "../../../language.js";
 
 
-const Concert = ({concert, back}) => (
+const Concert = ({concert, back, buy}) => (
     <LanguageContext.Consumer>
       {langProps => {
 
@@ -51,7 +51,7 @@ const Concert = ({concert, back}) => (
 
               </Col>
               <Col sm={3} lg={3} md={3} xs={3} xl={3}>
-                <button className={style.buyButton}>{languageSrc.ticket[langProps.language]}</button>
+                <button className={style.buyButton} onClick={buy}>{languageSrc.ticket[langProps.language]}</button>
               </Col>
             </Row>
           </Container>
@@ -65,6 +65,7 @@ const Concert = ({concert, back}) => (
 Concert.propTypes = {
   concert: PropTypes.object,
   back: PropTypes.func,
+  buy: PropTypes.func,
 }
 
 export default Concert;

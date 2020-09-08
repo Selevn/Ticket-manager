@@ -7,37 +7,45 @@ import {LanguageContext} from "../../Contexts/LanguageContext.js";
 import languageSrc from "../../../language.js";
 
 
-const Ticket = ({concert, back}) => (
+const Ticket = ({data, back, currentSectorDesc, setSectorDesc,buyTicket}) => (
     <LanguageContext.Consumer>
         {langProps => {
-            return (<div>
-                <Container className={style.mainContainer}>
-                    <Row>
-                        <Col sm={12} xs={12} md={7} lg={7} className={style.imageBlock}>
-                            <img className={style.titleImage}
-                                 src={concert.imgSrc}/>
-                        </Col>
-                        <Col>
-                            <div className={style.infoCol}>
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row className={style.buttonPlacement}>
+            return (<>
+            <Container>
+                <Row className = {"headerRow"}>
+                    <Col className={style.centre}><h1>{languageSrc.buyTicket[langProps.language]}</h1></Col>
+                </Row>
+                <Row className={style.dataRow}>
+                    <Col className={style.sectorColumn}>
+                        {
+                            data[0] && data.map((item)=>{
+                                return(
+                                    <Container className={style.sectorBlock} onClick={()=>{setSectorDesc(item.id)}}>
+                                        <Row>
+                                            <Col></Col>
+                                            <Col className={style.sectorName}>{item.name}</Col>
+                                            <Col className={style.sectorCost}>{item.cost}$</Col>
+                                        </Row>
+                                    </Container>)
+                            })
+                        }
+                    </Col>
+                    <Col className={style.centre}>
+                        <h2>Features</h2>
+                        {currentSectorDesc && currentSectorDesc.features}
+                        <h2>Vip Features</h2>
+                        {currentSectorDesc && currentSectorDesc.vipFeatures}
 
+                    </Col>
+                </Row>
+                <Row className={style.centre}>
+                    <Col><button className={style.buyButton} onClick={back}>{languageSrc.back[langProps.language]}</button></Col>
+                    <Col/>
+                    <Col><button className={style.buyButton} onClick={buyTicket}>{languageSrc.buyTicket[langProps.language]}</button></Col>
+                </Row>
 
-                        <Col sm={3} lg={3} md={3} xs={3} xl={3} className={style.buttonColumn}>
-                            <button className={style.backButton} onClick={back}>{languageSrc.back[langProps.language]}</button>
-                        </Col>
-                        <Col>
-
-                        </Col>
-                        <Col sm={3} lg={3} md={3} xs={3} xl={3}>
-                            <button className={style.buyButton}>{languageSrc.ticket[langProps.language]}</button>
-                        </Col>
-                    </Row>
-                </Container>
-
-            </div>)
+            </Container>
+            </>)
         }
         }
     </LanguageContext.Consumer>
@@ -46,6 +54,8 @@ const Ticket = ({concert, back}) => (
 Ticket.propTypes = {
     concert: PropTypes.object,
     back: PropTypes.func,
+    data: PropTypes.object,
+    buyTicket: PropTypes.func,
 }
 
 export default Ticket;

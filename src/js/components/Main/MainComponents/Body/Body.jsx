@@ -13,6 +13,7 @@ const Body = props => (
 =======
 import ConcertContainer from "../../Concert/Concert.wrapper.jsx";
 import AccountContainer from "../../../Account/AccountContainer.jsx";
+import TicketContainer from "../../Ticket/Ticket.container.jsx";
 
 const Body = () => (
 >>>>>>> 4a769e8... Home soon bugFix, start make Ticket page
@@ -24,6 +25,7 @@ const Body = () => (
         <Route exact path='/schedule' component={() => (<ScheduleContainer/>)}/>
         <Route exact path='/contacts' component={ContactsContainer}/>
         <Route path='/concert/:id' component={() => <ConcertContainer/>}/>
+        <Route path='/tickets/:id' component={() => <TicketContainer/>}/>
         <Redirect from="/" to='/home'/>
       </Switch>
     </>

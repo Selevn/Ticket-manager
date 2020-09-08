@@ -23,7 +23,7 @@ const AccountContainer = () => {
     if (!response.ok) {
       throw new Error(data.message || "Что-то пошло не так")
     }
-  }, [])
+  }, [localStorage.getItem("userStorage","token")])
 
 
   const logoutHandler = async () => {

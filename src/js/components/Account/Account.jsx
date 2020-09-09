@@ -5,7 +5,7 @@ import languagePack from "../../language.js";
 import style from "./Account.module.css"
 
 const Account = ({logout, langProps, tickets}) => (<>
-      <Container>
+      <Container className={style.mainContainer}>
         <Row className={style.headerRow}>
           <Col xs={12} sm={12} md={3} lg={3} xl={3}></Col>
           <Col xs={12} sm={12} md={6} lg={6} xl={6}

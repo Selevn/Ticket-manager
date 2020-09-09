@@ -15,6 +15,8 @@ const TicketContainer = ({history}) => {
     let [data, setData] = useState([]);
     let [currentSectorDesc, setSectorDesc] = useState(null);
     let [sector, setSector] = useState(null);
+    let [count, setCount] = useState(1)
+
 
 
     useMemo(
@@ -34,7 +36,8 @@ const TicketContainer = ({history}) => {
 
   const buyTicket = useCallback(
       async ()=>{
-        let method = "POST", body = JSON.stringify({token:localStorage.getItem(storage,'token'),concertId:globalId["id"],sectorId:sector}), headers = {"Content-Type":'application/json'};
+        console.log("count",count)
+        let method = "POST", body = JSON.stringify({token:JSON.parse(localStorage.getItem(storage,'token')).token,concertId:globalId["id"],sectorId:sector,count:count}), headers = {"Content-Type":'application/json'};
 
         const response = await fetch(backendUrl+"/api/tickets/buyTicket", {method, body, headers})
         console.log("response",response)
@@ -54,13 +57,18 @@ const TicketContainer = ({history}) => {
     setSector(id)
   },[data])
 
-  console.log("data",data)
+  const chCount = (event) =>{
+    setCount(event.target.value);
+  }
+
     return (
         <Ticket data={data}
                 back={history.goBack}
                 currentSectorDesc = {currentSectorDesc}
                 setSectorDesc = {chSector}
                 buyTicket = {buyTicket}
+                countChange = {chCount}
+                count = {count}
         />
     )
 

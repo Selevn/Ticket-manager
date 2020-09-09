@@ -10,7 +10,9 @@
   background-color: rgba(128, 128, 128, 0.42);
   cursor: pointer;
 }
-
+.mainContainer{
+  margin-bottom: 5rem;
+}
 .dataRow{
   margin-top:3rem;
   margin-bottom:7.7rem;
@@ -36,6 +38,20 @@
   outline: none;
   font-size: 1.33rem;
   margin-top: .4rem;
+}
+.counter
+{
+  height: 3.3rem;
+  width: 6rem;
+  box-shadow: none;
+  border: 1px solid #929292;
+  background-color: white;
+  border-radius: 0px;
+  outline: none;
+  font-size: 1.33rem;
+  margin-top: .4rem;
+  float: left;
+  padding-left: 1.7rem;
 }
 
 .backButton:hover, .buyButton:hover, .backButton:focus, .buyButton:focus {

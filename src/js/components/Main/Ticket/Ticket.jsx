@@ -7,11 +7,11 @@ import {LanguageContext} from "../../Contexts/LanguageContext.js";
 import languageSrc from "../../../language.js";
 
 
-const Ticket = ({data, back, currentSectorDesc, setSectorDesc,buyTicket}) => (
+const Ticket = ({data, back, currentSectorDesc, setSectorDesc,buyTicket, count, countChange}) => (
     <LanguageContext.Consumer>
         {langProps => {
             return (<>
-            <Container>
+            <Container className={style.mainContainer}>
                 <Row className = {"headerRow"}>
                     <Col className={style.centre}><h1>{languageSrc.buyTicket[langProps.language]}</h1></Col>
                 </Row>
@@ -41,7 +41,7 @@ const Ticket = ({data, back, currentSectorDesc, setSectorDesc,buyTicket}) => (
                 <Row className={style.centre}>
                     <Col><button className={style.buyButton} onClick={back}>{languageSrc.back[langProps.language]}</button></Col>
                     <Col/>
-                    <Col><button className={style.buyButton} onClick={buyTicket}>{languageSrc.buyTicket[langProps.language]}</button></Col>
+                    <Col><input type="number" min={1} max = {12} value={count} onChange={countChange} className = {style.counter}></input><button className={style.buyButton} onClick={buyTicket}>{languageSrc.buyTicket[langProps.language]}</button></Col>
                 </Row>
 
             </Container>

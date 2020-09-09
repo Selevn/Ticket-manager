@@ -11,6 +11,7 @@ var corsOptions = {
 app.use(express.json({extended: true}))
 app.use('/api/auth',cors(corsOptions),require("./routes/auth.router.js"))
 app.use('/api/tickets',cors(corsOptions),require("./routes/ticket.router.js"))
+app.use('/api/concert',cors(corsOptions),require("./routes/concert.router.js"))
 
 app.get("/check",
     (request, response) => {

@@ -26,6 +26,7 @@ ticketRouter.post("/buyTicket", async (request, response) => {
       try {
         const body = request.body;
         const {id} = jwt.verify(body.token, config.get("jwtSecretKey"));
+        console.log("body.concertId",body.concertId)
         buyTicket(body.concertId,id,body.sectorId,body.count, async (err, data) => {
           try {
             await response.status(200).json(data)
@@ -37,6 +38,7 @@ ticketRouter.post("/buyTicket", async (request, response) => {
         response.status(500).json({message: "Oups! Smth went wrong. Try again later"})
       }
     })
+
 ticketRouter.post("/getConcertTickets", async (request, response) => {
   try {
         const {id} = request.body;

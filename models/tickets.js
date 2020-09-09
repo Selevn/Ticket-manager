@@ -61,6 +61,7 @@ WHERE con.id = (?)`, [concertId], function (err, data) {
 
 const buyTicket = (concertId, userId, sectorId, count, callBack) => {
   let arr = []
+  console.log("count",count)
   for (let i = 0; i < Number(count); i++) {
     console.log("cycle")
     arr.push([concertId, userId, sectorId])

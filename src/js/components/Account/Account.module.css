@@ -2,6 +2,9 @@
   text-align: center;
   font-size: 1.33rem;
 }
+.mainContainer{
+  margin-bottom: 5rem;
+}
 
 .headerRow {
   margin-top: 3rem;

@@ -1,8 +1,27 @@
+<<<<<<< HEAD
 
 
 
 import {getConcerts} from "../db_imitate.js";
+=======
+/*import {getConcerts} from "../db_imitate.js";*/
+>>>>>>> afc5406... small fixes, bd conflict start resolve
 import {ACTION_PUT_CONCERTS} from "../constants/concerts.constants.js"
+import {backendUrl} from "../../../config/default.json";
+
+//TODO:fix async error
+const getConcerts = async (cb) => {
+  let method = "POST",
+      body = null,
+      headers = {};
+  const response = await fetch(backendUrl + "/api/concerts/getAllConcerts", {method, body, headers})
+  const data = await response.json()
+  cb(data)
+  if (!response.ok) {
+    throw new Error(data.message || "Что-то пошло не так")
+  }
+}
+
 
     const actionGetAllConcerts = () => (dispatch) => {
   getConcerts((getedConcerts) => {

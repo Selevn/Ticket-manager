@@ -10,73 +10,74 @@ const storage = "userStorage"
 
 const TicketContainer = ({history}) => {
 
-    const globalId = useParams();
+  const globalId = useParams();
 
-    let [data, setData] = useState([]);
-    let [currentSectorDesc, setSectorDesc] = useState(null);
-    let [sector, setSector] = useState(null);
-    let [count, setCount] = useState(1)
+  let [data, setData] = useState([]);
+  let [currentSectorDesc, setSectorDesc] = useState(null);
+  let [sector, setSector] = useState(null);
+  let [count, setCount] = useState(1)
 
-
-
-    useMemo(
-        async ()=>{
-          let method = "POST", body = JSON.stringify(globalId), headers = {"Content-Type":'application/json'};
-
-          const response = await fetch(backendUrl+"/api/tickets/getConcertTickets", {method, body, headers})
-          console.log("response",response)
-          const data = await response.json()
-          setData(data)
-          if (!response.ok) {
-            throw new Error(data.message || "Что-то пошло не так")
-          }
-        },
-        []
-    )
-
-  const buyTicket = useCallback(
-      async ()=>{
-        console.log("count",count)
-        let method = "POST", body = JSON.stringify({token:JSON.parse(localStorage.getItem(storage,'token')).token,concertId:globalId["id"],sectorId:sector,count:count}), headers = {"Content-Type":'application/json'};
-
-        const response = await fetch(backendUrl+"/api/tickets/buyTicket", {method, body, headers})
-        console.log("response",response)
+  useMemo(
+      async () => {
+        let method = "POST",
+            body = JSON.stringify(globalId),
+            headers = {"Content-Type": 'application/json'};
+        const response = await fetch(backendUrl + "/api/tickets/getConcertTickets", {method, body, headers})
         const data = await response.json()
         setData(data)
         if (!response.ok) {
           throw new Error(data.message || "Что-то пошло не так")
         }
       },
-      [globalId["id"],sector]
+      [globalId["id"]]
+  )
+
+  const buyTicket = useCallback(
+      async () => {
+        let method = "POST",
+            body = JSON.stringify(
+                {
+                  token: JSON.parse(localStorage.getItem(storage, 'token')).token,
+                  concertId: globalId["id"],
+                  sectorId: sector,
+                  count: count
+                }),
+            headers = {"Content-Type": 'application/json'};
+        const response = await fetch(backendUrl + "/api/tickets/buyTicket", {method, body, headers})
+        const data = await response.json()
+        setData(data)
+        if (!response.ok) {
+          throw new Error(data.message || "Что-то пошло не так")
+        }
+      },
+      [globalId["id"], sector,count]
   )
 
 
-
-  const chSector = useCallback((id) =>{
-    setSectorDesc(data.filter((i)=>(i.id===id))[0]);
+  const chSector = useCallback((id) => {
+    setSectorDesc(data.filter((i) => (i.id === id))[0]);
     setSector(id)
-  },[data])
+  }, [data])
 
-  const chCount = (event) =>{
+  const chCount = useCallback((event) => {
     setCount(event.target.value);
-  }
-
-    return (
-        <Ticket data={data}
-                back={history.goBack}
-                currentSectorDesc = {currentSectorDesc}
-                setSectorDesc = {chSector}
-                buyTicket = {buyTicket}
-                countChange = {chCount}
-                count = {count}
-        />
-    )
+  },[])
+  return (
+      <Ticket data={data}
+              back={history.goBack}
+              currentSectorDesc={currentSectorDesc}
+              setSectorDesc={chSector}
+              buyTicket={buyTicket}
+              countChange={chCount}
+              count={count}
+      />
+  )
 
 }
 
 TicketContainer.propTypes = {
-    getConcerts: PropTypes.func,
-    back: PropTypes.func,
-    history: PropTypes.object,
+  getConcerts: PropTypes.func,
+  back: PropTypes.func,
+  history: PropTypes.object,
 }
 export default withRouter(TicketContainer);

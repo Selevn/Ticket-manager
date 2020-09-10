@@ -40,7 +40,7 @@ const getConcertById = (id, callBack) => {
 }
 
 
-module.exports.getAllHalls = getAllConcerts
+module.exports.getAllConcerts = getAllConcerts
 module.exports.addConcert = addConcert
 module.exports.getConcertById = getConcertById
 

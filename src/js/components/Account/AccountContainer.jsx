@@ -12,18 +12,19 @@ const AccountContainer = () => {
   const {logout} = useAuth()
   const loginContext = useContext(LoginContext)
   const history = useHistory();
-  const [tickets,setTickets] = useState({});
+  const [tickets, setTickets] = useState({});
 
   const getTickets = useMemo(async () => {
-    let method = "POST", body = localStorage.getItem("userStorage","token"), headers = {"Content-Type":'application/json'};
+    let method = "POST", body = localStorage.getItem("userStorage", "token"),
+        headers = {"Content-Type": 'application/json'};
     console.log(body)
-    const response = await fetch(backendUrl+"/api/tickets/getMyTickets", {method, body, headers})
+    const response = await fetch(backendUrl + "/api/tickets/getMyTickets", {method, body, headers})
     const data = await response.json()
     setTickets(data)
     if (!response.ok) {
       throw new Error(data.message || "Что-то пошло не так")
     }
-  }, [localStorage.getItem("userStorage","token")])
+  }, [localStorage.getItem("userStorage", "token")])
 
 
   const logoutHandler = async () => {

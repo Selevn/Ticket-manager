@@ -10,6 +10,7 @@ import "./Navbar.css"
 
 const AppNavbar = () => {
 
+  let loginContext = useContextHook()
   let locationPath = useLocation().pathname;
 
   return (

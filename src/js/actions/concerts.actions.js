@@ -1,22 +1,19 @@
-/*import {getConcerts} from "../db_imitate.js";*/
 import {ACTION_PUT_CONCERTS} from "../constants/concerts.constants.js"
 import {backendUrl} from "../../../config/default.json";
 
-//TODO:fix async error
-const getConcerts = async (cb) => {
+const getConcerts = (cb) => {
   let method = "POST",
       body = null,
       headers = {};
-  const response = await fetch(backendUrl + "/api/concerts/getAllConcerts", {method, body, headers})
-  const data = await response.json()
-  cb(data)
-  if (!response.ok) {
-    throw new Error(data.message || "Что-то пошло не так")
-  }
+  new Promise((res, rej) =>
+      fetch(backendUrl + "/api/concerts/getAllConcerts", {method, body, headers})
+          .then(response => {
+            response.json().then(data => cb(data))
+          })
+  )
 }
 
-
-    const actionGetAllConcerts = () => (dispatch) => {
+const actionGetAllConcerts = () => (dispatch) => {
   getConcerts((getedConcerts) => {
     dispatch(actionPutConcerts(getedConcerts))
   })

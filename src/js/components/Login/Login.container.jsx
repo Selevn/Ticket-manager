@@ -14,8 +14,7 @@ const LoginContainer = () => {
 
   const registerHandler = async () => {
     try {
-      const data = await request(backendUrl+"/api/auth/register", "POST", {email: email, password: password})
-      console.log("Data", data)
+      const data = await request(backendUrl + "/api/auth/register", "POST", {email: email, password: password})
     } catch (e) {
       console.log(e)
     }

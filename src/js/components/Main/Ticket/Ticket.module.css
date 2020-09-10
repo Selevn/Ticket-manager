@@ -1,29 +1,36 @@
-.centre{
+.centre {
   text-align: center;
 }
-.sectorBlock{
-  height:5rem;
+
+.sectorBlock {
+  height: 5rem;
   padding: 1.3rem;
-  font-size:1.33rem;
+  font-size: 1.33rem;
 }
-.sectorBlock:hover{
+
+.sectorBlock:hover {
   background-color: rgba(128, 128, 128, 0.42);
   cursor: pointer;
 }
-.mainContainer{
+
+.mainContainer {
   margin-bottom: 5rem;
 }
-.dataRow{
-  margin-top:3rem;
-  margin-bottom:7.7rem;
+
+.dataRow {
+  margin-top: 3rem;
+  margin-bottom: 7.7rem;
 }
-.sectorName{
+
+.sectorName {
   text-align: left;
 }
-.sectorCost{
+
+.sectorCost {
   text-align: right;
 }
-.sectorColumn{
+
+.sectorColumn {
   text-align: right;
 }
 
@@ -39,8 +46,8 @@
   font-size: 1.33rem;
   margin-top: .4rem;
 }
-.counter
-{
+
+.counter {
   height: 3.3rem;
   width: 6rem;
   box-shadow: none;
@@ -53,9 +60,11 @@
   float: left;
   padding-left: 1.7rem;
 }
-.active{
-  outline:2px solid black;
+
+.active {
+  outline: 2px solid black;
 }
+
 .backButton:hover, .buyButton:hover, .backButton:focus, .buyButton:focus {
   animation: button .1s linear forwards;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);

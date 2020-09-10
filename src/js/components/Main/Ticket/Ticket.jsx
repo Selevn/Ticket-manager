@@ -41,13 +41,13 @@ const Ticket = ({data, back, currentSectorDesc, setSectorDesc, buyTicket, count,
                 {currentSectorDesc && (<h2>Features</h2>)}
                 {currentSectorDesc && currentSectorDesc.features}
                 <br/>
-                {currentSectorDesc && "Num of seats: "+currentSectorDesc.numOfSeats}
+                {currentSectorDesc && "Num of seats: " + currentSectorDesc.numOfSeats}
 
 
                 {currentSectorDesc && (<h2>Vip Features</h2>)}
                 {currentSectorDesc && currentSectorDesc.vipFeatures}
                 <br/>
-                {currentSectorDesc && "Num of VIP seats: "+currentSectorDesc.vipNum}
+                {currentSectorDesc && "Num of VIP seats: " + currentSectorDesc.vipNum}
 
               </Col>
             </Row>

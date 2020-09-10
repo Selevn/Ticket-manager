@@ -17,25 +17,25 @@ const Account = ({logout, langProps, tickets}) => (<>
         <Row>
 
           <Col xs={12} sm={12} md={12} lg={12} xl={12} className={style.headerNameCol}>
-            <table className = {style.ticketTable}>
+            <table className={style.ticketTable}>
               <thead></thead>
               <tbody>
-                <tr> {/*tr->td*/}
-                  <td className={style.boldHeader}>{languagePack.band[langProps.language]}</td>
-                  <td className={style.boldHeader}>{languagePack.place[langProps.language]}</td>
-                  <td className={style.boldHeader}>{languagePack.date[langProps.language]}</td>
-                  <td className={style.boldHeader}>{languagePack.cost[langProps.language]}</td>
-                </tr>
-                {tickets[0] && tickets.map((item)=>{
-                  return(
-                      <tr key = {item.id} className={style.tableTr}>
-                        <td className={style.tableTd}>{item.band}</td>
-                        <td className={style.tableTd}>{item.place}</td>
-                        <td className={style.tableTd}>{new Date(item.date).getDate()} {languagePack.months[new Date(item.date).getMonth()][langProps.language]} {new Date(item.date).getFullYear()}</td>
-                        <td className={style.tableTd}>{item.cost}$</td>
-                      </tr>
-                  )
-                })}
+              <tr> {/*tr->td*/}
+                <td className={style.boldHeader}>{languagePack.band[langProps.language]}</td>
+                <td className={style.boldHeader}>{languagePack.place[langProps.language]}</td>
+                <td className={style.boldHeader}>{languagePack.date[langProps.language]}</td>
+                <td className={style.boldHeader}>{languagePack.cost[langProps.language]}</td>
+              </tr>
+              {tickets[0] && tickets.map((item) => {
+                return (
+                    <tr key={item.id} className={style.tableTr}>
+                      <td className={style.tableTd}>{item.band}</td>
+                      <td className={style.tableTd}>{item.place}</td>
+                      <td className={style.tableTd}>{new Date(item.date).getDate()} {languagePack.months[new Date(item.date).getMonth()][langProps.language]} {new Date(item.date).getFullYear()}</td>
+                      <td className={style.tableTd}>{item.cost}$</td>
+                    </tr>
+                )
+              })}
               </tbody>
             </table>
           </Col>

@@ -18,7 +18,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
   useEffect(
       () => {
         getConcerts()
-      },[]
+      }, []
   )
   useEffect(
       findThreeNearest
@@ -42,7 +42,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
 
   function findThreeNearest() {
     if (concerts.length > 2) {
-      let outArr = [concerts[0],concerts[1],concerts[2]]
+      let outArr = [concerts[0], concerts[1], concerts[2]]
       setRecent(outArr);
     }
   }

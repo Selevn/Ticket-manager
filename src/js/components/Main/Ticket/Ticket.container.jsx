@@ -50,7 +50,7 @@ const TicketContainer = ({history}) => {
           throw new Error(data.message || "Что-то пошло не так")
         }
       },
-      [globalId["id"], sector,count]
+      [globalId["id"], sector, count]
   )
 
 
@@ -61,7 +61,7 @@ const TicketContainer = ({history}) => {
 
   const chCount = useCallback((event) => {
     setCount(event.target.value);
-  },[])
+  }, [])
   return (
       <Ticket data={data}
               back={history.goBack}

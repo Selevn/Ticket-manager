@@ -189,8 +189,6 @@ let languagePack =
           },
 
 
-
-
     }
 
 export default languagePack

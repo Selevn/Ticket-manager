@@ -167,6 +167,24 @@ let languagePack =
             ru: "Билет",
             en: "Ticket",
           },
+<<<<<<< HEAD
+=======
+      logout:
+          {
+            ru: "Выход",
+            en: "Logout",
+          },
+      myTickets:
+          {
+            ru: "Мои билеты",
+            en: "My tickets",
+          },
+      cost:
+          {
+            ru: "Цена",
+            en: "Cost",
+          },
+>>>>>>> 19e0d0f... connected to right db, promise learned
 
 
     }

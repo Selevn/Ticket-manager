@@ -14,8 +14,12 @@ const LoginContainer = () => {
 
   const registerHandler = async () => {
     try {
+<<<<<<< HEAD
       const data = await request(backendUrl+"/api/auth/register", "POST", {email: email, password: password})
       console.log("Data", data)
+=======
+      const data = await request(backendUrl + "/api/auth/register", "POST", {email: email, password: password})
+>>>>>>> 19e0d0f... connected to right db, promise learned
     } catch (e) {
       console.log(e)
     }

@@ -10,6 +10,7 @@ import {BrowserRouter} from "react-router-dom";
 const storage = "userStorage"
 
 import "./main.css"
+
 function App(props) {
 
 
@@ -23,7 +24,6 @@ function App(props) {
       setToken(data.token)
       setUserId(data.userId)
       setUserType(data.userType)
-      console.log("setters works!")
     }
   }, [])
 
@@ -47,8 +47,6 @@ function App(props) {
     setToken: setToken,
     setUserType: setUserType,
   };
-
-  console.log("loginContext", loginContext)
 
   return (
       <BrowserRouter>

@@ -10,6 +10,10 @@ import "./Navbar.css"
 
 const AppNavbar = () => {
 
+<<<<<<< HEAD
+=======
+  let loginContext = useContextHook()
+>>>>>>> 19e0d0f... connected to right db, promise learned
   let locationPath = useLocation().pathname;
 
   return (

@@ -10,6 +10,7 @@ import {BrowserRouter} from "react-router-dom";
 const storage = "userStorage"
 
 import "./main.css"
+import * as jwt from "jsonwebtoken";
 
 function App(props) {
 
@@ -20,7 +21,7 @@ function App(props) {
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem(storage));
-    if (data && data.token) {
+    if (data && data.token && (Date.now()/1000 < jwt.decode(data.token).exp)) {
       setToken(data.token)
       setUserId(data.userId)
       setUserType(data.userType)

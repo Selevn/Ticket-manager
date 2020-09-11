@@ -42,13 +42,6 @@ const Ticket = ({data, back, currentSectorDesc, setSectorDesc, buyTicket, count,
                 {currentSectorDesc && currentSectorDesc.features}
                 <br/>
                 {currentSectorDesc && "Num of seats: " + currentSectorDesc.numOfSeats}
-
-
-                {currentSectorDesc && (<h2>Vip Features</h2>)}
-                {currentSectorDesc && currentSectorDesc.vipFeatures}
-                <br/>
-                {currentSectorDesc && "Num of VIP seats: " + currentSectorDesc.vipNum}
-
               </Col>
             </Row>
             <Row className={style.centre}>

@@ -38,8 +38,6 @@ const getConcertTickets = (concertId, callBack) => {
     sec.id,
     sec.name,
     sec.features,
-    sec.vipFeatures,
-    sec.vipNum,
     sec.numOfSeats,
     con.band,
     con.place,

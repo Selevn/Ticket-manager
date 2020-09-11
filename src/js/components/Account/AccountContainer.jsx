@@ -5,6 +5,7 @@ import {useHistory} from "react-router-dom"
 import {LoginContext} from "../Contexts/LoginContext.js";
 import {LanguageContext} from "../Contexts/LanguageContext.js";
 import {backendUrl} from "../../../../config/default.json";
+import * as jwt from "jsonwebtoken";
 
 const storage = "userStorage"
 const AccountContainer = () => {
@@ -15,10 +16,14 @@ const AccountContainer = () => {
   const [tickets, setTickets] = useState({});
 
   const getTickets = useMemo(async () => {
-    let method = "POST", body = localStorage.getItem("userStorage", "token"),
+    let method = "POST",
+        body = localStorage.getItem("userStorage", "token"),
         headers = {"Content-Type": 'application/json'};
-    console.log(body)
-    const response = await fetch(backendUrl + "/api/tickets/getMyTickets", {method, body, headers})
+    //console.log("token_b",JSON.parse(token).token)
+
+   /* if(jwt.decode(JSON.parse(localStorage.getItem("userStorage", "token")).token, {complete: true}).exp < new Date())
+*/
+      const response = await fetch(backendUrl + "/api/tickets/getMyTickets", {method, body, headers})
     const data = await response.json()
     setTickets(data)
     if (!response.ok) {

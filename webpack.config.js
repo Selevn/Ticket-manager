@@ -3,6 +3,9 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
+  output: {
+    publicPath: "/public/",
+  },
   module: {
     rules: [
       {

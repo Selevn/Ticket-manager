@@ -3,22 +3,20 @@ import React from "react";
 import {Switch, Route} from 'react-router-dom';
 
 import Main from "./Main/Main.jsx";
-import Admin from "./Admin/Admin.jsx";
-import Login from "./Login/Login.jsx";
+import LoginContainer from "./Login/Login.container.jsx";
 
 
-const App = props => (<div>
+const Router = props => (<div>
   <Switch>
-    <Route path='/admin' component={Admin}/>
-    <Route path='/login' component={Login}/>
+    <Route path='/login' component={LoginContainer}/>
     <Route path='/' component={() => <Main getConcerts={props.getConcerts}/>}/>
   </Switch>
 </div>)
 
-App.propTypes = {
+Router.propTypes = {
   getConcerts: PropTypes.func
 }
 
-export default App;
+export default Router;
 
 

@@ -1,25 +1,13 @@
-import {ACTION_PUT_CONCERTS} from "../constants/concerts.constants.js"
-import {backendUrl} from "../../../config/default.json";
+import {getUserTickets} from "../../../models/tickets.js";
+import {ACTION_PUT_USER_TICKETS} from "../constants/tickets.constants.js"
 
-const getConcerts = (cb) => {
-  let method = "POST",
-      body = null,
-      headers = {};
-  new Promise((res, rej) =>
-      fetch(backendUrl + "/api/concerts/getAllConcerts", {method, body, headers})
-          .then(response => {
-            response.json().then(data => cb(data))
-          })
-  )
-}
-
-const actionGetAllConcerts = () => (dispatch) => {
-  getConcerts((getedConcerts) => {
-    dispatch(actionPutConcerts(getedConcerts))
+const actionGetUserTickets = () => (dispatch) => {
+  getUserTickets((getedTickets) => {
+    dispatch(actionPutTickets(getedTickets))
   })
 }
 
-const actionPutConcerts = (concert) => ({
+const actionPutTickets = (concert) => ({
   type: ACTION_PUT_CONCERTS,
   concerts: concert,
 })

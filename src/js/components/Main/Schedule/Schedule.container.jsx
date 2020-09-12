@@ -7,7 +7,7 @@ const ScheduleContainer = (/*{getConcerts, concerts}*/props) => {
 
   useEffect(() => {
     props.getConcerts()
-  })
+  }, [])
 
 
   return (<Schedule concerts={props.concerts}/>)

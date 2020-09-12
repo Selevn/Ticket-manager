@@ -1,5 +1,5 @@
-import {ACTION_GET_ALL_CONCERTS, ACTION_PUT_CONCERTS} from "../constants/concerts.constants.js"
-import {actionPutConcerts} from "../actions/concerts.actions.js"
+import {ACTION_GET_USER_TICKETS} from "../constants/tickets.constants.js"
+import {actionPutConcerts} from "../actions/tickets.actions.js"
 
 import {getConcerts} from "../db_imitate.js"
 

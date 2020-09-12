@@ -25,6 +25,11 @@ let languagePack =
             ru: "Войти",
             en: "Login"
           },
+      account:
+          {
+            ru: "Аккаунт",
+            en: "Account"
+          },
       langChange:
           {
             ru: "Сменить язык",
@@ -166,6 +171,21 @@ let languagePack =
           {
             ru: "Билет",
             en: "Ticket",
+          },
+      logout:
+          {
+            ru: "Выход",
+            en: "Logout",
+          },
+      myTickets:
+          {
+            ru: "Мои билеты",
+            en: "My tickets",
+          },
+      cost:
+          {
+            ru: "Цена",
+            en: "Cost",
           },
 
 

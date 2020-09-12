@@ -1,79 +1,36 @@
-.titleImage {
-  width: 25rem;
-  height: 25rem;
-  -webkit-box-shadow: 0px 0px 92px 8px rgba(0, 0, 0, 0.22);
-  -moz-box-shadow: 0px 0px 92px 8px rgba(0, 0, 0, 0.22);
-  box-shadow: 0px 0px 92px 8px rgba(0, 0, 0, 0.22);
+.loginContainer {
+  margin-top: 10rem;
 }
 
-
-.leftFloat {
-  text-align: left;
-}
-
-.rightFloat {
-  text-align: right
-}
-
-.mainContainer {
-  width: 100%;
-  height: 40rem;
-  padding: 5rem;
-  padding-bottom: 0rem;
-  margin-bottom: 3rem;
-}
-
-.imageBlock {
-  text-align: center
-}
-
-.infoCol {
-  text-align: left;
-  font-size: 1.6rem;
-  padding-top: 8rem;
-}
-
-.buttonPlacement {
-  height: 5rem;
-  margin-top: 2rem;
-  width: 100%;
-}
-
-
-.buttonColumn {
+.loginCol {
   text-align: center;
+  padding: 2.3rem;
+  border: 2px solid gray;
 }
 
-.backButton {
-  height: 3.3rem;
-  width: 8rem;
+.formInput {
+  margin: 1rem;
+}
+
+.loginBut {
+  height: 2rem;
+  width: 5rem;
   box-shadow: none;
   border: 1px solid #929292;
   background-color: white;
-  border-radius: 0px;
   outline: none;
-  font-size: 1.33rem;
+  font-size: .95rem;
+  margin: .8rem;
   margin-top: .4rem;
+  margin-bottom: .4rem;
 }
 
-.buyButton {
-  height: 3.3rem;
-  width: 8rem;
-  box-shadow: none;
-  border: 1px solid #929292;
-  background-color: white;
-  border-radius: 0px;
-  outline: none;
-  font-size: 1.33rem;
-  margin-top: .4rem;
-}
-
-.backButton:hover, .buyButton:hover, .backButton:focus, .buyButton:focus {
-  animation: button .1s linear forwards;
+.loginBut:hover, .loginBut:focus {
+  animation: loginButAnim .1s linear forwards;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
-@keyframes button {
+@keyframes loginButAnim {
   0% {
     background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   }
@@ -110,5 +67,3 @@
 
   }
 }
-
-

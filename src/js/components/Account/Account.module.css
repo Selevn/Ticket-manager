@@ -1,79 +1,55 @@
-.titleImage {
-  width: 25rem;
-  height: 25rem;
-  -webkit-box-shadow: 0px 0px 92px 8px rgba(0, 0, 0, 0.22);
-  -moz-box-shadow: 0px 0px 92px 8px rgba(0, 0, 0, 0.22);
-  box-shadow: 0px 0px 92px 8px rgba(0, 0, 0, 0.22);
-}
-
-
-.leftFloat {
-  text-align: left;
-}
-
-.rightFloat {
-  text-align: right
+.headerNameCol {
+  text-align: center;
+  font-size: 1.33rem;
 }
 
 .mainContainer {
-  width: 100%;
-  height: 40rem;
-  padding: 5rem;
-  padding-bottom: 0rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
-.imageBlock {
-  text-align: center
+.headerRow {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
 }
 
-.infoCol {
-  text-align: left;
-  font-size: 1.6rem;
-  padding-top: 8rem;
-}
-
-.buttonPlacement {
-  height: 5rem;
-  margin-top: 2rem;
-  width: 100%;
-}
-
-
-.buttonColumn {
-  text-align: center;
-}
-
-.backButton {
-  height: 3.3rem;
-  width: 8rem;
+.logoutBut {
+  height: 3rem;
+  width: 10rem;
   box-shadow: none;
   border: 1px solid #929292;
   background-color: white;
-  border-radius: 0px;
   outline: none;
   font-size: 1.33rem;
   margin-top: .4rem;
 }
 
-.buyButton {
-  height: 3.3rem;
-  width: 8rem;
-  box-shadow: none;
-  border: 1px solid #929292;
-  background-color: white;
-  border-radius: 0px;
-  outline: none;
-  font-size: 1.33rem;
-  margin-top: .4rem;
+.table {
+  border-collapse: collapse;
 }
 
-.backButton:hover, .buyButton:hover, .backButton:focus, .buyButton:focus {
-  animation: button .1s linear forwards;
+.ticketTable {
+  width: 100%;
+}
+
+.tableTr {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  height: 7rem;
+  transition: background-color 0.3s linear;
+}
+
+.tableTr:hover {
+  transition: background-color 0.3s linear;
+  background-color: rgba(125, 125, 125, 0.1);
+  cursor: pointer;
+}
+
+.logoutBut:hover, .logoutBut:focus {
+  animation: logoutButAnim .1s linear forwards;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
-@keyframes button {
+@keyframes logoutButAnim {
   0% {
     background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   }
@@ -110,5 +86,4 @@
 
   }
 }
-
 

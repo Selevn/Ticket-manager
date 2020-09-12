@@ -1,60 +1,39 @@
-.titleImage {
-  width: 25rem;
-  height: 25rem;
-  -webkit-box-shadow: 0px 0px 92px 8px rgba(0, 0, 0, 0.22);
-  -moz-box-shadow: 0px 0px 92px 8px rgba(0, 0, 0, 0.22);
-  box-shadow: 0px 0px 92px 8px rgba(0, 0, 0, 0.22);
-}
-
-
-.leftFloat {
-  text-align: left;
-}
-
-.rightFloat {
-  text-align: right
-}
-
-.mainContainer {
-  width: 100%;
-  height: 40rem;
-  padding: 5rem;
-  padding-bottom: 0rem;
-  margin-bottom: 3rem;
-}
-
-.imageBlock {
-  text-align: center
-}
-
-.infoCol {
-  text-align: left;
-  font-size: 1.6rem;
-  padding-top: 8rem;
-}
-
-.buttonPlacement {
-  height: 5rem;
-  margin-top: 2rem;
-  width: 100%;
-}
-
-
-.buttonColumn {
+.centre {
   text-align: center;
 }
 
-.backButton {
-  height: 3.3rem;
-  width: 8rem;
-  box-shadow: none;
-  border: 1px solid #929292;
-  background-color: white;
-  border-radius: 0px;
-  outline: none;
+.sectorBlock {
+  height: 5rem;
+  padding: 1.3rem;
   font-size: 1.33rem;
-  margin-top: .4rem;
 }
+
+.sectorBlock:hover {
+  background-color: rgba(128, 128, 128, 0.42);
+  cursor: pointer;
+}
+
+.mainContainer {
+  margin-bottom: 5rem;
+}
+
+.dataRow {
+  margin-top: 3rem;
+  margin-bottom: 7.7rem;
+}
+
+.sectorName {
+  text-align: left;
+}
+
+.sectorCost {
+  text-align: right;
+}
+
+.sectorColumn {
+  text-align: right;
+}
+
 
 .buyButton {
   height: 3.3rem;
@@ -66,6 +45,24 @@
   outline: none;
   font-size: 1.33rem;
   margin-top: .4rem;
+}
+
+.counter {
+  height: 3.3rem;
+  width: 6rem;
+  box-shadow: none;
+  border: 1px solid #929292;
+  background-color: white;
+  border-radius: 0px;
+  outline: none;
+  font-size: 1.33rem;
+  margin-top: .4rem;
+  float: left;
+  padding-left: 1.7rem;
+}
+
+.active {
+  outline: 2px solid black;
 }
 
 .backButton:hover, .buyButton:hover, .backButton:focus, .buyButton:focus {
@@ -110,5 +107,3 @@
 
   }
 }
-
-

@@ -23,12 +23,12 @@
   padding-bottom: .4rem;
 }
 
-.tipLi:hover, .tipLi:hover .tipLink,.tipLi:focus, .tipLi:focus .tipLink, .tipLink:focus,.tipLink:focus .tipLi {
+.tipLi:hover, .tipLi:hover .tipLink, .tipLi:focus, .tipLi:focus .tipLink {
   color: white !important;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   animation: leftToRight .1s linear forwards;
-}
 
+}
 
 
 @keyframes leftToRight {
@@ -77,7 +77,7 @@
 }
 
 
-.tipLi:hover .tipLink{
+.tipLi:hover .tipLink {
   text-decoration: none;
   color: white;
 }
@@ -144,7 +144,7 @@
 }
 
 
-.centreDiv:hover .frontImage,.centreDiv:focus .frontImage, .leftDiv:hover .frontImage,.leftDiv:focus .frontImage, .rightDiv:hover .frontImage,.rightDiv:focus .frontImage {
+.centreDiv:hover .frontImage, .centreDiv:focus .frontImage, .leftDiv:hover .frontImage, .leftDiv:focus .frontImage, .rightDiv:hover .frontImage, .rightDiv:focus .frontImage {
   transform: rotateY(180deg);
   cursor: pointer;
 }
@@ -170,5 +170,5 @@
   text-align: left;
   font-size: 1.6rem;
   padding-top: 4rem;
-  height:100%;
+  height: 100%;
 }

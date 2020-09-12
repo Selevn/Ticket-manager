@@ -7,18 +7,18 @@ import {LanguageContext} from "../../Contexts/LanguageContext.js";
 import languageSrc from "../../../language.js";
 
 
-const Concert = ({concert, back}) => (
+const Concert = ({concert, back, buy}) => (
     <LanguageContext.Consumer>
-      {langProps=>{
+      {langProps => {
+
         let day, month, year;
-        if(concert.hasOwnProperty("id"))
-        {
-          day = new Date(concert.date).getDate()+1;
+        if (concert.hasOwnProperty("id")) {
+          day = new Date(concert.date).getDate() + 1;
           month = languageSrc.months[new Date(concert.date).getMonth()][langProps.language];
           year = new Date(concert.date).getFullYear();
         }
 
-        return(<div>
+        return (<div>
           <Container className={style.mainContainer}>
             <Row>
               <Col sm={12} xs={12} md={7} lg={7} className={style.imageBlock}>
@@ -27,13 +27,15 @@ const Concert = ({concert, back}) => (
               </Col>
               <Col>
                 <div className={style.infoCol}>
-                  <span className={style.leftFloat}>{languageSrc.band[langProps.language]}:</span> <b className={style.rightFloat}>{concert.band}</b>
+                  <span className={style.leftFloat}>{languageSrc.band[langProps.language]}:</span> <b
+                    className={style.rightFloat}>{concert.band}</b>
                   <br/>
                   <span className={style.leftFloat}>{languageSrc.place[langProps.language]}:</span> <b
                     className={style.rightFloat}>{concert.place}</b>
                   <br/>
-                  <span className={style.leftFloat}>{languageSrc.date[langProps.language]}:</span> <b className={style.rightFloat}>
-                  {`${day||""} ${month||""} ${year||""}`}
+                  <span className={style.leftFloat}>{languageSrc.date[langProps.language]}:</span> <b
+                    className={style.rightFloat}>
+                  {`${day || ""} ${month || ""} ${year || ""}`}
                 </b>
                   <br/>
                 </div>
@@ -49,12 +51,13 @@ const Concert = ({concert, back}) => (
 
               </Col>
               <Col sm={3} lg={3} md={3} xs={3} xl={3}>
-                <button className={style.buyButton}>{languageSrc.ticket[langProps.language]}</button>
+                <button className={style.buyButton} onClick={buy}>{languageSrc.ticket[langProps.language]}</button>
               </Col>
             </Row>
           </Container>
 
-        </div>)}
+        </div>)
+      }
       }
     </LanguageContext.Consumer>
 )
@@ -62,6 +65,7 @@ const Concert = ({concert, back}) => (
 Concert.propTypes = {
   concert: PropTypes.object,
   back: PropTypes.func,
+  buy: PropTypes.func,
 }
 
 export default Concert;

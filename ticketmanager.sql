@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 01, 2020 at 08:29 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- Хост: 127.0.0.1
+-- Время создания: Сен 14 2020 г., 00:29
+-- Версия сервера: 10.4.11-MariaDB
+-- Версия PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ticketmanager`
+-- База данных: `ticketmanager`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `concerts`
+-- Структура таблицы `concerts`
 --
 
 CREATE TABLE `concerts` (
@@ -32,26 +33,61 @@ CREATE TABLE `concerts` (
   `band` varchar(40) DEFAULT NULL,
   `place` varchar(40) DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `img` int(11) DEFAULT NULL
+  `imgSrc` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `concerts`
+-- Дамп данных таблицы `concerts`
 --
 
-INSERT INTO `concerts` (`id`, `band`, `place`, `date`, `img`) VALUES
-(1, 'Green day', 'DInamo', '2021-01-24', 1234),
-(2, 'Jon Bellion', 'DInamo', '2020-11-19', 99),
-(3, 'Skillet', 'DInamo', '2021-04-04', 90),
-(4, 'Tony Igy', 'DInamo', '2021-01-24', 123),
-(5, 'Twenty one pilots', 'Chizhovka', '2020-10-16', 56),
-(6, 'Sum 41', 'DInamo', '2021-05-07', 32),
-(7, 'Awolnation', 'Chizhovka', '2020-12-03', 67);
+INSERT INTO `concerts` (`id`, `band`, `place`, `date`, `imgSrc`) VALUES
+(1, 'Green day', 'DInamo', '2021-01-24', 'https://images-na.ssl-images-amazon.com/images/I/61HZsw4F5VL._SL1425_.jpg'),
+(2, 'Jon Bellion', 'DInamo', '2020-11-19', 'https://images-na.ssl-images-amazon.com/images/I/910h0v-R2jL._AC_SL1500_.jpg'),
+(3, 'Skillet', 'DInamo', '2021-04-04', 'https://images-na.ssl-images-amazon.com/images/I/81Bvk-ayKGL._SL1448_.jpg'),
+(4, 'Tony Igy', 'DInamo', '2021-01-24', 'https://avatars.yandex.net/get-music-content/3318009/545ed104.a.587142-5/m1000x1000'),
+(5, 'Twenty one pilots', 'Chizhovka', '2020-10-16', 'https://images-na.ssl-images-amazon.com/images/I/71k-5WHYB9L._AC_SL1425_.jpg'),
+(6, 'Sum 41', 'DInamo', '2021-05-07', 'https://upload.wikimedia.org/wikipedia/ru/thumb/3/39/Sum_41_order_in_decline.png/274px-Sum_41_order_in_decline.png'),
+(7, 'Awolnation', 'Chizhovka', '2020-12-03', 'https://lastfm.freetls.fastly.net/i/u/500x500/db98a3f967bd4b6b9dc86251801cce60.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `halls`
+-- Структура таблицы `costs`
+--
+
+CREATE TABLE `costs` (
+  `id` int(11) NOT NULL,
+  `sectorId` int(6) DEFAULT NULL,
+  `concertId` int(6) DEFAULT NULL,
+  `cost` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `costs`
+--
+
+INSERT INTO `costs` (`id`, `sectorId`, `concertId`, `cost`) VALUES
+(1, 4, 1, 199.99),
+(3, 5, 1, 49.99),
+(4, 4, 2, 74.99),
+(5, 5, 3, 74.99),
+(6, 5, 4, 74.99),
+(7, 1, 5, 4.99),
+(8, 4, 6, 99.99),
+(9, 1, 7, 119.99),
+(10, 5, 2, 13.99),
+(11, 4, 3, 49.99),
+(13, 2, 5, 64.99),
+(14, 5, 6, 34.99),
+(15, 2, 7, 99.99),
+(18, 4, 4, 14.99),
+(20, 3, 5, 16.99),
+(22, 3, 7, 249.99);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `halls`
 --
 
 CREATE TABLE `halls` (
@@ -62,7 +98,7 @@ CREATE TABLE `halls` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `halls`
+-- Дамп данных таблицы `halls`
 --
 
 INSERT INTO `halls` (`id`, `place`, `description`, `img`) VALUES
@@ -72,7 +108,7 @@ INSERT INTO `halls` (`id`, `place`, `description`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sector`
+-- Структура таблицы `sector`
 --
 
 CREATE TABLE `sector` (
@@ -80,46 +116,61 @@ CREATE TABLE `sector` (
   `id` int(4) NOT NULL,
   `name` varchar(40) DEFAULT NULL,
   `numOfSeats` int(4) NOT NULL,
-  `features` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`features`)),
-  `vipFeatures` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`vipFeatures`)),
-  `vipNum` int(4) NOT NULL
+  `features` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `sector`
+-- Дамп данных таблицы `sector`
 --
 
-INSERT INTO `sector` (`place`, `id`, `name`, `numOfSeats`, `features`, `vipFeatures`, `vipNum`) VALUES
-('Chizhovka', 1, 'Left', 200, '{}', '{}', 0),
-('Chizhovka', 2, 'right', 200, '{}', '{}', 0),
-('Chizhovka', 3, 'center', 1000, '{}', '{}', 100);
+INSERT INTO `sector` (`place`, `id`, `name`, `numOfSeats`, `features`) VALUES
+('Chizhovka', 1, 'Left', 200, 'Photozone'),
+('Chizhovka', 2, 'right', 200, 'Smth'),
+('Chizhovka', 3, 'center', 1000, 'Smth2'),
+('DInamo', 4, 'centre', 30, 'Фич нет'),
+('DInamo', 5, 'backend', 10, 'none');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ticket`
+-- Структура таблицы `ticket`
 --
 
 CREATE TABLE `ticket` (
   `id` int(8) NOT NULL,
   `userId` int(4) DEFAULT NULL,
-  `place` varchar(40) DEFAULT NULL,
-  `sector` int(6) DEFAULT NULL,
-  `cost` double DEFAULT NULL
+  `concertId` int(6) DEFAULT NULL,
+  `sectorId` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ticket`
+-- Дамп данных таблицы `ticket`
 --
 
-INSERT INTO `ticket` (`id`, `userId`, `place`, `sector`, `cost`) VALUES
-(1, 12, 'Chizhovka', 2, 199.99),
-(2, 12, 'Chizhovka', 3, 149.99);
+INSERT INTO `ticket` (`id`, `userId`, `concertId`, `sectorId`) VALUES
+(114, 12, 3, 4),
+(115, 12, 3, 4),
+(116, 12, 3, 4),
+(117, 12, 3, 4),
+(118, 12, 3, 4),
+(119, 12, 1, 4),
+(120, 12, 1, 4),
+(121, 12, 1, 4),
+(122, 12, 1, 4),
+(123, 12, 1, 4),
+(124, 12, 1, 4),
+(125, 12, 1, 4),
+(126, 12, 1, 4),
+(127, 12, 1, 4),
+(128, 12, 1, 4),
+(129, 12, 5, 1),
+(130, 12, 5, 1),
+(131, 12, 5, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Структура таблицы `users`
 --
 
 CREATE TABLE `users` (
@@ -133,7 +184,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `name`, `sname`, `password`, `isApproved`, `userType`) VALUES
@@ -143,102 +194,123 @@ INSERT INTO `users` (`id`, `email`, `name`, `sname`, `password`, `isApproved`, `
 (12, 'v@gmail.com', NULL, NULL, '123456', 1, 'user');
 
 --
--- Indexes for dumped tables
+-- Индексы сохранённых таблиц
 --
 
 --
--- Indexes for table `concerts`
+-- Индексы таблицы `concerts`
 --
 ALTER TABLE `concerts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `place` (`place`);
 
 --
--- Indexes for table `halls`
+-- Индексы таблицы `costs`
+--
+ALTER TABLE `costs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `concertId` (`concertId`),
+  ADD KEY `sectorId` (`sectorId`);
+
+--
+-- Индексы таблицы `halls`
 --
 ALTER TABLE `halls`
   ADD PRIMARY KEY (`id`),
   ADD KEY `place` (`place`);
 
 --
--- Indexes for table `sector`
+-- Индексы таблицы `sector`
 --
 ALTER TABLE `sector`
   ADD PRIMARY KEY (`id`),
   ADD KEY `place` (`place`);
 
 --
--- Indexes for table `ticket`
+-- Индексы таблицы `ticket`
 --
 ALTER TABLE `ticket`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userId` (`userId`),
-  ADD KEY `sector` (`sector`),
-  ADD KEY `ticket_ibfk_2` (`place`);
+  ADD KEY `sector` (`sectorId`),
+  ADD KEY `concertId` (`concertId`);
 
 --
--- Indexes for table `users`
+-- Индексы таблицы `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT для сохранённых таблиц
 --
 
 --
--- AUTO_INCREMENT for table `concerts`
+-- AUTO_INCREMENT для таблицы `concerts`
 --
 ALTER TABLE `concerts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `halls`
+-- AUTO_INCREMENT для таблицы `costs`
+--
+ALTER TABLE `costs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT для таблицы `halls`
 --
 ALTER TABLE `halls`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `sector`
+-- AUTO_INCREMENT для таблицы `sector`
 --
 ALTER TABLE `sector`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `ticket`
+-- AUTO_INCREMENT для таблицы `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Constraints for dumped tables
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Constraints for table `concerts`
+-- Ограничения внешнего ключа таблицы `concerts`
 --
 ALTER TABLE `concerts`
   ADD CONSTRAINT `concerts_ibfk_1` FOREIGN KEY (`place`) REFERENCES `halls` (`place`);
 
 --
--- Constraints for table `sector`
+-- Ограничения внешнего ключа таблицы `costs`
+--
+ALTER TABLE `costs`
+  ADD CONSTRAINT `costs_ibfk_1` FOREIGN KEY (`concertId`) REFERENCES `concerts` (`id`),
+  ADD CONSTRAINT `costs_ibfk_2` FOREIGN KEY (`sectorId`) REFERENCES `sector` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `sector`
 --
 ALTER TABLE `sector`
   ADD CONSTRAINT `sector_ibfk_1` FOREIGN KEY (`place`) REFERENCES `halls` (`place`);
 
 --
--- Constraints for table `ticket`
+-- Ограничения внешнего ключа таблицы `ticket`
 --
 ALTER TABLE `ticket`
   ADD CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (`place`) REFERENCES `sector` (`place`),
-  ADD CONSTRAINT `ticket_ibfk_3` FOREIGN KEY (`sector`) REFERENCES `sector` (`id`);
+  ADD CONSTRAINT `ticket_ibfk_3` FOREIGN KEY (`sectorId`) REFERENCES `sector` (`id`),
+  ADD CONSTRAINT `ticket_ibfk_4` FOREIGN KEY (`concertId`) REFERENCES `concerts` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

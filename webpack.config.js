@@ -16,6 +16,16 @@ module.exports = {
         }
       },
       {
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        exclude: /node_modules/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          publicPath: '/public/',
+          outputPath: '/dist/assets/'
+        }
+      },
+      {
         test: /\.html$/,
         use: [
           {

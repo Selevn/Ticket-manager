@@ -9,102 +9,122 @@ import {useHistory} from "react-router-dom";
 const HomeContainer = ({concerts, getConcerts}) => {
 
 
-  const [inputText, setInputText] = useState("");
-  const [helpList, setHelpList] = useState([]);
-  const [recent, setRecent] = useState([]);
+    const [inputText, setInputText] = useState("");
+    const [helpList, setHelpList] = useState([]);
+    const [recent, setRecent] = useState([]);
 
-  const history = useHistory();
+    const [soonCount, setSoonCount] = useState(3);
 
-  useEffect(
-      () => {
-        getConcerts()
-      }, []
-  )
-  useEffect(
-      findThreeNearest
-      ,
-      [concerts]
-  )
+    const inputRef = useRef(null);
+    const history = useHistory();
 
-  useEffect(
-      () => {
-        document.addEventListener("click", clickOutsideDetector)
-      }
-  )
+    useEffect(
+        () => {
+            getConcerts()
+        }, []
+    )
+    useEffect(
+        () => {
+            if (concerts.length > soonCount) {
+                let outArr = []
+                for (let i = 0; i < soonCount; i++) {
+                    outArr.push(concerts[i])
+                }
+                setRecent(outArr);
+            }
+        },
+        [soonCount, concerts]
+    )
 
-  function clickOutsideDetector(event) {
-    if (!(event.target.tagName === "ul" || event.target.tagName === "a" || event.target.tagName === "input")) {
-      setInputText("");
-      setHelpList([]);
-    }
-  }
+    useEffect(
+        () => {
+            document.addEventListener("click", clickOutsideDetector)
+        }, []
+    )
 
-
-  function findThreeNearest() {
-    if (concerts.length > 2) {
-      let outArr = [concerts[0], concerts[1], concerts[2]]
-      setRecent(outArr);
-    }
-  }
-
-
-  const similarConcerts = useCallback(
-      val => {
-        if (val.length > 1) {
-          return val ?
-              concerts.filter((i) => i.band.toUpperCase().includes(val.toUpperCase())) :
-              []
-        } else {
-          return val ?
-              concerts.filter((i) => i.band.toUpperCase().startsWith(val.toUpperCase())) :
-              []
+    function clickOutsideDetector(event) {
+        if (!(event.target.tagName === "ul" || event.target.tagName === "a" || event.target.tagName === "input")) {
+            setInputText("");
+            setHelpList([]);
         }
-      },
-      [concerts]
-  );
-
-
-  function onInputChange() {
-    setInputText(inputRef.current.value);
-    setHelpList(similarConcerts(inputRef.current.value));
-  }
-
-  const inputRef = useRef(null);
-
-
-  function onSearch() {
-
-    if (helpList[0]) {
-      history.push('/concert/' + helpList[0].id)
     }
-  }
 
-  function keyPress(e) {
-    if (e.keyCode === 13 && helpList[0]) {
-      history.push('/concert/' + helpList[0].id)
+
+    /* function findNearest() {
+       if (concerts.length > soonCount) {
+         let outArr = []
+         for(let i = 0; i < soonCount; i++)
+         {
+           outArr.push(concerts[i])
+         }
+         setRecent(outArr);
+       }
+     }*/
+
+
+    const similarConcerts = useCallback(
+        val => {
+            if (val.length > 1) {
+                return val ?
+                    concerts.filter((i) => i.band.toUpperCase().includes(val.toUpperCase())) :
+                    []
+            } else {
+                return val ?
+                    concerts.filter((i) => i.band.toUpperCase().startsWith(val.toUpperCase())) :
+                    []
+            }
+        },
+        [concerts]
+    );
+
+    const showMore = () => {
+        console.log("clocked more")
+        setSoonCount(i => i + 3)
     }
-  }
 
 
-  return (
-      <Home searchText={inputText}
-            onInputChange={onInputChange}
-            concerts={helpList}
-            upcomingConcerts={recent}
-            onSearch={onSearch}
-            onEnterSearch={keyPress}
-            inputRef={inputRef}
-      />
-  )
+    function onInputChange() {
+        setInputText(inputRef.current.value);
+        setHelpList(similarConcerts(inputRef.current.value));
+    }
+
+
+    function onSearch() {
+
+        if (helpList[0]) {
+            history.push('/concert/' + helpList[0].id)
+        }
+    }
+
+    function keyPress(e) {
+        if (e.keyCode === 13 && helpList[0]) {
+            history.push('/concert/' + helpList[0].id)
+        }
+    }
+
+    console.log("render finished, soonCount = " + soonCount)
+    console.log("upcomingConcerts = " + recent)
+
+    return (
+        <Home searchText={inputText}
+              onInputChange={onInputChange}
+              concerts={helpList}
+              upcomingConcerts={recent}
+              onSearch={onSearch}
+              onEnterSearch={keyPress}
+              inputRef={inputRef}
+              showMore={showMore}
+        />
+    )
 }
 
 HomeContainer.propTypes = {
-  concerts: PropTypes.array,
-  searchText: PropTypes.string,
-  onInputChange: PropTypes.func,
-  getConcerts: PropTypes.func,
-  recent: PropTypes.array,
-  history: PropTypes.array,
+    concerts: PropTypes.array,
+    searchText: PropTypes.string,
+    onInputChange: PropTypes.func,
+    getConcerts: PropTypes.func,
+    recent: PropTypes.array,
+    history: PropTypes.array,
 }
 
 

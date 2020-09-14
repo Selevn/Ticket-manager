@@ -9,7 +9,7 @@ import {BrowserRouter} from "react-router-dom";
 
 const storage = "userStorage"
 
-import "./main.css"
+
 import * as jwt from "jsonwebtoken";
 
 function App(props) {

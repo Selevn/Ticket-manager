@@ -5,5 +5,5 @@
 }
 @font-face {
   font-family: 'SFNewRepublic';
-  src: url('/public/fonts/SFNewRepublic.ttf') format('truetype');
+  src: url('../../../public/SFNewRepublic.ttf') format('truetype');
 }

@@ -49,8 +49,9 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
 
                                 }
                             }}
+                            //TODO: РАСТЯНУТЬ КАНВАС ПО ВЫСОТЕ!
                             canvasClassName={style.backgroundPartickle}
-                            width = {document.body.offsetWidth<400?window.innerWidth+"px":document.body.offsetWidth+"px"}
+                            width = {"99%"}
                             height = {document.body.offsetHeight<400?window.innerWidth+"px":document.body.offsetHeight+"px"}/>
                         <Row className={style.searchRow}>
                             <div className={style.searchHeader}>

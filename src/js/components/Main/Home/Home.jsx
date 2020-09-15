@@ -7,6 +7,7 @@ import languageSrc from "../../../language"
 import style from "./Home.module.css"
 import "./Home.css"
 
+import Particles from 'react-particles-js';
 
 import {Container, Row, Col} from "react-bootstrap";
 import {Search} from 'react-bootstrap-icons';
@@ -19,7 +20,38 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
         <LanguageContext.Consumer>
             {langProps => (
                 <>
-                    <Container className={style.mainContainer} id = {"mainContainerRef"}>
+                    <Container className={style.mainContainer} id={"mainContainerRef"}>
+                        <Particles
+                            params={{
+                                particles: {
+                                    number: {
+                                        value: document.body.offsetHeight*document.body.offsetWidth/10000
+                                    },
+                                    color: {
+                                        value: "#000000"
+                                    },
+                                    opacity: {
+                                        value: 0.5,
+                                        random: true
+                                    },
+                                    size:
+                                        {value: 2},
+                                    line_linked: {
+                                        enable:true,
+                                        distance:150,
+                                        color:"#000",
+                                    },
+                                    move:
+                                        {
+                                            speed:1
+                                        }
+
+
+                                }
+                            }}
+                            canvasClassName={style.backgroundPartickle}
+                            width = {document.body.offsetWidth<400?window.innerWidth+"px":document.body.offsetWidth+"px"}
+                            height = {document.body.offsetHeight<400?window.innerWidth+"px":document.body.offsetHeight+"px"}/>
                         <Row className={style.searchRow}>
                             <div className={style.searchHeader}>
                                 {languageSrc.soon[langProps.language]}
@@ -37,7 +69,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                                 <button
                                     className={style.searchBut}
                                     onClick={onSearch}>
-                                    <Search color="black" className = {style.searchIcon}></Search>
+                                    <Search color="black" className={style.searchIcon}></Search>
                                 </button>
 
                             </div>

@@ -11,61 +11,62 @@ const storage = "userStorage"
 
 
 import * as jwt from "jsonwebtoken";
+import style from "./Main/Main.module.css";
 
 function App(props) {
 
 
-  const [token, setToken] = useState(null)
-  const [userType, setUserType] = useState(null)
-  const [userId, setUserId] = useState(null);
+    const [token, setToken] = useState(null)
+    const [userType, setUserType] = useState(null)
+    const [userId, setUserId] = useState(null);
 
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem(storage));
-    if (data && data.token && (Date.now()/1000 < jwt.decode(data.token).exp)) {
-      setToken(data.token)
-      setUserId(data.userId)
-      setUserType(data.userType)
-    }
-  }, [])
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem(storage));
+        if (data && data.token && (Date.now() / 1000 < jwt.decode(data.token).exp)) {
+            setToken(data.token)
+            setUserId(data.userId)
+            setUserType(data.userType)
+        }
+    }, [])
 
-  const [language, setLanguage] = useState("en");
+    const [language, setLanguage] = useState("en");
 
-  const toggleLanguageFunc = useCallback(
-      () => language === "en" ? setLanguage("ru") : setLanguage("en"),
-      [language],
-  );
+    const toggleLanguageFunc = useCallback(
+        () => language === "en" ? setLanguage("ru") : setLanguage("en"),
+        [language],
+    );
 
-  const langContext = {
-    language: language,
-    toggleLanguage: toggleLanguageFunc
-  };
+    const langContext = {
+        language: language,
+        toggleLanguage: toggleLanguageFunc
+    };
 
-  const loginContext = {
-    userId: userId,
-    token: token,
-    userType: userType,
-    setUserId: setUserId,
-    setToken: setToken,
-    setUserType: setUserType,
-  };
+    const loginContext = {
+        userId: userId,
+        token: token,
+        userType: userType,
+        setUserId: setUserId,
+        setToken: setToken,
+        setUserType: setUserType,
+    };
 
-  return (
-      <BrowserRouter>
-        <Provider store={mainStore}>
-          <LanguageContext.Provider value={langContext}>
-            <LoginContext.Provider value={loginContext}>
-              <Router
-                  getConcerts={props.getConcerts}/>
-            </LoginContext.Provider>
-          </LanguageContext.Provider>
-        </Provider>
-      </BrowserRouter>
-  )
+    return (
+        <BrowserRouter>
+            <Provider store={mainStore}>
+                <LanguageContext.Provider value={langContext}>
+                    <LoginContext.Provider value={loginContext}>
+                            <Router
+                                getConcerts={props.getConcerts}/>
+                    </LoginContext.Provider>
+                </LanguageContext.Provider>
+            </Provider>
+        </BrowserRouter>
+    )
 
 }
 
 App.propTypes = {
-  getConcerts: PropTypes.func,
+    getConcerts: PropTypes.func,
 }
 
 export default App;

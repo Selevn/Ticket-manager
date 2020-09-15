@@ -169,3 +169,11 @@
     padding-top: 4rem;
     height: 100%;
 }
+
+.backgroundPartickle
+{
+    position: absolute;
+    z-index:-1;
+    /*  height:100vh !important;
+      width:95% !important;*/
+}

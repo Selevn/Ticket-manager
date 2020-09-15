@@ -19,7 +19,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
         <LanguageContext.Consumer>
             {langProps => (
                 <>
-                    <Container className={style.recentContainer} id = {"mainContainerRef"}>
+                    <Container className={style.mainContainer} id = {"mainContainerRef"}>
                         <Row className={style.searchRow}>
                             <div className={style.searchHeader}>
                                 {languageSrc.soon[langProps.language]}
@@ -37,7 +37,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                                 <button
                                     className={style.searchBut}
                                     onClick={onSearch}>
-                                    <Search color="black" size={18}></Search>
+                                    <Search color="black" className = {style.searchIcon}></Search>
                                 </button>
 
                             </div>

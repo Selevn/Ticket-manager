@@ -1,9 +1,11 @@
-.recentContainer {
+.mainContainer {
+
     max-width: none !important;
 }
 
-.searchRow {
-    margin-top: 1.5rem;
+.searchRow {/*
+    margin-top: 1.5rem;*/
+    padding-top: 1.5rem;
     margin-bottom: 5rem;
     padding-right: 5rem;
     padding-left: 5rem;
@@ -24,21 +26,28 @@
 
 .searchInput {
     font-family: "Montserrat-Light";
+    font-size: 1.35rem;
     align-self: flex-end;
     border: none;
     outline: none;
-    border-bottom: .05rem solid #2b2b2b;
+    border-bottom: .12rem solid #2b2b2b;
     min-width: 15rem;
     min-height: 1.5rem;
 }
 
 .searchBut {
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 2.1rem;
+    height: 1.9rem;
     background: none;
     border: none;
     outline: none;
 }
+
+.searchIcon
+{
+    font-size: 1.55rem;
+}
+
 
 .tip {
     font-family: "Montserrat-Light";

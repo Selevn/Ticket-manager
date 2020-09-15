@@ -5,9 +5,10 @@ import Body from "./MainComponents/Body/Body.jsx"
 import Footer from "./MainComponents/Footer/Footer.jsx"
 
 import "../main.css"
+import style from "./Main.module.css"
 
 const Main = props => (
-    <div>
+    <div className = {style.mainDiv}>
       <Navbar/>
       <Body getConcerts={props.getConcerts}/>
       <Footer/>

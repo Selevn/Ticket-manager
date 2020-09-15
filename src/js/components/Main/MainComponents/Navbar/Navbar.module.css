@@ -1,19 +1,29 @@
 
 .active {
-    color: gray !important;
+    /*color: #808080 !important;*/
     cursor: default;
+    border-bottom:2px solid black;
 }
 
 .container {
-
     padding: 0 !important; /*как обойтись без него?*/
     height: 4rem;
+    opacity: .8;
+    transition: opacity .5s;
+    background-color: #fefefe;
+    border-bottom: 1px solid #fcfcfc;
 }
+.container:hover {
+    opacity: 1;
+    transition: opacity .5s;
+}
+
 
 .containerItems {
     height: 1rem;
     width: 10rem;
 }
+
 
 .containerLinks {
     height: 100%;
@@ -21,17 +31,27 @@
 }
 
 .navbarLinks {
+    padding-bottom: .5rem;
     padding-left: 25px;
     padding-right: 25px;
     color: black;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-family: "Montserrat-Medium",Corbel,"Lucida Grande","Lucida Sans Unicode","Lucida Sans","DejaVu Sans","Bitstream Vera Sans","Liberation Sans",Verdana,"Verdana Ref",sans-serif;;
     /*font-family: 'SFNewRepublic';*/
+    font-weight: 500;
 }
+
+.navbarLinks:focus {
+    outline: none;
+    border-bottom:2px solid black;
+}
+
 
 .navbarLinks:hover {
     color: darkgray;
     text-decoration: none;
 }
+
 
 .chLangButt {
 

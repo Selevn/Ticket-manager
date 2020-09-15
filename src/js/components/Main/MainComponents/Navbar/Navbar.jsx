@@ -23,7 +23,7 @@ const AppNavbar = () => {
             <LanguageContext.Consumer>
                 {langProps => {
                     return (
-                        <Navbar bg="light" expand="lg" className={`justify-content-center  /*${style.container}*/`}>
+                        <Navbar expand="lg" className={`justify-content-center  ${style.container}`}>
                             <div style={{textAlign: "center", width: "100%"}}>
                                 <Navbar.Toggle aria-controls="basic-navbar-nav"
                                                className={`justify-content-center  /*${style.container}*/`}/>

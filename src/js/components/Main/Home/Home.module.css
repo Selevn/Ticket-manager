@@ -23,6 +23,7 @@
 
 
 .searchInput {
+    font-family: "Montserrat-Light";
     align-self: flex-end;
     border: none;
     outline: none;
@@ -40,11 +41,12 @@
 }
 
 .tip {
+    font-family: "Montserrat-Light";
     z-index: 1;
     background-color: white;
     position: absolute;
     right: 5rem;
-    top: 7rem;
+    top: 8rem;
     width: 18rem;
     margin-top: 2rem;
     text-align: center;
@@ -71,7 +73,6 @@
     color: white !important;
     background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
     animation: leftToRight .1s linear forwards;
-
 }
 
 @keyframes leftToRight {
@@ -165,6 +166,7 @@
     height: 35rem;
     backface-visibility: hidden;
     transform: rotateY(180deg);
+    font-family: "Montserrat-Light";
 }
 
 
@@ -186,19 +188,20 @@
 }
 
 .more {
+    font-family: 'SFNewRepublic';
     font-size: 2.3rem;
     opacity: 3%;
     background-color: #ececec;
     min-height: 3.6rem;
     justify-content: center;
     transition: .95s;
-    margin-bottom: 4rem;
+    padding-bottom: 3.5rem;
 }
 
 .more:hover, .more:focus {
     transition: .95s;
     cursor: pointer;
-    opacity: 80%;
+    opacity: 50%;
 }
 
 .centerAlign {

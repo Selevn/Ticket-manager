@@ -16,6 +16,8 @@ const HomeContainer = ({concerts, getConcerts}) => {
     const [soonCount, setSoonCount] = useState(3);
 
     const inputRef = useRef(null);
+
+
     const history = useHistory();
 
     useEffect(
@@ -23,6 +25,13 @@ const HomeContainer = ({concerts, getConcerts}) => {
             getConcerts()
         }, []
     )
+
+    const slowScroll = useCallback(
+        (el)=>{
+            el.scrollIntoView({block: "end", behavior: 'smooth' });
+        },[soonCount]
+    );
+
     useEffect(
         () => {
             if (concerts.length > soonCount) {
@@ -49,19 +58,6 @@ const HomeContainer = ({concerts, getConcerts}) => {
         }
     }
 
-
-    /* function findNearest() {
-       if (concerts.length > soonCount) {
-         let outArr = []
-         for(let i = 0; i < soonCount; i++)
-         {
-           outArr.push(concerts[i])
-         }
-         setRecent(outArr);
-       }
-     }*/
-
-
     const similarConcerts = useCallback(
         val => {
             if (val.length > 1) {
@@ -78,8 +74,8 @@ const HomeContainer = ({concerts, getConcerts}) => {
     );
 
     const showMore = () => {
-        console.log("clocked more")
         setSoonCount(i => i + 3)
+        setTimeout(()=>{slowScroll(document.getElementById("mainContainerRef"));},20)
     }
 
 
@@ -90,7 +86,6 @@ const HomeContainer = ({concerts, getConcerts}) => {
 
 
     function onSearch() {
-
         if (helpList[0]) {
             history.push('/concert/' + helpList[0].id)
         }
@@ -102,9 +97,6 @@ const HomeContainer = ({concerts, getConcerts}) => {
         }
     }
 
-    console.log("render finished, soonCount = " + soonCount)
-    console.log("upcomingConcerts = " + recent)
-
     return (
         <Home searchText={inputText}
               onInputChange={onInputChange}
@@ -114,6 +106,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
               onEnterSearch={keyPress}
               inputRef={inputRef}
               showMore={showMore}
+              concertInBaseCount = {concerts.length}
         />
     )
 }

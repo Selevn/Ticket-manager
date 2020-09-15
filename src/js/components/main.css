@@ -7,3 +7,12 @@
   font-family: 'SFNewRepublic';
   src: url('../../../public/SFNewRepublic.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: url('../../../public/Montserrat-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('../../../public/Montserrat-Medium.ttf') format('truetype');
+}
+

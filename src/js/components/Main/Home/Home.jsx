@@ -13,13 +13,13 @@ import {Search} from 'react-bootstrap-icons';
 
 import PropTypes from "prop-types"
 
-const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch, inputRef, showMore}) => {
+const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch, inputRef, showMore, concertInBaseCount}) => {
 
     return (<>
         <LanguageContext.Consumer>
             {langProps => (
                 <>
-                    <Container className={style.recentContainer}>
+                    <Container className={style.recentContainer} id = {"mainContainerRef"}>
                         <Row className={style.searchRow}>
                             <div className={style.searchHeader}>
                                 {languageSrc.soon[langProps.language]}
@@ -94,12 +94,13 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                                     })
                             }
                         </Row>
-                        <Row className={style.more}
-                             onClick={showMore}>
-                            <span
-                                className={style.centerAlign}
-                            >{languageSrc.more[langProps.language]}</span>
-                        </Row>
+                        {(concertInBaseCount - upcomingConcerts.length > 3) && (
+                            <Row className={style.more}
+                                 onClick={showMore}>
+                                <span
+                                    className={style.centerAlign}
+                                >{languageSrc.more[langProps.language]}</span>
+                            </Row>)}
                     </Container>
                 </>
             )}

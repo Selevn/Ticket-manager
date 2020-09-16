@@ -1,0 +1,74 @@
+.header {
+  text-align: center;
+}
+
+.headerRow {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
+.table {
+  border-collapse: collapse;
+}
+
+.tableImage {
+  width: 100px;
+  height: 100px;
+  transition: transform .34s linear
+}
+
+.tableTd, .tableTh {
+  width: 16rem;
+  font-size: 1.33rem;
+}
+
+.tableTh {
+  font-size: 1.33rem;
+  background-color: black;
+  color: white;
+}
+
+.tableHeaderTr:first-child {
+  background-color: white;
+}
+
+.yearTd {
+  text-align: right;
+  font-size: 2.34rem;
+  color: #585a63;
+}
+
+.yearTr {
+  border-bottom: 3px solid rgba(128, 128, 128, 0.1);
+}
+
+
+.monthTd {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  text-align: left;
+  font-size: 1.84rem;
+  color: #585a63;
+}
+
+.monthTr {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.yearTr, .monthTr {
+  padding-top: .3rem;
+  padding-bottom: .3rem;
+}
+
+.baseRowTr {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  transition: background-color 0.3s linear;
+}
+
+.baseRowTr:hover {
+  transition: background-color 0.3s linear;
+  background-color: rgba(125, 125, 125, 0.1);
+  cursor: pointer;
+}

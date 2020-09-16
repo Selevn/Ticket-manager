@@ -15,12 +15,10 @@ const Schedule = ({concerts}) => (
         //mini additional components
 
         const YearRow = ({item}) => (
-            <tr className={style.yearTr}>
-              <td/>
-              <td/>
-              <td/>
-              <td className={style.yearTd}>{new Date(item.date).getFullYear()}</td>
-            </tr>)
+              <div className={style.year}>
+                {new Date(item.date).getFullYear()}
+              </div>
+        )
         YearRow.propTypes = {
           item: PropTypes.object
         }
@@ -55,43 +53,26 @@ const Schedule = ({concerts}) => (
 
 
         return (
-            <Container>
-              <Row className={style.headerRow}>
-                <Col className={style.header}>
-                  <h1>{languageSrc.schedule[langProps.language]}</h1>
-                  <table className={style.table}>
-                    <thead>
-                    </thead>
-                    <tbody>
-                    {concerts.map((item) => {
-                      let date = new Date(item.date);
+            <Container className={"mainContainer"}>
+              <Row className={"pageHeaderRow"}>
+                <div className={"pageHeader"}>
+                  {languageSrc.schedule[langProps.language]}
+                </div>
+              </Row>
+              <Row className={style.dataRow}>
+                <div className={style.yearContainer}>
 
-                      const notNewYear = years[date.getFullYear()] || false;
-                      !notNewYear && (years[date.getFullYear()] = []);//mark with array flag on faced with
-
-                      const notNewMonth = years[date.getFullYear()][date.getMonth()] || false;
-                      !notNewMonth && (years[date.getFullYear()][date.getMonth()] = true);//mark with true flag on faced with
-
-
-                      return notNewYear ?
-                          notNewMonth ?
-                              <BaseRow item={item}/>
-                              : <>
-                                <MonthRow item={item}/>
-                                <BaseRow item={item}/>
-                              </>
-                          : <>
-                            <YearRow item={item}/>
-                            <MonthRow item={item}/>
-                            <BaseRow item={item}/>
-                          </>
-
-
-                    })}
-
-                    </tbody>
-                  </table>
-                </Col>
+                  <div className={style.yearData}>
+                    <div className={style.monthContainer}>1</div>
+                    <div className={style.monthContainer}>2</div>
+                    <div className={style.monthContainer}>3</div>
+                    <div className={style.monthContainer}>4</div>
+                    <div className={style.monthContainer}>5</div>
+                  </div>
+                  <div className={style.year}>
+                    {2020}
+                  </div>
+                </div>
               </Row>
             </Container>
         )

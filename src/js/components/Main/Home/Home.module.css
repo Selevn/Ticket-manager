@@ -189,6 +189,7 @@
     transition-delay: .05s;
 }
 
+
 .infoCol {
     text-align: justify;
     font-size: 1.6rem;
@@ -205,6 +206,7 @@
     min-height: 3.6rem;
     justify-content: center;
     transition: .95s;
+    margin-bottom:3rem;
 }
 
 .more:hover, .more:focus {

@@ -3,6 +3,21 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+.pageHeader {
+  align-self: flex-start;
+  font-size: 4rem;
+  font-family: 'SFNewRepublic';
+}
+.mainContainer {
+  max-width: none !important;
+}
+.pageHeaderRow
+{padding-top: 1.5rem;
+  margin-bottom: 5rem;
+  padding-right: 5rem;
+  padding-left: 5rem;
+  flex-direction: row;
+  justify-content: space-between;}
 @font-face {
   font-family: 'SFNewRepublic';
   src: url('../../../public/SFNewRepublic.ttf') format('truetype');

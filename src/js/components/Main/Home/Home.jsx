@@ -20,7 +20,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
         <LanguageContext.Consumer>
             {langProps => (
                 <>
-                    <Container className={style.mainContainer} id={"mainContainerRef"}>
+                    <Container className={"mainContainer"} id={"mainContainerRef"}>
                         <Particles
                             params={{
                                 particles: {
@@ -53,8 +53,8 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                             canvasClassName={style.backgroundPartickle}
                             width = {"99%"}
                             height = {document.body.offsetHeight<400?window.innerWidth+"px":document.body.offsetHeight+"px"}/>
-                        <Row className={style.searchRow}>
-                            <div className={style.searchHeader}>
+                        <Row className={"pageHeaderRow"}>
+                            <div className={"pageHeader"}>
                                 {languageSrc.soon[langProps.language]}
                             </div>
                             <div className={style.searchBlock}>

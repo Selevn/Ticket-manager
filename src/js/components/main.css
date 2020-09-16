@@ -10,6 +10,7 @@
 }
 .mainContainer {
   max-width: none !important;
+  padding-right: 0 !important;
 }
 .pageHeaderRow
 {padding-top: 1.5rem;

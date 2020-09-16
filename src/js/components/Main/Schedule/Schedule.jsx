@@ -6,6 +6,7 @@ import {Col, Container, Row} from "react-bootstrap";
 
 import style from "./Schedule.module.css";
 import {Link} from "react-router-dom";
+import Particles from "react-particles-js";
 
 const Schedule = ({concerts}) => (
     <LanguageContext.Consumer>
@@ -15,9 +16,9 @@ const Schedule = ({concerts}) => (
         //mini additional components
 
         const YearRow = ({item}) => (
-              <div className={style.year}>
-                {new Date(item.date).getFullYear()}
-              </div>
+            <div className={style.year}>
+              {new Date(item.date).getFullYear()}
+            </div>
         )
         YearRow.propTypes = {
           item: PropTypes.object
@@ -34,6 +35,27 @@ const Schedule = ({concerts}) => (
         )
         MonthRow.propTypes = {
           item: PropTypes.object
+        }
+        const ConcertItem = ({item}) => {
+          console.log(item)
+          return(
+              <div className={style.concertItem}>
+                <div className = {style.cardImageDiv}>
+                  <img src = {item.imgSrc} className = {style.cardImage}/>
+                </div>
+                <div className = {style.cardInfoDiv}>
+                  {languageSrc.band[langProps.language]} :
+                  <b> {item.band}</b>
+                  <br/>
+                  {languageSrc.place[langProps.language]} :
+                  <b> {item.place}</b>
+                  <br/>
+                  {languageSrc.date[langProps.language]} :
+                  <b> {item.date}</b>
+                  <br/>
+                </div>
+              </div>
+          )
         }
 
         const BaseRow = ({item}) => (
@@ -54,24 +76,58 @@ const Schedule = ({concerts}) => (
 
         return (
             <Container className={"mainContainer"}>
-              <Row className={"pageHeaderRow"}>
+              <Row className={"pageHeaderRow " + style.pageHeaderSchedule}>
                 <div className={"pageHeader"}>
                   {languageSrc.schedule[langProps.language]}
                 </div>
               </Row>
               <Row className={style.dataRow}>
                 <div className={style.yearContainer}>
-
-                  <div className={style.yearData}>
-                    <div className={style.monthContainer}>1</div>
-                    <div className={style.monthContainer}>2</div>
-                    <div className={style.monthContainer}>3</div>
-                    <div className={style.monthContainer}>4</div>
-                    <div className={style.monthContainer}>5</div>
-                  </div>
                   <div className={style.year}>
                     {2020}
                   </div>
+                  <div className={style.yearData}>
+                    <div className={style.yearSeason} id={style.seasonWinter}>
+                      <div className={style.seasonData}>
+                        {
+                          concerts.map((item,index)=>
+                            (<ConcertItem item={item} key={index}/>)
+                          )
+                        }
+                      </div>
+
+                      <div className={style.seasonName}>
+                        <span>Winter</span>
+                      </div>
+                    </div>
+                    <div className={style.yearSeason} id={style.seasonSpring}>
+                      <div className={style.seasonName}>
+                        <span>Spring</span>
+                      </div>
+                      <div className={style.seasonData}>
+
+                      </div>
+
+
+                    </div>
+                    <div className={style.yearSeason} id={style.seasonSummer}>
+                      <div className={style.seasonData}>
+
+                      </div>
+                      <div className={style.seasonName}>
+                        <span>Summer</span>
+                      </div>
+                    </div>
+                    <div className={style.yearSeason} id={style.seasonAutumn}>
+                      <div className={style.seasonName}>
+                        <span>Autumn</span>
+                      </div>
+                      <div className={style.seasonData}>
+
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </Row>
             </Container>

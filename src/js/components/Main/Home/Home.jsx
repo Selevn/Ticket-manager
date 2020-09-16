@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useMemo} from 'react'
 import {Link} from "react-router-dom";
 
 import {LanguageContext} from "../../Contexts/LanguageContext";
@@ -16,43 +16,46 @@ import PropTypes from "prop-types"
 
 const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch, inputRef, showMore, concertInBaseCount}) => {
 
+    const particle = useMemo(
+        ()=>(<Particles
+            params={{
+                particles: {
+                    number: {
+                        value: document.body.offsetHeight*document.body.offsetWidth/10000
+                    },
+                    color: {
+                        value: "#000000"
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: true
+                    },
+                    size:
+                        {value: 2},
+                    line_linked: {
+                        enable:true,
+                        distance:150,
+                        color:"#000",
+                    },
+                    move:
+                        {
+                            speed:1
+                        }
+
+
+                }
+            }}
+            //TODO: РАСТЯНУТЬ КАНВАС ПО ВЫСОТЕ!
+            canvasClassName={style.backgroundPartickle}
+            width = {"99%"}
+            height = {document.body.offsetHeight<400?window.innerWidth+"px":document.body.offsetHeight+"px"}/>),[]
+    )
     return (<>
         <LanguageContext.Consumer>
             {langProps => (
                 <>
                     <Container className={"mainContainer"} id={"mainContainerRef"}>
-                        <Particles
-                            params={{
-                                particles: {
-                                    number: {
-                                        value: document.body.offsetHeight*document.body.offsetWidth/10000
-                                    },
-                                    color: {
-                                        value: "#000000"
-                                    },
-                                    opacity: {
-                                        value: 0.5,
-                                        random: true
-                                    },
-                                    size:
-                                        {value: 2},
-                                    line_linked: {
-                                        enable:true,
-                                        distance:150,
-                                        color:"#000",
-                                    },
-                                    move:
-                                        {
-                                            speed:1
-                                        }
-
-
-                                }
-                            }}
-                            //TODO: РАСТЯНУТЬ КАНВАС ПО ВЫСОТЕ!
-                            canvasClassName={style.backgroundPartickle}
-                            width = {"99%"}
-                            height = {document.body.offsetHeight<400?window.innerWidth+"px":document.body.offsetHeight+"px"}/>
+                        {particle}
                         <Row className={"pageHeaderRow"}>
                             <div className={"pageHeader"}>
                                 {languageSrc.soon[langProps.language]}

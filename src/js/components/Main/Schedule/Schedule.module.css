@@ -18,19 +18,10 @@
 .yearData  {
   flex-direction: column;
   min-height: 30px;
-  width:100%;
   margin-left:0!important;
 }
-.yearSeason{
-  display: flex;
-  width:100%;
-  flex-direction: row;/*
 
-  min-height: 120vh;
-  padding-bottom: 12vh;
-  padding-top: 12vh;*/
-  /*min-width:98.9vw;*/
-}
+
 #seasonWinter{
   background-color: rgba(122, 179, 255, 0.25);
 }
@@ -69,17 +60,28 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.seasonNameSpan{
 
+  overflow: visible;
+  max-width: 360%;
+  font-family: SFNewRepublic;
+  font-size: 7rem;
+  transform: rotateZ(-90deg);
+}
 .seasonName{
+
   min-height: 120vh;
   display: flex;
   background-color: white;
   align-items: center;
   padding-bottom: 12vh;
   padding-top: 12vh;
-  width:15%;
+  max-width: 16%;
+  justify-content: center; /* align horizontal */
 }
 .dataRow {
+  padding-left: 0;
+  padding-right: 0;
   display: flex;
   flex-flow: row wrap;
   width:100%;
@@ -90,24 +92,28 @@
   justify-content:flex-start;
   display: flex;
   flex-flow: row wrap;
-  width:85%;
+  width:100%;
   padding-bottom: 12vh;
   padding-top: 12vh;
   padding-left: 3rem;
   padding-right: 3rem;
 }
-.seasonName span{
-  font-family: SFNewRepublic;
-  font-size: 7rem;
-  transform: rotateZ(-90deg);
+
+.yearSeason {
+  display: flex;
+
+  width:100%;
+  overflow: hidden;
+  flex-direction: row;/*
+  min-height: 120vh;
+  padding-bottom: 12vh;
+  padding-top: 12vh;*/
+  /*min-width:98.9vw;*/
 }
-
-
-
-
 .year {
   align-self: flex-end;
-  width:15%;
+  /*width:15%;*/
+  width: 10%;
   font-size:4.5rem;
   font-family: "SFNewRepublic";
 }
@@ -117,23 +123,56 @@
 
 
 .concertItem{
-  background-color: rgba(255, 255, 255, 0.4);
-  padding: 1.2rem;
+  background-color: rgba(255, 255, 255, 0.8);
   text-align:center;
   display: flex;
-
   flex-direction: column;
   min-height:300px;
   min-width: 300px;
-  opacity: .9;
+  opacity: .96;
   margin: 1.2rem;
+  transition: opacity .15s;
+  transition: background-color .15s;
+  transition: color .15s;
 }
+.concertItem:hover{
+  opacity: 1;
+  transition: opacity .15s;
+}
+.concertItem:hover .cardFooter{
+  background-color: #000000aa;
+  color: rgba(255, 255, 255);
+  transition: background-color .3s;
+  transition: color .15s;
+}
+
+
 .cardImage{
-  max-height: 18rem;
-  max-width: 18rem;
+  max-height: 20rem;
+  max-width: 20rem;
+  min-height: 20rem;
+  min-width: 20rem;
 }
 .cardInfoDiv{
   font-family: "Montserrat-Light";
   text-align: justify;
   font-size:1.2rem;
+  min-height: 6rem;
 }
+.concertItemBand{
+  font-size: 1.8rem;
+  font-family: "Montserrat-Medium";
+  text-align: center;
+}
+.concertItemPlace{
+  font-size: 1.5rem;
+  font-family: Montserrat-Medium;
+  text-align: center;
+}
+.cardFooter{
+  min-heigh:3rem;
+  font-size: 1.5rem;
+  padding-bottom: .5rem;
+}
+
+

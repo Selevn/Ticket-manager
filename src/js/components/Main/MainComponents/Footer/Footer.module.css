@@ -1,9 +1,15 @@
 .footer {
   background-color: #f7f8f9;
   position: fixed;
+  opacity: .3;
   left: 0;
   bottom: 0;
   width: 100%;
+  transition:.3s;
+}
+.footer:hover {
+  opacity: 1;
+  transition:.3s;
 }
 
 #containerBlock {

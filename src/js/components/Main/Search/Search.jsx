@@ -9,13 +9,13 @@ import style from "./Search.module.css"
 const Search = () => (<>
   <LanguageContext.Consumer>
     {langProps => (
-        <Container>
-          <Row>
+        <div className={"mainContainer"}>
+          <div>
             <Col xs={12} sm={12} md={3} lg={2} xl={3}/>
             <Col className={style.headerCol}><h1>{languagePack.search[langProps.language]}</h1></Col>
             <Col xs={12} sm={12} md={3} lg={2} xl={3}/>
-          </Row>
-          <Row>
+          </div>
+          <div>
             <Col xs={12} sm={12} md={3} lg={2} xl={3}/>
             <Col className={style.searchCol}>
               <form>
@@ -46,9 +46,9 @@ const Search = () => (<>
               </form>
             </Col>
             <Col xs={12} sm={12} md={3} lg={2} xl={3}/>
-          </Row>
+          </div>
 
-        </Container>
+        </div>
     )}
   </LanguageContext.Consumer>
 </>)

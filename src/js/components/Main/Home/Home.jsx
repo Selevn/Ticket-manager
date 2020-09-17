@@ -21,7 +21,11 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
             params={{
                 particles: {
                     number: {
-                        value: document.body.offsetHeight*document.body.offsetWidth/10000
+                        value: 100,
+                        density:{
+                            enable:true,
+                            value_area: 500,
+                        },
                     },
                     color: {
                         value: "#000000"
@@ -47,16 +51,16 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
             }}
             //TODO: РАСТЯНУТЬ КАНВАС ПО ВЫСОТЕ!
             canvasClassName={style.backgroundPartickle}
-            width = {"99%"}
-            height = {document.body.offsetHeight<400?window.innerWidth+"px":document.body.offsetHeight+"px"}/>),[]
+            width = {"100%%"}
+            height = {"100%"}/>),[]
     )
     return (<>
         <LanguageContext.Consumer>
             {langProps => (
                 <>
-                    <Container className={"mainContainer"} id={"mainContainerRef"}>
+                    <div className={"mainContainer"} id={"mainContainerRef"}>
                         {particle}
-                        <Row className={"pageHeaderRow"}>
+                        <div className={"pageHeaderRow"}>
                             <div className={"pageHeader"}>
                                 {languageSrc.soon[langProps.language]}
                             </div>
@@ -90,7 +94,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                                     </ul>)
                                 }
                             </div>
-                        </Row>
+                        </div>
                         <Row className={style.recentRow}>
                             {
                                 upcomingConcerts[0] && upcomingConcerts.map(
@@ -137,7 +141,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                                     className={style.centerAlign}
                                 >{languageSrc.more[langProps.language]}</span>
                             </Row>)}
-                    </Container>
+                    </div>
                 </>
             )}
         </LanguageContext.Consumer>

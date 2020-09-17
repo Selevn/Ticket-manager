@@ -10,144 +10,131 @@ import Particles from "react-particles-js";
 
 const Schedule = ({concerts}) => (
     <LanguageContext.Consumer>
-        {langProps => {
+      {langProps => {
+        let data = {};
+        concerts = concerts.map(item => ({...item, date: new Date(item.date)}));
+        let years = new Set(concerts.map((item) => (item.date.getFullYear())));
 
-           /* let years = [];
-            let i = 0;
-            let tmpConcerts = concerts.map(item=>({...item, date:new Date(item.date)}))
-            var result = tmpConcerts.reduce((prev, current)=>{
-                if((prev && prev.date.getFullYear())||0 !== current.date.getFullYear())
-                {
-                    years[i++] = 0;
-                }
-            });*/
-            //mini additional components
+        for (let year of years) {
+          let thisYearConcerts = concerts.filte((item)=>(item.date.getFullYear() === year))
+          Array.isArray(data[year])?data[year].push(thisYearConcerts):data[year]=thisYearConcerts;
+        }
+        console.log(years)
+        /*concerts.forEach((item)=>{
 
-            const YearRow = ({item}) => (
-                <div className={style.year}>
-                    {new Date(item.date).getFullYear()}
+        })
+*/
+        /* let years = [];
+         let i = 0;
+         let tmpConcerts = concerts.map(item=>({...item, date:new Date(item.date)}))
+         var result = tmpConcerts.reduce((prev, current)=>{
+             if((prev && prev.date.getFullYear())||0 !== current.date.getFullYear())
+             {
+                 years[i++] = 0;
+             }
+         });*/
+        //mini additional components
+        const ConcertItem = ({item}) => {
+          let date = new Date(item.date);
+          return (
+              <Link to={"concert/" + item.id}>
+                <div className={style.concertItem}>
+                  <div className={style.cardImageDiv}>
+                    <img src={item.imgSrc} className={style.cardImage}/>
+                  </div>
+                  <div className={style.cardInfoDiv}>
+                    <div className={style.concertItemBand}> {item.band}</div>
+                    <div className={style.concertItemPlace}> {item.place}
+                    </div>
+                  </div>
+                  <div
+                      className={style.cardFooter}>{languageSrc.months[date.getMonth()][langProps.language] + " " + date.getDate()}</div>
                 </div>
-            )
-            YearRow.propTypes = {
-                item: PropTypes.object
-            }
+              </Link>
+          )
+        }
 
-            const MonthRow = ({item}) => (
-                <tr className={style.monthTr}>
-                    <td className={style.monthTd}>{languageSrc.months[new Date(item.date).getMonth()][langProps.language]}</td>
-                    <td/>
-                    <td/>
-                    <td/>
-
-                </tr>
-            )
-            MonthRow.propTypes = {
-                item: PropTypes.object
-            }
-            const ConcertItem = ({item}) => {
-                let date = new Date(item.date);
-                return (
-                    <Link to={"concert/" + item.id}>
-                        <div className={style.concertItem}>
-                            <div className={style.cardImageDiv}>
-                                <img src={item.imgSrc} className={style.cardImage}/>
-                            </div>
-                            <div className={style.cardInfoDiv}>
-                                <div className={style.concertItemBand}> {item.band}</div>
-                                <div className={style.concertItemPlace}> {item.place}
-                                </div>
-                            </div>
-                            <div
-                                className={style.cardFooter}>{languageSrc.months[date.getMonth()][langProps.language] + " " + date.getDate()}</div>
-                        </div>
-                    </Link>
-                )
-            }
-
-            const YearItem = ({itemArr}) => {
-                return (
-                    <div className={style.yearContainer}>
-                        <div className={style.year}>
-                            {2020}
-                        </div>
-                        <div className={style.yearData}>
-                            <div className={style.yearSeason} id={style.seasonWinter}>
-                                <div className={style.seasonData}>
-                                    {
-                                        concerts.map((item, index) =>
-                                            (<ConcertItem item={item} key={index}/>)
-                                        )
-                                    }
-                                </div>
-                                <div className={style.seasonName}>
-                                    <span className={style.seasonNameSpan}>Winter</span>
-                                </div>
-                            </div>
-                            <div className={style.yearSeason} id={style.seasonSpring}>
-                                <div className={style.seasonName}>
-                                    <span className={style.seasonNameSpan}>Spring</span>
-                                </div>
-                                <div className={style.seasonData}>
-                                    {
-                                        concerts.map((item, index) =>
-                                            (<ConcertItem item={item} key={index}/>)
-                                        )
-                                    }
-                                </div>
-                            </div>
-                            <div className={style.yearSeason} id={style.seasonSummer}>
-                                <div className={style.seasonData}>
-
-                                </div>
-                                <div className={style.seasonName}>
-                                    <span className={style.seasonNameSpan}>Summer</span>
-                                </div>
-                            </div>
-                            <div className={style.yearSeason} id={style.seasonAutumn}>
-                                <div className={style.seasonName}>
-                                    <span className={style.seasonNameSpan}>Autumn</span>
-                                </div>
-                                <div className={style.seasonData}>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                )
-            }
-
-
-
-
-            const BaseRow = ({item}) => (
-                <tr key={item.id} className={style.baseRowTr}>
-                    <Link to={"/concert/" + item.id}>
-                        <td className={style.tableTd}><img className={style.tableImage} src={item.imgSrc}/></td>
-                        <td className={style.tableTd}>{item.band}</td>
-                        <td className={style.tableTd}>{item.place}</td>
-                        <td className={style.tableTd}>
-                            {languageSrc.days[new Date(item.date).getDay()][langProps.language] + " " + String(new Date(item.date).getDate()).padStart(2, '')}
-                        </td>
-                    </Link>
-                </tr>)
-            BaseRow.propTypes = {
-                item: PropTypes.object
-            }
-
-
+        const MonthRow = ({concerts = {}, season = "autumn"}) => {
+          if (season == "autumn" || season == "spring")
+            return (<div className={style.monthContainer + " " + style[season + "Data"]}>
+              <div className={style.monthContainerName + " " + style[season + "Name"]}>
+                <span>January</span>
+              </div>
+              <div className={style.monthContainerData}>
+                {
+                  concerts.map((item, index) =>
+                      (<ConcertItem item={item} key={index}/>)
+                  )
+                }
+              </div>
+            </div>)
+          else
             return (
-                <div className={"mainContainer"}>
-                    <div className={"pageHeaderRow " + style.pageHeaderSchedule}>
-                        <div className={"pageHeader"}>
-                            {languageSrc.schedule[langProps.language]}
-                        </div>
-                    </div>
-                    <Row className={style.dataRow}>
-                        <div className={style.yearContainer}>
-                            <div className={style.year}>
-                                {2020}
-                            </div>
-                            <div className={style.yearData}>
+                <div className={style.monthContainer + " " + style[season + "Data"]}>
+                  <div className={style.monthContainerData}>
+                    {
+                      concerts.map((item, index) =>
+                          (<ConcertItem item={item} key={index}/>)
+                      )
+                    }
+                  </div>
+                  <div className={style.monthContainerName + " " + style[season + "Name"]}>
+                    <span>January</span>
+                  </div>
+                </div>)
+        }
+
+        const YearItem = (year) => {
+          return (
+              <div className={style.year}>
+                {year.year}
+              </div>
+          )
+        }
+
+
+        return (
+            <div className={"mainContainer"}>
+              <div className={"pageHeaderRow " + style.pageHeaderSchedule}>
+                <div className={"pageHeader"}>
+                  {languageSrc.schedule[langProps.language]}
+                </div>
+              </div>
+              <div className={style.dataRow}>
+                {/*<YearItem year={2020}/>
+                          <MonthRow concerts={concerts} season={"autumn"}/>*/}
+                {concerts.map((item) => {
+                  let date = new Date(item.date);
+
+                  const notNewYear = years[date.getFullYear()] || false;
+                  !notNewYear && (years[date.getFullYear()] = []);//mark with array flag on faced with
+
+                  const notNewMonth = years[date.getFullYear()][date.getMonth()] || false;
+                  !notNewMonth && (years[date.getFullYear()][date.getMonth()] = true);//mark with true flag on faced with
+
+
+                  return notNewYear ?
+                      notNewMonth ?
+                          <BaseRow item={item}/>
+                          : <>
+                            <MonthRow item={item}/>
+                            <BaseRow item={item}/>
+                          </>
+                      : <>
+                        <YearRow item={item}/>
+                        <MonthRow item={item}/>
+                        <BaseRow item={item}/>
+                      </>
+                })}
+              </div>
+            </div>
+        )
+      }
+      }
+    </LanguageContext.Consumer>
+)
+
+/*<div className={style.yearData}>
                                 <div className={style.yearSeason} id={style.seasonWinter}>
                                     <div className={style.seasonData}>
                                         {
@@ -188,19 +175,10 @@ const Schedule = ({concerts}) => (
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                    </Row>
-                </div>
-            )
-        }
-        }
-    </LanguageContext.Consumer>
-)
-
+*/
 Schedule.propTypes = {
-    concerts: PropTypes.array,
-    getConcerts: PropTypes.func,
+  concerts: PropTypes.array,
+  getConcerts: PropTypes.func,
 }
 
 export default Schedule;

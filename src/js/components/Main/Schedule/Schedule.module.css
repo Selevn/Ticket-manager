@@ -28,27 +28,29 @@
 .year {
   align-self: flex-end;
   margin-right: 2rem;
-  font-size: 4.5rem;
+  font-size: 5.5rem;
   font-family: "SFNewRepublic";
 }
 
 .monthContainer {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
 }
 
 .monthContainerData {
+  padding-left: 3rem;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: left;
+  min-height: 70vh;
 }
 
 .monthContainerName {
   display: flex;
   background-color: white;
   align-items: center;
-  max-width: 16%;
+  max-width: 18%;
+  min-width: 18%;
   justify-content: center;
 }
 .monthContainerName span{
@@ -59,7 +61,8 @@
 }
 
 .winterData {
-  background-color: rgba(122, 179, 255, 0.25);
+  /*//background-color: rgba(122, 179, 255, 0.25);*/
+  background: linear-gradient(to right, rgba(122, 179, 255, 0.30) , rgba(166, 204, 255, 0.25), rgba(203, 220, 255, 0.20), #ffffff00);
 }
 .winterName span {
   padding-bottom: 1.2rem;
@@ -67,26 +70,13 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.winterData {
-  background-color: rgba(122, 179, 255, 0.25);
+.winterName{
+  margin-left: auto;
 }
-.winterName span {
-  padding-bottom: 1.2rem;
-  background-color: #6fa1e2;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.winterData {
-  background-color: rgba(122, 179, 255, 0.25);
-}
-.winterName span {
-  padding-bottom: 1.2rem;
-  background-color: #6fa1e2;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+
 .springData {
-  background-color: rgba(255, 192, 203, 0.25);
+  /*background-color: rgba(255, 192, 203, 0.25);*/
+  background: linear-gradient(to left, rgba(255, 180, 200, 0.20) , rgba(255, 220, 220, 0.25), rgba(255, 240, 240, 0.30), #ffffff00);
 }
 .springName span {
   padding-bottom: 1.2rem;
@@ -95,9 +85,12 @@
   -webkit-text-fill-color: transparent;
 }
 .summerData {
-  background-color: rgba(57, 255, 33, 0.25);
+  /*background-color: rgba(57, 255, 33, 0.25);*/
+  background: linear-gradient(to right, rgba(57, 255, 33, 0.30), rgba(93, 255, 75, 0.25), rgba(143, 255, 132, 0.20), #ffffff00);
 }
-
+.summerName{
+  margin-left: auto;
+}
 .summerName span {
   padding-bottom: 1.2rem;
   background-color: rgb(45, 165, 34);
@@ -106,7 +99,8 @@
 }
 
 .autumnData {
-  background-color: rgba(255, 177, 36, 0.25);
+  /*background-color: rgba(255, 177, 36, 0.25);*/
+  background: linear-gradient(to left, rgba(255, 177, 36, 0.25), rgba(255, 190, 85, 0.25), rgba(255, 211, 127, 0.25), #ffffff00);
 }
 
 .autumnName span {
@@ -170,8 +164,9 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  min-height: 300px;
   min-width: 300px;
+  height:100%;
+  max-height: 29rem;
   opacity: .96;
   margin: 1.2rem;
   transition: opacity .15s;
@@ -222,6 +217,13 @@
   min-heigh: 3rem;
   font-size: 1.5rem;
   padding-bottom: .5rem;
+  margin-top:auto;
 }
 
-
+.backgroundPartickle
+{
+  position: absolute;
+  z-index:-1;
+  height:100%;
+  width:100%;
+}

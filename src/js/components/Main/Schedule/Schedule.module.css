@@ -173,6 +173,9 @@
   transition: background-color .15s;
   transition: color .15s;
 }
+.cardLink{
+  max-height: 29rem;
+}
 
 .concertItem:hover {
   opacity: 1;

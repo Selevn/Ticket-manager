@@ -95,7 +95,7 @@ const Schedule = ({concerts}) => {
                 const ConcertItem = ({item}) => {
                     let date = new Date(item.date);
                     return (
-                        <Link to={"concert/" + item.id}>
+                        <Link to={"concert/" + item.id} className={style.cardLink}>
                             <div className={style.concertItem}>
 
                                 <div className={style.cardImageDiv}>

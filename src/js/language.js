@@ -35,6 +35,11 @@ let languagePack =
                 ru: "Сменить язык",
                 en: "Change language"
             },
+        time:
+            {
+                ru: "Время",
+                en: "Time"
+            },
         lang:
             {
                 ru: "Eng",

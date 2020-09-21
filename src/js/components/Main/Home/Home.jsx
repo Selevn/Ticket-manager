@@ -11,48 +11,13 @@ import Particles from 'react-particles-js';
 
 import {Container, Row, Col} from "react-bootstrap";
 import {Search} from 'react-bootstrap-icons';
-
+import Particle from "../../CommonData/Paricles/Particles.jsx";
 import PropTypes from "prop-types"
 
 const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch, inputRef, showMore, concertInBaseCount}) => {
 
     const particle = useMemo(
-        ()=>(<Particles
-            params={{
-                particles: {
-                    number: {
-                        value: 30,
-                        density:{
-                            enable:true,
-                            value_area: 500,
-                        },
-                    },
-                    color: {
-                        value: "#000000"
-                    },
-                    opacity: {
-                        value: 0.5,
-                        random: true
-                    },
-                    size:
-                        {value: 2},
-                    line_linked: {
-                        enable:true,
-                        distance:150,
-                        color:"#000",
-                    },
-                    move:
-                        {
-                            speed:1
-                        }
-
-
-                }
-            }}
-            //TODO: РАСТЯНУТЬ КАНВАС ПО ВЫСОТЕ!
-            canvasClassName={style.backgroundPartickle}
-            width = {"100%%"}
-            height = {"100%"}/>),[]
+        ()=>(<Particle/>),[]
     )
     return (<>
         <LanguageContext.Consumer>

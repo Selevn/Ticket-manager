@@ -215,13 +215,6 @@
 .centerAlign {
     align-self: center;
 }
-.backgroundPartickle
-{
-    position: absolute;
-    z-index:-1;
-    height:100%;
-    width:100%;
-    opacity:.1;
-}
+
 /*
 https://readcereal.com/*/

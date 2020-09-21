@@ -7,43 +7,10 @@ import {Col, Container, Row} from "react-bootstrap";
 import style from "./Schedule.module.css";
 import {Link} from "react-router-dom";
 import Particles from "react-particles-js";
-
+import Particle from "../../CommonData/Paricles/Particles.jsx";
+import ConcertItem from "../../CommonData/ConcertItem.jsx"
 const Schedule = ({concerts}) => {
-  const particle = useMemo(() => (<Particles
-      params={{
-        particles: {
-          number: {
-            value: 30,
-            density: {
-              enable: true,
-              value_area: 500,
-            },
-          },
-          color: {
-            value: "#000000"
-          },
-          opacity: {
-            value: 0.5,
-            random: true
-          },
-          size:
-            {value: 2},
-          line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#000",
-          },
-          move:
-            {
-              speed: 1
-            }
-        }
-      }}
-      //TODO: РАСТЯНУТЬ КАНВАС ПО ВЫСОТЕ!
-      canvasClassName={style.backgroundPartickle}
-      width={"100%%"}
-      height={"100%"}/>
-  ), [])
+  const particle = useMemo(() => (<Particle/>), [])
   return (
     <LanguageContext.Consumer>
       {langProps => {
@@ -92,34 +59,12 @@ const Schedule = ({concerts}) => {
           }
         }
 
-        const ConcertItem = ({item}) => {
-          let date = new Date(item.date);
-          return (
-            <Link to={"concert/" + item.id} className={style.cardLink}>
-              <div className={style.concertItem}>
 
-                <div className={style.cardImageDiv}>
-                  <img src={item.imgSrc} className={style.cardImage}/>
-                </div>
-                <div className={style.cardInfoDiv}>
-                  <div className={style.concertItemBand}> {item.band}</div>
-                  <div className={style.concertItemPlace}> {item.place}
-                  </div>
-                </div>
-                <div
-                  className={style.cardFooter}>{languageSrc.months[date.getMonth()][langProps.language] + " " + date.getDate()}</div>
-
-
-              </div>
-            </Link>
-          )
-        }
         const MonthRow = ({concerts}) => {
           if (concerts.length !== 0) {
             let season = concerts[0].season;
             if (season == "autumn" || season == "spring")
               return (
-
                 <div className={style.monthContainer + " " + style[season + "Data"]}>
                   {particle}
                   <div className={style.monthContainerName + " " + style[season + "Name"]}>
@@ -128,7 +73,7 @@ const Schedule = ({concerts}) => {
                   <div className={style.monthContainerData}>
                     {
                       concerts.map((item, index) =>
-                        (<ConcertItem item={item} key={index}/>)
+                        (<ConcertItem item={item} langProps={langProps} key={index}/>)
                       )
                     }
                   </div>
@@ -140,7 +85,7 @@ const Schedule = ({concerts}) => {
                   <div className={style.monthContainerData}>
                     {
                       concerts.map((item, index) =>
-                        (<ConcertItem item={item} key={index}/>)
+                        (<ConcertItem item={item} langProps={langProps} key={index}/>)
                       )
                     }
                   </div>

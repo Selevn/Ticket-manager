@@ -147,11 +147,6 @@
   width: 100%;
   overflow: hidden;
   flex-direction: row;
-  /*
-    min-height: 120vh;
-    padding-bottom: 12vh;
-    padding-top: 12vh;*/
-  /*min-width:98.9vw;*/
 }
 
 .backgroundPartickle {
@@ -221,12 +216,4 @@
   font-size: 1.5rem;
   padding-bottom: .5rem;
   margin-top:auto;
-}
-
-.backgroundPartickle
-{
-  position: absolute;
-  z-index:-1;
-  height:100%;
-  width:100%;
 }

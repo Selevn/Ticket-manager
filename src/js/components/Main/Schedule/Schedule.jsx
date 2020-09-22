@@ -2,11 +2,8 @@ import React, {useMemo} from 'react'
 import PropTypes from 'prop-types';
 import languageSrc from "../../../language";
 import {LanguageContext} from "../../Contexts/LanguageContext";
-import {Col, Container, Row} from "react-bootstrap";
 
 import style from "./Schedule.module.css";
-import {Link} from "react-router-dom";
-import Particles from "react-particles-js";
 import Particle from "../../CommonData/Paricles/Particles.jsx";
 import ConcertItem from "../../CommonData/ConcertItem.jsx"
 const Schedule = ({concerts}) => {

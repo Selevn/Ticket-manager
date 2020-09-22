@@ -7,9 +7,6 @@ import languageSrc from "../../../language"
 import style from "./Home.module.css"
 import "./Home.css"
 
-import Particles from 'react-particles-js';
-
-import {Container, Row, Col} from "react-bootstrap";
 import {Search} from 'react-bootstrap-icons';
 import Particle from "../../CommonData/Paricles/Particles.jsx";
 import PropTypes from "prop-types"
@@ -60,7 +57,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                                 }
                             </div>
                         </div>
-                        <Row className={style.recentRow}>
+                        <div className={style.recentRow}>
                             {
                                 upcomingConcerts[0] && upcomingConcerts.map(
                                     (item, index) => {
@@ -98,14 +95,14 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                                         )
                                     })
                             }
-                        </Row>
+                        </div>
                         {(concertInBaseCount - upcomingConcerts.length > 3) && (
-                            <Row className={style.more}
+                            <div className={style.more}
                                  onClick={showMore}>
                                 <span
                                     className={style.centerAlign}
                                 >{languageSrc.more[langProps.language]}</span>
-                            </Row>)}
+                            </div>)}
                     </div>
                 </>
             )}

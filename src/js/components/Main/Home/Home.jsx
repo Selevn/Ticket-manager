@@ -7,9 +7,8 @@ import languageSrc from "../../../language"
 import style from "./Home.module.css"
 import "./Home.css"
 
-
-import {Container, Row, Col} from "react-bootstrap";
-
+import {Search} from 'react-bootstrap-icons';
+import Particle from "../../CommonData/Paricles/Particles.jsx";
 import PropTypes from "prop-types"
 
 const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch,inputRef}) => {
@@ -97,16 +96,58 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                                 </Link>
                               </div>
                             </div>
-                          </Col>
-                      )
-                    }
-                )}
-              </Row>
-            </Container>
-          </div>
-      )}
-    </LanguageContext.Consumer>
-  </div>)
+                        </div>
+                        <div className={style.recentRow}>
+                            {
+                                upcomingConcerts[0] && upcomingConcerts.map(
+                                    (item, index) => {
+                                        let day, month, year;
+                                        day = new Date(item.date).getDate() + 1;
+                                        month = languageSrc.months[new Date(item.date).getMonth()][langProps.language];
+                                        year = new Date(item.date).getFullYear();
+
+                                        return (
+                                            <div className={style.soonCard}>
+                                                <div className={style.frontImage}>
+                                                    <Link
+                                                        to={"concert/" + (upcomingConcerts.length > 0 ? upcomingConcerts[index].id : index)}>
+                                                        <img className={style.centreImage}
+                                                             src={upcomingConcerts.length !== 0 ? upcomingConcerts[index].imgSrc : "https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif"}/>
+                                                    </Link>
+                                                </div>
+                                                <div className={style.backImage}>
+                                                    <Link
+                                                        to={"concert/" + (upcomingConcerts.length !== 0 && upcomingConcerts[index].id)}>
+                                                        <div className={style.infoCol}>
+                                                            <span>{languageSrc.band[langProps.language]}: </span>
+                                                            <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].band}</b>
+                                                            <br/>
+                                                            <span>{languageSrc.place[langProps.language]}: </span>
+                                                            <b>{upcomingConcerts.length !== 0 && upcomingConcerts[index].place}</b>
+                                                            <br/>
+                                                            <span>{languageSrc.date[langProps.language]}: </span>
+                                                            <b>{`${day} ${month} ${year}`}</b>
+                                                            <br/>
+                                                        </div>
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                            }
+                        </div>
+                        {(concertInBaseCount - upcomingConcerts.length > 3) && (
+                            <div className={style.more}
+                                 onClick={showMore}>
+                                <span
+                                    className={style.centerAlign}
+                                >{languageSrc.more[langProps.language]}</span>
+                            </div>)}
+                    </div>
+                </>
+            )}
+        </LanguageContext.Consumer>
+    </>)
 }
 
 

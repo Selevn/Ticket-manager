@@ -15,7 +15,7 @@ const SearchContainer = ({getConcerts, concerts: propConcerts}) => {
   const searchEvent = () => {
     setConcerts(propConcerts
         .filter((item) => (place ? item.place === place : true))
-        .filter((item) => (band ? item.band.indexOf(band)!==-1 : true))
+        .filter((item) => (band ? item.band.toUpperCase().indexOf(band.toUpperCase())!==-1 : true))
         .filter((item) => (dateStart ? new Date(item.date) > dateStart : true))
         .filter((item) => (dateEnd ? new Date(item.date) < dateEnd : true)))
   }

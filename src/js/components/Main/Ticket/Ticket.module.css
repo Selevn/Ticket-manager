@@ -1,109 +1,39 @@
-.centre {
+.dataRow{
+  display:flex;
+  flex-flow: row wrap;
+  min-height: 30px;
+}
+.hallMap{
+  position: relative;
   text-align: center;
 }
-
-.sectorBlock {
-  height: 5rem;
-  padding: 1.3rem;
-  font-size: 1.33rem;
+.hallImg{
+  max-height: 556px;
+  max-width: 800px;
+  height: 556px;
+  width: 800px;
 }
-
-.sectorBlock:hover {
-  background-color: rgba(128, 128, 128, 0.42);
+.sectorSVG{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sectorPart{
+  opacity: 0;
+}
+.sectorPart:hover{
+  opacity: .3;
   cursor: pointer;
+  transition: opacity .3s linear;
 }
 
-.mainContainer {
-  margin-bottom: 5rem;
+.sectorDescription
+{
+
 }
+.description{
 
-.dataRow {
-  margin-top: 3rem;
-  margin-bottom: 7.7rem;
 }
+.buttons{
 
-.sectorName {
-  text-align: left;
-}
-
-.sectorCost {
-  text-align: right;
-}
-
-.sectorColumn {
-  text-align: right;
-}
-
-
-.buyButton {
-  height: 3.3rem;
-  width: 8rem;
-  box-shadow: none;
-  border: 1px solid #929292;
-  background-color: white;
-  border-radius: 0px;
-  outline: none;
-  font-size: 1.33rem;
-  margin-top: .4rem;
-}
-
-.counter {
-  height: 3.3rem;
-  width: 6rem;
-  box-shadow: none;
-  border: 1px solid #929292;
-  background-color: white;
-  border-radius: 0px;
-  outline: none;
-  font-size: 1.33rem;
-  margin-top: .4rem;
-  float: left;
-  padding-left: 1.7rem;
-}
-
-.active {
-  outline: 2px solid black;
-}
-
-.backButton:hover, .buyButton:hover, .backButton:focus, .buyButton:focus {
-  animation: button .1s linear forwards;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
-}
-
-@keyframes button {
-  0% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
-  }
-  10% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 10%, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 100%);
-  }
-  20% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 20%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 100%);
-  }
-  30% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 30%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
-  }
-  40% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 100%);
-  }
-  50% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
-  }
-  60% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 60%, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 1) 100%);
-  }
-  70% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 70%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
-  }
-  80% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 80%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 100%);
-  }
-  90% {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 90%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 1) 100%);
-  }
-  100% {
-    color: white;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 100%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
-
-  }
 }

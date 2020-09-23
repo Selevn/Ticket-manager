@@ -13,7 +13,6 @@ const TicketContainer = ({history}) => {
   const globalId = useParams();
 
   let [data, setData] = useState([]);
-  let [currentSectorDesc, setSectorDesc] = useState(null);
   let [sector, setSector] = useState(null);
   let [count, setCount] = useState(1)
 
@@ -54,18 +53,20 @@ const TicketContainer = ({history}) => {
   )
 
 
-  const chSector = useCallback((id) => {
-    setSectorDesc(data.filter((i) => (i.id === id))[0]);
-    setSector(id)
-  }, [data])
+  const chSector = (event) => {
+    //id сущности - name сектора
+    setSector(data.filter((i) => (i.name === event.target.id))[0])
+  }
 
   const chCount = useCallback((event) => {
     setCount(event.target.value);
   }, [])
+
+
   return (
       <Ticket data={data}
               back={history.goBack}
-              currentSectorDesc={currentSectorDesc}
+              sector={sector}
               setSectorDesc={chSector}
               buyTicket={buyTicket}
               countChange={chCount}

@@ -36,7 +36,7 @@ const Particle = () => (<Particles
   //TODO: РАСТЯНУТЬ КАНВАС ПО ВЫСОТЕ!
   canvasClassName={style.backgroundPartickle}
   width={"100%%"}
-  height={"100%"}/>)
+  height={"93%"}/>)
 
 
 

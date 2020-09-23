@@ -38,15 +38,18 @@ const getConcertTickets = (concertId, callBack) => {
     sec.id,
     sec.name,
     sec.features,
+    sec.svgCors,
     sec.numOfSeats,
     con.band,
     con.place,
-    cos.cost
+    cos.cost,
+    hal.img
 FROM
     sector sec
 INNER JOIN concerts con
+INNER JOIN halls hal
 INNER JOIN costs cos
-\tON cos.sectorId=sec.id AND cos.concertId=con.id
+\tON cos.sectorId=sec.id AND cos.concertId=con.id AND con.place=hal.place
 WHERE con.id = (?)`, [concertId], function (err, data) {
     if (err)
       callBack(err, null);

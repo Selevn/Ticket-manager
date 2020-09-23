@@ -1,3 +1,7 @@
+.headerBandName {
+  font-family: Montserrat-Medium;
+  font-size: 5rem;
+}
 .dataRow{
   display:flex;
   flex-flow: row wrap;
@@ -29,11 +33,28 @@
 
 .sectorDescription
 {
-
+  padding:2rem;
+  display: flex;
+  flex-direction: column;
+  flex:1;
+  align-content: center;
+  text-align: center;
 }
 .description{
-
+flex:4;
+}
+.sectorNameBlock{
+  font-family: Montserrat-Medium;
+}
+.sectorName{
+  font-size: 3rem;
+}
+.featuresBlock{
+  font-size: 1.4rem;
 }
 .buttons{
-
+  flex:1;
+  flex-direction: row;
+align-items: end;
+justify-self: end;
 }

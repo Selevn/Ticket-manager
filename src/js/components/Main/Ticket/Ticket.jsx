@@ -10,7 +10,7 @@ import Particle from "../../CommonData/Paricles/Particles.jsx";
 
 const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange}) => {
   const particle = useMemo(() => (<Particle/>), [])
-  console.log(sector)
+  console.log(data)
   return (
     <LanguageContext.Consumer>
       {langProps => {
@@ -21,6 +21,9 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
             <div className={"pageHeaderRow"}>
               <div className={"pageHeader"}>
                 {languageSrc.buyTicket[langProps.language]}
+              </div>
+              <div>
+                <span className = {style.headerBandName}>{data[0] && data[0].band}</span>
               </div>
             </div>
 
@@ -37,17 +40,23 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
                 <img src={data[0] && data[0].img}
                      className={style.hallImg}/>
               </div>
-              <div className={style.sectorDescription}>
+              <div className={style.sectorDescription} {/*style={{
+                backgroundImage:'url('+(data[0] && data[0].img)+')',
+                backgroundSize: 'cover',
+              }}*/}>
                 <div className={style.description}>
-                  <h1>{sector && languageSrc.sector[langProps.language]+': '+sector.name}</h1>
-                  {sector && languageSrc.features[langProps.language]+': '+sector.features}
-                  {sector && sector.cost+'$'}
+                  {sector && (<><h1 className={style.sectorNameBlock}>{languageSrc.sector[langProps.language]} : <span className={style.sectorName}>{sector.name}</span></h1>
+                      <hr/>
+                    <div className={style.featuresBlock}>{languageSrc.features[langProps.language]} : {sector.features}</div>
+                      </>)
+                  }
                 </div>
                 <div className={style.buttons}>
                   <div>
                     <button className={style.buyButton} onClick={back}>{languageSrc.back[langProps.language]}</button>
                   </div>
                   <div>
+                    {sector && sector.cost*count+'$'}
                     <input type="number" min={1} max={12} value={count} onChange={countChange}
                            className={style.counter}/>
                     <button className={style.buyButton}

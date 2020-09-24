@@ -55,11 +55,33 @@ const TicketContainer = ({history}) => {
 
   const chSector = (event) => {
     //id сущности - name сектора
-    setSector(data.filter((i) => (i.name === event.target.id))[0])
+    if (event.target.classList.contains("selectedSector"))
+    {
+      event.target.classList.remove("selectedSector")
+      setSector(null)
+    }
+    else
+    {
+      setSector(data.filter((i) => (i.name === event.target.id))[0])
+      let svgCollection = document.getElementById("svgCanvas")
+      for (let i=0; i<svgCollection.children.length; i++)
+      {
+        svgCollection.children[i].classList.remove("selectedSector")
+      }
+      event.target.classList.add("selectedSector")
+    }
   }
 
   const chCount = useCallback((event) => {
-    setCount(event.target.value);
+
+    if(event.target.value > 12)
+      setCount(12);
+    else if(event.target.value < 1){
+      setCount(1);
+    }
+    else{
+      setCount(event.target.value);
+    }
   }, [])
 
 

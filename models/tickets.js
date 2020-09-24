@@ -42,6 +42,7 @@ const getConcertTickets = (concertId, callBack) => {
     sec.numOfSeats,
     con.band,
     con.place,
+    con.date,
     cos.cost,
     hal.img
 FROM
@@ -59,6 +60,39 @@ WHERE con.id = (?)`, [concertId], function (err, data) {
 
   })
 }
+/*SELECT
+  sec.id,
+  sec.name,
+  sec.features,
+  sec.svgCors,
+  sec.numOfSeats,
+  con.band,
+  con.place,
+  con.date,
+  cos.cost,
+  hal.img,
+  COUNT(t.id) AS tickCount
+FROM sector sec
+  INNER JOIN concerts con
+  INNER JOIN halls hal
+  INNER JOIN costs cos
+    ON cos.sectorId = sec.id
+    AND cos.concertId = con.id
+    AND con.place = hal.place
+  JOIN ticket t ON t.concertId = con.id AND sec.id = t.sectorId
+
+WHERE con.id = 3
+GROUP BY t.sectorId,
+         sec.id,
+         sec.name,
+         sec.numOfSeats,
+         sec.features,
+         sec.svgCors,
+         con.band,
+         con.place,
+         con.date,
+         hal.img,
+         cos.cost*/
 
 const buyTicket = (concertId, userId, sectorId, count, callBack) => {
   let arr = []

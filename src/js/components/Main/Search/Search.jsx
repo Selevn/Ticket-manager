@@ -18,9 +18,6 @@ const Search = ({concerts, allConcerts, changer, inputsValues: [place, band, sta
       halls.push(item.place)
   })
 
-  console.log("stDate",startDate)
-
-
   return (<>
     <LanguageContext.Consumer>
       {langProps => {
@@ -33,13 +30,10 @@ const Search = ({concerts, allConcerts, changer, inputsValues: [place, band, sta
                   {languageSrc.search[langProps.language]}
                 </div>
                 <div className={style.searchDiv}>
-                  <button className={style.searchBut}
-                          onClick={reset}
-                  >{languagePack.reset[langProps.language]}</button>
                   <div className={style.searchSubBlock}>
                     <label htmlFor={"halls"}>{languageSrc.place[langProps.language]}</label>
-                    <select name="place" className={style.hallsSelect} onChange={changer}>
-                      <option value={place}>--/--</option>
+                    <select name="place" className={style.hallsSelect} onChange={changer} value = {place}>
+                      <option value={''}>--/--</option>
                       {halls.map((item) => {
                         return (
                           <option value={item}>{item}</option>
@@ -87,10 +81,13 @@ const Search = ({concerts, allConcerts, changer, inputsValues: [place, band, sta
                            value={ticketNumber}/>
                   </div>
                   <div className={style.searchSubBlock}>
-                    <input className={style.searchBut}
+                    <button className={style.searchBut}
+                            onClick={reset}
+                    >{languagePack.reset[langProps.language]}</button>
+                    {/*<input className={style.searchBut}
                            onClick={search}
                            value={languagePack.search[langProps.language]}
-                           type={"submit"}/>
+                           type={"submit"}/>*/}
                   </div>
                 </div>
               </div>

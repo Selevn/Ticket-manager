@@ -10,14 +10,11 @@ import "./Ticket.css"
 
 const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange}) => {
   const particle = useMemo(() => (<Particle/>), [])
-  console.log(data)
   let day, month, year, hour, minute, concert = data[0];
 
   return (
     <LanguageContext.Consumer>
       {langProps => {
-        console.log("concert", !!concert)
-        console.log("sector", !!sector)
         if (concert) {
           day = new Date(concert.date).getDate() + 1;
           month = languageSrc.months[new Date(concert.date).getMonth()][langProps.language];
@@ -41,20 +38,25 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
               <div className={style.hallMap}>
                 <svg viewBox={"0 0 800 556"} className={style.sectorSVG} id="svgCanvas">
                   {
-                    data.map(item => (
-                        <path className={style.sectorPart} d={item.svgCors} id={item.name} onClick={setSectorDesc}
-                              onDoubleClick={setSectorDesc}></path>
+                    data.map((item, index) => (
+                        <path key={index}
+                              className={style.sectorPart}
+                              d={item.svgCors}
+                              id={item.name}
+                              onClick={setSectorDesc}
+                              onDoubleClick={setSectorDesc}/>
                       )
                     )
                   }
                 </svg>
                 <img src={data[0] && data[0].img}
-                     className={style.hallImg}/>
+                     className={style.hallImg} alt={"Hall map image"}/>
               </div>
               <div className={style.sectorDescription}>
                 <div className={style.description}>
-                  {sector && (<><h1 className={style.sectorNameBlock}>{languageSrc.sector[langProps.language]} : <span
-                    className={style.sectorName}>{sector.name}</span></h1>
+                  {sector && (<><h1
+                    className={style.sectorNameBlock}>{languageSrc.sector[langProps.language]} : <span>{sector.name}</span>
+                  </h1>
                     <hr/>
                     <div
                       className={style.featuresBlock}>{languageSrc.features[langProps.language]} : {sector.features}</div>
@@ -72,20 +74,19 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
                           <div className={style.dataTextBlock}>
                             <div>
                               <span className={style.leftFloat}>{languageSrc.place[langProps.language]}:</span>
-                              <b
-                                className={style.rightFloat}>{concert.place}</b>
+                              <b>{concert.place}</b>
                             </div>
                             <div>
-                              <span className={style.leftFloat}>{languageSrc.date[langProps.language]}:</span> <b
-                              className={style.rightFloat}>
-                              {`${day || ""} ${month || ""} ${year || ""}`}
-                            </b>
+                              <span className={style.leftFloat}>{languageSrc.date[langProps.language]}:</span>
+                              <b>
+                                {`${day || ""} ${month || ""} ${year || ""}`}
+                              </b>
                             </div>
                             <div>
-                              <span className={style.leftFloat}>{languageSrc.time[langProps.language]}:</span> <b
-                              className={style.rightFloat}>
-                              {`${hour || ""}:${minute || ""}`}
-                            </b>
+                              <span className={style.leftFloat}>{languageSrc.time[langProps.language]}:</span>
+                              <b>
+                                {`${hour || ""}:${minute || ""}`}
+                              </b>
                             </div>
                           </div>
                         </div>
@@ -109,11 +110,6 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
                 </div>
               </div>
             </div>
-
-            <div className={style.centre}>
-
-            </div>
-
           </div>
         </>)
       }
@@ -144,6 +140,7 @@ Ticket.propTypes = {
   back: PropTypes.func,
   data: PropTypes.object,
   buyTicket: PropTypes.func,
+  sector: PropTypes.object,
 }
 
 export default Ticket;

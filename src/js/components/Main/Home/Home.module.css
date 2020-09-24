@@ -1,5 +1,4 @@
-.searchRow {/*
-    margin-top: 1.5rem;*/
+.searchRow {
     padding-top: 1.5rem;
     margin-bottom: 5rem;
     padding-right: 5rem;
@@ -7,20 +6,16 @@
     flex-direction: row;
     justify-content: space-between;
 }
-
 .searchHeader {
     align-self: flex-start;
     font-size: 4rem;
-    font-family: 'SFNewRepublic';
+    font-family: 'SFNewRepublic', sans-serif;
 }
-
 .searchBlock {
     align-self: center;
 }
-
-
 .searchInput {
-    font-family: "Montserrat-Light";
+    font-family: "Montserrat-Light", sans-serif;
     font-size: 1.35rem;
     align-self: flex-end;
     border: none;
@@ -46,7 +41,7 @@
 
 
 .tip {
-    font-family: "Montserrat-Light";
+    font-family: "Montserrat-Light", sans-serif;
     z-index: 1;
     background-color: white;
     position: absolute;
@@ -126,9 +121,6 @@
 }
 
 .soonCard {
-    /*
-        max-width: 25rem;
-        max-height: 25rem;*/
     position: relative;
     max-width: 35rem;
     margin: 1rem;
@@ -172,7 +164,7 @@
     height: 35rem;
     backface-visibility: hidden;
     transform: rotateY(180deg);
-    font-family: "Montserrat-Light";
+    font-family: "Montserrat-Light", sans-serif;
 }
 
 
@@ -195,14 +187,16 @@
 }
 
 .more {
-    font-family: 'SFNewRepublic';
+    font-family: 'SFNewRepublic', sans-serif;
     font-size: 2.3rem;
     opacity: 13%;
     background-color: #ececec;
     min-height: 3.6rem;
     justify-content: center;
     transition: .95s;
-    margin:0 !important;
+    margin-top:0 !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
     margin-bottom:3rem;
 }
 

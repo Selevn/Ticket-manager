@@ -1,55 +1,57 @@
-import React from "react";
-import {Col, Container, Row} from "react-bootstrap";
+import React, {useMemo} from "react";
 import PropTypes from "prop-types"
 
 import style from "./Login.module.css"
 import {LanguageContext} from "../Contexts/LanguageContext.js";
 import languagePack from "../../language.js";
+import Particle from "../CommonData/Paricles/Particles.jsx";
 
-const Login = ({email, onMailChange, password, onPasswordChange, loginHandler, registerHandler, loading}) => (
+const Login = ({email, onMailChange, password, onPasswordChange, loginHandler, registerHandler, loading}) => {
+  const particle = useMemo(() => (<Particle height={"100%"}/>), [])
+  return (
     <>
       <LanguageContext.Consumer>
         {langProps => {
           return (
-              <Container className={style.loginContainer}>
-                <Row>
-                  <Col xs={12} sm={12} md={3} lg={3} xl={4}/>
-                  <Col className={style.loginCol} xs={12} sm={12} md={6} lg={6} xl={4}>
-                    <h3>{languagePack.login[langProps.language]}</h3>
+            <>
+              {particle}
+              <div className={style.loginContainer}>
+                <div className={style.loginCol}>
+                  <div className={style.loginHeader}>{languagePack.login[langProps.language]}</div>
+                  <div className={style.inputs}>
                     <input
-                        type={"text"}
-                        placeholder={"Email"}
-                        className={style.formInput}
-                        value={email}
-                        onChange={onMailChange}/>
-                    <br/>
+                      type={"text"}
+                      placeholder={"Email"}
+                      className={style.formInput}
+                      value={email}
+                      onChange={onMailChange}/>
                     <input type={"password"}
                            placeholder={"Password"}
                            className={style.formInput}
                            value={password}
                            onChange={onPasswordChange}/>
-
-                    <br/>
-                    <button
+                    <div className={style.buttons}>
+                      <button
                         className={style.loginBut}
                         onClick={loginHandler}
                         disabled={loading}>Sign in
-                    </button>
-                    <button
+                      </button>
+                      <button
                         className={style.loginBut}
                         onClick={registerHandler}
                         disabled={loading}>Register
-                    </button>
-                  </Col>
-                  <Col xs={12} sm={12} md={3} lg={3} xl={4}/>
-                </Row>
-              </Container>
-          )
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>)
         }}
 
       </LanguageContext.Consumer>
     </>
-);
+  )
+};
 Login.propTypes = {
   email: PropTypes.string,
   onMailChange: PropTypes.func,

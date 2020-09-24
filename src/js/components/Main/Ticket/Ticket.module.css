@@ -110,6 +110,15 @@ flex:4;
 .leftFloat{
   float: left;
 }
+.allowedSeats{
+   justify-content: end;
+   padding-right: 5rem;
+   flex:1;
+   align-items: end;
+   text-align: end;
+   font-size: 1.8rem;
+   font-family: Montserrat-Medium;
+ }
 .backButton, .buyButton{
   font-size: 2rem;
   font-family: SFNewRepublic;
@@ -120,15 +129,7 @@ flex:4;
   height:4rem;
   border: 2px solid black;
 }
-.allowedSeats{
-  justify-content: end;
-  padding-right: 5rem;
-  flex:1;
-  align-items: end;
-  text-align: end;
-  font-size: 1.8rem;
-  font-family: Montserrat-Medium;
-}
+
 
 .backButton:hover, .buyButton:hover{
   color: white !important;

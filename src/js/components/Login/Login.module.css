@@ -1,36 +1,67 @@
-.loginContainer {
-  margin-top: 10rem;
+.loginContainer{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.loginCol {
-  text-align: center;
-  padding: 2.3rem;
-  border: 2px solid gray;
+.loginCol{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #efeeee30;
+  width: 35rem;
+  height: 35rem;
+  padding: 2rem;
 }
-
-.formInput {
-  margin: 1rem;
+.loginHeader{
+  font-family: SFNewRepublic, serif;
+  transform: rotateZ(-90deg);
+  overflow: visible;
+  font-size: 4rem;
+  flex:1;
 }
-
-.loginBut {
-  height: 2rem;
-  width: 5rem;
-  box-shadow: none;
-  border: 1px solid #929292;
-  background-color: white;
+.inputs{
+  display:flex;
+  flex:3;
+  flex-direction: column;
+}
+.buttons{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.formInput{
+  font-family: "Montserrat-Light", sans-serif;
+  font-size: 1.35rem;
+  align-self: flex-end;
+  border: none;
   outline: none;
-  font-size: .95rem;
-  margin: .8rem;
-  margin-top: .4rem;
-  margin-bottom: .4rem;
+  border-bottom: .12rem solid #2b2b2b;
+  min-width: 15rem;
+  min-height: 1.5rem;
+  background-color:#00000000;
 }
 
-.loginBut:hover, .loginBut:focus {
-  animation: loginButAnim .1s linear forwards;
+
+.loginBut{
+  font-size: 1rem;
+  font-family: SFNewRepublic, sans-serif;
+  background-color: #ffffff;
+  min-width:5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height:2rem;
+  border: 2px solid black;
+}
+
+
+.loginBut:hover{
+  color: white !important;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+  animation: leftToRight .1s linear forwards;
 }
 
-@keyframes loginButAnim {
+@keyframes leftToRight {
   0% {
     background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   }

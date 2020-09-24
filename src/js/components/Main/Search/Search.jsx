@@ -8,9 +8,8 @@ import languageSrc from "../../../language";
 import ConcertItem from "../../CommonData/ConcertItem.jsx"
 import Particle from "../../CommonData/Paricles/Particles.jsx";
 import PropTypes from "prop-types";
-import Concert from "../Concert/Concert.jsx";
 
-const Search = ({concerts, allConcerts, changer, inputsValues: [place, band, startDate, endDate, ticketNumber], search, reset}) => {
+const Search = ({concerts, allConcerts, changer, inputsValues: [place, band, startDate, endDate, ticketNumber], reset}) => {
   const particle = useMemo(() => (<Particle/>), [])
   let halls = []
   allConcerts.forEach((item) => {
@@ -25,7 +24,7 @@ const Search = ({concerts, allConcerts, changer, inputsValues: [place, band, sta
           <>
             {particle}
             <div className={"mainContainer"}>
-              <div className={"pageHeaderRow " + style.pageHeaderSchedule}>
+              <div className={"pageHeaderRow"}>
                 <div className={"pageHeader"}>
                   {languageSrc.search[langProps.language]}
                 </div>
@@ -34,9 +33,9 @@ const Search = ({concerts, allConcerts, changer, inputsValues: [place, band, sta
                     <label htmlFor={"halls"}>{languageSrc.place[langProps.language]}</label>
                     <select name="place" className={style.hallsSelect} onChange={changer} value = {place}>
                       <option value={''}>--/--</option>
-                      {halls.map((item) => {
+                      {halls.map((item, id) => {
                         return (
-                          <option value={item}>{item}</option>
+                          <option key={id} value={item}>{item}</option>
                         )
                       })}
                     </select>
@@ -111,7 +110,9 @@ const Search = ({concerts, allConcerts, changer, inputsValues: [place, band, sta
 Search.propTypes = {
   concerts: PropTypes.array,
   changer: PropTypes.func,
+  reset: PropTypes.func,
   inputsValues: PropTypes.array,
+  allConcerts: PropTypes.array,
 }
 
 export default Search;

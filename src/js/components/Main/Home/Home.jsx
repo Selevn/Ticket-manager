@@ -39,7 +39,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                                 <button
                                     className={style.searchBut}
                                     onClick={onSearch}>
-                                    <Search color="black" className={style.searchIcon}></Search>
+                                    <Search color="black" className={style.searchIcon}/>
                                 </button>
 
                             </div>
@@ -67,11 +67,11 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                                         year = new Date(item.date).getFullYear();
 
                                         return (
-                                            <div className={style.soonCard}>
+                                            <div key={item.id} className={style.soonCard}>
                                                 <div className={style.frontImage}>
                                                     <Link
                                                         to={"concert/" + (upcomingConcerts.length > 0 ? upcomingConcerts[index].id : index)}>
-                                                        <img className={style.centreImage}
+                                                        <img alt={"Concert image"} className={style.centreImage}
                                                              src={upcomingConcerts.length !== 0 ? upcomingConcerts[index].imgSrc : "https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif"}/>
                                                     </Link>
                                                 </div>
@@ -119,6 +119,9 @@ Home.propTypes = {
     onFocusOut: PropTypes.func,
     onEnterSearch: PropTypes.func,
     onSearch: PropTypes.func,
+    inputRef: PropTypes.object,
+    showMore: PropTypes.func,
+    concertInBaseCount: PropTypes.number,
 }
 
 export default Home;

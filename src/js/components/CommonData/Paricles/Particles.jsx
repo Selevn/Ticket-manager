@@ -1,9 +1,11 @@
 import style from "./Particles.module.css";
 import Particles from "react-particles-js";
 import React from "react";
+import PropTypes from "prop-types";
 
-
-const Particle = () => (<Particles
+const Particle = ({height}) => {
+  console.log("partical height", height)
+  return(<Particles
   params={{
     particles: {
       number: {
@@ -36,9 +38,11 @@ const Particle = () => (<Particles
   //TODO: РАСТЯНУТЬ КАНВАС ПО ВЫСОТЕ!
   canvasClassName={style.backgroundPartickle}
   width={"100%%"}
-  height={"93%"}/>)
+  height={height || "93%"}/>)}
 
-
+Particle.propTypes = {
+  height:PropTypes.string
+}
 
 export default Particle
 

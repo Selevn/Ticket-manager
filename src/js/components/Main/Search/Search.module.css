@@ -7,7 +7,7 @@
   padding-bottom: 2rem;
 }
 .searchSubBlock{
-  font-family: Montserrat-Light;
+  font-family: Montserrat-Light, sans-serif;
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@
 
 
 .searchBut{
-  font-family: Montserrat-Medium;
+  font-family: Montserrat-Medium, sans-serif;
   margin-top: 2.3rem;
   font-size: 1.2rem;
   width:10rem;
@@ -47,7 +47,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  background-color: #efeeee;
+  background-color: #efeeee30;
 }
 
 .searchBut:hover{

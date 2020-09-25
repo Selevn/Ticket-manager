@@ -67,8 +67,8 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                                         year = new Date(item.date).getFullYear();
 
                                         return (
-                                            <div key={item.id} className={style.soonCard}>
-                                                <div className={style.frontImage}>
+                                            <div key={item.id} className={style.soonCard} tabIndex={0}>
+                                                <div className={style.frontImage} tabIndex={1}>
                                                     <Link
                                                         to={"concert/" + (upcomingConcerts.length > 0 ? upcomingConcerts[index].id : index)}>
                                                         <img alt={"Concert image"} className={style.centreImage}

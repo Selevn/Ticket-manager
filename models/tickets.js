@@ -10,13 +10,13 @@ const connection = mysql.createPool({
 
 const getUserTickets = (userId, callBack) => {
   connection.query(`SELECT
-    t.id,
+    t.id as ticketId,
     t.userId,
     t.sectorId,
     c.place,
     c.band,
     c.date,
-    c.id,
+    c.id as concertId,
     co.cost
 FROM
     ticket t

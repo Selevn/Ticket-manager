@@ -2,6 +2,7 @@ import React, {useMemo} from "react";
 import PropTypes from "prop-types"
 
 import style from "./Login.module.css"
+import "./Login.css"
 import {LanguageContext} from "../Contexts/LanguageContext.js";
 import languagePack from "../../language.js";
 import Particle from "../CommonData/Paricles/Particles.jsx";
@@ -15,7 +16,7 @@ const Login = ({email, onMailChange, password, onPasswordChange, loginHandler, r
           return (
             <>
               {particle}
-              <div className={style.loginContainer}>
+              <div className={style.loginContainer} id = "loginContainer">
                 <div className={style.loginCol}>
                   <div className={style.loginHeader}>{languagePack.login[langProps.language]}</div>
                   <div className={style.inputs}>
@@ -24,22 +25,28 @@ const Login = ({email, onMailChange, password, onPasswordChange, loginHandler, r
                       placeholder={"Email"}
                       className={style.formInput}
                       value={email}
-                      onChange={onMailChange}/>
+                      onChange={onMailChange}
+                      tabIndex={1}
+                    />
                     <input type={"password"}
                            placeholder={"Password"}
                            className={style.formInput}
                            value={password}
-                           onChange={onPasswordChange}/>
+                           onChange={onPasswordChange}
+                           tabIndex={2}
+                    />
                     <div className={style.buttons}>
                       <button
-                        className={style.loginBut}
-                        onClick={loginHandler}
-                        disabled={loading}>Sign in
-                      </button>
-                      <button
+                        tabIndex={4}
                         className={style.loginBut}
                         onClick={registerHandler}
                         disabled={loading}>Register
+                      </button>
+                      <button
+                        tabIndex={3}
+                        className={style.loginBut}
+                        onClick={loginHandler}
+                        disabled={loading}>Sign in
                       </button>
                     </div>
                   </div>
@@ -47,7 +54,6 @@ const Login = ({email, onMailChange, password, onPasswordChange, loginHandler, r
               </div>
             </>)
         }}
-
       </LanguageContext.Consumer>
     </>
   )

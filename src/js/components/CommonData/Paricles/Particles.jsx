@@ -4,7 +4,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Particle = ({height}) => {
-  console.log("partical height", height)
   return(<Particles
   params={{
     particles: {

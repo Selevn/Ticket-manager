@@ -68,7 +68,7 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
                         <div className={style.infoColData}>
                           <div className={style.emptyBlock}>
                             <span className={style.pleaseText}>
-                              Please, select sector where would you like to seat.
+                              {languageSrc.pleaseSelectSector[langProps.language]}
                             </span>
                           </div>
                           <div className={style.dataTextBlock}>
@@ -95,7 +95,7 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
                   }
                 </div>
                 {sector && (<div className={style.allowedSeats}>
-                  Free number of seats : 400
+                  {languageSrc.freeNumberOfSeats[langProps.language]} : 400
                 </div>)}
                 <div className={style.buttons}>
                   <button className={style.backButton} onClick={back}>{languageSrc.back[langProps.language]}</button>

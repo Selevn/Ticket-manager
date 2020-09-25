@@ -14,23 +14,31 @@
   padding: 2rem;
 }
 .loginHeader{
+  display: flex;
+  align-self: center;
   font-family: SFNewRepublic, serif;
   transform: rotateZ(-90deg);
   overflow: visible;
-  font-size: 4rem;
+  font-size: 5rem;
   flex:1;
 }
 .inputs{
+  max-width: 18rem;
   display:flex;
   flex:3;
   flex-direction: column;
+  align-self: center;
 }
 .buttons{
   display:flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-left: 1.2rem;
 }
+
+
 .formInput{
+  padding-left: .4rem;
   font-family: "Montserrat-Light", sans-serif;
   font-size: 1.35rem;
   align-self: flex-end;
@@ -40,6 +48,14 @@
   min-width: 15rem;
   min-height: 1.5rem;
   background-color:#00000000;
+  margin-bottom: 2rem;
+}
+.formInput:focus{
+  border-bottom: .18rem solid #2b2b2b;
+}
+
+.formInput:nth-last-of-type(1){
+  margin-bottom: 4rem;
 }
 
 
@@ -55,7 +71,7 @@
 }
 
 
-.loginBut:hover{
+.loginBut:hover, .loginBut:focus{
   color: white !important;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   animation: leftToRight .1s linear forwards;

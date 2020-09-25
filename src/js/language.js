@@ -103,6 +103,16 @@ let languagePack =
         ru: "Место",
         en: "Place"
       },
+    pleaseSelectSector:
+      {
+        ru: "Пожалуйста, выберите сектор, в котором вы бы хотели сидеть.",
+        en: "Please, select sector where would you like to seat."
+      },
+    freeNumberOfSeats:
+      {
+        ru: "Число свободных мест ",
+        en: "Number of allowed seats "
+      },
     months: [
       {
         ru: "Январь",

@@ -6,10 +6,10 @@ import {useAuth} from "../../customHooks/auth.hook.js";
 import {LoginContext} from "../Contexts/LoginContext.js";
 import {useHistory} from "react-router-dom"
 
+import 'materialize-css'
+
 const LoginContainer = () => {
 
-
-  ///////////////////////////////////////////////////////////////////////
   const loginContext = useContext(LoginContext)
   const history = useHistory()
   const authHook = useAuth()
@@ -21,8 +21,9 @@ const LoginContainer = () => {
   const registerHandler = async () => {
     try {
       const data = await request(backendUrl + "/api/auth/register", "POST", {email: email, password: password})
+      window.M.toast({html: data.message, displayLength:5000, classes:"success"})
     } catch (e) {
-      console.log(e)
+      window.M.toast({html: e.message, displayLength:5000, classes:"error"})
     }
   }
   const loginHandler = async () => {
@@ -31,7 +32,7 @@ const LoginContainer = () => {
       authHook.login(data.token, data.id, data.userType)
       history.push("/home")
     } catch (e) {
-      console.log(e)
+      window.M.toast({html: e.message, displayLength:5000, classes:"error"})
     }
   }
   const onMailChange = (event) => {

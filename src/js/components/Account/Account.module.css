@@ -1,55 +1,30 @@
-.headerNameCol {
-  text-align: center;
-  font-size: 1.33rem;
+.logoutButCol{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.mainContainer {
-  margin-bottom: 5rem;
+.dataBlock{
+  display: flex;
+  flex-direction:column;
 }
 
-.headerRow {
-  margin-top: 3rem;
-  margin-bottom: 4rem;
+.logoutBut{
+  font-size: 2rem;
+  font-family: SFNewRepublic, sans-serif;
+  background-color: #ffffff;
+  width:10rem;
+  height:4rem;
+  border: 2px solid black;
 }
 
-.logoutBut {
-  height: 3rem;
-  width: 10rem;
-  box-shadow: none;
-  border: 1px solid #929292;
-  background-color: white;
-  outline: none;
-  font-size: 1.33rem;
-  margin-top: .4rem;
-}
-
-.table {
-  border-collapse: collapse;
-}
-
-.ticketTable {
-  width: 100%;
-}
-
-.tableTr {
-  padding-bottom: 10px;
-  padding-top: 10px;
-  height: 7rem;
-  transition: background-color 0.3s linear;
-}
-
-.tableTr:hover {
-  transition: background-color 0.3s linear;
-  background-color: rgba(125, 125, 125, 0.1);
-  cursor: pointer;
-}
-
-.logoutBut:hover, .logoutBut:focus {
-  animation: logoutButAnim .1s linear forwards;
+.logoutBut:hover, .logoutBut:focus{
+  color: white !important;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+  animation: leftToRight .1s linear forwards;
 }
 
-@keyframes logoutButAnim {
+@keyframes leftToRight {
   0% {
     background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   }
@@ -86,4 +61,3 @@
 
   }
 }
-

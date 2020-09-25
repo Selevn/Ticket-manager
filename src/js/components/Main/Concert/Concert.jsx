@@ -16,7 +16,7 @@ const Concert = ({concert, back, buy}) => {
           return (<></>)
         }
         let day, month, year, hour, minute;
-        if (concert.hasOwnProperty("id")) {
+        if (Object.prototype.hasOwnProperty.call(concert, "id")/*concert.hasOwnProperty("id")*/) {
           day = new Date(concert.date).getDate() + 1;
           month = languageSrc.months[new Date(concert.date).getMonth()][langProps.language];
           year = new Date(concert.date).getFullYear();
@@ -30,7 +30,7 @@ const Concert = ({concert, back, buy}) => {
 
             <div className={style.imageBlock}>
               <img className={style.titleImage}
-                   src={concert.imgSrc}/>
+                   src={concert.imgSrc} alt={"Concert image"}/>
             </div>
             <div className={style.dataBlock}>
               <div className={style.infoCol}>
@@ -55,9 +55,12 @@ const Concert = ({concert, back, buy}) => {
               </div>
               <div className={style.buttonPlacement}>
                 <button className={style.backButton}
-                        onClick={back}>{languageSrc.back[langProps.language]}</button>
+                        onClick={back}
+                        tabIndex={0}>{languageSrc.back[langProps.language]}
+                        </button>
                 <button className={style.buyButton}
-                        onClick={buy}>{languageSrc.ticket[langProps.language]}</button>
+                        onClick={buy}
+                        tabIndex={0}>{languageSrc.ticket[langProps.language]}</button>
               </div>
             </div>
           </div>

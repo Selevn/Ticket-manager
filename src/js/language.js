@@ -187,6 +187,64 @@ let languagePack =
 >>>>>>> 19e0d0f... connected to right db, promise learned
 
 
+<<<<<<< HEAD
     }
+=======
+    ],
+    back:
+      {
+        ru: "Назад",
+        en: "Back",
+      },
+    buyTicket:
+      {
+        ru: "Купить билет",
+        en: "Buy ticket",
+      },
+    ticket:
+      {
+        ru: "Билет",
+        en: "Ticket",
+      },
+    logout:
+      {
+        ru: "Выход",
+        en: "Logout",
+      },
+    myTickets:
+      {
+        ru: "Мои билеты",
+        en: "My tickets",
+      },
+    noAvailibleSeats:
+      {
+        ru: "Нет доступных мест в этом секторе",
+        en: "No availible seats in this sector",
+      },
+    cost:
+      {
+        ru: "Цена",
+        en: "Cost",
+      },
+    gotTicket:
+      {
+        ru: "Билет успешно приобретен!",
+        en: "Ticket purchased successfully!",
+      },
+    gotTickets:
+      {
+        ru: "Билеты успешно приобретены!",
+        en: "Tickets purchased successfully!",
+      },
+    smthWentWrong:
+      {
+        ru: "Что-то пошло не так!",
+        en: "Something went wrong!",
+      },
+
+
+
+  }
+>>>>>>> d548b86... buy ticket functional finished
 
 export default languagePack

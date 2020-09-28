@@ -2,7 +2,6 @@ import React, {useMemo} from "react";
 import PropTypes from "prop-types"
 
 import style from "./Login.module.css"
-import "./Login.css"
 import {LanguageContext} from "../Contexts/LanguageContext.js";
 import languagePack from "../../language.js";
 import Particle from "../CommonData/Paricles/Particles.jsx";

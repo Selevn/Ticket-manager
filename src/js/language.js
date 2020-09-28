@@ -219,11 +219,32 @@ let languagePack =
         ru: "Мои билеты",
         en: "My tickets",
       },
+    noAvailibleSeats:
+      {
+        ru: "Нет доступных мест в этом секторе",
+        en: "No availible seats in this sector",
+      },
     cost:
       {
         ru: "Цена",
         en: "Cost",
       },
+    gotTicket:
+      {
+        ru: "Билет успешно приобретен!",
+        en: "Ticket purchased successfully!",
+      },
+    gotTickets:
+      {
+        ru: "Билеты успешно приобретены!",
+        en: "Tickets purchased successfully!",
+      },
+    smthWentWrong:
+      {
+        ru: "Что-то пошло не так!",
+        en: "Something went wrong!",
+      },
+
 
 
   }

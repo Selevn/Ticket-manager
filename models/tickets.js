@@ -35,32 +35,6 @@ WHERE t.userId = (?)`, [userId], function (err, data) {
 }
 const getConcertTickets = (concertId, callBack) => {
   connection.query(`SELECT
-    sec.id,
-    sec.name,
-    sec.features,
-    sec.svgCors,
-    sec.numOfSeats,
-    con.band,
-    con.place,
-    con.date,
-    cos.cost,
-    hal.img
-FROM
-    sector sec
-INNER JOIN concerts con
-INNER JOIN halls hal
-INNER JOIN costs cos
-\tON cos.sectorId=sec.id AND cos.concertId=con.id AND con.place=hal.place
-WHERE con.id = (?)`, [concertId], function (err, data) {
-    if (err)
-      callBack(err, null);
-    else {
-      callBack(null, data);
-    }
-
-  })
-}
-/*SELECT
   sec.id,
   sec.name,
   sec.features,
@@ -79,9 +53,10 @@ FROM sector sec
     ON cos.sectorId = sec.id
     AND cos.concertId = con.id
     AND con.place = hal.place
-  JOIN ticket t ON t.concertId = con.id AND sec.id = t.sectorId
-
-WHERE con.id = 3
+  left join ticket t
+    ON t.concertId = con.id
+    AND sec.id = t.sectorId
+WHERE con.id = (?)
 GROUP BY t.sectorId,
          sec.id,
          sec.name,
@@ -92,16 +67,21 @@ GROUP BY t.sectorId,
          con.place,
          con.date,
          hal.img,
-         cos.cost*/
+         cos.cost`, [concertId], function (err, data) {
+    if (err)
+      callBack(err, null);
+    else {
+      callBack(null, data);
+    }
+
+  })
+}
 
 const buyTicket = (concertId, userId, sectorId, count, callBack) => {
   let arr = []
-  console.log("count", count)
   for (let i = 0; i < Number(count); i++) {
-    console.log("cycle")
     arr.push([concertId, userId, sectorId])
   }
-  console.log("arr", arr)
   connection.query("INSERT INTO ticket (concertId, userId, sectorId) VALUES ?", [arr],
       function (err, data) {
         if (err)

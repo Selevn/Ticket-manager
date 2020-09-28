@@ -1,4 +1,6 @@
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useContext} from "react";
+import {LoginContext} from "../components/Contexts/LoginContext.js";
+import * as jwt from "jsonwebtoken";
 
 const storage = "userStorage"
 
@@ -25,5 +27,10 @@ export const useAuth = () =>{
     }
   }, [login])
 
-  return {login,logout,token,userId}
+  const isLoggined = useCallback(() => {
+    const data = JSON.parse(localStorage.getItem(storage));
+    return data && data.token && (Date.now() / 1000 < jwt.decode(data.token).exp);
+  }, [])
+
+  return {login, logout, isLoggined}
 }

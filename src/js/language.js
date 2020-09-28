@@ -241,6 +241,29 @@ let languagePack =
         ru: "Что-то пошло не так!",
         en: "Something went wrong!",
       },
+    all:
+      {
+        ru: "Все",
+        en: "All",
+      },
+    future:
+      {
+        ru: "Будущие",
+        en: "Future",
+      },
+    passed:
+      {
+        ru: "Прошедшие",
+        en: "Passed",
+      },
+    loginBeforeBuying:
+      {
+        ru: "Пожалуйста, войдите в систему прежде чем покупать билеты!",
+        en: "Please, log in before buying tickets!",
+      },
+
+
+
 
 
 

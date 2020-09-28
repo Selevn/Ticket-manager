@@ -2,14 +2,96 @@
   text-align: center;
   font-size: 1.33rem;
 }
-
-.mainContainer {
-  margin-bottom: 5rem;
+.filterSelect{
+  font-size: 1.6rem;
+  font-family: SFNewRepublic, sans-serif;
+  background-color: #ffffff;
+  width:10rem;
+  height:3rem;
+  border: 1px solid black;
+  margin-right: 1rem;
+  text-align: center;
 }
 
+
+<<<<<<< HEAD
+.mainContainer {
+  margin-bottom: 5rem;
+=======
+.dataBlock{
+  display: flex;
+  flex-flow:row wrap;
+  padding: 3rem;
+}
+
+.ticketBlock{
+  margin:1rem;
+  padding: .3rem;
+  font-size: 1.1rem;
+  background-color: #efdaa8aa;
+  width: 25rem;
+  min-height: 8rem;
+  transition: .23s;
+}
+
+.ticketBlock:hover{
+  cursor:pointer;
+  transition: .5s;
+  background-color: #efdaa8ff;
+}
+
+
+.rowDirection{
+  display: flex;
+  flex-flow:row wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 2rem;
+  padding-left: .2rem;
+>>>>>>> 33800b6... Account page made + buy ticket features like a decline buying tickets for non-authed users
+}
+.rowDirection:nth-child(2){
+  margin-top:2.3rem;
+}
+
+
+.ticketBand{
+  font-family: SFNewRepublic, sans-serif;
+  font-size: 1.8rem;
+}
+.ticketPlace{
+  font-family: Montserrat-Light, sans-serif;
+  font-size: 1.4rem;
+}
+.ticketDateAndTime, .ticketPrice{
+  font-family: Montserrat-Light, sans-serif;
+  font-size: 1.5rem;
+}
+.ticketDateAndTime{
+  display: flex;
+  flex-flow: column wrap;
+  flex:4;
+}
+.ticketPrice{
+  flex:1;
+}
+
+
+
+
+<<<<<<< HEAD
 .headerRow {
   margin-top: 3rem;
   margin-bottom: 4rem;
+=======
+.logoutBut{
+  font-size: 1.6rem;
+  font-family: SFNewRepublic, sans-serif;
+  background-color: #ffffff;
+  width:10rem;
+  height:3rem;
+  border: 1px solid black;
+>>>>>>> 33800b6... Account page made + buy ticket features like a decline buying tickets for non-authed users
 }
 
 .logoutBut {

@@ -8,9 +8,13 @@ import languageSrc from "../../../language.js";
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const Ticket = ({data, back, currentSectorDesc, setSectorDesc, buyTicket, count, countChange}) => (
 =======
 const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange, max}) => {
+=======
+const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange, max, isLoggined}) => {
+>>>>>>> 33800b6... Account page made + buy ticket features like a decline buying tickets for non-authed users
   const particle = useMemo(() => (<Particle/>), [])
   let day, month, year, hour, minute, concert;
   concert = data[0];
@@ -195,7 +199,11 @@ Ticket.propTypes = {
   count: PropTypes.number,
   countChange: PropTypes.func,
   max: PropTypes.number,
+<<<<<<< HEAD
 >>>>>>> d548b86... buy ticket functional finished
+=======
+  isLoggined: PropTypes.bool,
+>>>>>>> 33800b6... Account page made + buy ticket features like a decline buying tickets for non-authed users
 }
 
 export default Ticket;

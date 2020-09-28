@@ -1,4 +1,14 @@
-.centre {
+.headerBandName {
+  font-family: Montserrat-Medium, sans-serif;
+  font-size: 5rem;
+}
+.dataRow{
+  display:flex;
+  flex-flow: row wrap;
+  min-height: 30px;
+}
+.hallMap{
+  position: relative;
   text-align: center;
 }
 
@@ -13,16 +23,60 @@
   cursor: pointer;
 }
 
-.mainContainer {
-  margin-bottom: 5rem;
+.sectorDescription
+{
+  padding:2rem;
+  display: flex;
+  flex-direction: column;
+  flex:1;
+  align-content: center;
+  text-align: center;
 }
-
-.dataRow {
-  margin-top: 3rem;
-  margin-bottom: 7.7rem;
+.description{
+flex:4;
 }
-
-.sectorName {
+.sectorNameBlock{
+  font-family: Montserrat-Medium, sans-serif;
+}
+.sectorNameBlock{
+  font-size: 3rem;
+}
+.featuresBlock{
+  font-size: 2.2rem;
+}
+.buttons{
+  padding-left: 3rem;
+  padding-right: 3rem;
+  display: flex;
+  flex:1;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.costSpan{
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 2.8rem;
+  font-family: SFNewRepublic, sans-serif;
+  min-width:10rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height:4rem;
+}
+.counter{
+  font-size: 2rem;
+  font-family: SFNewRepublic, sans-serif;
+  background-color: #ffffff;
+  min-width:10rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height:4rem;
+  border: 2px solid black;
+}
+.pleaseText{
+  padding-right: 5rem;
+  font-family: Montserrat-Medium, sans-serif;
+  font-size: 2rem;
   text-align: left;
 }
 
@@ -32,6 +86,9 @@
 
 .sectorColumn {
   text-align: right;
+  padding-right: 5rem;
+  font-family: Montserrat-Medium, sans-serif;
+  font-size: 1.8rem;
 }
 
 
@@ -46,19 +103,24 @@
   font-size: 1.33rem;
   margin-top: .4rem;
 }
-
-.counter {
-  height: 3.3rem;
-  width: 6rem;
-  box-shadow: none;
-  border: 1px solid #929292;
-  background-color: white;
-  border-radius: 0px;
-  outline: none;
-  font-size: 1.33rem;
-  margin-top: .4rem;
-  float: left;
-  padding-left: 1.7rem;
+.allowedSeats{
+   justify-content: end;
+   padding-right: 5rem;
+   flex:1;
+   align-items: end;
+   text-align: end;
+   font-size: 1.8rem;
+   font-family: Montserrat-Medium, sans-serif;
+ }
+.backButton, .buyButton{
+  font-size: 2rem;
+  font-family: SFNewRepublic, sans-serif;
+  background-color: #ffffff;
+  min-width:10rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height:4rem;
+  border: 2px solid black;
 }
 
 .active {

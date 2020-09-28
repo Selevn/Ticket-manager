@@ -1,14 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Login from "./Login.jsx";
 import {useHttp} from "../../customHooks/server.response.js";
 import {backendUrl} from "../../../../config/default.json";
+import {useAuth} from "../../customHooks/auth.hook.js";
+import {useHistory} from "react-router-dom"
+
+import 'materialize-css'
 
 const LoginContainer = () => {
 
-
-  ///////////////////////////////////////////////////////////////////////
-
-  const {loading, error, request} = useHttp();
+  const history = useHistory()
+  const authHook = useAuth()
+  const {loading, request} = useHttp();
   let [email, setEmail] = useState("")
   let [password, setPassword] = useState("")
 

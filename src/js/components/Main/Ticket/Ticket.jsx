@@ -8,7 +8,7 @@ import Particle from "../../CommonData/Paricles/Particles.jsx";
 
 import "./Ticket.css"
 
-const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange, max}) => {
+const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange, max, isLoggined}) => {
   const particle = useMemo(() => (<Particle/>), [])
   let day, month, year, hour, minute, concert;
   concert = data[0];
@@ -141,6 +141,7 @@ Ticket.propTypes = {
   count: PropTypes.number,
   countChange: PropTypes.func,
   max: PropTypes.number,
+  isLoggined: PropTypes.bool,
 }
 
 export default Ticket;

@@ -1,3 +1,10 @@
 .passedConcert{
   background-color: #929292aa !important;
 }
+.showed{
+  display:block !important;
+}
+.notShowed{
+  display:none !important;
+}
+

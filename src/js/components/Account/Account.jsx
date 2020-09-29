@@ -1,79 +1,139 @@
-import React, {useMemo} from "react";
+import React, {useCallback, useMemo, useState} from "react";
 import PropTypes from "prop-types"
 import languagePack from "../../language.js";
 import style from "./Account.module.css"
 import languageSrc from "../../language.js";
 import Particle from "../CommonData/Paricles/Particles.jsx";
 import './Account.css'
-const Account = ({logout, langProps, tickets:propsTickets, changer, filter}) => {
+
+const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) => {
+
+  let [showedTickets,setShowedTickets] = useState([])
+
+  const toggle = useCallback((id)=>{
+    let arr = showedTickets;
+    if(arr.indexOf(id)===-1)
+      arr.push(id)
+    else
+      arr = arr.filter(item=>item!==id)
+    setShowedTickets(arr)
+  },[showedTickets])
+
+
+
+
   let tickets = propsTickets;
-  switch (filter){
-    case 'all':
-    {
+  switch (filter) {
+    case 'all': {
       break;
     }
-    case 'future':
-    {
-      tickets = propsTickets.filter(item=>(new Date(item.date)>Date.now()))
+    case 'future': {
+      tickets = propsTickets.filter(item => (new Date(item.date) > Date.now()))
       break;
     }
-    case 'passed':
-    {
-      tickets = propsTickets.filter(item=>(new Date(item.date)<Date.now()))
+    case 'passed': {
+      tickets = propsTickets.filter(item => (new Date(item.date) < Date.now()))
       break;
     }
   }
 
-  let structuredTickets = {};
+  let structuredTickets = [];
   tickets[0] && tickets.forEach(item => {
-    if (item.concertId in structuredTickets) {
-      if (!Array.isArray(structuredTickets[item.concertId]))
-        structuredTickets[item.concertId] = [];
+
+    let container = structuredTickets.find(_item => item.concertId === _item.id)
+    if (!container) {
+      let outObj = {id: item.concertId, tickets: []};
+      outObj.tickets.push(item);
+      structuredTickets.push(outObj)
     } else {
-      structuredTickets[item.concertId] = [];
+      container.tickets.push(item)
     }
-    structuredTickets[item.concertId].push(item);
   })
   console.log(structuredTickets)
-  const particle = useMemo(() => (<Particle/>), [])
-  return (<>
-    {particle}
-    <div className={"mainContainer"}>
-      <div className={"pageHeaderRow"}>
-        <div className={"pageHeader"}>
-          {languageSrc.myTickets[langProps.language]}
-        </div>
-        <div className={style.logoutButCol}>
-          <select onChange={changer} value = {filter} className={style.filterSelect}>
-            <option value={'all'}>{languageSrc.all[langProps.language]}</option>
-            <option value={'future'}>{languageSrc.future[langProps.language]}</option>
-            <option value={'passed'}>{languageSrc.passed[langProps.language]}</option>
-          </select>
 
-          <button className={style.logoutBut} onClick={logout}>{languagePack.logout[langProps.language]}</button>
+  const particle = useMemo(() => (<Particle/>), [])
+
+  const DataBlock = ()=>(<div className={style.dataBlock}>
+
+      {structuredTickets[0] && structuredTickets.map((item, index) => {
+          let _item = item.tickets[0]
+          let _date = new Date(_item.date);
+          let _isPassed = _date < Date.now() ? 'passedConcert' : ''; //прошел ли этот концерт
+          return (
+            <>
+              <>
+                <div key={index} className={style.ticketContainer + ' ' + _isPassed}>
+                  <div className={style.width100}>
+                    <div className={style.rowDirection}>
+                      <div className={style.ticketBand}>{_item.band}</div>
+                      <div className={style.ticketPlace}>{_item.place}</div>
+                    </div>
+                    <div className={style.rowDirection}>
+                      <div className={style.ticketDateAndTime}>
+                        <span>{`${_date.getDate()} ${languageSrc.months[_date.getMonth()][langProps.language]} ${_date.getFullYear()}`}</span>
+                        <span>{`${(_date.getHours() + "").padStart(2, '0')}:${(_date.getMinutes() + "").padStart(2, '0')}`}</span>
+                      </div>
+                      <div className={style.ticketPrice}>{item.tickets.length} tickets</div>
+                    </div>
+                  </div>
+                  <div className={style.cardMore} onClick={
+                    () => {
+                      toggle(_item.concertId)
+                    }}>
+                    {showedTickets.indexOf(_item.concertId)===-1?'<':'>'}
+                  </div>
+                </div>
+              </>
+              <>
+                {/*<div className={style.ticketCollectionBlock + " notShowed"} id={_item.concertId + 's'}>*/}
+                {
+                  item.tickets.map((item, index) => {
+                    let date = new Date(item.date);
+                    let isPassed = date < Date.now() ? 'passedConcert' : ''; //прошел ли этот концерт
+                    return (<div key={index} name={item.concertId} className={style.ticketBlock + ' ' + isPassed +' '+(showedTickets.indexOf(_item.concertId)===-1)?'notShowed':''}>
+                      <div className={style.rowDirection}>
+                        <div className={style.ticketBand}>{item.band}</div>
+                        <div className={style.ticketPlace}>{item.place}</div>
+                      </div>
+                      <div className={style.rowDirection}>
+                        <div className={style.ticketDateAndTime}>
+                          <span>{`${date.getDate()} ${languageSrc.months[date.getMonth()][langProps.language]} ${date.getFullYear()}`}</span>
+                          <span>{`${(date.getHours() + "").padStart(2, '0')}:${(date.getMinutes() + "").padStart(2, '0')}`}</span>
+                        </div>
+                        <div className={style.ticketPrice}>{item.cost}$</div>
+                      </div>
+                    </div>)
+                  })
+                }
+                {/*</div>*/}
+              </>
+            </>)
+        }
+      )
+      }
+    </div>)
+  const useDataBlock = useMemo(() => (<DataBlock/>), [showedTickets,structuredTickets])
+  return (<>
+      {particle}
+      <div className={"mainContainer"}>
+        <div className={"pageHeaderRow"}>
+          <div className={"pageHeader"}>
+            {languageSrc.myTickets[langProps.language]}
+          </div>
+          <div className={style.logoutButCol}>
+            <select onChange={changer} value={filter} className={style.filterSelect}>
+              <option value={'all'}>{languageSrc.all[langProps.language]}</option>
+              <option value={'future'}>{languageSrc.future[langProps.language]}</option>
+              <option value={'passed'}>{languageSrc.passed[langProps.language]}</option>
+            </select>
+
+            <button className={style.logoutBut} onClick={logout}>{languagePack.logout[langProps.language]}</button>
+          </div>
         </div>
+        {useDataBlock}
       </div>
-      <div className={style.dataBlock}>
-        {tickets[0] && tickets.map((item, index)=>{
-          let date = new Date(item.date);
-          let isPassed = date<Date.now()?'passedConcert':''; //прошел ли этот концерт
-          return(<div key={index} className={style.ticketBlock + ' '+ isPassed}>
-            <div className={style.rowDirection}>
-              <div className={style.ticketBand}>{item.band}</div>
-              <div className={style.ticketPlace}>{item.place}</div>
-            </div>
-            <div className={style.rowDirection}>
-              <div className={style.ticketDateAndTime}>
-                <span>{`${date.getDate()} ${languageSrc.months[date.getMonth()][langProps.language]} ${date.getFullYear()}`}</span>
-                <span>{`${(date.getHours()+"").padStart(2,'0')}:${(date.getMinutes()+"").padStart(2,'0')}`}</span>
-              </div>
-              <div className={style.ticketPrice}>{item.cost}$</div>
-            </div>
-          </div>)
-        })}
-      </div>
-    </div>
-  </>)
+    </>
+  )
 }
 Account.propTypes = {
   logout: PropTypes.func,

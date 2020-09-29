@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useState} from "react";
+import React, {useCallback, useContext, useEffect, useMemo, useState} from "react";
 import Account from "./Account.jsx"
 import {useAuth} from "../../customHooks/auth.hook.js";
 import {useHistory} from "react-router-dom"
@@ -19,7 +19,7 @@ const AccountContainer = () => {
     setFilter(event.target.value)
   }, [])
 
-  /*const getTickets = useMemo(async () => {
+  useMemo(async () => {
     let method = "POST",
       body = localStorage.getItem(storage, "token"),
       headers = {"Content-Type": 'application/json'};
@@ -30,9 +30,8 @@ const AccountContainer = () => {
       throw new Error(data.message || "Что-то пошло не так")
     }
   }, [localStorage.getItem("userStorage", "token")])
-*/
 
-  useEffect(() => (
+  /*useEffect(() => (
       async () => {
         let method = "POST",
             body = localStorage.getItem(storage, "token"),
@@ -43,7 +42,7 @@ const AccountContainer = () => {
         if (!response.ok) {
           throw new Error(data.message || "Что-то пошло не так")
         }
-      }), [localStorage.getItem("userStorage", "token")])
+      }), [localStorage.getItem("userStorage", "token")])*/
 
   const logoutHandler = async () => {
     try {

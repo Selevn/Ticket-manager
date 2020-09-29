@@ -7,7 +7,6 @@
   display: flex;
   flex:1;
   min-width: 45%;
-  background-color: blue;
   min-height:30rem;
 }
 .dataRow{
@@ -28,6 +27,11 @@
   margin-top:.3rem;
   margin-bottom:.3rem;
 }
+.oneRow:last-child{
+  margin-top:2rem;
+  justify-content: space-around;
+}
+
 .titleHeader{
   display: flex;
   font-family: Montserrat-Medium, sans-serif;
@@ -36,4 +40,12 @@
   display: flex;
   font-family: Montserrat-Light, sans-serif;
 
+}
+.socialIcon{
+  transition: .2s linear;
+}
+
+.socialIcon:hover{
+  transition: .2s linear;
+  transform: scale(1.1);
 }

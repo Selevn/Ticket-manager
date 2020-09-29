@@ -30,6 +30,20 @@
   min-height: 8rem;
   transition: .23s;
 }
+.ticketContainer{
+  margin:1rem;
+  padding: .3rem;
+  font-size: 1.1rem;
+  background-color: rgba(255, 229, 184, 0.67);
+  width: 25rem;
+  min-height: 8rem;
+  transition: .23s;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
 
 .ticketBlock:hover{
   cursor:pointer;
@@ -37,7 +51,20 @@
   background-color: #efdaa8ff;
 }
 
-
+.cardMore{
+  line-height: 8.5rem;
+  background-color: gray;
+  font-size:3rem;
+  opacity: .2;
+}
+.cardMore:hover{
+  cursor: pointer;
+  opacity: .5;
+}
+.ticketCollectionBlock{
+  display:inline-flex;
+  flex-flow: row wrap;
+}
 .rowDirection{
   display: flex;
   flex-flow:row wrap;
@@ -45,6 +72,10 @@
   justify-content: space-between;
   padding-right: 2rem;
   padding-left: .2rem;
+  width:100%;
+}
+.width100{
+  width: 100%;
 }
 .rowDirection:nth-child(2){
   margin-top:2.3rem;

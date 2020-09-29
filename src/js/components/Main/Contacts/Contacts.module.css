@@ -1,32 +1,39 @@
-.headerCol {
-  text-align: center;
-  margin-top: 1rem;
+.mainData
+{
+  display:flex;
+  flex-flow: row wrap;
 }
-
-.center {
-  text-align: center;
-
+.ourMap{
+  display: flex;
+  flex:1;
+  min-width: 45%;
+  background-color: blue;
+  min-height:30rem;
 }
-
-
-.dateTr, .td {
-  text-align: right;
-  padding: 10px;
-  vertical-align: top;
-  font-size: 1.33rem;
+.dataRow{
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  min-height:30rem;
+  padding:2rem;
+  justify-content: center;
+  align-items: start;
 }
-
-.td {
-  text-align: left
+.oneRow{
+  width:40rem;
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: space-between;
+  font-size:1.6rem;
+  margin-top:.3rem;
+  margin-bottom:.3rem;
 }
-
-.newData {
-  border-top: 2px solid black;
-  padding: 10px;
+.titleHeader{
+  display: flex;
+  font-family: Montserrat-Medium, sans-serif;
 }
+.titleData{
+  display: flex;
+  font-family: Montserrat-Light, sans-serif;
 
-.table {
-  width: 100%;
-  margin-top: 2rem;
-  border: 2px solid black;
 }

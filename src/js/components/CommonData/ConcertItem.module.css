@@ -56,13 +56,13 @@
 
 .concertItemBand {
   font-size: 1.8rem;
-  font-family: "Montserrat-Medium";
+  font-family: "Montserrat-Medium", sans-serif;
   text-align: center;
 }
 
 .concertItemPlace {
   font-size: 1.5rem;
-  font-family: Montserrat-Medium;
+  font-family: Montserrat-Medium, sans-serif;
   text-align: center;
 }
 

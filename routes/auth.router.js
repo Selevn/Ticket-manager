@@ -28,6 +28,7 @@ authRouter.post("/register",
               setUser(email, name, sname, hashedPassword, (err) => {
                 if(err)
                   response.status(404).json({message: "Oups! Smth went wrong. Try again later."})
+                else
                 response.json({message: "Register success! Please, confirm your Account in message sended to your Email!"})
               })
             } else {

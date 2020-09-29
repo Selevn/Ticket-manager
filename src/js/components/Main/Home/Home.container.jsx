@@ -23,7 +23,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
     useEffect(
         () => {
             getConcerts()
-        }, []
+        }, [getConcerts]
     )
 
     const slowScroll = useCallback(

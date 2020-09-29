@@ -29,7 +29,7 @@
   align-self: flex-end;
   margin-right: 2rem;
   font-size: 5.5rem;
-  font-family: "SFNewRepublic";
+  font-family: "SFNewRepublic", sans-serif;
 }
 
 .monthContainer {
@@ -56,7 +56,7 @@
 .monthContainerName span{
   transform: rotateZ(-90deg);
   overflow: visible;
-  font-family: SFNewRepublic;
+  font-family: SFNewRepublic, sans-serif;
   font-size: 7rem;
 }
 
@@ -114,7 +114,7 @@
 .seasonNameSpan {
   overflow: visible;
   max-width: 360%;
-  font-family: SFNewRepublic;
+  font-family: SFNewRepublic, sans-serif;
   font-size: 7rem;
   transform: rotateZ(-90deg);
 }
@@ -135,10 +135,7 @@
   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  padding-bottom: 12vh;
-  padding-top: 12vh;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding: 12vh 3rem;
 }
 
 .yearSeason {
@@ -164,9 +161,7 @@
   max-height: 29rem;
   opacity: .96;
   margin: 1.2rem;
-  transition: opacity .15s;
-  transition: background-color .15s;
-  transition: color .15s;
+  transition: .15s;
 }
 .cardLink{
   max-height: 29rem;
@@ -179,7 +174,7 @@
 
 .concertItem:hover .cardFooter {
   background-color: #000000aa;
-  color: rgba(255, 255, 255);
+  color: rgba(255, 255, 255,255);
   transition: background-color .3s;
   transition: color .15s;
 }
@@ -193,7 +188,7 @@
 }
 
 .cardInfoDiv {
-  font-family: "Montserrat-Light";
+  font-family: "Montserrat-Light", sans-serif;
   text-align: justify;
   font-size: 1.2rem;
   min-height: 6rem;
@@ -201,18 +196,18 @@
 
 .concertItemBand {
   font-size: 1.8rem;
-  font-family: "Montserrat-Medium";
+  font-family: "Montserrat-Medium", sans-serif;
   text-align: center;
 }
 
 .concertItemPlace {
   font-size: 1.5rem;
-  font-family: Montserrat-Medium;
+  font-family: Montserrat-Medium, sans-serif;
   text-align: center;
 }
 
 .cardFooter {
-  min-heigh: 3rem;
+  min-height: 3rem;
   font-size: 1.5rem;
   padding-bottom: .5rem;
   margin-top:auto;

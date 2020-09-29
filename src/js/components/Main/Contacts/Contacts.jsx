@@ -1,16 +1,22 @@
-import React from 'react'
+import React, {useMemo} from 'react'
 import PropTypes from "prop-types"
-import {Col, Container, Row} from "react-bootstrap";
 
 
 import languageSrc from "../../../language.js"
 import {LanguageContext} from "../../Contexts/LanguageContext.js"
 
 import style from "./Contacts.module.css"
+import Particle from "../../CommonData/Paricles/Particles.jsx";
+import {Link} from "react-router-dom";
 
-const Contacts = ({getContacts, contacts}) => {
+const Contacts = ({getContacts}) => {
   getContacts();
-  console.log(Object.entries(contacts));
+
+  const particle = useMemo(
+      () => (<Particle/>), []
+  )
+/*
+
   let _contacts = Object.entries(contacts);
 
   const SoloLine = (data) => (
@@ -30,48 +36,53 @@ const Contacts = ({getContacts, contacts}) => {
         <td className={style.dateTr}>{data}</td>
       </tr>
   )
+*/
 
   return (
       <>
         <LanguageContext.Consumer>
           {langProps => (
-              <Container>
-                <Row>
-                  <Col sm={12} xs={12} md={12} lg={12} xl={12} className={style.headerCol}>
-                    <h1>{languageSrc.contacts[langProps.language]}</h1>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col sm={12} xs={12} md={2} lg={3} xl={3}/>
-                  <Col sm={12} xs={12} md={8} lg={6} xl={6} className={style.center}>
-                    <table className={style.table}>
-                      <thead>
-                      </thead>
-                      <tbody>
-                      {
-                        _contacts.map((headItem) => {
-                          if (Array.isArray(headItem[1])) {
-                            return headItem[1].map((subItem, index) => {
-                              if (index === 0) {
-                                return RowInitLine(headItem[0], headItem[1].length, subItem)
-                              } else {
-                                return SoloLine(subItem)
-                              }
-                            })
-                          } else {
-                            return DefaultLine(headItem[0], headItem[1])
-                          }
-                        })
-                      }
-                      </tbody>
-                    </table>
-                  </Col>
-                  <Col sm={12} xs={12} md={2} lg={3} xl={3} className={style.center}/>
-                </Row>
-              </Container>
-          )}
-        </LanguageContext.Consumer>
+              <>
+                <div className={"mainContainer"} id={"mainContainerRef"}>
+                  {particle}
+                  <div className={"pageHeaderRow"}>
+                    <div className={"pageHeader"}>
+                      {languageSrc.contacts[langProps.language]}
+                    </div>
+                  </div>
+                  <div className={style.mainData}>
+                    <div className={style.ourMap}>
+
+                    </div>
+                    <div className={style.dataRow}>
+                      <div className={style.oneRow}>
+                        <span className={style.titleHeader}>{languageSrc.email[langProps.language]}</span>
+                        <span className={style.titleData}>van000200136@gmail.com</span>
+                      </div>
+                      <div className={style.oneRow}>
+                        <span className={style.titleHeader}>{languageSrc.phone[langProps.language]}</span>
+                        <span className={style.titleData}>+375295295862</span>
+                      </div>
+                      <div className={style.oneRow}>
+                        <span className={style.titleHeader}>{languageSrc.skype[langProps.language]}</span>
+                        <span className={style.titleData}>Live:example@outlook.com</span>
+                      </div>
+                      <div className={style.oneRow}>
+                        <span className={style.titleHeader}>{languageSrc.adress[langProps.language]}</span>
+                        <span className={style.titleData}>г. Минск улица Толстого, 10</span>
+                      </div>
+                      <div className={style.oneRow}>
+                        <Link to={'#'}><span className={style.titleHeader}>Twitter</span></Link>
+                        <Link to={'#'}><span className={style.titleHeader}>Facebook</span></Link>
+                        <Link to={'#'}><span className={style.titleHeader}>VK</span></Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>)
+          }</LanguageContext.Consumer>
       </>)
+
 }
 
 Contacts.propTypes = {

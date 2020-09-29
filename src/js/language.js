@@ -264,11 +264,22 @@ let languagePack =
         ru: "Пожалуйста, войдите в систему прежде чем покупать билеты!",
         en: "Please, log in before buying tickets!",
       },
-
-
-
-
-
+    phone:{
+      ru: "Телефон",
+      en: "Phone",
+    },
+    email:{
+      ru: "Почта",
+      en: "Email",
+    },
+    adress: {
+      ru: "Адрес",
+      en: "Adress",
+    },
+    skype: {
+      ru: "Скайп",
+      en: "Skype",
+    },
 
   }
 

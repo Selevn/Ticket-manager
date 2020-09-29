@@ -5,8 +5,9 @@ import {Col, Container, Row} from "react-bootstrap";
 import style from "./Admin.module.css"
 import {LanguageContext} from "../Contexts/LanguageContext.js";
 import languagePack from "../../language.js";
+import PropTypes from "prop-types";
 
-const AdminLogin = (props) => (
+const AdminLogin = ({email, onMailChange, password, onPasswordChange}) => (
     <>
       <LanguageContext.Consumer>
         {langProps => (
@@ -20,14 +21,14 @@ const AdminLogin = (props) => (
                         type={"text"}
                         placeholder={"Email"}
                         className={style.formInput}
-                        value={props.email}
-                        onChange={props.onMailChange}/>
+                        value={email}
+                        onChange={onMailChange}/>
                     <br/>
                     <input type={"password"}
                            placeholder={"Password"}
                            className={style.formInput}
-                           value={props.password}
-                           onChange={props.onPasswordChange}/>
+                           value={password}
+                           onChange={onPasswordChange}/>
 
                     <br/>
                     <input type={"submit"}/>
@@ -41,6 +42,11 @@ const AdminLogin = (props) => (
       </LanguageContext.Consumer>
     </>
 );
-
+AdminLogin.propTypes = {
+  email: PropTypes.string,
+  password: PropTypes.string,
+  onMailChange: PropTypes.func,
+  onPasswordChange: PropTypes.func,
+}
 
 export default AdminLogin;

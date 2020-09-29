@@ -54,10 +54,10 @@ const Account = ({logout, langProps, tickets:propsTickets, changer, filter}) => 
         </div>
       </div>
       <div className={style.dataBlock}>
-        {tickets[0] && tickets.map(item=>{
+        {tickets[0] && tickets.map((item, index)=>{
           let date = new Date(item.date);
           let isPassed = date<Date.now()?'passedConcert':''; //прошел ли этот концерт
-          return(<div className={style.ticketBlock + ' '+ isPassed}>
+          return(<div key={index} className={style.ticketBlock + ' '+ isPassed}>
             <div className={style.rowDirection}>
               <div className={style.ticketBand}>{item.band}</div>
               <div className={style.ticketPlace}>{item.place}</div>

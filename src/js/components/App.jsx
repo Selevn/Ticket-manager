@@ -11,7 +11,6 @@ const storage = "userStorage"
 
 
 import * as jwt from "jsonwebtoken";
-import style from "./Main/Main.module.css";
 
 function App(props) {
 

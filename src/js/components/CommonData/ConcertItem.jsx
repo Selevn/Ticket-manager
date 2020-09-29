@@ -2,6 +2,8 @@ import {Link} from "react-router-dom";
 import style from "./ConcertItem.module.css";
 import languageSrc from "../../language";
 import React from "react";
+import PropTypes from "prop-types";/*
+import AdminLogin from "../Admin/AdminLogin.jsx";*/
 
 
 
@@ -11,8 +13,8 @@ const ConcertItem = ({item, langProps}) => {
 
       <div className={style.concertItem}>
         <Link to={"concert/" + item.id} className={style.cardLink}>
-        <div className={style.cardImageDiv}>
-          <img src={item.imgSrc} className={style.cardImage}/>
+        <div>
+          <img src={item.imgSrc} className={style.cardImage} alt={"concert image"}/>
         </div>
         <div className={style.cardInfoDiv}>
           <div className={style.concertItemBand}> {item.band}</div>
@@ -27,4 +29,10 @@ const ConcertItem = ({item, langProps}) => {
 
   )
 }
+
+ConcertItem.propTypes = {
+  item: PropTypes.object,
+  langProps: PropTypes.object,
+}
+
 export default ConcertItem

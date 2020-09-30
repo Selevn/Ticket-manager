@@ -7,11 +7,10 @@ import {LanguageContext} from "../../Contexts/LanguageContext.js";
 import languageSrc from "../../../language.js";
 
 
-const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange, max, isLoggined}) => {
+const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange, max, isLogined}) => {
   const particle = useMemo(() => (<Particle/>), [])
   let day, month, year, hour, minute, concert;
   concert = data[0];
-  console.log(data)
   return (
     <LanguageContext.Consumer>
       {langProps => {
@@ -102,7 +101,7 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
                   <button className={style.backButton} onClick={back}>{languageSrc.back[langProps.language]}</button>
                   <span className={style.costSpan}>{sector && (sector.cost * count).toFixed(2) + '$'}</span>
 
-                  {sector && (sector.numOfSeats - sector.tickCount !== 0) && (<><input type="number" min={1} max={max}
+                  {sector && (sector.numOfSeats - sector.tickCount !== 0) && isLogined && (<><input type="number" min={1} max={max}
                                                                                        value={count}
                                                                                        onChange={countChange}
                                                                                        className={style.counter}/>

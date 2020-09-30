@@ -3,7 +3,7 @@ const authRouter = Router()
 const jwt = require("jsonwebtoken")
 const {check, validationResult} = require('express-validator')
 const {getUserByEmail, setUser} = require('../models/users.js')
-const bcrypt = require('bcryptjs')
+const doSha1 = require('sha1')
 const config = require("config")
 
 authRouter.post("/register",
@@ -23,10 +23,14 @@ authRouter.post("/register",
         getUserByEmail(email, async (err, data) => {
           try {
             if (!data) {
-              const hashedPassword = password;
-              //const hashedPassword = await bcrypt.hash(password, 7) //will add soon
-              setUser(email, name, sname, hashedPassword, (err, data) => {
-                response.json({message: "Register success!"})
+              //const hashedPassword = password;
+              const hashedPassword = doSha1(doSha1(doSha1(password))) //will add soon
+              console.log('register',hashedPassword)
+              setUser(email, name, sname, hashedPassword, (err) => {
+                if(err)
+                  response.status(404).json({message: "Oups! Smth went wrong. Try again later."})
+                else
+                response.json({message: "Register success! Please, confirm your Account in message sended to your Email!"})
               })
             } else {
               response.status(500).json({message: "Oups! This email is already in use"})
@@ -59,9 +63,10 @@ authRouter.post("/login",
                 if (!data) {
                   await response.status(500).json({message: "Oups! Check your data and try again"})
                 } else {
-
-                  const hashedPassword = password //await bcrypt.hash(password, 7)
-                  if (hashedPassword === data.password) {
+                  const hashedPassword = doSha1(doSha1(doSha1(password)))
+                  console.log(hashedPassword)
+                  console.log(data.password)
+                  if (hashedPassword === data.password && data.isApproved) {
                     let token = jwt.sign({
                           email: email,
                           id: data.id,
@@ -70,7 +75,11 @@ authRouter.post("/login",
                         {expiresIn: "1h"})
                     response.json({token: token, id: data.id, message: "You are loggined in"})
                   } else {
-                    await response.status(500).json({message: "Oups! Check your data and try again"})
+                    if (!data.isApproved) {
+                      await response.status(500).json({message: "Approve your account!"})
+                    }
+                    else
+                      await response.status(500).json({message: "User not found or password is incorrect. Please, check your data and try again!"})
                   }
                 }
               } catch

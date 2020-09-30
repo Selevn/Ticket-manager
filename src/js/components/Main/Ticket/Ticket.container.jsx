@@ -26,7 +26,7 @@ const TicketContainer = ({history}) => {
 
   const {isLoggined:checkLogin} = useAuth()
 
-  const [isLoggined, setIsLoggined] = useState(defaultMax)
+  const [isLogined, setIsLoggined] = useState(defaultMax)
 
   useEffect(()=>{
     setIsLoggined(checkLogin());
@@ -49,46 +49,23 @@ const TicketContainer = ({history}) => {
   )
 
   const buyTicket = useCallback(
-      async () => {
-        if(max !== 0)
-        {
-          if(isLoggined){
-            const method = "POST",
-              body = JSON.stringify(
-                {
-                  token: JSON.parse(localStorage.getItem(storage, 'token')).token,
-                  concertId: globalId["id"],
-                  sectorId: sector.id,
-                  count: count
-                }),
-              headers = {"Content-Type": 'application/json'};
-            const response = await fetch(backendUrl + "/api/tickets/buyTicket", {method, body, headers})
-            const data = await response.json()
-            console.log("data", data)
+    async () => {
+      if (max !== 0) {
+        if (isLogined) {
+          const method = "POST",
+            body = JSON.stringify(
+              {
+                token: JSON.parse(localStorage.getItem(storage)).token,
+                concertId: globalId["id"],
+                sectorId: sector.id,
+                count: count
+              }),
+            headers = {"Content-Type": 'application/json'};
+          const response = await fetch(backendUrl + "/api/tickets/buyTicket", {method, body, headers})
+          const data = await response.json()
+          console.log("data", data)
 
-            if (!response.ok || data.serverStatus !== 2) {
-              window.M.toast({
-                html: languageSrc.smthWentWrong[langContext.language],
-                displayLength: 5000,
-                classes: "error"
-              })
-              throw new Error(data.message || "Что-то пошло не так")
-            } else {
-              if (count === 1)
-                window.M.toast({
-                  html: languageSrc.gotTicket[langContext.language],
-                  displayLength: 5000,
-                  classes: "success"
-                })
-              else
-                window.M.toast({
-                  html: languageSrc.gotTickets[langContext.language],
-                  displayLength: 5000,
-                  classes: "success"
-                })
-            }
-          }
-          else{
+          if (!response.ok || data.serverStatus !== 2) {
             window.M.toast({
               html: languageSrc.loginBeforeBuying[langContext.language],
               displayLength: 5000,
@@ -96,8 +73,10 @@ const TicketContainer = ({history}) => {
             })
           }
         }
-      },
-      [globalId["id"], sector, count, max, isLoggined]
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [globalId, globalId.id, sector, count, max, isLogined]
   )
 
 
@@ -136,16 +115,16 @@ const TicketContainer = ({history}) => {
 
 
   return (
-      <Ticket data={data}
-              back={history.goBack}
-              currentSectorDesc={currentSectorDesc}
-              setSectorDesc={chSector}
-              buyTicket={buyTicket}
-              countChange={chCount}
-              count={count}
-              max={max}
-              isLoggined={isLoggined}
-      />
+    <Ticket data={data}
+            back={history.goBack}
+            sector={sector}
+            setSectorDesc={chSector}
+            buyTicket={buyTicket}
+            countChange={chCount}
+            count={count}
+            max={max}
+            isLogined={isLogined}
+    />
   )
 
 }

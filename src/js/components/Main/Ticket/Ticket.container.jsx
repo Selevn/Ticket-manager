@@ -26,7 +26,7 @@ const TicketContainer = ({history}) => {
 
   const {isLoggined: checkLogin} = useAuth()
 
-  const [isLoggined, setIsLoggined] = useState(defaultMax)
+  const [isLogined, setIsLoggined] = useState(defaultMax)
 
   useEffect(() => {
     setIsLoggined(checkLogin());
@@ -70,7 +70,7 @@ const TicketContainer = ({history}) => {
   const buyTicket = useCallback(
     async () => {
       if (max !== 0) {
-        if (isLoggined) {
+        if (isLogined) {
           const method = "POST",
             body = JSON.stringify(
               {
@@ -115,7 +115,7 @@ const TicketContainer = ({history}) => {
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [globalId, globalId.id, sector, count, max, isLoggined]
+    [globalId, globalId.id, sector, count, max, isLogined]
   )
 
 
@@ -159,7 +159,7 @@ const TicketContainer = ({history}) => {
             countChange={chCount}
             count={count}
             max={max}
-            isLoggined={isLoggined}
+            isLogined={isLogined}
     />
   )
 

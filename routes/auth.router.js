@@ -3,7 +3,7 @@ const authRouter = Router()
 const jwt = require("jsonwebtoken")
 const {check, validationResult} = require('express-validator')
 const {getUserByEmail, setUser} = require('../models/users.js')
-const bcrypt = require('bcryptjs')
+const doSha1 = require('sha1')
 const config = require("config")
 
 authRouter.post("/register",
@@ -23,8 +23,9 @@ authRouter.post("/register",
         getUserByEmail(email, async (err, data) => {
           try {
             if (!data) {
-              const hashedPassword = password;
-              //const hashedPassword = await bcrypt.hash(password, 7) //will add soon
+              //const hashedPassword = password;
+              const hashedPassword = doSha1(doSha1(doSha1(password))) //will add soon
+              console.log('register',hashedPassword)
               setUser(email, name, sname, hashedPassword, (err) => {
                 if(err)
                   response.status(404).json({message: "Oups! Smth went wrong. Try again later."})
@@ -62,7 +63,9 @@ authRouter.post("/login",
                 if (!data) {
                   await response.status(500).json({message: "User not found or password is incorrect. Please, check your data and try again!"})
                 } else {
-                  const hashedPassword = password //await bcrypt.hash(password, 7)
+                  const hashedPassword = doSha1(doSha1(doSha1(password)))
+                  console.log(hashedPassword)
+                  console.log(data.password)
                   if (hashedPassword === data.password && data.isApproved) {
                     let token = jwt.sign({
                           email: email,
@@ -81,7 +84,8 @@ authRouter.post("/login",
                     if (!data.isApproved) {
                       await response.status(500).json({message: "Approve your account!"})
                     }
-                    await response.status(500).json({message: "User not found or password is incorrect. Please, check your data and try again!"})
+                    else
+                      await response.status(500).json({message: "User not found or password is incorrect. Please, check your data and try again!"})
                   }
                 }
               } catch
@@ -92,7 +96,6 @@ authRouter.post("/login",
         )
 
       } catch (e) {
-        console.log("e",e)
         response.status(500).json({message: "Oups! Smth went wrong. Try again later"})
       }
     })

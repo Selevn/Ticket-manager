@@ -8,11 +8,6 @@ import './Account.css'
 
 const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) => {
 
-
-
-
-
-
   let tickets = propsTickets;
   switch (filter) {
     case 'all': {
@@ -40,7 +35,6 @@ const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) =>
       container.tickets.push(item)
     }
   })
-  console.log(structuredTickets)
 
   const particle = useMemo(() => (<Particle/>), [])
 
@@ -117,6 +111,9 @@ const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) =>
                 )
             }
           )
+          }
+          {
+            !structuredTickets[0] && (<h3 className={style.noTicketsNotification}>{languageSrc.noTickets[langProps.language]}</h3>)
           }
         </div>
       </div>

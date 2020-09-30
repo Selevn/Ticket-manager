@@ -280,6 +280,11 @@ let languagePack =
       ru: "Скайп",
       en: "Skype",
     },
+    noTickets: {
+      ru: "На данный момент у вас нет билетов.",
+      en: "You have no tickets at this moment.",
+    },
+
 
   }
 

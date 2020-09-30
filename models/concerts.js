@@ -9,7 +9,34 @@ const connection = mysql.createPool({
 });
 
 const getAllConcerts = (callBack) => {
-  connection.query("SELECT * FROM concerts", function (err, data) {
+  connection.query(`SELECT con.id, con.band, con.place, con.date, con.imgSrc,
+SUM(s.numOfSeats) AS totalSeats,
+t2.total2 AS busySeats
+
+FROM concerts con
+
+left JOIN halls h
+ON h.place = con.place
+
+left JOIN sector s ON h.place = s.place
+
+LEFT JOIN
+(
+  SELECT con.id AS concertId, con.band, con.place, con.date, con.imgSrc,
+  Count(t.id) AS total2
+  
+  FROM concerts con
+  
+  left JOIN halls h
+  ON h.place = con.place
+  
+  left JOIN ticket t ON t.concertId = con.id
+  
+  GROUP BY con.id
+) t2 ON t2.concertId=con.id
+
+GROUP BY con.id
+`, function (err, data) {
     if (err)
       callBack(err, null);
     else

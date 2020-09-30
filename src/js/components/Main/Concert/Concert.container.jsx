@@ -1,7 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect} from 'react';
 import PropTypes from "prop-types"
-import {withRouter} from 'react-router-dom'
-import {useParams} from "react-router";
+import {withRouter, useParams} from 'react-router-dom'
 import Concert from "./Concert.jsx";
 
 

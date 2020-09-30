@@ -60,7 +60,7 @@ const Schedule = ({concerts}) => {
         const MonthRow = ({concerts}) => {
           if (concerts.length !== 0) {
             let season = concerts[0].season;
-            if (season == "autumn" || season == "spring")
+            if (season === "autumn" || season === "spring")
               return (
                 <div className={style.monthContainer + " " + style[season + "Data"]}>
                   {particle}
@@ -104,6 +104,10 @@ const Schedule = ({concerts}) => {
               })}
             </div>
           )
+        }
+        YearItem.propTypes = {
+          year: PropTypes.number,
+          data: PropTypes.array,
         }
 
         return (

@@ -7,7 +7,6 @@ import {LanguageContext} from "../../Contexts/LanguageContext.js"
 import { SocialIcon } from 'react-social-icons';
 import style from "./Contacts.module.css"
 import Particle from "../../CommonData/Paricles/Particles.jsx";
-import {Link} from "react-router-dom";
 
 const Contacts = ({getContacts}) => {
   getContacts();

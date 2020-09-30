@@ -6,10 +6,11 @@ import {LanguageContext} from "../../Contexts/LanguageContext.js";
 import languageSrc from "../../../language.js";
 
 import Particle from "../../CommonData/Paricles/Particles.jsx";
+
 const Concert = ({concert, back, buy}) => {
-  const particle = useMemo(()=>(<Particle/>
-  ),[])
-  return(
+  const particle = useMemo(() => (<Particle/>
+  ), [])
+  return (
     <LanguageContext.Consumer>
       {langProps => {
         if (!concert) {
@@ -35,29 +36,37 @@ const Concert = ({concert, back, buy}) => {
             <div className={style.dataBlock}>
               <div className={style.infoCol}>
                 <div className={style.infoColData}>
-                  <span className={style.leftFloat}>{languageSrc.band[langProps.language]}:</span> <b
-                  className={style.rightFloat}>{concert.band}</b>
-                  <br/>
-                  <span className={style.leftFloat}>{languageSrc.place[langProps.language]}:</span> <b
-                  className={style.rightFloat}>{concert.place}</b>
-                  <br/>
-                  <span className={style.leftFloat}>{languageSrc.date[langProps.language]}:</span> <b
-                  className={style.rightFloat}>
-                  {`${day || ""} ${month || ""} ${year || ""}`}
-                </b>
-                  <br/>
-                  <span className={style.leftFloat}>{languageSrc.time[langProps.language]}:</span> <b
-                  className={style.rightFloat}>
-                  {`${hour || ""}:${minute || ""}`}
-                </b>
-                  <br/>
+                  <div className = {style.oneRow}>
+                    <span>{languageSrc.band[langProps.language]}:</span>
+                    <span>
+                    {concert.band}
+                  </span>
+                  </div>
+                  <div className = {style.oneRow}>
+                    <span>{languageSrc.place[langProps.language]}:</span>
+                    <span>
+                    {concert.place}
+                  </span>
+                  </div>
+                  <div className = {style.oneRow}>
+                    <span>{languageSrc.date[langProps.language]}:</span>
+                    <span>
+                    {`${day || ""} ${month || ""} ${year || ""}`}
+                  </span>
+                  </div>
+                  <div className = {style.oneRow}>
+                    <span>{languageSrc.time[langProps.language]}:</span>
+                    <span>
+                    {`${hour || ""}:${minute || ""}`}
+                  </span>
+                  </div>
                 </div>
               </div>
               <div className={style.buttonPlacement}>
                 <button className={style.backButton}
                         onClick={back}
                         tabIndex={0}>{languageSrc.back[langProps.language]}
-                        </button>
+                </button>
                 <button className={style.buyButton}
                         onClick={buy}
                         tabIndex={0}>{languageSrc.ticket[langProps.language]}</button>

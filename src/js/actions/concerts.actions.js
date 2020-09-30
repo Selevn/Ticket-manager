@@ -5,11 +5,10 @@ const getConcerts = (cb) => {
   let method = "POST",
       body = null,
       headers = {};
-  new Promise((res, rej) =>
       fetch(backendUrl + "/api/concerts/getAllConcerts", {method, body, headers})
           .then(response => {
             response.json().then(data => cb(data))
-          })
+          }
   )
 }
 

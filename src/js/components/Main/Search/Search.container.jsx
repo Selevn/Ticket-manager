@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import Search from "./Search.jsx"
 import PropTypes from "prop-types";
@@ -17,8 +17,9 @@ const SearchContainer = ({getConcerts, concerts: propConcerts}) => {
         .filter((item) => (place ? item.place === place : true))
         .filter((item) => (band ? item.band.toUpperCase().indexOf(band.toUpperCase())!==-1 : true))
         .filter((item) => (dateStart ? new Date(item.date) > new Date(dateStart) : true))
-        .filter((item) => (dateEnd ? new Date(item.date) < new Date(dateEnd) : true)))
-  },[place, band, dateEnd, dateStart, ticketNumber])
+        .filter((item) => (dateEnd ? new Date(item.date) < new Date(dateEnd) : true))
+      .filter((item) => (ticketNumber ? (item.totalSeats-item.busySeats>=ticketNumber) : true)))
+  },[place, band, dateEnd, dateStart, ticketNumber, propConcerts])
 
   const changer = (event) => {
     switch (event.target.name) {
@@ -58,10 +59,9 @@ const SearchContainer = ({getConcerts, concerts: propConcerts}) => {
 
   useEffect(() => {
       getConcerts()
-  }, [])
+  }, [getConcerts])
   useEffect(()=>{
     setConcerts(propConcerts)
-    //searchEvent()
   },[propConcerts])
 
   return (<Search

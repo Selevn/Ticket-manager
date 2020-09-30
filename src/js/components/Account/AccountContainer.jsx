@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useMemo, useState} from "react";
+import React, {useCallback, useContext, useEffect, useState} from "react";
 import Account from "./Account.jsx"
 import {useAuth} from "../../customHooks/auth.hook.js";
 import {useHistory} from "react-router-dom"
@@ -15,13 +15,15 @@ const AccountContainer = () => {
   const [tickets, setTickets] = useState([]);
   const [filter, setFilter] = useState('future');
 
+  const userStorage = localStorage.getItem(storage);
+
   const changer = useCallback((event) => {
     setFilter(event.target.value)
   }, [])
 
-  useMemo(async () => {
+  /*useMemo(async () => {
     let method = "POST",
-      body = localStorage.getItem(storage, "token"),
+      body = localStorage.getItem(storage),
       headers = {"Content-Type": 'application/json'};
     const response = await fetch(backendUrl + "/api/tickets/getMyTickets", {method, body, headers})
     const data = await response.json()
@@ -29,20 +31,22 @@ const AccountContainer = () => {
     if (!response.ok) {
       throw new Error(data.message || "Что-то пошло не так")
     }
-  }, [localStorage.getItem("userStorage", "token")])
+  }, [localStorage.getItem(storage)])*/
 
-  /*useEffect(() => (
-      async () => {
-        let method = "POST",
-            body = localStorage.getItem(storage, "token"),
-            headers = {"Content-Type": 'application/json'};
-        const response = await fetch(backendUrl + "/api/tickets/getMyTickets", {method, body, headers})
-        const data = await response.json()
-        setTickets(data)
-        if (!response.ok) {
-          throw new Error(data.message || "Что-то пошло не так")
-        }
-      }), [localStorage.getItem("userStorage", "token")])*/
+  useEffect(() => {
+    const f = async () => {
+      const method = "POST",
+        body = userStorage,
+        headers = {"Content-Type": 'application/json'};
+      const response = await fetch(backendUrl + "/api/tickets/getMyTickets", {method, body, headers})
+      const data = await response.json()
+      setTickets(data)
+      if (!response.ok) {
+        throw new Error(data.message || "Что-то пошло не так")
+      }
+    }
+    f().then(()=>{})
+  }, [userStorage])
 
   const logoutHandler = async () => {
     try {
@@ -54,12 +58,12 @@ const AccountContainer = () => {
   }
   if (loginContext.userId) {
     return (<Account
-        logout={logoutHandler}
-        userId={loginContext.userId}
-        langProps={langProps}
-        tickets={tickets}
-        filter={filter}
-        changer={changer}
+      logout={logoutHandler}
+      userId={loginContext.userId}
+      langProps={langProps}
+      tickets={tickets}
+      filter={filter}
+      changer={changer}
     />)
   } else {
     history.push("/home")

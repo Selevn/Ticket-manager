@@ -29,11 +29,28 @@
   align-items: center;
 }
 .infoColData{
-  max-height: 10rem;
+  max-height: 18rem;
+  min-height: 16rem;
+  margin-top: .6rem;
+  min-width: 30rem;
   text-align: left;
   font-family: Montserrat-Medium, sans-serif;
   font-size: 1.8rem;
+
+  display:flex;
+  flex-direction: column;
 }
+.oneRow{
+  display:flex;
+  flex-direction: row;
+  margin: .3rem;
+  justify-content: space-between;
+}
+.oneRow span:last-child{
+  font-family: Montserrat-Medium, sans-serif;
+  font-weight: bold;
+}
+
 
 .buttonPlacement{
   height: 20%;

@@ -4,6 +4,7 @@
   flex-flow: row wrap;
 }
 .ourMap{
+  padding:0 1rem;
   display: flex;
   flex:1;
   min-width: 45%;
@@ -16,7 +17,7 @@
   min-height:30rem;
   padding:2rem;
   justify-content: center;
-  align-items: start;
+  align-items: center;
 }
 .oneRow{
   width:40rem;

@@ -2,11 +2,11 @@ import React, {useEffect} from 'react'
 import PropTypes from 'prop-types';
 import Schedule from "./Schedule.jsx"
 
-const ScheduleContainer = (props) => {
+const ScheduleContainer = ({getConcerts, concerts}) => {
   useEffect(() => {
-    props.getConcerts()
-  }, [])
-  return (<Schedule concerts={props.concerts}/>)
+    getConcerts()
+  }, [getConcerts])
+  return (<Schedule concerts={concerts}/>)
 }
 
 ScheduleContainer.propTypes = {

@@ -29,6 +29,7 @@ const HomeContainer = ({concerts, getConcerts}) => {
     const slowScroll = useCallback(
         (el)=>{
             el.scrollIntoView({block: "end", behavior: 'smooth' });
+            // eslint-disable-next-line react-hooks/exhaustive-deps
         },[soonCount]
     );
 

@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState} from "react";
+import React, {useMemo} from "react";
 import PropTypes from "prop-types"
 import languagePack from "../../language.js";
 import style from "./Account.module.css"
@@ -84,8 +84,7 @@ const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) =>
                         </div>
                       </div>
                       <div className={style.cardMore} onClick={
-                        () => {
-                          console.log(document.getElementById(_item.concertId + 's'))
+                        (event) => {
                           document.getElementById(_item.concertId + 's').classList.toggle("notShowed")?
                             event.target.innerText = '>':
                             event.target.innerText = '<'
@@ -95,7 +94,6 @@ const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) =>
                     </div>
                     <div className={style.ticketCollectionBlock + ' notShowed'} id={_item.concertId + 's'}>
                       {item.tickets.map((item, index) => {
-                        console.log("item",item)
                         let date = new Date(item.date);
                         let isPassed = date < Date.now() ? 'passedConcert' : ''; //прошел ли этот концерт
                         return (<div key={index}

@@ -23,11 +23,11 @@
 
 .ticketBlock{
   margin:1rem;
-  padding: .3rem;
+  padding: 15px;
   font-size: 1.1rem;
   background-color: #efdaa8aa;
-  width: 25rem;
-  min-height: 8rem;
+  width: 390px;
+  min-height: 150px;
   transition: .23s;
 }
 .ticketContainer{

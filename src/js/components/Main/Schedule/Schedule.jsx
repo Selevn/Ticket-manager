@@ -46,12 +46,12 @@ const Schedule = ({concerts}) => {
         for (let i = 0; i < concerts.length; i++) {
           if (data.indexOf(concerts[i].date.getFullYear()) === -1) {
             data.push(concerts[i].date.getFullYear())
-            data.push({type: "month", data: concerts[i].date.getMonth(), arr: []})
+            data.push({type: "month", data: concerts[i].date.getMonth(), year:concerts[i].date.getFullYear(), arr: []})
           }
           if (concerts[i].date.getMonth() === data[data.length - 1].data) {
             data[data.length - 1].arr.push(concerts[i])
           } else {
-            data.push({type: "month", data: concerts[i].date.getMonth(), arr: []})
+            data.push({type: "month", data: concerts[i].date.getMonth(), year:concerts[i].date.getFullYear(), arr: []})
             data[data.length - 1].arr.push(concerts[i])
           }
         }
@@ -93,10 +93,15 @@ const Schedule = ({concerts}) => {
           } else
             return (<></>)
         }
-        const YearItem = (year) => {
+        const YearItem = ({year,data}) => {
           return (
-            <div className={style.year}>
-              {year.year}
+            <div className={style.yearStickyContainer}>
+              <div className={style.year}>
+                {year}
+              </div>
+              {data.filter(item=> typeof (item) !== 'number').filter(item=>item.year===year).map(item=>{
+                return (<><MonthRow concerts={item.arr}/></>)
+              })}
             </div>
           )
         }
@@ -113,13 +118,10 @@ const Schedule = ({concerts}) => {
               </div>
               <div className={style.dataRow}>
                 {
-                  data.map((item) => {
+                  data.filter(item=>typeof(item)==='number').map((item) => {
                     if (typeof (item) === "number")
-                      return (<YearItem year={item}/>)
-                    else
-                      return (<MonthRow concerts={item.arr}/>)
+                      return (<YearItem year={item} data = {data}/>)
                   })
-
                 }
               </div>
             </div>
@@ -131,49 +133,6 @@ const Schedule = ({concerts}) => {
     </LanguageContext.Consumer>
   )
 }
-
-/*<div className={style.yearData}>
-                                <div className={style.yearSeason} id={style.seasonWinter}>
-                                    <div className={style.seasonData}>
-                                        {
-                                            concerts.map((item, index) =>
-                                                (<ConcertItem item={item} key={index}/>)
-                                            )
-                                        }
-                                    </div>
-                                    <div className={style.seasonName}>
-                                        <span className={style.seasonNameSpan}>Winter</span>
-                                    </div>
-                                </div>
-                                <div className={style.yearSeason} id={style.seasonSpring}>
-                                    <div className={style.seasonName}>
-                                        <span className={style.seasonNameSpan}>Spring</span>
-                                    </div>
-                                    <div className={style.seasonData}>
-                                        {
-                                            concerts.map((item, index) =>
-                                                (<ConcertItem item={item} key={index}/>)
-                                            )
-                                        }
-                                    </div>
-                                </div>
-                                <div className={style.yearSeason} id={style.seasonSummer}>
-                                    <div className={style.seasonData}>
-
-                                    </div>
-                                    <div className={style.seasonName}>
-                                        <span className={style.seasonNameSpan}>Summer</span>
-                                    </div>
-                                </div>
-                                <div className={style.yearSeason} id={style.seasonAutumn}>
-                                    <div className={style.seasonName}>
-                                        <span className={style.seasonNameSpan}>Autumn</span>
-                                    </div>
-                                    <div className={style.seasonData}>
-                                    </div>
-                                </div>
-                            </div>
-*/
 Schedule.propTypes = {
   concerts: PropTypes.array,
   getConcerts: PropTypes.func,

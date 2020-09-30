@@ -39,7 +39,7 @@
 }
 
 #toast-container {
-  position:absolute;
+  position:fixed;
   top:3rem;
   right: 4rem;
 }

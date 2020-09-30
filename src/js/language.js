@@ -261,10 +261,33 @@ let languagePack =
         ru: "Пожалуйста, войдите в систему прежде чем покупать билеты!",
         en: "Please, log in before buying tickets!",
       },
+<<<<<<< HEAD
 
 
 
 
+=======
+    phone:{
+      ru: "Телефон",
+      en: "Phone",
+    },
+    email:{
+      ru: "Почта",
+      en: "Email",
+    },
+    adress: {
+      ru: "Адрес",
+      en: "Adress",
+    },
+    skype: {
+      ru: "Скайп",
+      en: "Skype",
+    },
+    noTickets: {
+      ru: "На данный момент у вас нет билетов.",
+      en: "You have no tickets at this moment.",
+    },
+>>>>>>> cf3d048... small update, start making eMail confirming
 
 
   }

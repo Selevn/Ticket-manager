@@ -48,7 +48,13 @@ const Account = ({logout, langProps, tickets}) => (<>
 import languageSrc from "../../language.js";
 import Particle from "../CommonData/Paricles/Particles.jsx";
 import './Account.css'
+<<<<<<< HEAD
 const Account = ({logout, langProps, tickets:propsTickets, changer, filter}) => {
+=======
+
+const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) => {
+
+>>>>>>> cf3d048... small update, start making eMail confirming
   let tickets = propsTickets;
   switch (filter){
     case 'all':
@@ -77,7 +83,11 @@ const Account = ({logout, langProps, tickets:propsTickets, changer, filter}) => 
     }
     structuredTickets[item.concertId].push(item);
   })
+<<<<<<< HEAD
   console.log(structuredTickets)
+=======
+
+>>>>>>> cf3d048... small update, start making eMail confirming
   const particle = useMemo(() => (<Particle/>), [])
   return (<>
     {particle}
@@ -93,7 +103,31 @@ const Account = ({logout, langProps, tickets:propsTickets, changer, filter}) => 
             <option value={'passed'}>{languageSrc.passed[langProps.language]}</option>
           </select>
 
+<<<<<<< HEAD
           <button className={style.logoutBut} onClick={logout}>{languagePack.logout[langProps.language]}</button>
+=======
+                            <div className={style.ticketBand}>{item.band}</div>
+                            <div className={style.ticketPlace}>{item.place}</div>
+                          </div>
+                          <div className={style.rowDirection}>
+                            <div className={style.ticketDateAndTime}>
+                              <span>{`${date.getDate()} ${languageSrc.months[date.getMonth()][langProps.language]} ${date.getFullYear()}`}</span>
+                              <span>{`${(date.getHours() + "").padStart(2, '0')}:${(date.getMinutes() + "").padStart(2, '0')}`}</span>
+                            </div>
+                            <div className={style.ticketPrice}>{item.cost}$</div>
+                          </div>
+                        </div>)
+                      })}
+                    </div>
+                  </>
+                )
+            }
+          )
+          }
+          {
+            !structuredTickets[0] && (<h3 className={style.noTicketsNotification}>{languageSrc.noTickets[langProps.language]}</h3>)
+          }
+>>>>>>> cf3d048... small update, start making eMail confirming
         </div>
       </div>
       <div className={style.dataBlock}>

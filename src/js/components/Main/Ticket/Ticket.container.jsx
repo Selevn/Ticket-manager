@@ -33,7 +33,7 @@ const TicketContainer = ({history}) => {
 
   const {isLoggined:checkLogin} = useAuth()
 
-  const [isLoggined, setIsLoggined] = useState(defaultMax)
+  const [isLogined, setIsLoggined] = useState(defaultMax)
 
   useEffect(()=>{
     setIsLoggined(checkLogin());
@@ -56,6 +56,7 @@ const TicketContainer = ({history}) => {
   )
 
   const buyTicket = useCallback(
+<<<<<<< HEAD
       async () => {
         if(max !== 0)
         {
@@ -96,6 +97,25 @@ const TicketContainer = ({history}) => {
             }
           }
           else{
+=======
+    async () => {
+      if (max !== 0) {
+        if (isLogined) {
+          const method = "POST",
+            body = JSON.stringify(
+              {
+                token: JSON.parse(localStorage.getItem(storage)).token,
+                concertId: globalId["id"],
+                sectorId: sector.id,
+                count: count
+              }),
+            headers = {"Content-Type": 'application/json'};
+          const response = await fetch(backendUrl + "/api/tickets/buyTicket", {method, body, headers})
+          const data = await response.json()
+          console.log("data", data)
+
+          if (!response.ok || data.serverStatus !== 2) {
+>>>>>>> cf3d048... small update, start making eMail confirming
             window.M.toast({
               html: languageSrc.loginBeforeBuying[langContext.language],
               displayLength: 5000,
@@ -103,8 +123,15 @@ const TicketContainer = ({history}) => {
             })
           }
         }
+<<<<<<< HEAD
       },
       [globalId["id"], sector, count, max, isLoggined]
+=======
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [globalId, globalId.id, sector, count, max, isLogined]
+>>>>>>> cf3d048... small update, start making eMail confirming
   )
 
 
@@ -154,6 +181,7 @@ const TicketContainer = ({history}) => {
 
 >>>>>>> d548b86... buy ticket functional finished
   return (
+<<<<<<< HEAD
       <Ticket data={data}
               back={history.goBack}
               currentSectorDesc={currentSectorDesc}
@@ -164,6 +192,18 @@ const TicketContainer = ({history}) => {
               max={max}
               isLoggined={isLoggined}
       />
+=======
+    <Ticket data={data}
+            back={history.goBack}
+            sector={sector}
+            setSectorDesc={chSector}
+            buyTicket={buyTicket}
+            countChange={chCount}
+            count={count}
+            max={max}
+            isLogined={isLogined}
+    />
+>>>>>>> cf3d048... small update, start making eMail confirming
   )
 
 }

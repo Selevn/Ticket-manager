@@ -76,7 +76,11 @@
   flex:1;
 }
 
-
+.noTicketsNotification{
+  font-size:2rem;
+  font-family: Montserrat-Medium, sans-serif;
+  text-align: center;
+}
 
 
 <<<<<<< HEAD

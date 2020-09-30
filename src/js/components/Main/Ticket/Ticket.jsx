@@ -9,16 +9,19 @@ import languageSrc from "../../../language.js";
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const Ticket = ({data, back, currentSectorDesc, setSectorDesc, buyTicket, count, countChange}) => (
 =======
 const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange, max}) => {
 =======
 const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange, max, isLoggined}) => {
 >>>>>>> 33800b6... Account page made + buy ticket features like a decline buying tickets for non-authed users
+=======
+const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange, max, isLogined}) => {
+>>>>>>> cf3d048... small update, start making eMail confirming
   const particle = useMemo(() => (<Particle/>), [])
   let day, month, year, hour, minute, concert;
   concert = data[0];
-  console.log(data)
   return (
 >>>>>>> d548b86... buy ticket functional finished
     <LanguageContext.Consumer>
@@ -160,7 +163,11 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
                   <button className={style.backButton} onClick={back}>{languageSrc.back[langProps.language]}</button>
                   <span className={style.costSpan}>{sector && (sector.cost * count).toFixed(2) + '$'}</span>
 
+<<<<<<< HEAD
                   {sector && (sector.numOfSeats - sector.tickCount !== 0) && (<><input type="number" min={1} max={max}
+=======
+                  {sector && (sector.numOfSeats - sector.tickCount !== 0) && isLogined && (<><input type="number" min={1} max={max}
+>>>>>>> cf3d048... small update, start making eMail confirming
                                                                                        value={count}
                                                                                        onChange={countChange}
                                                                                        className={style.counter}/>

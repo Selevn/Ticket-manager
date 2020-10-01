@@ -8,7 +8,7 @@ import LoginContainer from "./Login/Login.container.jsx";
 
 const Router = props => (<div>
   <Switch>
-    <Route path='/login' component={LoginContainer}/>
+    <Route path='/login/:id?' component={LoginContainer}/>
     <Route path='/' component={() => <Main getConcerts={props.getConcerts}/>}/>
   </Switch>
 </div>)

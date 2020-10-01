@@ -3,13 +3,14 @@ import Login from "./Login.jsx";
 import {useHttp} from "../../customHooks/server.response.js";
 import {backendUrl} from "../../../../config/default.json";
 import {useAuth} from "../../customHooks/auth.hook.js";
-import {useHistory} from "react-router-dom"
+import {useHistory, useParams} from "react-router-dom"
 
 import 'materialize-css'
 
 const LoginContainer = () => {
 
   const history = useHistory()
+  const globalId = useParams();
   const authHook = useAuth()
   const {loading, request} = useHttp();
   let [email, setEmail] = useState("")
@@ -28,7 +29,10 @@ const LoginContainer = () => {
     try {
       const data = await request(backendUrl + "/api/auth/login", "POST", {email: email, password: password})
       authHook.login(data.token, data.id, data.userType)
-      history.push("/home")
+      if(globalId.id)
+        history.goBack();
+      else
+        history.push("/home")
     } catch (e) {
       window.M.toast({html: e.message, displayLength: 5000, classes: "error"})
     }

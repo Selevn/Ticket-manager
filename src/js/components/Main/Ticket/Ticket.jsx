@@ -7,6 +7,7 @@ import languageSrc from "../../../language.js";
 import Particle from "../../CommonData/Paricles/Particles.jsx";
 
 import "./Ticket.css"
+import {Link} from "react-router-dom";
 
 const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange, max, isLogined}) => {
   const particle = useMemo(() => (<Particle/>), [])
@@ -119,6 +120,7 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
                     >{languageSrc.buyTicket[langProps.language]}
                     </button>
                   </>)}
+                  {sector && !isLogined && (<Link to={'/login/goBack'} className={style.pleaseLogin}>You are not logined in.<br/>Click Here to login or register.</Link>)}
 
 
                 </div>

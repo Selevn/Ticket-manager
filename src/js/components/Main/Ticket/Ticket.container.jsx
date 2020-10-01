@@ -84,7 +84,6 @@ return ()=>{clearInterval(interval.current)}
             headers = {"Content-Type": 'application/json'};
           const response = await fetch(backendUrl + "/api/tickets/buyTicket", {method, body, headers})
           const data = await response.json()
-          console.log("data", data)
 
           if (!response.ok || data.serverStatus !== 2) {
             window.M.toast({

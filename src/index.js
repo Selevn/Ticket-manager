@@ -18,4 +18,4 @@ import {LoginContext} from "./js/components/Contexts/LoginContext.js";
 const wrapper = document.getElementById("root");
 
 wrapper ? ReactDOM.render(
-    <App getConcerts={getConcerts}/>, wrapper) : false;
+  <App getConcerts={getConcerts}/>, wrapper) : false;

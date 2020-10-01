@@ -3,13 +3,13 @@ import {backendUrl} from "../../../config/default.json";
 
 const getConcerts = (cb) => {
   let method = "POST",
-      body = null,
-      headers = {};
-      fetch(backendUrl + "/api/concerts/getAllConcerts", {method, body, headers})
-          .then(response => {
-            response.json().then(data => cb(data))
-          }
-  )
+    body = null,
+    headers = {};
+  fetch(backendUrl + "/api/concerts/getAllConcerts", {method, body, headers})
+    .then(response => {
+        response.json().then(data => cb(data))
+      }
+    )
 }
 
 const actionGetAllConcerts = () => (dispatch) => {

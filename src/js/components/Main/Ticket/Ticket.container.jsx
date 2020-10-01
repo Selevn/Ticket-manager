@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useContext, useEffect} from 'react';
+import React, {useState, useCallback, useContext, useEffect, useRef} from 'react';
 import PropTypes from "prop-types"
 import {withRouter, useParams} from 'react-router-dom'
 import Ticket from "./Ticket.jsx";
@@ -48,6 +48,7 @@ const TicketContainer = ({history}) => {
       },
       [globalId["id"]]
   )*/
+var interval  = useRef();
 
   useEffect(() => {
     const f = async () => {
@@ -61,8 +62,9 @@ const TicketContainer = ({history}) => {
         throw new Error(data.message || "Что-то пошло не так")
       }
     }
-    f().then(() => {
-    })
+    f().then(() => {interval.current = setInterval(f(),1000)})
+
+return ()=>{clearInterval(interval.current)}
   }, [
     globalId
   ])

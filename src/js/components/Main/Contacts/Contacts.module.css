@@ -1,52 +1,57 @@
-.mainData
-{
-  display:flex;
+.mainData {
+  display: flex;
   flex-flow: row wrap;
 }
-.ourMap{
-  padding:0 1rem;
+
+.ourMap {
+  padding: 0 1rem;
   display: flex;
-  flex:1;
+  flex: 1;
   min-width: 45%;
-  min-height:30rem;
+  min-height: 30rem;
 }
-.dataRow{
+
+.dataRow {
   display: flex;
-  flex:1;
+  flex: 1;
   flex-direction: column;
-  min-height:30rem;
-  padding:2rem;
+  min-height: 30rem;
+  padding: 2rem;
   justify-content: center;
   align-items: center;
 }
-.oneRow{
-  width:40rem;
+
+.oneRow {
+  width: 40rem;
   display: flex;
   flex-flow: nowrap;
   justify-content: space-between;
-  font-size:1.6rem;
-  margin-top:.3rem;
-  margin-bottom:.3rem;
+  font-size: 1.6rem;
+  margin-top: .3rem;
+  margin-bottom: .3rem;
 }
-.oneRow:last-child{
-  margin-top:2rem;
+
+.oneRow:last-child {
+  margin-top: 2rem;
   justify-content: space-around;
 }
 
-.titleHeader{
+.titleHeader {
   display: flex;
   font-family: Montserrat-Medium, sans-serif;
 }
-.titleData{
+
+.titleData {
   display: flex;
   font-family: Montserrat-Light, sans-serif;
 
 }
-.socialIcon{
+
+.socialIcon {
   transition: .2s linear;
 }
 
-.socialIcon:hover{
+.socialIcon:hover {
   transition: .2s linear;
   transform: scale(1.1);
 }

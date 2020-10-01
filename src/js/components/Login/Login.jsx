@@ -15,7 +15,7 @@ const Login = ({email, onMailChange, password, onPasswordChange, loginHandler, r
           return (
             <>
               {particle}
-              <div className={style.loginContainer} id = "loginContainer">
+              <div className={style.loginContainer} id="loginContainer">
                 <div className={style.loginCol}>
                   <div className={style.loginHeader}>{languagePack.login[langProps.language]}</div>
                   <div className={style.inputs}>

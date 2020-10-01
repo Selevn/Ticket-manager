@@ -36,25 +36,25 @@ const Concert = ({concert, back, buy}) => {
             <div className={style.dataBlock}>
               <div className={style.infoCol}>
                 <div className={style.infoColData}>
-                  <div className = {style.oneRow}>
+                  <div className={style.oneRow}>
                     <span>{languageSrc.band[langProps.language]}:</span>
                     <span>
                     {concert.band}
                   </span>
                   </div>
-                  <div className = {style.oneRow}>
+                  <div className={style.oneRow}>
                     <span>{languageSrc.place[langProps.language]}:</span>
                     <span>
                     {concert.place}
                   </span>
                   </div>
-                  <div className = {style.oneRow}>
+                  <div className={style.oneRow}>
                     <span>{languageSrc.date[langProps.language]}:</span>
                     <span>
                     {`${day || ""} ${month || ""} ${year || ""}`}
                   </span>
                   </div>
-                  <div className = {style.oneRow}>
+                  <div className={style.oneRow}>
                     <span>{languageSrc.time[langProps.language]}:</span>
                     <span>
                     {`${hour || ""}:${minute || ""}`}

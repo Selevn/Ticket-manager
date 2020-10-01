@@ -13,18 +13,18 @@ import TicketContainer from "../../Ticket/Ticket.container.jsx";
 
 const Body = () => (
 
-    <>
-      <Switch>
-        <Route exact path='/home' component={() => <HomeContainer/>}/>
-        <Route exact path='/account' component={AccountContainer}/>
-        <Route exact path='/search' component={() => (<SearchContainer/>)}/>
-        <Route exact path='/schedule' component={() => (<ScheduleContainer/>)}/>
-        <Route exact path='/contacts' component={ContactsContainer}/>
-        <Route path='/concert/:id' component={() => <ConcertContainer/>}/>
-        <Route path='/tickets/:id' component={() => <TicketContainer/>}/>
-        <Redirect from="/" to='/home'/>
-      </Switch>
-    </>
+  <>
+    <Switch>
+      <Route exact path='/home' component={() => <HomeContainer/>}/>
+      <Route exact path='/account' component={AccountContainer}/>
+      <Route exact path='/search' component={() => (<SearchContainer/>)}/>
+      <Route exact path='/schedule' component={() => (<ScheduleContainer/>)}/>
+      <Route exact path='/contacts' component={ContactsContainer}/>
+      <Route path='/concert/:id' component={() => <ConcertContainer/>}/>
+      <Route path='/tickets/:id' component={() => <TicketContainer/>}/>
+      <Redirect from="/" to='/home'/>
+    </Switch>
+  </>
 )
 
 Body.propTypes = {

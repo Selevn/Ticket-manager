@@ -7,9 +7,7 @@ const connection = mysql.createPool({
   database: "ticketmanager",
   password: ""
 });
-
-const getUserTickets = (userId, callBack) => {
-  connection.query(`SELECT
+/*SELECT
     t.id as ticketId,
     t.userId,
     t.sectorId,
@@ -22,6 +20,26 @@ FROM
     ticket t
 INNER JOIN concerts c
     ON t.concertId = c.id
+INNER JOIN costs co
+	ON co.sectorId=t.sectorId AND co.concertId=c.id
+WHERE t.userId = (?)*/
+const getUserTickets = (userId, callBack) => {
+  connection.query(`SELECT
+    t.id as ticketId,
+    t.userId,
+    t.sectorId,
+    c.place,
+    c.band,
+    c.date,
+    c.id as concertId,
+    co.cost,
+    s.name
+FROM
+    ticket t
+INNER JOIN concerts c
+    ON t.concertId = c.id
+INNER JOIN sector s
+    ON t.sectorId = s.id
 INNER JOIN costs co
 \tON co.sectorId=t.sectorId AND co.concertId=c.id
 WHERE t.userId = (?)`, [userId], function (err, data) {

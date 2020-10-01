@@ -6,13 +6,12 @@ import PropTypes from "prop-types";/*
 import AdminLogin from "../Admin/AdminLogin.jsx";*/
 
 
-
 const ConcertItem = ({item, langProps}) => {
   let date = new Date(item.date);
   return (
 
-      <div className={style.concertItem}>
-        <Link to={"concert/" + item.id} className={style.cardLink}>
+    <div className={style.concertItem}>
+      <Link to={"concert/" + item.id} className={style.cardLink}>
         <div>
           <img src={item.imgSrc} className={style.cardImage} alt={"concert image"}/>
         </div>
@@ -24,8 +23,8 @@ const ConcertItem = ({item, langProps}) => {
         <div
           className={style.cardFooter}>{languageSrc.months[date.getMonth()][langProps.language] + " " + date.getDate()}</div>
 
-        </Link>
-      </div>
+      </Link>
+    </div>
 
   )
 }

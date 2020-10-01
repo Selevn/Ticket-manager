@@ -45,7 +45,8 @@ const AccountContainer = () => {
         throw new Error(data.message || "Что-то пошло не так")
       }
     }
-    f().then(()=>{})
+    f().then(() => {
+    })
   }, [userStorage])
 
   const logoutHandler = async () => {

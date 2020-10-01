@@ -19,9 +19,9 @@ const LoginContainer = () => {
   const registerHandler = async () => {
     try {
       const data = await request(backendUrl + "/api/auth/register", "POST", {email: email, password: password})
-      window.M.toast({html: data.message, displayLength:5000, classes:"success"})
+      window.M.toast({html: data.message, displayLength: 5000, classes: "success"})
     } catch (e) {
-      window.M.toast({html: e.message, displayLength:5000, classes:"error"})
+      window.M.toast({html: e.message, displayLength: 5000, classes: "error"})
     }
   }
   const loginHandler = async () => {
@@ -30,7 +30,7 @@ const LoginContainer = () => {
       authHook.login(data.token, data.id, data.userType)
       history.push("/home")
     } catch (e) {
-      window.M.toast({html: e.message, displayLength:5000, classes:"error"})
+      window.M.toast({html: e.message, displayLength: 5000, classes: "error"})
     }
   }
   const onMailChange = (event) => {
@@ -41,13 +41,13 @@ const LoginContainer = () => {
   }
 
   return (
-      <Login email={email}
-             onMailChange={onMailChange}
-             password={password}
-             onPasswordChange={onPasswordChange}
-             loginHandler={loginHandler}
-             registerHandler={registerHandler}
-             loading={loading}/>
+    <Login email={email}
+           onMailChange={onMailChange}
+           password={password}
+           onPasswordChange={onPasswordChange}
+           loginHandler={loginHandler}
+           registerHandler={registerHandler}
+           loading={loading}/>
   )
 };
 

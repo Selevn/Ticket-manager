@@ -31,7 +31,7 @@ const Search = ({concerts, allConcerts, changer, inputsValues: [place, band, sta
                 <div className={style.searchDiv}>
                   <div className={style.searchSubBlock}>
                     <label htmlFor={"halls"}>{languageSrc.place[langProps.language]}</label>
-                    <select name="place" className={style.hallsSelect} onChange={changer} value = {place}>
+                    <select name="place" className={style.hallsSelect} onChange={changer} value={place}>
                       <option value={''}>--/--</option>
                       {halls.map((item, id) => {
                         return (

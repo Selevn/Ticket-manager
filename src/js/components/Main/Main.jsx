@@ -8,12 +8,12 @@ import "../main.css"
 import style from "./Main.module.css"
 
 const Main = props => (
-        <div className={style.mainDiv}>
-            <Navbar/>
-            <Body getConcerts={props.getConcerts}/>
-            <Footer/>
-        </div>
-    )
+  <div className={style.mainDiv}>
+    <Navbar/>
+    <Body getConcerts={props.getConcerts}/>
+    <Footer/>
+  </div>
+)
 
 Main.propTypes = {
   getConcerts: PropTypes.func,

@@ -1,4 +1,4 @@
-.searchDiv{
+.searchDiv {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -6,51 +6,55 @@
   padding-top: 1rem;
   padding-bottom: 2rem;
 }
-.searchSubBlock{
+
+.searchSubBlock {
   font-family: Montserrat-Light, sans-serif;
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
-  height:5rem;
+  height: 5rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
-.flexRow{
+
+.flexRow {
   flex-direction: row;
 
 }
-.searchInput, .hallsSelect{
-  width:12rem;
-  height:2.2rem;
+
+.searchInput, .hallsSelect {
+  width: 12rem;
+  height: 2.2rem;
   font-size: 1.2rem;
-  border-top:none;
-  border-left:none;
-  border-right:none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   border-bottom: 2px solid #9d9d9d;
 }
-.searchInput:focus, .hallsSelect:focus{
-  outline:none !important;
+
+.searchInput:focus, .hallsSelect:focus {
+  outline: none !important;
   border-bottom: 2px solid black;
 }
 
 
-.searchBut{
+.searchBut {
   font-family: Montserrat-Medium, sans-serif;
   margin-top: 2.3rem;
   font-size: 1.2rem;
-  width:10rem;
+  width: 10rem;
   background-color: white;
   border: 1px solid black;
 }
 
-.mainData{
+.mainData {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   background-color: #efeeee30;
 }
 
-.searchBut:hover, .searchBut:focus{
+.searchBut:hover, .searchBut:focus {
   color: white !important;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   animation: leftToRight .1s linear forwards;

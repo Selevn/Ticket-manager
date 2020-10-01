@@ -5,11 +5,12 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  transition:.3s;
+  transition: .3s;
 }
+
 .footer:hover {
   opacity: 1;
-  transition:.3s;
+  transition: .3s;
 }
 
 #containerBlock {

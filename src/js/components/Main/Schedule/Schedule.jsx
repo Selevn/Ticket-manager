@@ -6,6 +6,7 @@ import {LanguageContext} from "../../Contexts/LanguageContext";
 import style from "./Schedule.module.css";
 import Particle from "../../CommonData/Paricles/Particles.jsx";
 import ConcertItem from "../../CommonData/ConcertItem.jsx"
+
 const Schedule = ({concerts}) => {
   const particle = useMemo(() => (<Particle/>), [])
   return (
@@ -46,12 +47,12 @@ const Schedule = ({concerts}) => {
         for (let i = 0; i < concerts.length; i++) {
           if (data.indexOf(concerts[i].date.getFullYear()) === -1) {
             data.push(concerts[i].date.getFullYear())
-            data.push({type: "month", data: concerts[i].date.getMonth(), year:concerts[i].date.getFullYear(), arr: []})
+            data.push({type: "month", data: concerts[i].date.getMonth(), year: concerts[i].date.getFullYear(), arr: []})
           }
           if (concerts[i].date.getMonth() === data[data.length - 1].data) {
             data[data.length - 1].arr.push(concerts[i])
           } else {
-            data.push({type: "month", data: concerts[i].date.getMonth(), year:concerts[i].date.getFullYear(), arr: []})
+            data.push({type: "month", data: concerts[i].date.getMonth(), year: concerts[i].date.getFullYear(), arr: []})
             data[data.length - 1].arr.push(concerts[i])
           }
         }
@@ -93,13 +94,13 @@ const Schedule = ({concerts}) => {
           } else
             return (<></>)
         }
-        const YearItem = ({year,data}) => {
+        const YearItem = ({year, data}) => {
           return (
             <div className={style.yearStickyContainer}>
               <div className={style.year}>
                 {year}
               </div>
-              {data.filter(item=> typeof (item) !== 'number').filter(item=>item.year===year).map(item=>{
+              {data.filter(item => typeof (item) !== 'number').filter(item => item.year === year).map(item => {
                 return (<><MonthRow concerts={item.arr}/></>)
               })}
             </div>
@@ -122,9 +123,9 @@ const Schedule = ({concerts}) => {
               </div>
               <div className={style.dataRow}>
                 {
-                  data.filter(item=>typeof(item)==='number').map((item) => {
+                  data.filter(item => typeof (item) === 'number').map((item) => {
                     if (typeof (item) === "number")
-                      return (<YearItem year={item} data = {data}/>)
+                      return (<YearItem year={item} data={data}/>)
                   })
                 }
               </div>

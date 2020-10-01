@@ -16,11 +16,11 @@ const ConcertContainer = ({getConcertById, concerts, history}) => {
 
 
   return (
-      <Concert concert={concerts[0]}
-               back={history.goBack}
-               buy={() => {
-                 history.push('/tickets/' + concerts[0].id)
-               }}/>
+    <Concert concert={concerts[0]}
+             back={history.goBack}
+             buy={() => {
+               history.push('/tickets/' + concerts[0].id)
+             }}/>
   )
 
 }

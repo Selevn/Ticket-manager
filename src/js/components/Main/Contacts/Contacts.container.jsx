@@ -21,9 +21,9 @@ const ContactsWrapper = connect(mapStateToProps, mapDispatchToProps)(Contacts)
 
 const ContactsContainer = () => {
   return (
-      <Provider store={contactsStore}>
-        <ContactsWrapper/>
-      </Provider>);
+    <Provider store={contactsStore}>
+      <ContactsWrapper/>
+    </Provider>);
 }
 
 export default ContactsContainer;

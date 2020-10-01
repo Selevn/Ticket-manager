@@ -1,11 +1,12 @@
-.loginContainer{
+.loginContainer {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.loginCol{
-  display:flex;
+
+.loginCol {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   background-color: #efeeee30;
@@ -13,31 +14,34 @@
   height: 35rem;
   padding: 2rem;
 }
-.loginHeader{
+
+.loginHeader {
   display: flex;
   align-self: center;
   font-family: SFNewRepublic, serif;
   transform: rotateZ(-90deg);
   overflow: visible;
   font-size: 5rem;
-  flex:1;
+  flex: 1;
 }
-.inputs{
+
+.inputs {
   max-width: 18rem;
-  display:flex;
-  flex:3;
+  display: flex;
+  flex: 3;
   flex-direction: column;
   align-self: center;
 }
-.buttons{
-  display:flex;
+
+.buttons {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-left: 1.2rem;
 }
 
 
-.formInput{
+.formInput {
   padding-left: .4rem;
   font-family: "Montserrat-Light", sans-serif;
   font-size: 1.35rem;
@@ -47,31 +51,32 @@
   border-bottom: .12rem solid #2b2b2b;
   min-width: 15rem;
   min-height: 1.5rem;
-  background-color:#00000000;
+  background-color: #00000000;
   margin-bottom: 2rem;
 }
-.formInput:focus{
+
+.formInput:focus {
   border-bottom: .18rem solid #2b2b2b;
 }
 
-.formInput:nth-last-of-type(1){
+.formInput:nth-last-of-type(1) {
   margin-bottom: 4rem;
 }
 
 
-.loginBut{
+.loginBut {
   font-size: 1.1rem;
   font-family: Montserrat-Medium, sans-serif;
   background-color: #ffffff;
-  min-width:5rem;
+  min-width: 5rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  height:2rem;
+  height: 2rem;
   border: 2px solid black;
 }
 
 
-.loginBut:hover, .loginBut:focus{
+.loginBut:hover, .loginBut:focus {
   color: white !important;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   animation: leftToRight .1s linear forwards;

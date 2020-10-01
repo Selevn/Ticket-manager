@@ -14,12 +14,12 @@ const SearchContainer = ({getConcerts, concerts: propConcerts}) => {
 
   const searchEvent = useEffect(() => {
     setConcerts(propConcerts
-        .filter((item) => (place ? item.place === place : true))
-        .filter((item) => (band ? item.band.toUpperCase().indexOf(band.toUpperCase())!==-1 : true))
-        .filter((item) => (dateStart ? new Date(item.date) > new Date(dateStart) : true))
-        .filter((item) => (dateEnd ? new Date(item.date) < new Date(dateEnd) : true))
-      .filter((item) => (ticketNumber ? (item.totalSeats-item.busySeats>=ticketNumber) : true)))
-  },[place, band, dateEnd, dateStart, ticketNumber, propConcerts])
+      .filter((item) => (place ? item.place === place : true))
+      .filter((item) => (band ? item.band.toUpperCase().indexOf(band.toUpperCase()) !== -1 : true))
+      .filter((item) => (dateStart ? new Date(item.date) > new Date(dateStart) : true))
+      .filter((item) => (dateEnd ? new Date(item.date) < new Date(dateEnd) : true))
+      .filter((item) => (ticketNumber ? (item.totalSeats - item.busySeats >= ticketNumber) : true)))
+  }, [place, band, dateEnd, dateStart, ticketNumber, propConcerts])
 
   const changer = (event) => {
     switch (event.target.name) {
@@ -32,11 +32,11 @@ const SearchContainer = ({getConcerts, concerts: propConcerts}) => {
         break;
       }
       case 'startDate': {
-        setDateStart(new Date(event.target.value).toISOString().slice(0,10))
+        setDateStart(new Date(event.target.value).toISOString().slice(0, 10))
         break;
       }
       case 'endDate': {
-        setDateEnd(new Date(event.target.value).toISOString().slice(0,10))
+        setDateEnd(new Date(event.target.value).toISOString().slice(0, 10))
         break;
       }
       case 'ticketNumber': {
@@ -46,7 +46,7 @@ const SearchContainer = ({getConcerts, concerts: propConcerts}) => {
     }
   }
 
-  const reset = () =>{
+  const reset = () => {
     setPlace("");
     setBand("");
     setDateStart("");
@@ -58,26 +58,26 @@ const SearchContainer = ({getConcerts, concerts: propConcerts}) => {
 
 
   useEffect(() => {
-      getConcerts()
+    getConcerts()
   }, [getConcerts])
-  useEffect(()=>{
+  useEffect(() => {
     setConcerts(propConcerts)
-  },[propConcerts])
+  }, [propConcerts])
 
   return (<Search
-      concerts={concerts}
-      allConcerts={propConcerts}
-      changer={changer}
-      inputsValues={
-        [
-          place,
-          band,
-          dateStart,
-          dateEnd,
-          ticketNumber
-        ]}
-      search={searchEvent}
-      reset={reset}
+    concerts={concerts}
+    allConcerts={propConcerts}
+    changer={changer}
+    inputsValues={
+      [
+        place,
+        band,
+        dateStart,
+        dateEnd,
+        ticketNumber
+      ]}
+    search={searchEvent}
+    reset={reset}
   />)
 }
 SearchContainer.propTypes = {

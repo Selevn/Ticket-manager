@@ -14,7 +14,7 @@ const AdminContainer = () => {
   }
 
   return (
-      <AdminLogin email={email} onMailChange={onMailChange} password={password} onPasswordChange={onPasswordChange}/>
+    <AdminLogin email={email} onMailChange={onMailChange} password={password} onPasswordChange={onPasswordChange}/>
   )
 };
 

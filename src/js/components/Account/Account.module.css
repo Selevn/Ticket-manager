@@ -1,28 +1,29 @@
-.logoutButCol{
+.logoutButCol {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.filterSelect{
+
+.filterSelect {
   font-size: 1.6rem;
   font-family: SFNewRepublic, sans-serif;
   background-color: #ffffff;
-  width:10rem;
-  height:3rem;
+  width: 10rem;
+  height: 3rem;
   border: 1px solid black;
   margin-right: 1rem;
   text-align: center;
 }
 
 
-.dataBlock{
+.dataBlock {
   display: flex;
-  flex-flow:row wrap;
+  flex-flow: row wrap;
   padding: 3rem;
 }
 
-.ticketBlock{
-  margin:1rem;
+.ticketBlock {
+  margin: 1rem;
   padding: 15px;
   font-size: 1.1rem;
   background-color: #efdaa8aa;
@@ -30,96 +31,106 @@
   min-height: 150px;
   transition: .23s;
 }
-.ticketContainer{
-  margin:1rem;
+
+.ticketContainer {
+  margin: 1rem;
   padding: .3rem;
   font-size: 1.1rem;
   background-color: rgba(255, 229, 184, 0.67);
   width: 25rem;
   min-height: 8rem;
   transition: .23s;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 
-
-.ticketBlock:hover{
-  cursor:pointer;
+.ticketBlock:hover {
+  cursor: pointer;
   transition: .5s;
   background-color: #efdaa8ff;
 }
 
-.cardMore{
+.cardMore {
+  transition: .2s linear;
   line-height: 8.5rem;
   background-color: gray;
-  font-size:3rem;
+  font-size: 3rem;
   opacity: .2;
 }
-.cardMore:hover{
+
+.cardMore:hover {
   cursor: pointer;
   opacity: .5;
 }
-.ticketCollectionBlock{
-  display:inline-flex;
+
+.ticketCollectionBlock {
+  display: inline-flex;
   flex-flow: row wrap;
 }
-.rowDirection{
+
+.rowDirection {
   display: flex;
-  flex-flow:row wrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
   padding-right: 2rem;
   padding-left: .2rem;
-  width:100%;
-}
-.width100{
   width: 100%;
 }
-.rowDirection:nth-child(2){
-  margin-top:2.3rem;
+
+.width100 {
+  width: 100%;
+}
+
+.rowDirection:nth-child(2) {
+  margin-top: 2.3rem;
 }
 
 
-.ticketBand{
+.ticketBand {
   font-family: SFNewRepublic, sans-serif;
   font-size: 1.8rem;
 }
-.ticketPlace{
+
+.ticketPlace {
   font-family: Montserrat-Light, sans-serif;
   font-size: 1.4rem;
 }
-.ticketDateAndTime, .ticketPrice{
+
+.ticketDateAndTime, .ticketPrice {
   font-family: Montserrat-Light, sans-serif;
   font-size: 1.5rem;
 }
-.ticketDateAndTime{
+
+.ticketDateAndTime {
   display: flex;
   flex-flow: column wrap;
-  flex:4;
-}
-.ticketPrice{
-  flex:1;
+  flex: 4;
 }
 
-.noTicketsNotification{
-  font-size:2rem;
+.ticketPrice {
+  flex: 1;
+}
+
+.noTicketsNotification {
+  font-size: 2rem;
   font-family: Montserrat-Medium, sans-serif;
   text-align: center;
 }
 
 
-.logoutBut{
+.logoutBut {
   font-size: 1.6rem;
   font-family: SFNewRepublic, sans-serif;
   background-color: #ffffff;
-  width:10rem;
-  height:3rem;
+  width: 10rem;
+  height: 3rem;
   border: 1px solid black;
 }
 
-.logoutBut:hover, .logoutBut:focus{
+.logoutBut:hover, .logoutBut:focus {
   color: white !important;
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
   animation: leftToRight .1s linear forwards;

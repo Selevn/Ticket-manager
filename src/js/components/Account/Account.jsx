@@ -63,57 +63,60 @@ const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) =>
               let _isPassed = _date < Date.now() ? 'passedConcert' : ''; //прошел ли этот концерт
               return (
                 <>
-                    <div key={index} className={style.ticketContainer + ' ' + _isPassed}>
-                      <div className={style.width100}>
+                  <div key={index} className={style.ticketContainer + ' ' + _isPassed}>
+                    <div className={style.width100}>
+                      <div className={style.rowDirection}>
+                        <div className={style.ticketBand}>{_item.band}</div>
+                        <div className={style.ticketPlace}>{_item.place}</div>
+                      </div>
+                      <div className={style.rowDirection}>
+                        <div className={style.ticketDateAndTime}>
+                          <span>{`${_date.getDate()} ${languageSrc.months[_date.getMonth()][langProps.language]} ${_date.getFullYear()}`}</span>
+                          <span>{`${(_date.getHours() + "").padStart(2, '0')}:${(_date.getMinutes() + "").padStart(2, '0')}`}</span>
+                        </div>
+                        <div className={style.ticketPrice}>{item.tickets.length} tickets</div>
+                      </div>
+                    </div>
+                    <div className={style.cardMore} onClick={
+                      (event) => {
+                        document.getElementById(_item.concertId + 's').classList.toggle("notShowed") ?
+                          event.target.innerText = '>' :
+                          event.target.innerText = '<'
+                      }}>
+                      {'>'}
+                    </div>
+                  </div>
+                  <div className={style.ticketCollectionBlock + ' notShowed'} id={_item.concertId + 's'}>
+                    {item.tickets.map((item, index) => {
+                      let date = new Date(item.date);
+                      let isPassed = date < Date.now() ? 'passedConcert' : ''; //прошел ли этот концерт
+                      return (<div key={index}
+                                   className={style.ticketBlock + ' ' + isPassed}>
                         <div className={style.rowDirection}>
-                          <div className={style.ticketBand}>{_item.band}</div>
-                          <div className={style.ticketPlace}>{_item.place}</div>
+
+                          <div className={style.ticketBand}>{item.band}</div>
+                          <div
+                            className={style.ticketPlace}>{item.place}<br/>{languageSrc.sector[langProps.language]} {item.name || ''}
+                          </div>
                         </div>
                         <div className={style.rowDirection}>
                           <div className={style.ticketDateAndTime}>
-                            <span>{`${_date.getDate()} ${languageSrc.months[_date.getMonth()][langProps.language]} ${_date.getFullYear()}`}</span>
-                            <span>{`${(_date.getHours() + "").padStart(2, '0')}:${(_date.getMinutes() + "").padStart(2, '0')}`}</span>
+                            <span>{`${date.getDate()} ${languageSrc.months[date.getMonth()][langProps.language]} ${date.getFullYear()}`}</span>
+                            <span>{`${(date.getHours() + "").padStart(2, '0')}:${(date.getMinutes() + "").padStart(2, '0')}`}</span>
                           </div>
-                          <div className={style.ticketPrice}>{item.tickets.length} tickets</div>
+                          <div className={style.ticketPrice}>{item.cost}$</div>
                         </div>
-                      </div>
-                      <div className={style.cardMore} onClick={
-                        (event) => {
-                          document.getElementById(_item.concertId + 's').classList.toggle("notShowed")?
-                            event.target.innerText = '>':
-                            event.target.innerText = '<'
-                        }}>
-                        {'>'}
-                      </div>
-                    </div>
-                    <div className={style.ticketCollectionBlock + ' notShowed'} id={_item.concertId + 's'}>
-                      {item.tickets.map((item, index) => {
-                        let date = new Date(item.date);
-                        let isPassed = date < Date.now() ? 'passedConcert' : ''; //прошел ли этот концерт
-                        return (<div key={index}
-                                     className={style.ticketBlock + ' ' + isPassed}>
-                          <div className={style.rowDirection}>
-
-                            <div className={style.ticketBand}>{item.band}</div>
-                            <div className={style.ticketPlace}>{item.place}</div>
-                          </div>
-                          <div className={style.rowDirection}>
-                            <div className={style.ticketDateAndTime}>
-                              <span>{`${date.getDate()} ${languageSrc.months[date.getMonth()][langProps.language]} ${date.getFullYear()}`}</span>
-                              <span>{`${(date.getHours() + "").padStart(2, '0')}:${(date.getMinutes() + "").padStart(2, '0')}`}</span>
-                            </div>
-                            <div className={style.ticketPrice}>{item.cost}$</div>
-                          </div>
-                        </div>)
-                      })}
-                    </div>
-                  </>
-                )
+                      </div>)
+                    })}
+                  </div>
+                </>
+              )
             }
           )
           }
           {
-            !structuredTickets[0] && (<h3 className={style.noTicketsNotification}>{languageSrc.noTickets[langProps.language]}</h3>)
+            !structuredTickets[0] && (
+              <h3 className={style.noTicketsNotification}>{languageSrc.noTickets[langProps.language]}</h3>)
           }
         </div>
       </div>

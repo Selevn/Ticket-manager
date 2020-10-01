@@ -109,10 +109,11 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
                   <button className={style.backButton} onClick={back}>{languageSrc.back[langProps.language]}</button>
                   <span className={style.costSpan}>{sector && (sector.cost * count).toFixed(2) + '$'}</span>
 
-                  {sector && (sector.numOfSeats - sector.tickCount !== 0) && isLogined && (<><input type="number" min={1} max={max}
-                                                                                       value={count}
-                                                                                       onChange={countChange}
-                                                                                       className={style.counter}/>
+                  {sector && (sector.numOfSeats - sector.tickCount !== 0) && isLogined && (<><input type="number"
+                                                                                                    min={1} max={max}
+                                                                                                    value={count}
+                                                                                                    onChange={countChange}
+                                                                                                    className={style.counter}/>
                     <button className={style.buyButton}
                             onClick={buyTicket}
                     >{languageSrc.buyTicket[langProps.language]}

@@ -4,6 +4,8 @@ import languagePack from "../../language.js";
 import style from "./Account.module.css"
 import languageSrc from "../../language.js";
 import Particle from "../CommonData/Paricles/Particles.jsx";
+
+import {ChevronCompactRight} from 'react-bootstrap-icons';
 import './Account.css'
 
 const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) => {
@@ -56,7 +58,6 @@ const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) =>
           </div>
         </div>
         <div className={style.dataBlock}>
-
           {structuredTickets[0] && structuredTickets.map((item, index) => {
               let _item = item.tickets[0]
               let _date = new Date(_item.date);
@@ -83,7 +84,7 @@ const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) =>
                           event.target.innerText = '>' :
                           event.target.innerText = '<'
                       }}>
-                      {'>'}
+                      <ChevronCompactRight style={{height:"100%"}}/>
                     </div>
                   </div>
                   <div className={style.ticketCollectionBlock + ' notShowed'} id={_item.concertId + 's'}>

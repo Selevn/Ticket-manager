@@ -7,6 +7,7 @@ import {LanguageContext} from "../../Contexts/LanguageContext.js"
 import {SocialIcon} from 'react-social-icons';
 import style from "./Contacts.module.css"
 import Particle from "../../CommonData/Paricles/Particles.jsx";
+import {Link} from "react-router-dom";
 
 const Contacts = ({getContacts}) => {
   getContacts();
@@ -59,15 +60,15 @@ const Contacts = ({getContacts}) => {
                 <div className={style.dataRow}>
                   <div className={style.oneRow}>
                     <span className={style.titleHeader}>{languageSrc.email[langProps.language]}</span>
-                    <span className={style.titleData}>van000200136@gmail.com</span>
+                    <span className={style.titleData}><a href={"mailto:van000200136@gmail.com"}>van000200136@gmail.com</a></span>
                   </div>
                   <div className={style.oneRow}>
                     <span className={style.titleHeader}>{languageSrc.phone[langProps.language]}</span>
-                    <span className={style.titleData}>+375295295862</span>
+                    <span className={style.titleData}><a href={"tel:+375295295862"}>+375295295862</a></span>
                   </div>
                   <div className={style.oneRow}>
                     <span className={style.titleHeader}>{languageSrc.skype[langProps.language]}</span>
-                    <span className={style.titleData}>Live:example@outlook.com</span>
+                    <span className={style.titleData}><a href={"skype:live:.cid.e99becb4998e872b?userinfo"}>live:.cid.e99becb4998e872b</a></span>
                   </div>
                   <div className={style.oneRow}>
                     <span className={style.titleHeader}>{languageSrc.adress[langProps.language]}</span>

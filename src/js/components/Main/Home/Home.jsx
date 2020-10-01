@@ -41,10 +41,7 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                   onClick={onSearch}>
                   <Search color="black" className={style.searchIcon}/>
                 </button>
-
               </div>
-
-
               <div className={style.tip}>
                 {
                   concerts[0] && (<ul className={style.tipUl}>
@@ -96,13 +93,20 @@ const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, 
                   })
               }
             </div>
-            {(concertInBaseCount - upcomingConcerts.length > 3) && (
+            {(concertInBaseCount - upcomingConcerts.length >= 3) && (
               <div className={style.more}
                    onClick={showMore}>
                                 <span
                                   className={style.centerAlign}
                                 >{languageSrc.more[langProps.language]}</span>
               </div>)}
+              {(concertInBaseCount - upcomingConcerts.length < 3) && (
+              <Link to={'/schedule'}> <div className={style.more}>
+                                <span
+                                  className={style.centerAlign}
+                                >{languageSrc.more[langProps.language]}</span>
+              </div></Link>)}
+
           </div>
         </>
       )}

@@ -12,6 +12,7 @@ const Schedule = ({concerts}) => {
   return (
     <LanguageContext.Consumer>
       {langProps => {
+        window.scrollTo(0,0) // при редиректе с home чтобы пользователь оказывался в начале страницы
         let data = [];
         concerts = concerts.map(item => ({...item, date: new Date(item.date)})).map(item => {
           let season = (item) => {

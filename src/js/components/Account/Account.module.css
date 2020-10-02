@@ -24,11 +24,12 @@
 
 .ticketBlock {
   margin: 1rem;
-  padding: 15px;
+  /*padding: 15px;*/
   font-size: 1.1rem;
   background-color: #efdaa8aa;
   width: 28rem;
   min-height: 150px;
+  max-height: 200px;
   transition: .23s;
 }
 
@@ -38,7 +39,8 @@
   font-size: 1.1rem;
   background-color: rgba(255, 229, 184, 0.67);
   width: 28rem;
-  min-height: 8rem;
+  min-height: 150px;
+  max-height: 200px;
   transition: .23s;
   display: flex;
   flex-direction: row;

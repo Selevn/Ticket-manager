@@ -100,13 +100,27 @@ const buyTicket = (concertId, userId, sectorId, count, callBack) => {
   for (let i = 0; i < Number(count); i++) {
     arr.push([concertId, userId, sectorId])
   }
-  connection.query("INSERT INTO ticket (concertId, userId, sectorId) VALUES ?", [arr],
-      function (err, data) {
+  connection.query("SELECT sec.numOfSeats-COUNT(t.id) AS availibleCount FROM ticket t left join sector sec on sec.id = t.sectorId WHERE t.concertId = ? AND t.sectorId = ?", [concertId, sectorId],
+      function (err, _data) {
         if (err)
           callBack(err, null);
-        else
-          callBack(null, data);
+        else {
+          if(_data[0].availibleCount && _data[0].availibleCount>=count)
+            connection.query("INSERT INTO ticket (concertId, userId, sectorId) VALUES ?", [arr],
+                function (err, data) {
+                  if (err)
+                    callBack(err, null);
+                  else
+                    callBack(null, data);
+                })
+          else
+          {
+            callBack({message:"Message: no availible tickets"},null);
+          }
+        }
       })
+
+
 }
 
 const deleteTicket = (id, callBack) => {

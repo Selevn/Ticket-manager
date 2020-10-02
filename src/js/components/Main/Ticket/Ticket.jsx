@@ -11,6 +11,14 @@ import {Link} from "react-router-dom";
 
 const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange, max, isLogined}) => {
   const particle = useMemo(() => (<Particle/>), [])
+
+    let freshDataOfSector = sector && data.find(item=>item.id===sector.id) || 0;
+  max = Math.min(freshDataOfSector.numOfSeats - freshDataOfSector.tickCount, max)
+
+  const tickCount = useMemo(() => {
+    return(<>{sector && (freshDataOfSector.numOfSeats - freshDataOfSector.tickCount) || 0}</>)
+  }, [sector,sector && freshDataOfSector.tickCount])
+
   let day, month, year, hour, minute, concert;
   concert = data[0];
   return (
@@ -68,7 +76,7 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
                     <div className={style.allowedSeats}>
                       {
                         sector.numOfSeats - sector.tickCount !== 0 ?
-                          (<>{languageSrc.freeNumberOfSeats[langProps.language]} : {sector.numOfSeats - sector.tickCount}</>) :
+                          (<>{languageSrc.freeNumberOfSeats[langProps.language]} : {tickCount}</>) :
                           (<span className={"redColor"}>{languageSrc.noAvailibleSeats[langProps.language]}</span>)
                       }
                     </div>

@@ -64,8 +64,6 @@ authRouter.post("/login",
                   await response.status(500).json({message: "User not found or password is incorrect. Please, check your data and try again!"})
                 } else {
                   const hashedPassword = doSha1(doSha1(doSha1(password)))
-                  console.log(hashedPassword)
-                  console.log(data.password)
                   if (hashedPassword === data.password && data.isApproved) {
                     let token = jwt.sign({
                           email: email,

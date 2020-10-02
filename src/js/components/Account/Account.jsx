@@ -5,7 +5,7 @@ import style from "./Account.module.css"
 import languageSrc from "../../language.js";
 import Particle from "../CommonData/Paricles/Particles.jsx";
 
-import {ChevronCompactRight} from 'react-bootstrap-icons';
+import {ChevronCompactLeft, ChevronCompactRight} from 'react-bootstrap-icons';
 import './Account.css'
 
 const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) => {
@@ -81,10 +81,11 @@ const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) =>
                     <div className={style.cardMore} onClick={
                       (event) => {
                         document.getElementById(_item.concertId + 's').classList.toggle("notShowed") ?
-                          event.target.innerText = '>' :
-                          event.target.innerText = '<'
+                          event.target.innerHTML = <ChevronCompactLeft style={{height:"100%"}}/> :
+                          event.target.innerHTML = <ChevronCompactRight style={{height:"100%"}}/>
                       }}>
-                      <ChevronCompactRight style={{height:"100%"}}/>
+                      <ChevronCompactLeft style={{height:"100%"}}/>
+
                     </div>
                   </div>
                   <div className={style.ticketCollectionBlock + ' notShowed'} id={_item.concertId + 's'}>

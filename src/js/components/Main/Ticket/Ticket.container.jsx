@@ -56,13 +56,20 @@ var interval  = useRef();
         body = JSON.stringify(globalId),
         headers = {"Content-Type": 'application/json'};
       const response = await fetch(backendUrl + "/api/tickets/getConcertTickets", {method, body, headers})
-      const data = await response.json()
-      setData(data)
+      const _data = await response.json()
+
       if (!response.ok) {
-        throw new Error(data.message || "Что-то пошло не так")
+        throw new Error(_data.message || "Что-то пошло не так")
       }
+      else{
+        setData(_data)
+        let currData = data.find(item=>item.id===sector.id);
+        setMax(Math.min(defaultMax,(currData && currData.numOfSeats-currData.tickCount)||10000))
+      }
+
     }
-    f().then(() => {interval.current = setInterval(f(),1000)})
+    interval.current = setInterval(f,1000)
+    //f()//.then(() => {interval.current = setInterval(f(),1000)})
 
 return ()=>{clearInterval(interval.current)}
   }, [
@@ -120,16 +127,17 @@ return ()=>{clearInterval(interval.current)}
   )
 
 
-  const chSector = (event) => {
+  const chSector = useCallback((event) => {
     //id сущности - name сектора
     if (event.target.classList.contains("selectedSector")) {
       event.target.classList.remove("selectedSector")
       setSector(null)
     } else {
-      let localSector = data.filter((i) => (i.name === event.target.id))[0];
+      let localSector = data.find((i) => (i.name === event.target.id));
       setSector(localSector)
-      localSector.numOfSeats = Number(localSector.numOfSeats) || 0;
-      localSector.tickCount = Number(localSector.tickCount) || 0;
+      localSector = localSector || {}
+      localSector.numOfSeats = Number(localSector && localSector.numOfSeats) || 0;
+      localSector.tickCount = Number(localSector && localSector.tickCount) || 0;
       setMax(Math.min(defaultMax, localSector.numOfSeats - localSector.tickCount))
       const svgCollection = document.getElementById("svgCanvas")
       for (let i = 0; i < svgCollection.children.length; i++) {
@@ -137,7 +145,7 @@ return ()=>{clearInterval(interval.current)}
       }
       event.target.classList.add("selectedSector")
     }
-  }
+  },[data])
 
   const chCount = useCallback((event) => {
     const localMax = max || defaultMax;

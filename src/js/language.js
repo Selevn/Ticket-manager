@@ -82,6 +82,11 @@ let languagePack =
         ru: "Количество билетов",
         en: "Number of tickets"
       },
+    noMoreAvailibleTickets:
+      {
+        ru: "Нет такого количества доступных билтов! Пожалуйста, обновите информацию на сайте и попрорбуйте еще раз.",
+        en: "No such availible tickets. Please refresh your page and try again."
+      },
     _none:
       {
         ru: "",

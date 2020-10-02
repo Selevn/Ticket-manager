@@ -15,7 +15,7 @@ const Body = () => (
 
   <>
     <Switch>
-      <Route exact path='/home' component={() => <HomeContainer/>}/>
+      <Route exact path='/home/:user?/:secret?' component={() => <HomeContainer/>}/>
       <Route exact path='/account' component={AccountContainer}/>
       <Route exact path='/search' component={() => (<SearchContainer/>)}/>
       <Route exact path='/schedule' component={() => (<ScheduleContainer/>)}/>

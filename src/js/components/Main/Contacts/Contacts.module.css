@@ -22,7 +22,7 @@
 }
 
 .oneRow {
-  width: 40rem;
+  width: 30rem;
   display: flex;
   flex-flow: nowrap;
   justify-content: space-between;
@@ -44,7 +44,9 @@
 .titleData {
   display: flex;
   font-family: Montserrat-Light, sans-serif;
-
+}
+.oneRow:nth-child(2) .titleData {
+  margin-right: 10rem;
 }
 
 .socialIcon {

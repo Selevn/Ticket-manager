@@ -7,13 +7,17 @@ import Footer from "./MainComponents/Footer/Footer.jsx"
 import "../main.css"
 import style from "./Main.module.css"
 
-const Main = props => (
+
+
+
+const Main = props => {
+  return(
   <div className={style.mainDiv}>
     <Navbar/>
     <Body getConcerts={props.getConcerts}/>
     <Footer/>
   </div>
-)
+)}
 
 Main.propTypes = {
   getConcerts: PropTypes.func,

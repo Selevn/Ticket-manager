@@ -89,17 +89,30 @@ return ()=>{clearInterval(interval.current)}
                 count: count
               }),
             headers = {"Content-Type": 'application/json'};
-          const response = await fetch(backendUrl + "/api/tickets/buyTicket", {method, body, headers})
+          const response = await fetch(backendUrl + "/api/auth/buyTicket", {method, body, headers})
           const data = await response.json()
-
           if (!response.ok || data.serverStatus !== 2) {
-            window.M.toast({
-              html: languageSrc.smthWentWrong[langContext.language],
-              displayLength: 5000,
-              classes: "error"
-            })
-            throw new Error(data.message || "Что-то пошло не так")
-          } else {
+            if(data.serverStatus === 500)
+            {
+              window.M.toast({
+                html: languageSrc.noMoreAvailibleTickets[langContext.language],
+                displayLength: 5000,
+                classes: "error"
+              })
+            }
+            else
+            {
+              window.M.toast({
+                html: languageSrc.smthWentWrong[langContext.language],
+                displayLength: 5000,
+                classes: "error"
+              })
+            }
+            //throw new Error(data.message || "Что-то пошло не так")
+          }
+
+        else {
+
             if (count === 1)
               window.M.toast({
                 html: languageSrc.gotTicket[langContext.language],

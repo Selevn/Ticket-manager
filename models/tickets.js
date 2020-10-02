@@ -104,6 +104,7 @@ const buyTicket = (concertId, userId, sectorId, count, callBack) => {
           callBack(err, null);
         else {
           if(_data[0].availibleCount && _data[0].availibleCount>=count)
+          {
             connection.query("INSERT INTO ticket (concertId, userId, sectorId) VALUES ?", [arr],
                 function (err, data) {
                   if (err)
@@ -111,9 +112,10 @@ const buyTicket = (concertId, userId, sectorId, count, callBack) => {
                   else
                     callBack(null, data);
                 })
+          }
           else
           {
-            callBack({message:"Message: no availible tickets"},null);
+            callBack(null,{serverStatus: 500});
           }
         }
       })

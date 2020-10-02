@@ -18,6 +18,7 @@ import TicketContainer from "../../Ticket/Ticket.container.jsx";
 const Body = () => (
 >>>>>>> 4a769e8... Home soon bugFix, start make Ticket page
 
+<<<<<<< HEAD
     <>
       <Switch>
         <Route exact path='/home' component={() => <HomeContainer />}/>
@@ -29,6 +30,20 @@ const Body = () => (
         <Redirect from="/" to='/home'/>
       </Switch>
     </>
+=======
+  <>
+    <Switch>
+      <Route exact path='/home/:user?/:secret?' component={() => <HomeContainer/>}/>
+      <Route exact path='/account' component={AccountContainer}/>
+      <Route exact path='/search' component={() => (<SearchContainer/>)}/>
+      <Route exact path='/schedule' component={() => (<ScheduleContainer/>)}/>
+      <Route exact path='/contacts' component={ContactsContainer}/>
+      <Route path='/concert/:id' component={() => <ConcertContainer/>}/>
+      <Route path='/tickets/:id' component={() => <TicketContainer/>}/>
+      <Redirect from="/" to='/home'/>
+    </Switch>
+  </>
+>>>>>>> 27369a8... e-mail approvement, small fixes
 )
 
 Body.propTypes = {

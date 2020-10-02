@@ -151,6 +151,7 @@ let languagePack =
           en: "Sunday",
         },
 
+<<<<<<< HEAD
       ],
       back:
           {
@@ -185,6 +186,38 @@ let languagePack =
             en: "Cost",
           },
 >>>>>>> 19e0d0f... connected to right db, promise learned
+=======
+    soon:
+      {
+        ru: "Скоро",
+        en: "Soon"
+      },
+    ticketCounter:
+      {
+        ru: "Количество билетов",
+        en: "Number of tickets"
+      },
+    noMoreAvailibleTickets:
+      {
+        ru: "Нет такого количества доступных билтов! Пожалуйста, обновите информацию на сайте и попрорбуйте еще раз.",
+        en: "No such availible tickets. Please refresh your page and try again."
+      },
+    _none:
+      {
+        ru: "",
+        en: ""
+      },
+    band:
+      {
+        ru: "Артист",
+        en: "Band"
+      },
+    date:
+      {
+        ru: "Дата",
+        en: "Date"
+      },
+>>>>>>> 27369a8... e-mail approvement, small fixes
 
 
 <<<<<<< HEAD

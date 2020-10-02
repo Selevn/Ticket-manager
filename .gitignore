@@ -2,3 +2,4 @@
 /dist
 /.idea
 /src/img
+/config/private.js

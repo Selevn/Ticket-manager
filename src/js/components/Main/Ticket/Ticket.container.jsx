@@ -46,7 +46,34 @@ const TicketContainer = ({history}) => {
         }
       },
       [globalId["id"]]
-  )
+  )*/
+var interval  = useRef();
+
+  useEffect(() => {
+    const f = async () => {
+      const method = "POST",
+        body = JSON.stringify(globalId),
+        headers = {"Content-Type": 'application/json'};
+      const response = await fetch(backendUrl + "/api/tickets/getConcertTickets", {method, body, headers})
+      const _data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(_data.message || "Что-то пошло не так")
+      }
+      else{
+        setData(_data)
+        let currData = data.find(item=>item.id===sector.id);
+        setMax(Math.min(defaultMax,(currData && currData.numOfSeats-currData.tickCount)||10000))
+      }
+
+    }
+    interval.current = setInterval(f,1000)
+    //f()//.then(() => {interval.current = setInterval(f(),1000)})
+
+return ()=>{clearInterval(interval.current)}
+  }, [
+    globalId
+  ])
 
   const buyTicket = useCallback(
     async () => {
@@ -80,18 +107,19 @@ const TicketContainer = ({history}) => {
   )
 
 
-  const chSector = (event) => {
+  const chSector = useCallback((event) => {
     //id сущности - name сектора
     if (event.target.classList.contains("selectedSector"))
     {
       event.target.classList.remove("selectedSector")
       setSector(null)
-    }
-    else
-    {
-      let localSector = data.filter((i) => (i.name === event.target.id))[0];
+    } else {
+      let localSector = data.find((i) => (i.name === event.target.id));
       setSector(localSector)
-      setMax(Math.min(defaultMax,Number(localSector.numOfSeats) - Number(localSector.tickCount)))
+      localSector = localSector || {}
+      localSector.numOfSeats = Number(localSector && localSector.numOfSeats) || 0;
+      localSector.tickCount = Number(localSector && localSector.tickCount) || 0;
+      setMax(Math.min(defaultMax, localSector.numOfSeats - localSector.tickCount))
       const svgCollection = document.getElementById("svgCanvas")
       for (let i=0; i<svgCollection.children.length; i++)
       {
@@ -99,7 +127,7 @@ const TicketContainer = ({history}) => {
       }
       event.target.classList.add("selectedSector")
     }
-  }
+  },[data])
 
   const chCount = useCallback((event) => {
     const localMax = max || defaultMax;

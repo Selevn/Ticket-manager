@@ -20,13 +20,25 @@
   padding: 3rem;
 }
 
-.ticketBlock{
-  margin:1rem;
-  padding: .3rem;
+.ticketBlock {
+  margin: 1rem;
+  /*padding: 15px;*/
   font-size: 1.1rem;
   background-color: #efdaa8aa;
-  width: 25rem;
-  min-height: 8rem;
+  width: 28rem;
+  min-height: 150px;
+  max-height: 200px;
+  transition: .23s;
+}
+
+.ticketContainer {
+  margin: 1rem;
+  padding: .3rem;
+  font-size: 1.1rem;
+  background-color: rgba(255, 229, 184, 0.67);
+  width: 28rem;
+  min-height: 150px;
+  max-height: 200px;
   transition: .23s;
 }
 

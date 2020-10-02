@@ -2,10 +2,10 @@ const {Router} = require("express")
 const authRouter = Router()
 const jwt = require("jsonwebtoken")
 const {check, validationResult} = require('express-validator')
-const {getUserByEmail, setUser} = require('../models/users.js')
+const {getUserByEmail, setUser, getSecret, approve} = require('../models/users.js')
 const doSha1 = require('sha1')
 const config = require("config")
-
+const sendMail = require("../models/mail.js");
 authRouter.post("/register",
     [
       check('email', 'Incorrect Email').isEmail(),
@@ -23,14 +23,20 @@ authRouter.post("/register",
         getUserByEmail(email, async (err, data) => {
           try {
             if (!data) {
-              //const hashedPassword = password;
-              const hashedPassword = doSha1(doSha1(doSha1(password))) //will add soon
-              console.log('register',hashedPassword)
-              setUser(email, name, sname, hashedPassword, (err) => {
+
+              const hashedPassword = doSha1(doSha1(doSha1(password)))
+              let secret = doSha1(Date.now + hashedPassword + email);
+
+
+
+              setUser(email, name, sname, hashedPassword, secret, (err) => {
                 if(err)
                   response.status(404).json({message: "Oups! Smth went wrong. Try again later."})
-                else
-                response.json({message: "Register success! Please, confirm your Account in message sended to your Email!"})
+                else {
+                  let url = config.get("frontendUrl")+"/home/"+email+"/"+secret;
+                  sendMail(email,"approve",url);
+                  response.json({message: "Register success! Please, confirm your Account in message sended to your Email!"})
+                }
               })
             } else {
               response.status(500).json({message: "Oups! This email is already in use"})
@@ -91,6 +97,33 @@ authRouter.post("/login",
         response.status(500).json({message: "Oups! Smth went wrong. Try again later"})
       }
     })
+
+
+authRouter.post("/tryToApprove"
+    , async (request, response) => {
+    try {
+      if(request.body.secret)
+      {
+        getSecret(request.body.user,async (err, data) => {
+          if(data[0].secret === request.body.secret)
+            {
+              approve(request.body.user, async(err,data)=>{
+                if(err)
+                  response.status(500).json({message: "Oups! Smth went wrong. Try again later"})
+                else
+                  response.status(200).json({message: "Approved"})
+              })
+            }
+        })
+      }
+    } catch
+      (e) {
+      console.log(e)
+    }
+  }
+        )
+
+
 
 
 module.exports = authRouter

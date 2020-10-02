@@ -16,17 +16,41 @@ const getUserByEmail = (email, callBack) => {
       callBack(null,data[0]);})
 }
 
-const setUser = (email,name,sname,password, callBack) => {
-  connection.query("INSERT INTO users (email, name, sname, password) VALUES (?,?,?,?)",
-      [email,name,sname,password],
-      function(err, data) {
-        if(err)
-          callBack(err,null);
+const setUser = (email, name, sname, password, secret, callBack) => {
+  connection.query("INSERT INTO users (email, name, sname, password, secret) VALUES (?,?,?,?,?)",
+      [email, name, sname, password, secret],
+      function (err, data) {
+        if (err)
+          callBack(err, null);
         else
           callBack(null,data);})
 }
 
-const delUser = (email,callBack) => {
+const getSecret = (email, callBack) => {
+  connection.query("SELECT secret FROM users WHERE email = ?",
+      [email],
+      function (err, data) {
+        if (err)
+          callBack(err, null);
+        else
+          callBack(null, data);
+      })
+}
+const approve = (email, callBack) => {
+  connection.query("UPDATE users SET isApproved = 1 WHERE email = ?",
+      [email],
+      function (err, data) {
+        if (err)
+          callBack(err, null);
+        else
+          callBack(null, data);
+      })
+}
+
+
+
+
+const delUser = (email, callBack) => {
   connection.query("DELETE FROM users WHERE email = ?",
       [email],
       function(err, data) {
@@ -41,4 +65,6 @@ const delUser = (email,callBack) => {
 module.exports.getUserByEmail = getUserByEmail
 module.exports.setUser = setUser
 module.exports.delUser = delUser
+module.exports.getSecret = getSecret
+module.exports.approve = approve
 

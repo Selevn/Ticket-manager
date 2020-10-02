@@ -8,6 +8,15 @@
 
 }
 
+.oneRow {
+  width: 30rem;
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  margin-top: .3rem;
+  margin-bottom: .3rem;
+}
 
 .dateTr, .td {
   text-align: right;
@@ -20,9 +29,12 @@
   text-align: left
 }
 
-.newData {
-  border-top: 2px solid black;
-  padding: 10px;
+.titleData {
+  display: flex;
+  font-family: Montserrat-Light, sans-serif;
+}
+.oneRow:nth-child(2) .titleData {
+  margin-right: 10rem;
 }
 
 .table {

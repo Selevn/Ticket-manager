@@ -1,19 +1,58 @@
-import React from 'react'
-import {Link} from "react-router-dom";
+import React, {useEffect, useMemo} from 'react'
+import {Link, useParams} from "react-router-dom";
 
 import {LanguageContext} from "../../Contexts/LanguageContext";
 import languageSrc from "../../../language"
 
 import style from "./Home.module.css"
 import "./Home.css"
-
+import { useHistory } from "react-router-dom";
 import {Search} from 'react-bootstrap-icons';
 import Particle from "../../CommonData/Paricles/Particles.jsx";
 import PropTypes from "prop-types"
+import {backendUrl} from "../../../../../config/default.json";
+
+//оставить так или в коллбэк?
+async function checkApprovement(user, secret){
+  const method = "POST",
+    body = JSON.stringify(
+      {
+        user: user,
+        secret: secret
+      }),
+    headers = {"Content-Type": 'application/json'};
+  const response = await fetch(backendUrl + "/api/auth/tryToApprove", {method, body, headers})
+  const data = await response.json()
+  if(data.message)
+  {
+    window.M.toast({
+      html: "Approved!",
+      displayLength: 5000,
+      classes: "success"
+    })
+  }
+  if (!response.ok){
+    console.log(response)
+  }
+}
 
 const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch,inputRef}) => {
 
-  return (<div>
+  const history = useHistory();
+
+  const globalId = useParams();
+  useEffect(()=>{
+    if(globalId.secret)
+      checkApprovement(globalId.user,globalId.secret).then(()=>{
+
+        history.push('/home')
+      })
+  },[globalId.secret])
+
+  const particle = useMemo(
+    () => (<Particle/>), []
+  )
+  return (<>
     <LanguageContext.Consumer>
       {langProps => (
           <div>

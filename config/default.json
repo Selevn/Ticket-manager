@@ -1,5 +1,6 @@
 {
   "port": 3001,
   "jwtSecretKey": "twenty_one_pilots",
-  "backendUrl": "http://localhost:3001"
+  "backendUrl": "http://localhost:3001",
+  "frontendUrl": "http://localhost:8080"
 }

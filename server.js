@@ -13,12 +13,6 @@ app.use('/api/auth',cors(corsOptions),require("./routes/auth.router.js"))
 app.use('/api/tickets',cors(corsOptions),require("./routes/ticket.router.js"))
 app.use('/api/concerts',cors(corsOptions),require("./routes/concert.router.js"))
 
-app.get("/check",
-    (request, response) => {
-      console.log("request");
-      response.status(201).send("hola amigo")
-    })
-
 const PORT = config.port||3001;
 
 app.listen(PORT, () => {

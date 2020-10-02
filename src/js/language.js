@@ -151,37 +151,36 @@ let languagePack =
           en: "Sunday",
         },
 
-      ],
-      back:
-          {
-            ru: "Назад",
-            en: "Back",
-          },
-      buyTicket:
-          {
-            ru: "Купить билет",
-            en: "Buy ticket",
-          },
-      ticket:
-          {
-            ru: "Билет",
-            en: "Ticket",
-          },
-      logout:
-          {
-            ru: "Выход",
-            en: "Logout",
-          },
-      myTickets:
-          {
-            ru: "Мои билеты",
-            en: "My tickets",
-          },
-      cost:
-          {
-            ru: "Цена",
-            en: "Cost",
-          },
+    soon:
+      {
+        ru: "Скоро",
+        en: "Soon"
+      },
+    ticketCounter:
+      {
+        ru: "Количество билетов",
+        en: "Number of tickets"
+      },
+    noMoreAvailibleTickets:
+      {
+        ru: "Нет такого количества доступных билтов! Пожалуйста, обновите информацию на сайте и попрорбуйте еще раз.",
+        en: "No such availible tickets. Please refresh your page and try again."
+      },
+    _none:
+      {
+        ru: "",
+        en: ""
+      },
+    band:
+      {
+        ru: "Артист",
+        en: "Band"
+      },
+    date:
+      {
+        ru: "Дата",
+        en: "Date"
+      },
 
 
     ],

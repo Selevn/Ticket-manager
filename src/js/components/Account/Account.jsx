@@ -47,6 +47,11 @@ const Account = ({logout, langProps, tickets}) => (<>
 =======
 import languageSrc from "../../language.js";
 import Particle from "../CommonData/Paricles/Particles.jsx";
+<<<<<<< HEAD
+=======
+
+import {ChevronCompactLeft, ChevronCompactRight} from 'react-bootstrap-icons';
+>>>>>>> 3fcf712... synch buying tickets(1s delay), can't buy less than availible tickets on backend
 import './Account.css'
 <<<<<<< HEAD
 const Account = ({logout, langProps, tickets:propsTickets, changer, filter}) => {
@@ -96,12 +101,53 @@ const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) =>
         <div className={"pageHeader"}>
           {languageSrc.myTickets[langProps.language]}
         </div>
+<<<<<<< HEAD
         <div className={style.logoutButCol}>
           <select onChange={changer} value = {filter} className={style.filterSelect}>
             <option value={'all'}>{languageSrc.all[langProps.language]}</option>
             <option value={'future'}>{languageSrc.future[langProps.language]}</option>
             <option value={'passed'}>{languageSrc.passed[langProps.language]}</option>
           </select>
+=======
+        <div className={style.dataBlock}>
+          {structuredTickets[0] && structuredTickets.map((item, index) => {
+              let _item = item.tickets[0]
+              let _date = new Date(_item.date);
+              let _isPassed = _date < Date.now() ? 'passedConcert' : ''; //прошел ли этот концерт
+              return (
+                <>
+                  <div key={index} className={style.ticketContainer + ' ' + _isPassed}>
+                    <div className={style.width100}>
+                      <div className={style.rowDirection}>
+                        <div className={style.ticketBand}>{_item.band}</div>
+                        <div className={style.ticketPlace}>{_item.place}</div>
+                      </div>
+                      <div className={style.rowDirection}>
+                        <div className={style.ticketDateAndTime}>
+                          <span>{`${_date.getDate()} ${languageSrc.months[_date.getMonth()][langProps.language]} ${_date.getFullYear()}`}</span>
+                          <span>{`${(_date.getHours() + "").padStart(2, '0')}:${(_date.getMinutes() + "").padStart(2, '0')}`}</span>
+                        </div>
+                        <div className={style.ticketPrice}>{item.tickets.length} tickets</div>
+                      </div>
+                    </div>
+                    <div className={style.cardMore} onClick={
+                      (event) => {
+                        document.getElementById(_item.concertId + 's').classList.toggle("notShowed") ?
+                          event.target.innerHTML = <ChevronCompactLeft style={{height:"100%"}}/> :
+                          event.target.innerHTML = <ChevronCompactRight style={{height:"100%"}}/>
+                      }}>
+                      <ChevronCompactLeft style={{height:"100%"}}/>
+
+                    </div>
+                  </div>
+                  <div className={style.ticketCollectionBlock + ' notShowed'} id={_item.concertId + 's'}>
+                    {item.tickets.map((item, index) => {
+                      let date = new Date(item.date);
+                      let isPassed = date < Date.now() ? 'passedConcert' : ''; //прошел ли этот концерт
+                      return (<div key={index}
+                                   className={style.ticketBlock + ' ' + isPassed}>
+                        <div className={style.rowDirection}>
+>>>>>>> 3fcf712... synch buying tickets(1s delay), can't buy less than availible tickets on backend
 
 <<<<<<< HEAD
           <button className={style.logoutBut} onClick={logout}>{languagePack.logout[langProps.language]}</button>

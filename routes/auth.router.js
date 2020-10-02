@@ -76,8 +76,6 @@ authRouter.post("/login",
                   if (hashedPassword === data.password) {
 =======
                   const hashedPassword = doSha1(doSha1(doSha1(password)))
-                  console.log(hashedPassword)
-                  console.log(data.password)
                   if (hashedPassword === data.password && data.isApproved) {
 >>>>>>> cf3d048... small update, start making eMail confirming
                     let token = jwt.sign({

@@ -53,7 +53,38 @@ const TicketContainer = ({history}) => {
         }
       },
       [globalId["id"]]
+<<<<<<< HEAD
   )
+=======
+  )*/
+var interval  = useRef();
+
+  useEffect(() => {
+    const f = async () => {
+      const method = "POST",
+        body = JSON.stringify(globalId),
+        headers = {"Content-Type": 'application/json'};
+      const response = await fetch(backendUrl + "/api/tickets/getConcertTickets", {method, body, headers})
+      const _data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(_data.message || "Что-то пошло не так")
+      }
+      else{
+        setData(_data)
+        let currData = data.find(item=>item.id===sector.id);
+        setMax(Math.min(defaultMax,(currData && currData.numOfSeats-currData.tickCount)||10000))
+      }
+
+    }
+    interval.current = setInterval(f,1000)
+    //f()//.then(() => {interval.current = setInterval(f(),1000)})
+
+return ()=>{clearInterval(interval.current)}
+  }, [
+    globalId
+  ])
+>>>>>>> 3fcf712... synch buying tickets(1s delay), can't buy less than availible tickets on backend
 
   const buyTicket = useCallback(
 <<<<<<< HEAD
@@ -136,6 +167,7 @@ const TicketContainer = ({history}) => {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const chSector = useCallback((id) => {
     setSectorDesc(data.filter((i) => (i.id === id))[0]);
     setSector(id)
@@ -146,17 +178,30 @@ const TicketContainer = ({history}) => {
   }, [])
 =======
   const chSector = (event) => {
+=======
+  const chSector = useCallback((event) => {
+>>>>>>> 3fcf712... synch buying tickets(1s delay), can't buy less than availible tickets on backend
     //id сущности - name сектора
     if (event.target.classList.contains("selectedSector"))
     {
       event.target.classList.remove("selectedSector")
       setSector(null)
+<<<<<<< HEAD
     }
     else
     {
       let localSector = data.filter((i) => (i.name === event.target.id))[0];
       setSector(localSector)
       setMax(Math.min(defaultMax,Number(localSector.numOfSeats) - Number(localSector.tickCount)))
+=======
+    } else {
+      let localSector = data.find((i) => (i.name === event.target.id));
+      setSector(localSector)
+      localSector = localSector || {}
+      localSector.numOfSeats = Number(localSector && localSector.numOfSeats) || 0;
+      localSector.tickCount = Number(localSector && localSector.tickCount) || 0;
+      setMax(Math.min(defaultMax, localSector.numOfSeats - localSector.tickCount))
+>>>>>>> 3fcf712... synch buying tickets(1s delay), can't buy less than availible tickets on backend
       const svgCollection = document.getElementById("svgCanvas")
       for (let i=0; i<svgCollection.children.length; i++)
       {
@@ -164,7 +209,7 @@ const TicketContainer = ({history}) => {
       }
       event.target.classList.add("selectedSector")
     }
-  }
+  },[data])
 
   const chCount = useCallback((event) => {
     const localMax = max || defaultMax;

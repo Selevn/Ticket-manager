@@ -26,7 +26,6 @@ ticketRouter.post("/buyTicket", async (request, response) => {
   try {
     const body = request.body;
     const {id} = jwt.verify(body.token, config.get("jwtSecretKey"));
-    console.log("body.concertId", body.concertId)
     buyTicket(body.concertId, id, body.sectorId, body.count, async (err, data) => {
       try {
         await response.status(200).json(data)

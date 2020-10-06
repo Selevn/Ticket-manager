@@ -10,6 +10,8 @@ import Particle from "../../CommonData/Paricles/Particles.jsx";
 import {Link} from "react-router-dom";
 
 const Contacts = ({getContacts}) => {
+  document.getElementsByTagName("title")[0].innerText = "Contacts";
+
   getContacts();
 
   const particle = useMemo(

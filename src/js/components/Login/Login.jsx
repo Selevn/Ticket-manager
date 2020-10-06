@@ -8,6 +8,7 @@ import Particle from "../CommonData/Paricles/Particles.jsx";
 
 const Login = ({email, onMailChange, password, onPasswordChange, loginHandler, registerHandler, loading}) => {
   const particle = useMemo(() => (<Particle height={"100%"}/>), [])
+  document.getElementsByTagName("title")[0].innerText = "Login"
   return (
     <>
       <LanguageContext.Consumer>

@@ -9,6 +9,8 @@ import ConcertItem from "../../CommonData/ConcertItem.jsx"
 
 const Schedule = ({concerts}) => {
   const particle = useMemo(() => (<Particle/>), [])
+  document.getElementsByTagName("title")[0].innerText = "Schedule";
+
   return (
     <LanguageContext.Consumer>
       {langProps => {

@@ -10,6 +10,8 @@ import "./Ticket.css"
 import {Link} from "react-router-dom";
 
 const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChange, max, isLogined}) => {
+  document.getElementsByTagName("title")[0].innerText = "Ticket";
+
   const particle = useMemo(() => (<Particle/>), [])
 
     let freshDataOfSector = sector && data.find(item=>item.id===sector.id) || 0;
@@ -151,7 +153,7 @@ Ticket.propTypes = {
   count: PropTypes.number,
   countChange: PropTypes.func,
   max: PropTypes.number,
-  isLoggined: PropTypes.bool,
+  isLogined: PropTypes.bool,
 }
 
 export default Ticket;

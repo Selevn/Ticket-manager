@@ -10,6 +10,7 @@ import './Account.css'
 
 const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) => {
 
+  document.getElementsByTagName("title")[0].innerText = "Account";
   let tickets = propsTickets;
   switch (filter) {
     case 'all': {

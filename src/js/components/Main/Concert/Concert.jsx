@@ -8,6 +8,8 @@ import languageSrc from "../../../language.js";
 import Particle from "../../CommonData/Paricles/Particles.jsx";
 
 const Concert = ({concert, back, buy}) => {
+  document.getElementsByTagName("title")[0].innerText = "Concert";
+
   const particle = useMemo(() => (<Particle/>
   ), [])
   return (

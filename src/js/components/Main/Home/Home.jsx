@@ -14,6 +14,8 @@ import {backendUrl} from "../../../../../config/default.json";
 
 //оставить так или в коллбэк?
 async function checkApprovement(user, secret){
+
+
   const method = "POST",
     body = JSON.stringify(
       {
@@ -37,7 +39,7 @@ async function checkApprovement(user, secret){
 }
 
 const Home = ({concerts, onInputChange, upcomingConcerts, searchText, onSearch, onEnterSearch, inputRef, showMore, concertInBaseCount}) => {
-
+  document.getElementsByTagName("title")[0].innerText = "Home";
   const history = useHistory();
 
   const globalId = useParams();

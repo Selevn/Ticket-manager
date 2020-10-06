@@ -11,6 +11,8 @@ import PropTypes from "prop-types";
 
 const Search = ({concerts, allConcerts, changer, inputsValues: [place, band, startDate, endDate, ticketNumber], reset}) => {
   const particle = useMemo(() => (<Particle/>), [])
+  document.getElementsByTagName("title")[0].innerText = "Search";
+
   let halls = []
   allConcerts.forEach((item) => {
     if (halls.indexOf(item.place) === -1)

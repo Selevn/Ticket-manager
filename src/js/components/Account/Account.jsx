@@ -10,6 +10,7 @@ import './Account.css'
 
 const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) => {
 
+
   document.getElementsByTagName("title")[0].innerText = "Account";
   let tickets = propsTickets;
   switch (filter) {
@@ -44,6 +45,10 @@ const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) =>
   return (<>
       {particle}
       <div className={"mainContainer"}>
+        <div style={{"display":"none"}}>
+          <ChevronCompactLeft style={{height:"100%"}} id={"cLeft"}/>
+          <ChevronCompactRight style={{height:"100%"}} id={"cRight"}/>
+        </div>
         <div className={"pageHeaderRow"}>
           <div className={"pageHeader"}>
             {languageSrc.myTickets[langProps.language]}
@@ -82,10 +87,10 @@ const Account = ({logout, langProps, tickets: propsTickets, changer, filter}) =>
                     <div className={style.cardMore} onClick={
                       (event) => {
                         document.getElementById(_item.concertId + 's').classList.toggle("notShowed") ?
-                          event.target.innerHTML = <ChevronCompactLeft style={{height:"100%"}}/> :
-                          event.target.innerHTML = <ChevronCompactRight style={{height:"100%"}}/>
+                          event.target.innerHTML = document.getElementById("cRight").innerHTML :
+                          event.target.innerHTML = document.getElementById("cLeft").innerHTML
                       }}>
-                      <ChevronCompactLeft style={{height:"100%"}}/>
+                      <ChevronCompactRight style={{height:"100%"}}/>
 
                     </div>
                   </div>

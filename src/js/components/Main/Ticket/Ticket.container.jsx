@@ -89,7 +89,7 @@ return ()=>{clearInterval(interval.current)}
                 count: count
               }),
             headers = {"Content-Type": 'application/json'};
-          const response = await fetch(backendUrl + "/api/auth/buyTicket", {method, body, headers})
+          const response = await fetch(backendUrl + "/api/tickets/buyTicket", {method, body, headers})
           const data = await response.json()
           if (!response.ok || data.serverStatus !== 2) {
             if(data.serverStatus === 500)

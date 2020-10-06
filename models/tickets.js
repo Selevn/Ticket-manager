@@ -103,7 +103,7 @@ const buyTicket = (concertId, userId, sectorId, count, callBack) => {
         if (err)
           callBack(err, null);
         else {
-          if(_data[0].availibleCount && _data[0].availibleCount>=count)
+          if(_data[0].availibleCount && _data[0].availibleCount>=count || _data[0].availibleCount===null)
           {
             connection.query("INSERT INTO ticket (concertId, userId, sectorId) VALUES ?", [arr],
                 function (err, data) {

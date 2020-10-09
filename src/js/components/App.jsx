@@ -31,8 +31,8 @@ function App(props) {
   const [language, setLanguage] = useState("en");
 
   const toggleLanguageFunc = useCallback(
-    () => language === "en" ? setLanguage("ru") : setLanguage("en"),
-    [language],
+      () => language === "en" ? setLanguage("ru") : setLanguage("en"),
+      [language],
   );
 
   const langContext = {
@@ -50,16 +50,16 @@ function App(props) {
   };
 
   return (
-    <BrowserRouter>
-      <Provider store={mainStore}>
-        <LanguageContext.Provider value={langContext}>
-          <LoginContext.Provider value={loginContext}>
-            <Router
-              getConcerts={props.getConcerts}/>
-          </LoginContext.Provider>
-        </LanguageContext.Provider>
-      </Provider>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Provider store={mainStore}>
+          <LanguageContext.Provider value={langContext}>
+            <LoginContext.Provider value={loginContext}>
+              <Router
+                  getConcerts={props.getConcerts}/>
+            </LoginContext.Provider>
+          </LanguageContext.Provider>
+        </Provider>
+      </BrowserRouter>
   )
 
 }

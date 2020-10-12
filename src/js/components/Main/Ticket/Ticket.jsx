@@ -26,6 +26,7 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
   return (
     <LanguageContext.Consumer>
       {langProps => {
+        console.log("concert",concert)
         if (concert) {
           day = new Date(concert.date).getDate() + 1;
           month = languageSrc.months[new Date(concert.date).getMonth()][langProps.language];
@@ -130,7 +131,9 @@ const Ticket = ({data, back, sector, setSectorDesc, buyTicket, count, countChang
                     >{languageSrc.buyTicket[langProps.language]}
                     </button>
                   </>)}
-                  {sector && !isLogined && (<Link to={'/login/goBack'} className={style.pleaseLogin}>You are not logined in.<br/>Click Here to login or register.</Link>)}
+                  {sector && concert.status===0 && !isLogined && (<Link to={'/login/goBack'} className={style.pleaseLogin}>You are not logined in.<br/>Click Here to login or register.</Link>)}
+                  {sector&&concert && concert.status===2 && (<b className={style.pleaseLogin+" redColor"}>Declined.</b>)}
+                  {sector&&concert && concert.status===1 && (<b className={style.pleaseLogin+" redColor"}>Postponed.</b>)}
 
 
                 </div>

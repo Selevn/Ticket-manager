@@ -60,6 +60,7 @@ const getConcertTickets = (concertId, callBack) => {
   sec.numOfSeats,
   con.band,
   con.place,
+  con.status,
   con.date,
   cos.cost,
   hal.img,

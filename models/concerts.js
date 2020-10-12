@@ -9,7 +9,7 @@ const connection = mysql.createPool({
 });
 
 const getAllConcerts = (callBack) => {
-  connection.query(`SELECT con.id, con.band, con.place, con.date, con.imgSrc,
+  connection.query(`SELECT con.id, con.band, con.place,con.status, con.date, con.imgSrc,
 SUM(s.numOfSeats) AS totalSeats,
 t2.total2 AS busySeats
 
